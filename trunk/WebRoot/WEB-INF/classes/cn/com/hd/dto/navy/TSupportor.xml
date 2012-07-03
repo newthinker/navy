@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<DTO-mapping>
+    <class name="cn.com.hd.dto.navy.TSupportor" table="T_SUPPORTOR" schema="NAVYSYS">
+        <id name="supid" type="VARCHAR2">
+            <column name="SUP_ID" length="36" />
+        </id>
+        <property name="supname" type="VARCHAR2">
+            <column name="SUP_NAME" length="200" />
+        </property>
+        <property name="supenname" type="VARCHAR2">
+            <column name="SUP_EN_NAME" length="200" />
+        </property>
+        <property name="createdate" type="DATE">
+            <column name="CREATE_DATE" length="7" />
+        </property>
+        <property name="abbreviation" type="VARCHAR2">
+            <column name="ABBREVIATION" length="20" />
+        </property>
+        <property name="address" type="VARCHAR2">
+            <column name="ADDRESS" length="200" />
+        </property>
+        <property name="postcode" type="VARCHAR2">
+            <column name="POSTCODE" length="20" />
+        </property>
+        <property name="netaddr" type="VARCHAR2">
+            <column name="NET_ADDR" length="200" />
+        </property>
+        <property name="organizecode" type="VARCHAR2">
+            <column name="ORGANIZE_CODE" length="100" />
+        </property>
+        <property name="economy" type="VARCHAR2">
+            <column name="ECONOMY" length="200" />
+        </property>
+        <property name="typecode" type="VARCHAR2">
+            <column name="TYPE_CODE" length="36" />
+        </property>
+        <property name="type" type="VARCHAR2">
+            <column name="TYPE" length="100" />
+        </property>
+        <property name="bankid" type="VARCHAR2">
+            <column name="BANK_ID" length="36" />
+        </property>
+        <property name="bank" type="VARCHAR2">
+            <column name="BANK" length="100" />
+        </property>
+        <property name="account" type="VARCHAR2">
+            <column name="ACCOUNT" length="100" />
+        </property>
+        <property name="creditid" type="VARCHAR2">
+            <column name="CREDIT_ID" length="36" />
+        </property>
+        <property name="credit" type="VARCHAR2">
+            <column name="CREDIT" length="100" />
+        </property>
+        <property name="creditorg" type="VARCHAR2">
+            <column name="CREDIT_ORG" length="100" />
+        </property>
+        <property name="creditdate" type="DATE">
+            <column name="CREDIT_DATE" length="7" />
+        </property>
+        <property name="insurance" type="VARCHAR2">
+            <column name="INSURANCE" length="20" />
+        </property>
+        <property name="illegal" type="VARCHAR2">
+            <column name="ILLEGAL" length="20" />
+        </property>
+        <property name="corporation" type="VARCHAR2">
+            <column name="CORPORATION" length="100" />
+        </property>
+        <property name="corpphone" type="VARCHAR2">
+            <column name="CORP_PHONE" length="100" />
+        </property>
+        <property name="corpmobile" type="VARCHAR2">
+            <column name="CORP_MOBILE" length="100" />
+        </property>
+        <property name="contact" type="VARCHAR2">
+            <column name="CONTACT" length="100" />
+        </property>
+        <property name="contactphone" type="VARCHAR2">
+            <column name="CONTACT_PHONE" length="100" />
+        </property>
+        <property name="contactmobile" type="VARCHAR2">
+            <column name="CONTACT_MOBILE" length="100" />
+        </property>
+        <property name="contactfax" type="VARCHAR2">
+            <column name="CONTACT_FAX" length="100" />
+        </property>
+        <property name="contactemail" type="VARCHAR2">
+            <column name="CONTACT_EMAIL" length="100" />
+        </property>
+        <property name="licno" type="VARCHAR2">
+            <column name="LIC_NO" length="100" />
+        </property>
+        <property name="licorg" type="VARCHAR2">
+            <column name="LIC_ORG" length="100" />
+        </property>
+        <property name="liccapital" type="DOUBLENUMBER">
+            <column name="LIC_CAPITAL" precision="8" scale="3" />
+        </property>
+        <property name="licaddr" type="VARCHAR2">
+            <column name="LIC_ADDR" length="100" />
+        </property>
+        <property name="licvalstart" type="DATE">
+            <column name="LIC_VAL_START" length="7" />
+        </property>
+        <property name="licvalend" type="DATE">
+            <column name="LIC_VAL_END" length="7" />
+        </property>
+        <property name="licexadate" type="DATE">
+            <column name="LIC_EXA_DATE" length="7" />
+        </property>
+        <property name="licmainopt" type="VARCHAR2">
+            <column name="LIC_MAIN_OPT" length="2000" />
+        </property>
+        <property name="licotheropt" type="VARCHAR2">
+            <column name="LIC_OTHER_OPT" length="2000" />
+        </property>
+        <property name="statetaxno" type="VARCHAR2">
+            <column name="STATE_TAX_NO" length="100" />
+        </property>
+        <property name="localtaxno" type="VARCHAR2">
+            <column name="LOCAL_TAX_NO" length="100" />
+        </property>
+        <property name="statetaxorg" type="VARCHAR2">
+            <column name="STATE_TAX_ORG" length="200" />
+        </property>
+        <property name="localtaxorg" type="VARCHAR2">
+            <column name="LOCAL_TAX_ORG" length="200" />
+        </property>
+        <property name="statetaxvalstart" type="DATE">
+            <column name="STATE_TAX_VAL_START" length="7" />
+        </property>
+        <property name="statetaxvalend" type="DATE">
+            <column name="STATE_TAX_VAL_END" length="7" />
+        </property>
+        <property name="localtaxvalstart" type="DATE">
+            <column name="LOCAL_TAX_VAL_START" length="7" />
+        </property>
+        <property name="localtaxvalend" type="DATE">
+            <column name="LOCAL_TAX_VAL_END" length="7" />
+        </property>
+        <property name="ifstatetax" type="VARCHAR2">
+            <column name="IF_STATE_TAX" length="20" />
+        </property>
+        <property name="iflocaltax" type="VARCHAR2">
+            <column name="IF_LOCAL_TAX" length="20" />
+        </property>
+        <property name="suptypecode" type="VARCHAR2">
+            <column name="SUP_TYPE_CODE" length="10" />
+        </property>
+        <property name="suptype" type="VARCHAR2">
+            <column name="SUP_TYPE" length="200" />
+        </property>
+        <property name="summary" type="VARCHAR2">
+            <column name="SUMMARY" length="2000" />
+        </property>
+        <property name="image" type="VARCHAR2">
+            <column name="IMAGE" length="36" />
+        </property>
+        <property name="location" type="VARCHAR2">
+            <column name="LOCATION" length="1000" />
+        </property>
+        <property name="longitude" type="VARCHAR2">
+            <column name="LONGITUDE" length="50" />
+        </property>
+        <property name="latitude" type="VARCHAR2">
+            <column name="LATITUDE" length="50" />
+        </property>
+        <property name="productsclass" type="VARCHAR2">
+            <column name="PRODUCTS_CLASS" length="1000" />
+        </property>
+        <property name="manufacturercontact" type="VARCHAR2">
+            <column name="MANUFACTURER_CONTACT" length="200" />
+        </property>
+        <property name="manufacturerphone" type="VARCHAR2">
+            <column name="MANUFACTURER_PHONE" length="100" />
+        </property>
+        <property name="manufacturerfax" type="VARCHAR2">
+            <column name="MANUFACTURER_FAX" length="100" />
+        </property>
+        <property name="manufactureremail" type="VARCHAR2">
+            <column name="MANUFACTURER_EMAIL" length="200" />
+        </property>
+        <property name="manufactureraddress" type="VARCHAR2">
+            <column name="MANUFACTURER_ADDRESS" length="1000" />
+        </property>
+        <property name="manufacturerperformance" type="VARCHAR2">
+            <column name="MANUFACTURER_PERFORMANCE" length="2000" />
+        </property>
+        <property name="manufacturersummary" type="VARCHAR2">
+            <column name="MANUFACTURER_SUMMARY" length="2000" />
+        </property>
+        <property name="manufacturer" type="VARCHAR2">
+            <column name="MANUFACTURER" length="200" />
+        </property>
+    </class>
+</DTO-mapping>

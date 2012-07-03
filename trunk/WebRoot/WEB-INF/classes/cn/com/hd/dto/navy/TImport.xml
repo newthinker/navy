@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<DTO-mapping>
+    <class name="cn.com.hd.dto.navy.TImport" table="T_IMPORT" schema="NAVYSYS">
+        <id name="importid" type="VARCHAR2">
+            <column name="IMPORTID" length="36" />
+        </id>
+        <property name="typecode" type="VARCHAR2">
+            <column name="TYPE_CODE" length="36" />
+        </property>
+        <property name="typename" type="VARCHAR2">
+            <column name="TYPE_NAME" length="100" />
+        </property>
+        <property name="importyear" type="VARCHAR2">
+            <column name="IMPORT_YEAR" length="4" />
+        </property>
+        <property name="planid" type="VARCHAR2">
+            <column name="PLAN_ID" length="36" />
+        </property>
+        <property name="plan" type="VARCHAR2">
+            <column name="PLAN" length="100" />
+        </property>
+        <property name="plandateBefore" type="DATE">
+            <column name="PLAN_DATE" length="7" />
+        </property>
+        <property name="plandate" type="DATE">
+            <column name="PLAN_DATE" length="7" />
+        </property>
+        <property name="plandateAfter" type="DATE">
+            <column name="PLAN_DATE" length="7" />
+        </property>
+        <property name="compactid" type="VARCHAR2">
+            <column name="COMPACT_ID" length="36" />
+        </property>
+        <property name="compact" type="VARCHAR2">
+            <column name="COMPACT" length="100" />
+        </property>
+        <property name="compactdateBefore" type="DATE">
+            <column name="COMPACT_DATE" length="7" />
+        </property>
+        <property name="compactdate" type="DATE">
+            <column name="COMPACT_DATE" length="7" />
+        </property>
+        <property name="compactdateAfter" type="DATE">
+            <column name="COMPACT_DATE" length="7" />
+        </property>
+        <property name="unitid" type="VARCHAR2">
+            <column name="UNIT_ID" length="36" />
+        </property>
+        <property name="unit" type="VARCHAR2">
+            <column name="UNIT" length="100" />
+        </property>
+        <property name="deptid" type="VARCHAR2">
+            <column name="DEPT_ID" length="36" />
+        </property>
+        <property name="dept" type="VARCHAR2">
+            <column name="DEPT" length="100" />
+        </property>
+        <property name="classid" type="VARCHAR2">
+            <column name="CLASS_ID" length="36" />
+        </property>
+        <property name="classname" type="VARCHAR2">
+            <column name="CLASS_NAME" length="100" />
+        </property>
+        <property name="project" type="VARCHAR2">
+            <column name="PROJECT" length="200" />
+        </property>
+        <property name="budget" type="DOUBLENUMBER">
+            <column name="BUDGET" precision="8" />
+        </property>
+        <property name="compactmoney" type="DOUBLENUMBER">
+            <column name="COMPACT_MONEY" precision="8" />
+        </property>
+        <property name="currencyid" type="VARCHAR2">
+            <column name="CURRENCY_ID" length="36" />
+        </property>
+        <property name="currency" type="VARCHAR2">
+            <column name="CURRENCY" length="100" />
+        </property>
+        <property name="rate" type="DOUBLENUMBER">
+            <column name="RATE" precision="5" />
+        </property>
+        <property name="rmbrate" type="DOUBLENUMBER">
+            <column name="RMB_RATE" precision="5" />
+        </property>
+        <property name="dollar" type="DOUBLENUMBER">
+            <column name="DOLLAR" precision="8" />
+        </property>
+        <property name="rmb" type="DOUBLENUMBER">
+            <column name="RMB" precision="8" />
+        </property>
+        <property name="economize" type="DOUBLENUMBER">
+            <column name="ECONOMIZE" precision="8" />
+        </property>
+        <property name="modeid" type="VARCHAR2">
+            <column name="MODE_ID" length="36" />
+        </property>
+        <property name="modename" type="VARCHAR2">
+            <column name="MODE_NAME" length="100" />
+        </property>
+        <property name="deliverydate" type="DATE">
+            <column name="DELIVERY_DATE" length="7" />
+        </property>
+        <property name="agentid" type="VARCHAR2">
+            <column name="AGENT_ID" length="36" />
+        </property>
+        <property name="agent" type="VARCHAR2">
+            <column name="AGENT" length="200" />
+        </property>
+        <property name="agreeid" type="VARCHAR2">
+            <column name="AGREE_ID" length="36" />
+        </property>
+        <property name="agree" type="VARCHAR2">
+            <column name="AGREE" length="100" />
+        </property>
+        <property name="productor" type="VARCHAR2">
+            <column name="PRODUCTOR" length="200" />
+        </property>
+        <property name="supportorid" type="VARCHAR2">
+            <column name="SUPPORTOR_ID" length="36" />
+        </property>
+        <property name="supportor" type="VARCHAR2">
+            <column name="SUPPORTOR" length="100" />
+        </property>
+        <property name="supportoraddr" type="VARCHAR2">
+            <column name="SUPPORTOR_ADDR" length="200" />
+        </property>
+        <property name="examineid" type="VARCHAR2">
+            <column name="EXAMINE_ID" length="36" />
+        </property>
+        <property name="examineno" type="VARCHAR2">
+            <column name="EXAMINE_NO" length="100" />
+        </property>
+        <property name="importclassid" type="VARCHAR2">
+            <column name="IMPORT_CLASS_ID" length="36" />
+        </property>
+        <property name="importclass" type="VARCHAR2">
+            <column name="IMPORT_CLASS" length="100" />
+        </property>
+        <property name="directoryid" type="VARCHAR2">
+            <column name="DIRECTORY_ID" length="36" />
+        </property>
+        <property name="directory" type="VARCHAR2">
+            <column name="DIRECTORY" length="100" />
+        </property>
+        <property name="storeaddr" type="VARCHAR2">
+            <column name="STORE_ADDR" length="1000" />
+        </property>
+        <property name="usedate" type="DATE">
+            <column name="USE_DATE" length="7" />
+        </property>
+        <property name="useunit" type="VARCHAR2">
+            <column name="USE_UNIT" length="200" />
+        </property>
+        <property name="usestate" type="VARCHAR2">
+            <column name="USE_STATE" length="36" />
+        </property>
+        <property name="image" type="VARCHAR2">
+            <column name="IMAGE" length="36" />
+        </property>
+        <property name="passdate" type="DATE">
+            <column name="PASS_DATE" length="36" />
+        </property>
+        <property name="storetype" type="VARCHAR2">
+            <column name="STORE_TYPE" length="36" />
+        </property>
+    </class>
+</DTO-mapping>
