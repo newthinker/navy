@@ -89,7 +89,7 @@ public class ImportQueryExportService extends BaseService implements IService {
 		book.write();
 		book.close();
 		
-		String filename = "海军物资查询分析" + fmtDate.format(new Date()) + ".xls";
+		String filename = "娴峰啗鐗╄祫鏌ヨ鍒嗘瀽" + fmtDate.format(new Date()) + ".xls";
 		resp.getDto().setList("RESULT", list);
 		resp.getDto().put("DOWNLOAD", StringUtils.encrypt(target));
 		resp.getDto().put("DOWNLOAD_FILENAME", StringUtils.encrypt(filename));

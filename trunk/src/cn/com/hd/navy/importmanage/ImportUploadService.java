@@ -20,7 +20,7 @@ public class ImportUploadService extends BaseService implements IService {
 	public Response service(Request request) throws Exception {
 		Response response = new Response();
 		
-		//获取数据
+		//鑾峰彇鏁版嵁
 		TImage img = new TImage();
 		super.getData(request.getDto(), img);
 		

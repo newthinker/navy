@@ -21,14 +21,14 @@ public class DictAddService extends BaseService implements IService {
 	public Response service(Request request) throws Exception {
 		Response response = new Response();
 		
-		//»ñÈ¡Êı¾İ
+		//è·å–æ•°æ®
 		TDictDetail dictdetail = new TDictDetail();
 		super.getData(request.getDto(), dictdetail);
 			
 		Debug.debugMessage(1, request, dictdetail.toString());
 		
 		if (dictdetail.getTypeid() == null) {
-			return error("×Öµä´úÂë»ò×Öµä·ÖÀà´úÂëÎª¿Õ£¬±£´æÊ§°Ü", getDTO(dictdetail));
+			return error("å­—å…¸ä»£ç æˆ–å­—å…¸åˆ†ç±»ä»£ç ä¸ºç©ºï¼Œä¿å­˜å¤±è´¥", getDTO(dictdetail));
 		}
 		
 		Conditions cons = new Conditions();
@@ -36,10 +36,10 @@ public class DictAddService extends BaseService implements IService {
 		cons.addExpression("TYPE_ID = '" + dictdetail.getTypeid() + "' AND DICT_NAME = '" + dictdetail.getDictname() + "'");
 		SelectResultSet rs = queryResultSet(cons);
 		if (rs.getRowCount() > 0) {
-			return error("Ãû³ÆÒÑ´æÔÚ£¬ÇëÖØĞÂÌîĞ´", getDTO(dictdetail));
+			return error("åç§°å·²å­˜åœ¨ï¼Œè¯·é‡æ–°å¡«å†™", getDTO(dictdetail));
 		}
 		
-		//±£´æÊı¾İ
+		//ä¿å­˜æ•°æ®
 		dictdetail.setDictcode(UUID.randomUUID().toString());
 		dictdetail.setCreatorid(loginInfo.getUserid());
 		dictdetail.setCreatorname(loginInfo.getUsername());

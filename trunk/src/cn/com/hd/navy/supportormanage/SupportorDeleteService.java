@@ -21,7 +21,7 @@ public class SupportorDeleteService extends BaseService implements IService {
 			response.setRequestParam(request.getDto());
 			response.setResult(0);
 			response.getDto().setList("RESULT", getDTO(supportor));
-			response.setErrorInfo("×Öµä´úÂë»ò×Öµä·ÖÀà´úÂëÎª¿Õ£¬É¾³ıÊ§°Ü");
+			response.setErrorInfo("å­—å…¸ä»£ç æˆ–å­—å…¸åˆ†ç±»ä»£ç ä¸ºç©ºï¼Œåˆ é™¤å¤±è´¥");
 			return response;
 		}
 		
@@ -33,7 +33,7 @@ public class SupportorDeleteService extends BaseService implements IService {
 			response.setRequestParam(request.getDto());
 			response.getDto().setList("RESULT", getDTO(supportor));
 			response.setResult(0);
-			response.setErrorInfo("ÒÑÓĞ²É¹ºÏîÄ¿Ñ¡Ôñ¸Ã¹©Ó¦ÉÌ£¬²»ÄÜÉ¾³ı");
+			response.setErrorInfo("å·²æœ‰é‡‡è´­é¡¹ç›®é€‰æ‹©è¯¥ä¾›åº”å•†ï¼Œä¸èƒ½åˆ é™¤");
 			
 			return response;
 		}

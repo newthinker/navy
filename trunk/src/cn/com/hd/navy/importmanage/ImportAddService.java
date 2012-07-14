@@ -16,7 +16,7 @@ public class ImportAddService extends BaseService implements IService {
 	public Response service(Request request) throws Exception {
 		Response response = new Response();
 		
-		//»ñÈ¡Êı¾İ
+		//è·å–æ•°æ®
 		TImport navyImp = new TImport();
 		super.getData(request.getDto(), navyImp);
 		
@@ -44,7 +44,7 @@ public class ImportAddService extends BaseService implements IService {
 			response.setRequestParam(request.getDto());
 			response.getDto().setList("RESULT", getDTO(navyImp));
 			response.setResult(0);
-			response.setErrorInfo("²É¹ººÏÍ¬ÒÑ´æÔÚ");
+			response.setErrorInfo("é‡‡è´­åˆåŒå·²å­˜åœ¨");
 			return response;
 		}
 		
@@ -71,7 +71,7 @@ public class ImportAddService extends BaseService implements IService {
 			response.setRequestParam(request.getDto());
 			response.getDto().setList("RESULT", getDTO(navyImp));
 			response.setResult(0);
-			response.setErrorInfo("²É¹ºÏîÄ¿ÒÑ´æÔÚ");
+			response.setErrorInfo("é‡‡è´­é¡¹ç›®å·²å­˜åœ¨");
 			return response;
 		}
 		
@@ -79,7 +79,7 @@ public class ImportAddService extends BaseService implements IService {
 			navyImp.setImportid(UUID.randomUUID().toString());
 		}
 		
-		//±£´æÊı¾İ
+		//ä¿å­˜æ•°æ®
 		if (navyImp.getCompactmoney() != null && navyImp.getRate() != null) {
 			navyImp.setDollar(navyImp.getCompactmoney() * navyImp.getRate());
 		}

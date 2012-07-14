@@ -10,19 +10,19 @@ import cn.com.hd.transfer.Response;
 public class NavyDictUpdateService extends BaseService implements IService {
 
 	/**
-	 *  1	�ƻ����		TYPE_NAME		TYPE_CODE
-	 *	2	�ɹ�����		UNIT			UNIT_ID
-	 *	3	����λ		DEPT			DEPT_ID
-	 *	4	רҵ���		CLASS_NAME		CLASS_ID
-	 *	5	����			CURRENCY		CURRENCY_ID
-	 *	6	�ɹ���ʽ		MODE_NAME		MODE_ID
-	 *	7	ί�д�����˾	AGREE			AGREE_ID
-	 *	8	�������		IMPORT_CLASS	IMPORT_CLASS_ID
-	 *	9	��˰Ŀ¼		DIRECTORY		DIRECTORY_ID
-	 *	10	ʹ�����		USE_STATE		USE_STATE
-	 *	11	��Ӧ������	TYPE			TYPE_CODE
-	 *	13	���õȼ�		CREDIT			CREDIT_ID
-	 *	14	��Ӫ����		ECONOMY			ECONOMY
+	 *  1	计划类别		TYPE_NAME		TYPE_CODE
+	 *	2	采购机构		UNIT			UNIT_ID
+	 *	3	需求单位		DEPT			DEPT_ID
+	 *	4	专业类别		CLASS_NAME		CLASS_ID
+	 *	5	币种			CURRENCY		CURRENCY_ID
+	 *	6	采购方式		MODE_NAME		MODE_ID
+	 *	7	委托代理公司	AGREE			AGREE_ID
+	 *	8	进口类别		IMPORT_CLASS	IMPORT_CLASS_ID
+	 *	9	免税目录		DIRECTORY		DIRECTORY_ID
+	 *	10	使用情况		USE_STATE		USE_STATE
+	 *	11	供应商类型	TYPE			TYPE_CODE
+	 *	13	信用等级		CREDIT			CREDIT_ID
+	 *	14	经营性质		ECONOMY			ECONOMY
 	 */
 	@SuppressWarnings("unchecked")
 	public Response service(Request request) throws Exception {

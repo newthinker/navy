@@ -15,7 +15,7 @@ public class SupportorAddService extends BaseService implements IService {
 	public Response service(Request request) throws Exception {
 		Response response = new Response();
 		
-		//»ñÈ¡Êı¾İ
+		//è·å–æ•°æ®
 		TSupportor supportor = new TSupportor();
 		super.getData(request.getDto(), supportor);
 		
@@ -35,7 +35,7 @@ public class SupportorAddService extends BaseService implements IService {
 			response.getDto().setSelectItems(resp.getDto().getList("RESULT"));
 			response.setRequestParam(request.getDto());
 			response.getDto().setList("RESULT", getDTO(supportor));
-			response.setErrorInfo("¹©Ó¦ÉÌÃû³ÆÒÑ´æÔÚ");
+			response.setErrorInfo("ä¾›åº”å•†åç§°å·²å­˜åœ¨");
 			response.setResult(0);
 			
 			return response;
@@ -55,7 +55,7 @@ public class SupportorAddService extends BaseService implements IService {
 			response.getDto().setSelectItems(resp.getDto().getList("RESULT"));
 			response.setRequestParam(request.getDto());
 			response.getDto().setList("RESULT", getDTO(supportor));
-			response.setErrorInfo("×éÖ¯»ú¹¹´úÂëÒÑ´æÔÚ");
+			response.setErrorInfo("ç»„ç»‡æœºæ„ä»£ç å·²å­˜åœ¨");
 			response.setResult(0);
 			
 			return response;
@@ -65,7 +65,7 @@ public class SupportorAddService extends BaseService implements IService {
 			supportor.setSupid(UUID.randomUUID().toString());
 		}
 		
-		//±£´æÊı¾İ
+		//ä¿å­˜æ•°æ®
 		
 		int result = super.save(supportor);
 		

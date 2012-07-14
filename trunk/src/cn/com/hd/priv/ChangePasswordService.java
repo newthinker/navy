@@ -29,11 +29,11 @@ public class ChangePasswordService extends BaseService implements IService {
 		
 		if (list.size() == 0) {
 			resp.setResult(0);
-			resp.setErrorInfo("ÓÃ»§²»´æÔÚ£¡");
+			resp.setErrorInfo("ç”¨æˆ·ä¸å­˜åœ¨ï¼");
 			return resp;
 		} else if (list.size() > 1) {
 			resp.setResult(0);
-			resp.setErrorInfo("·¢ÏÖ¶à¸ö" + user.getLoginname() + "ÓÃ»§£¬²»ÄÜµÇÂ¼£¬ÇëÓë¹ÜÀíÔ±ÁªÏµ£¡");
+			resp.setErrorInfo("å‘ç°å¤šä¸ª" + user.getLoginname() + "ç”¨æˆ·ï¼Œä¸èƒ½ç™»å½•ï¼Œè¯·ä¸ç®¡ç†å‘˜è”ç³»ï¼");
 			return resp;
 		}
 		
@@ -42,13 +42,13 @@ public class ChangePasswordService extends BaseService implements IService {
 		
 		if (!loginUser.getLoginpass().equals(MD5.encrypt(user.getLoginpass()))) {
 			resp.setResult(0);
-			resp.setErrorInfo("ÃÜÂë´íÎó£¡");
+			resp.setErrorInfo("å¯†ç é”™è¯¯ï¼");
 			return resp;
 		}
 		
 		if (!loginUser.getValidated().equals("Y")) {
 			resp.setResult(0);
-			resp.setErrorInfo("ÓÃ»§ÒÑÊ§Ğ§£¡");
+			resp.setErrorInfo("ç”¨æˆ·å·²å¤±æ•ˆï¼");
 			return resp;
 		}
 		

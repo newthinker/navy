@@ -343,7 +343,7 @@ public class ImportService extends BaseService implements IService {
 			ErrorProcessor.prompt(this.getClass().getName(), ex.getMessage(), ex);
 			Response response = new Response();
 			response.setResult(0);
-			response.setErrorInfo("µ¼ÈëÊ§°Ü");
+			response.setErrorInfo("å¯¼å…¥å¤±è´¥");
 			return response;
 		}
 	}

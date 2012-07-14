@@ -96,7 +96,7 @@ public class SystemUploadServiceServlet extends HttpServlet {
 			ex.printStackTrace();
 		} catch (SecurityException ex) {
 			Response resp = new Response();
-			resp.setErrorInfo("ÎÄ¼ş´óĞ¡Ó¦Ğ¡ÓÚ" + size + "M");
+			resp.setErrorInfo("æ–‡ä»¶å¤§å°åº”å°äº" + size + "M");
 			request.setAttribute("XML_DATA", resp);
 			
 			String url = request.getParameter("url");

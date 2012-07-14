@@ -99,7 +99,9 @@
 		</filter-class>
 		<init-param>
 			<param-name>redirectURL</param-name>
-			<param-value>http://fish/navy/pages/login.jsp</param-value>
+			<param-value>
+				/navy/pages/login.jsp
+			</param-value>
 		</init-param>
 		<init-param>
 			<param-name>exceptFiles</param-name>

@@ -2,7 +2,7 @@
 <system-list>
 	<system name="Navy" type="local">
 		<protocol>http</protocol>
-		<ip>192.168.3.2</ip>
+		<ip>192.168.1.144</ip>
 		<port>8080</port>
 		<server-name>navy</server-name>
 		<entry-address>/system</entry-address>
@@ -10,7 +10,7 @@
 	
 	<system name="HDDict" type="local">
 		<protocol>http</protocol>
-		<ip>192.168.3.2</ip>
+		<ip>192.168.1.144</ip>
 		<port>8080</port>
 		<server-name>navy</server-name>
 		<entry-address>/system</entry-address>
@@ -18,7 +18,7 @@
 	
 	<system name="HDPriv" type="local">
 		<protocol>http</protocol>
-		<ip>192.168.3.2</ip>
+		<ip>192.168.1.144</ip>
 		<port>8080</port>
 		<server-name>navy</server-name>
 		<entry-address>/system</entry-address>
@@ -26,7 +26,7 @@
 	
 	<system name="HDLog" type="local">
 		<protocol>http</protocol>
-		<ip>192.168.3.2</ip>
+		<ip>192.168.1.144</ip>
 		<port>8080</port>
 		<server-name>navy</server-name>
 		<entry-address>/system</entry-address>

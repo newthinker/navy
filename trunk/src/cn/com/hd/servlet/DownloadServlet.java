@@ -66,14 +66,14 @@ public class DownloadServlet extends HttpServlet {
 		String filename = StringUtils.decrypt(request.getParameter("filename"));
 		
 		if (path == null) {
-			response.getOutputStream().println("<script language='javascript'>alert('ÏÂÔØÊ§°Ü');</script>");
+			response.getOutputStream().println("<script language='javascript'>alert('ä¸‹è½½å¤±è´¥');</script>");
 			return;
 		}
 		
 		File file = new File(path);
 		Debug.debugMessage("download file ====== " + file.getAbsolutePath());
 		if (!file.exists()) {
-			response.getOutputStream().println("<script language='javascript'>alert('Î´ÕÒµ½ÎÄ¼þ');</script>");
+			response.getOutputStream().println("<script language='javascript'>alert('æœªæ‰¾åˆ°æ–‡ä»¶');</script>");
 			return;
 		}
 		
