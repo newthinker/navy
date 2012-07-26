@@ -1,5 +1,5 @@
 create table T_IMPORT  (
-   IMPORTID             VARCHAR2(36)                    not null,
+   IMPORTID             VARCHAR2(36)			not null,
    TYPE_CODE            VARCHAR2(36),
    TYPE_NAME            VARCHAR2(100),
    IMPORT_YEAR          VARCHAR2(4),
@@ -11,7 +11,7 @@ create table T_IMPORT  (
    COMPACT_DATE         DATE,
    UNIT_ID              VARCHAR2(36),
    UNIT                 VARCHAR2(100),
-   DEPT_ID              VARCHAR2(36),
+   DEPT_ID              VARCHAR2(36),			-- 新增
    DEPT                 VARCHAR2(100),
    CLASS_ID             VARCHAR2(36),
    CLASS_NAME           VARCHAR2(100),
@@ -21,6 +21,7 @@ create table T_IMPORT  (
    CURRENCY_ID          VARCHAR2(36),
    CURRENCY             VARCHAR2(100),
    RATE                 DECIMAL(5, 2),
+   RMB_RATE				DECIMAL(5, 2),			-- 新增
    DOLLAR               DECIMAL(8, 2),
    RMB                  DECIMAL(8, 2),
    ECONOMIZE            DECIMAL(8, 2),
@@ -46,6 +47,8 @@ create table T_IMPORT  (
    USE_UNIT             VARCHAR2(200),
    USE_STATE            VARCHAR2(36),
    IMAGE                VARCHAR2(36),
+   PASS_DATE			DATE,					-- 新增
+   STORE_TYPE			VARCHAR2(36),			-- 新增
    constraint PK_T_IMPORT primary key (IMPORTID)
 );
 comment on table T_IMPORT is
@@ -74,6 +77,8 @@ comment on column T_IMPORT.UNIT_ID is
 	'采购机构ID';
 comment on column T_IMPORT.UNIT is
 	'采购机构';
+comment on column T_IMPORT.DEPT_ID is
+	'事业部门ID';
 comment on column T_IMPORT.DEPT is
 	'事业部门';
 comment on column T_IMPORT.CLASS_ID is
@@ -144,7 +149,7 @@ comment on column T_IMPORT.IMAGE is
 	'装备图片ID';
 
 create table T_SUPPORTOR  (
-   SUP_ID               VARCHAR(36)                     not null,
+   SUP_ID               VARCHAR(36)				not null,
    SUP_NAME             VARCHAR(200),
    SUP_EN_NAME          VARCHAR(200),
    CREATE_DATE          DATE,
@@ -180,8 +185,8 @@ create table T_SUPPORTOR  (
    LIC_VAL_START        DATE,
    LIC_VAL_END          DATE,
    LIC_EXA_DATE         DATE,
-   LIC_MAIN_OPT         VARCHAR2(200),
-   LIC_OTHER_OPT        VARCHAR2(200),
+   LIC_MAIN_OPT         VARCHAR2(2000),
+   LIC_OTHER_OPT        VARCHAR2(2000),
    STATE_TAX_NO         VARCHAR2(100),
    LOCAL_TAX_NO         VARCHAR2(100),
    STATE_TAX_ORG        VARCHAR2(200),
@@ -192,203 +197,192 @@ create table T_SUPPORTOR  (
    LOCAL_TAX_VAL_END    DATE,
    IF_STATE_TAX         VARCHAR2(20),
    IF_LOCAL_TAX         VARCHAR2(20),
-   LOC_PROVINCE			VARCHAR2(64),		-- 供应商所在省
-   LOC_CITY				VARCHAR2(64),		-- 供应商所在市
-   LOC_LON				NUMBER(8,5),		-- 经度
-   LOC_LAT				NUMBER(8,5),		-- 纬度
-   AFTER_SALE			VARCHAR2(200),		-- 售后服务机构
-   STOREHOUSE_AREA		NUMBER,				-- 仓库总面积
-   WAREHOUSE_AREA		NUMBER,				-- 货场总面积
+   ----------------------------------------------------------------------
+   SUP_TYPE_CODE		VARCHAR2(10),
+   SUP_TYPE				VARCHAR2(200),
+   SUMMARY				VARCHAR2(2000),
+   IMAGE				VARCHAR2(36),
+   LOCATION				VARCHAR2(1000),
+   LONGITUDE			VARCHAR2(50),
+   LATITUDE				VARCHAR2(50),
+   PRODUCTS_CLASS		VARCHAR2(1000),
+   MANUFACTURER_CONTACT	VARCHAR2(100),
+   MANUFACTURER_FAX		VARCHAR2(100),
+   MANUFACTURER_EMAIL	VARCHAR2(200),
+   MANUFACTURER_ADDRESS	VARCHAR2(1000),
+   MANUFACTURER_PERFORMANCE	VARCHAR2(2000),
+   MANUFACTURER_SUMMARY	VARCHAR2(2000),
+   MANUFACTURER			VARCHAR2(200),
+   ----------------------------------------------------------------------
+   STOREHOUSE_AREA		DECIMAL(8, 2),		-- 仓库总面积
+   WAREHOUSE_AREA		DECIMAL(8, 2),		-- 货场总面积
    STOREHOUSE_IMAGE		VARCHAR2(50),		-- 仓库照片
-   AUDIT_LAST3Y			VARCHAR2(200),		-- 近三年审计报告
+   AUDIT_LAST3Y			VARCHAR2(200),		-- 近三年审计报告压缩文件(RAR或ZIP格式)
    LIC_BUS_IMAGE		VARCHAR2(50),		-- 营业执照扫描件
-   ORG_STR_IMAGE		VARCHAR2(50),		-- 组织结构代码证
-   BANK_PROVE_IMAGE		VARCHAR2(50),		-- 开户银行出具的资信证明
-   PURCHASE_TYPE		NUMBER(1),			-- 采购方式
-   IF_TURNOVER			NUMBER(1),			-- 是否成交，0表示成交，1表示为成交
+   ORG_STR_IMAGE		VARCHAR2(50),		-- 组织结构代码证扫描件
+   PURCHASE_TYPE		VARCHAR2(100),		-- 采购方式
+   IF_TURNOVER			VARCHAR2(20),		-- 是否成交
    constraint PK_T_SUPPORTOR primary key (SUP_ID)
 );
 comment on table T_SUPPORTOR is
-		'供应商信息表';
+	'供应商信息表';
 comment on column T_SUPPORTOR.SUP_ID is
-		'供应商ID';
+	'供应商ID';
 comment on column T_SUPPORTOR.SUP_NAME is
-		'供应商名称';
+	'供应商名称';
 comment on column T_SUPPORTOR.SUP_EN_NAME is
-		'供应商英文名称';
+	'供应商英文名称';
 comment on column T_SUPPORTOR.CREATE_DATE is
-		'成立时间';
+	'成立时间';
 comment on column T_SUPPORTOR.ABBREVIATION is
-		'简称';
+	'简称';
 comment on column T_SUPPORTOR.ADDRESS is
-		'注册地址';
+	'注册地址';
 comment on column T_SUPPORTOR.POSTCODE is
-		'邮政编码';
+	'邮政编码';
 comment on column T_SUPPORTOR.NET_ADDR is
-		'网址';
+	'网址';
 comment on column T_SUPPORTOR.ORGANIZE_CODE is
-		'组织机构代码';
+	'组织机构代码';
 comment on column T_SUPPORTOR.ECONOMY is
-		'经济性质';
+	'经济性质';
 comment on column T_SUPPORTOR.TYPE_CODE is
-		'供应商类型代码';
+	'供应商类型代码';
 comment on column T_SUPPORTOR.TYPE is
-		'供应商类型';
+	'供应商类型';
 comment on column T_SUPPORTOR.BANK_ID is
-		'开户银行ID';
+	'开户银行ID';
 comment on column T_SUPPORTOR.BANK is
-		'开户银行';
+	'开户银行';
 comment on column T_SUPPORTOR.ACCOUNT is
-		'银行帐号';
+	'银行帐号';
 comment on column T_SUPPORTOR.CREDIT is
-		'AAA，AA，A，BBB，BB，B，CCC，CC，C，D';
+	'AAA，AA，A，BBB，BB，B，CCC，CC，C，D';
 comment on column T_SUPPORTOR.CREDIT_ORG is
-		'信用等级评定机构';
+	'信用等级评定机构';
 comment on column T_SUPPORTOR.CREDIT_DATE is
-		'评定时间';
+	'评定时间';
 comment on column T_SUPPORTOR.INSURANCE is
-		'是否依法缴纳社会保险费';
+	'是否依法缴纳社会保险费';
 comment on column T_SUPPORTOR.ILLEGAL is
-		'近三年内有无重大违法记录';
+	'近三年内有无重大违法记录';
 comment on column T_SUPPORTOR.CORPORATION is
-		'法定代表人';
+	'法定代表人';
 comment on column T_SUPPORTOR.CORP_PHONE is
-		'法人固话';
+	'法人固话';
 comment on column T_SUPPORTOR.CORP_MOBILE is
-		'法人手机';
+	'法人手机';
 comment on column T_SUPPORTOR.CONTACT is
-		'供应商注册登记联系人';
+	'供应商注册登记联系人';
 comment on column T_SUPPORTOR.CONTACT_PHONE is
-		'联系人固话';
+	'联系人固话';
 comment on column T_SUPPORTOR.CONTACT_MOBILE is
-		'联系人手机';
+	'联系人手机';
 comment on column T_SUPPORTOR.CONTACT_FAX is
-		'联系人传真';
+	'联系人传真';
 comment on column T_SUPPORTOR.CONTACT_EMAIL is
-		'联系人电子邮件';
+	'联系人电子邮件';
 comment on column T_SUPPORTOR.LIC_NO is
-		'执照注册号';
+	'执照注册号';
 comment on column T_SUPPORTOR.LIC_ORG is
-		'执照发证机关';
+	'执照发证机关';
 comment on column T_SUPPORTOR.LIC_CAPITAL is
-		'执照注册资本金(万元)';
+	'执照注册资本金(万元)';
 comment on column T_SUPPORTOR.LIC_ADDR is
-		'执照注册所在地';
+	'执照注册所在地';
 comment on column T_SUPPORTOR.LIC_VAL_START is
-		'执照有效期开始';
+	'执照有效期开始';
 comment on column T_SUPPORTOR.LIC_VAL_END is
-		'执照有效期结束';
+	'执照有效期结束';
 comment on column T_SUPPORTOR.LIC_EXA_DATE is
-		'最近年检时间';
+	'最近年检时间';
 comment on column T_SUPPORTOR.LIC_MAIN_OPT is
-		'主要经营范围';
+	'主要经营范围';
 comment on column T_SUPPORTOR.LIC_OTHER_OPT is
-		'兼营范围';
+	'兼营范围';
 comment on column T_SUPPORTOR.STATE_TAX_NO is
-		'税务登记证号';
+	'税务登记证号';
 comment on column T_SUPPORTOR.LOCAL_TAX_NO is
-		'地税登记证号';
+	'地税登记证号';
 comment on column T_SUPPORTOR.STATE_TAX_ORG is
-		'国税发证机关';
+	'国税发证机关';
 comment on column T_SUPPORTOR.LOCAL_TAX_ORG is
-		'地税发证机关';
+	'地税发证机关';
 comment on column T_SUPPORTOR.STATE_TAX_VAL_START is
-		'国税有效期开始时间';
+	'国税有效期开始时间';
 comment on column T_SUPPORTOR.STATE_TAX_VAL_END is
-		'国税有效期结束时间';
+	'国税有效期结束时间';
 comment on column T_SUPPORTOR.LOCAL_TAX_VAL_START is
-		'地税有效期开始时间';
+	'地税有效期开始时间';
 comment on column T_SUPPORTOR.LOCAL_TAX_VAL_END is
-		'地税有效其结束时间';
+	'地税有效其结束时间';
 comment on column T_SUPPORTOR.IF_STATE_TAX is
-		'是否依法缴纳国税税收';
+	'是否依法缴纳国税税收';
 comment on column T_SUPPORTOR.IF_LOCAL_TAX is
-		'是否依法缴纳地税税收';
-comment on column T_SUPPORTOR.LOC_PROVINCE is 
-		'供应商所在省';
-comment on column T_SUPPORTOR.LOC_CITY is 
-		'供应商所在市';
-comment on column T_SUPPORTOR.LOC_LON is 
-		'经度';
-comment on column T_SUPPORTOR.LOC_LAT is 
-		'纬度';
-comment on column T_SUPPORTOR.AFTER_SALE is 
-		'售后服务机构';
-comment on column T_SUPPORTOR.STOREHOUSE_AREA is
-		'仓库总面积';
-comment on column T_SUPPORTOR.WAREHOUSE_AREA is
-		'货场总面积';
-comment on column T_SUPPORTOR.STOREHOUSE_IMAGE is
-		'仓库照片编号';	
-comment on column T_SUPPORTOR. AUDIT_LAST3Y is
-		'近三年审计报告';
-comment on column T_SUPPORTOR.LIC_BUS_IMAGE	is
-		'营业执照扫描件';
-comment on column T_SUPPORTOR.ORG_STR_IMAGE is 
-		'组织结构代码证';
-comment on column T_SUPPORTOR.BANK_PROVE_IMAGE is 
-		'开户银行出具的资信证明';
-comment on column T_SUPPORTOR.PURCHASE_TYPE is		
-		'采购方式';
-comment on column T_SUPPORTOR.IF_TURNOVER is 
-		'是否成交，0表示成交，1表示为成交';		
+	'是否依法缴纳地税税收';
 				
-create table T_SUPPORTOR_MATERIALS (
-	MAT_ID				VARCHAR2(32)	not null,
-	MAT_NAME			VARCHAR2(64),
-	SUP_ID				VARCHAR(36),
-	MAT_UNIT			VARCHAR2(32),
-	MAT_TYPE			VARCHAR2(64),
-	MAT_LAST3Y_AVE		NUMBER,
-	MAT_LAST3Y_MAX		NUMBER,
-	MAT_ONCE_MAX		NUMBER,
-	MAT_ONCE_TIME		NUMBER,
-	MAT_IMAGE			VARCHAR2(50)
+create table T_SUP_PRODUCT (
+	PROD_ID				VARCHAR2(36)		not null,
+	SUP_ID				VARCHAR(36),	
+	GOOD_NAME			VARCHAR2(200),	
+	PROD_NAME			VARCHAR2(200),
+	MEASUR_UNIT			VARCHAR2(100),
+	PROD_NO				VARCHAR2(200),
+	AVG_OUTPUT			VARCHAR2(200),
+	MAX_OUTPUT			VARCHAR2(200),
+	SINGLE_MAX_OUTPUT	VARCHAR2(200),
+	SINGLE_MAX_DATE		VARCHAR2(200),
+	REMARK				VARCHAR2(1000),
+	PROD_IMAGE			VARCHAR2(50),		-- 新增产品照片字段
+	constraint PK_T_SUP_PRODUCT primary key (PROD_ID)	
 );
-constraint PK_T_SUPPORTOR_MATERIALS primary key (MAT_ID);
-comment on table T_SUPPORTOR_MATERIALS is
-		'供应商物资信息表';
-comment on column T_SUPPORTOR_MATERIALS.MAT_ID is
-		'供应物资编号';
-comment on column T_SUPPORTOR_MATERIALS.MAT_NAME is
-		'产品名称';
-comment on column T_SUPPORTOR_MATERIALS.SUP_ID is
-		'供应物资所属供应商';
-comment on column T_SUPPORTOR_MATERIALS.MAT_UNIT is
-		'物资计量单位';
-comment on column T_SUPPORTOR_MATERIALS.MAT_TYPE is 
-		'产品系列或型号';
-comment on column T_SUPPORTOR_MATERIALS.MAT_LAST3Y_AVE is
-		'过去三年(2009～2011)平均年产量)';
-comment on column T_SUPPORTOR_MATERIALS.MAT_LAST3Y_MAX is
-		'过去三年(2009～2011)最大年产量';
-comment on column T_SUPPORTOR_MATERIALS.MAT_ONCE_MAX is
-		'单批最大产量';
-comment on column T_SUPPORTOR_MATERIALS.MAT_ONCE_TIME is
-		'完成单批最大产量所需时间(天)';
-comment on column T_SUPPORTOR_MATERIALS.MAT_IMAGE is
-		'产品照片编号';		
+comment on table T_SUP_PRODUCT is
+	'供应商物资信息表';
+comment on column T_SUP_PRODUCT.PROD_ID is
+	'供应物资编号';
+comment on column T_SUP_PRODUCT.SUP_ID is
+	'供应物资所属供应商ID';		
+comment on column T_SUP_PRODUCT.GOOD_NAME is	
+	'物资品名';
+comment on column T_SUP_PRODUCT.PROD_NAME is
+	'产品名称';
+comment on column T_SUP_PRODUCT.MEASUR_UNIT is
+	'物资计量单位';
+comment on column T_SUP_PRODUCT.PROD_NO is 
+	'产品系列或型号';
+comment on column T_SUP_PRODUCT.AVG_OUTPUT is
+	'过去三年(2009～2011)平均年产量)';
+comment on column T_SUP_PRODUCT.MAX_OUTPUT is
+	'过去三年(2009～2011)最大年产量';
+comment on column T_SUP_PRODUCT.SINGLE_MAX_OUTPUT is
+	'单批最大产量';
+comment on column T_SUP_PRODUCT.SINGLE_MAX_DATE is
+	'完成单批最大产量所需时间(天)';
+comment on column T_SUP_PRODUCT.REMARK is
+	'备注';
+comment on column T_SUP_PRODUCT.PROD_IMAGE is
+	'产品照片编号';		
 
 create table T_TRANSPORT (
-	SUP_ID				VARCHAR(36)		not null,
+	COM_ID				VARCHAR2(36)	not null,
 	COM_NAME			VARCHAR2(64),
-	TRUCK_TYPE			VARCHAR2(32),
-	DEADWEIGHT			NUMBER,
-	COUNT				NUMBER,	
+	TRUCK_TYPE			VARCHAR2(3),
+	DEADWEIGHT			INTEGER,
+	COUNT				INTEGER,	
 	NEAR_RAILWAY		VARCHAR2(32),
-	RW_DIS				NUMBER,
+	RW_DIS				DECIMAL(10,2),
 	NEAR_PORT			VARCHAR2(32),
-	PORT_DIS			NUMBER,
+	PORT_DIS			DECIMAL(10,2),
 	NEAR_AIRPORT		VARCHAR2(32),
-	AP_DIS				NUMBER	
+	AP_DIS				DECIMAL(10,2),
+	constraint PK_T_TRANSPORT primary key (COM_ID)
 );
-constraint PK_T_TRANSPORT primary key (SUP_ID);
 comment on table T_TRANSPORT is
 	'运输服务企业信息表';
-comment on column T_TRANSPORT.SUP_ID is 
-	'供应商ID';
+comment on column T_TRANSPORT.COM_ID is 
+	'运输服务企业ID';
 comment on column T_TRANSPORT.COM_NAME is
-	'能够提供运输的服务企业名称';
+	'运输服务企业名称';
 comment on column T_TRANSPORT.TRUCK_TYPE is
 	'运输车种类';
 comment on column T_TRANSPORT.DEADWEIGHT is 
@@ -407,20 +401,32 @@ comment on column T_TRANSPORT.NEAR_AIRPORT is
 	'最近机场名称';
 comment on column T_TRANSPORT.AP_DIS is
 	'飞行距离';
+
+create table T_SUP_TRANS (
+	SUP_ID				VARCHAR(36),
+	COM_ID				VARCHAR2(36),
+	constraint PK_T_SUP_TRANS primary key (SUP_ID, COM_ID)
+);
+comment on table T_SUP_TRANS is 
+	'供应商运输信息表';
+comment on column T_SUP_TRANS.SUP_ID is
+	'供应商ID';
+comment on column T_SUP_TRANS.COM_ID is
+	'运输服务企业ID';
 	
 create table T_HIGHWAY (
-	SUP_ID				VARCHAR2(36)		not null,
+	COM_ID				VARCHAR2(36)		not null,
 	HIW_ID				VARCHAR2(32),
 	HIW_NAME			VARCHAR2(64),
 	HIW_IN				VARCHAR2(64),
 	HIW_IN_ID			VARCHAR2(32),
-	HIW_DIS				NUMBER
+	HIW_DIS				DECIMAL(10,2),
+	constraint PK_T_HIGHWAY primary key (COM_ID)
 );
-constraint PK_T_HIGHWAY primary key (SUP_ID);
 comment on table T_HIGHWAY is
 	'高速公路信息表';
-comment on column T_HIGHWAY.SUP_ID is
-	'供应商ID';
+comment on column T_HIGHWAY.COM_ID is
+	'运输服务企业ID';
 comment on column T_HIGHWAY.HIW_ID is
 	'高速公路编号';
 comment on column T_HIGHWAY.HIW_NAME is
@@ -432,17 +438,19 @@ comment on column T_HIGHWAY.HIW_IN_ID is
 comment on column T_HIGHWAY.HIW_DIS is
 	'距离';
 
-create table T_OTHER_PROVE (
+create table T_PROVE_INFO (
 	SUP_ID				VARCHAR2(36)		not null,
+	PROVE_NAME			VARCHAR2(200),
 	IMAGE_ID			VARCHAR2(50)
 );
-constraint PK_T_HIGHWAY primary key (SUP_ID);
-comment on table T_OTHER_PROVE is
-	'其它资质证书信息表';
-comment on column T_OTHER.SUP_ID is
+comment on table T_PROVE_INFO is
+	'资质证书信息表';
+comment on column T_PROVE_INFO.SUP_ID is
 	'供应商ID';
-comment on column T_OTHER_PROVE.OTHER_PROVE_IMAGE is
-	'其它资质证书扫描图ID';
+comment on column T_PROVE_INFO.PROVE_NAME is
+	'资质证书名称';
+comment on column T_PROVE_INFO.IMAGE_ID is
+	'资质证书扫描件ID';
 	
 create table T_IMAGE  (
    IMAGE_ID             VARCHAR2(50)                    not null,
@@ -489,3 +497,55 @@ comment on column T_IMAGE.EXPINFOD is
 		'扩展信息D';
 comment on column T_IMAGE.EXPINFOE is
 		'扩展信息E';
+		
+create table T_AFTERSALE_ORG (
+	ORG_ID			VARCHAR2(36)	not null,
+	SUP_ID			VARCHAR2(36),
+	ORG_NAME		VARCHAR2(200),
+	ORG_TYPE		VARCHAR2(100),
+	LOCATION		VARCHAR2(500),
+	DIRECTOR		VARCHAR2(100),
+	PHONE			VARCHAR2(100),
+	constraint PK_T_AFTERSALE_ORG primary key (ORG_ID)
+);	
+comment on table T_AFTERSALE_ORG is
+	'供应商售后服务机构信息表';
+comment on column T_AFTERSALE_ORG.ORG_ID is
+	'售后机构ID';
+comment on column T_AFTERSALE_ORG.SUP_ID is 
+	'供应商ID';
+comment on column T_AFTERSALE_ORG.ORG_NAME is
+	'售后机构名称';
+comment on column T_AFTERSALE_ORG.ORG_TYPE is
+	'售后机构类别';
+comment on column T_AFTERSALE_ORG.LOCATION is
+	'售后机构所在市县';
+comment on column T_AFTERSALE_ORG.DIRECTOR is
+	'负责人';
+comment on column T_AFTERSALE_ORG.PHONE is
+	'联系电话';
+	
+create table T_STOCKHOLDER (
+	STOCKHOLDER_ID				VARCHAR2(36)	not null,
+	SUP_ID						VARCHAR2(36),
+	STOCKHOLDER_NAME			VARCHAR2(100),
+	CAPITAL						NUMBER(8),
+	RATIO						VARCHAR2(50),
+	STOCK_DATE					DATE,
+	constraint PK_T_STOCKHOLDER primary key (STOCKHOLDER_ID)
+);
+comment on table T_STOCKHOLDER is
+	'供应商股东信息表';
+comment on column T_STOCKHOLDER.STOCKHOLDER_ID is
+	'股东ID';
+comment on column T_STOCKHOLDER.SUP_ID is
+	'供应商ID';
+comment on column T_STOCKHOLDER.STOCKHOLDER_NAME is
+	'供应商名称';
+comment on column T_STOCKHOLDER.CAPITAL is
+	'出资金额';
+comment on column T_STOCKHOLDER.RATIO is
+	'出资比例';
+comment on column T_STOCKHOLDER.STOCK_DATE is
+	'出资时间';
+	
