@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<DTO-mapping>
+
+    <class name="cn.com.hd.dto.navy.TSupProduct" table="T_SUP_PRODUCT" schema="NAVYSYS">
+        <comment>供应商产品表</comment>
+        <id name="prodid" type="VARCHAR2">
+            <column name="PROD_ID" length="36" />
+        </id>
+        <property name="supid" type="VARCHAR2">
+            <column name="SUP_ID" length="36">
+                <comment>供应商ID</comment>
+            </column>
+        </property>
+        <property name="goodname" type="VARCHAR2">
+            <column name="GOOD_NAME" length="200">
+                <comment>物资品名</comment>
+            </column>
+        </property>
+        <property name="prodname" type="VARCHAR2">
+            <column name="PROD_NAME" length="200">
+                <comment>产品名称</comment>
+            </column>
+        </property>
+        <property name="measurunit" type="VARCHAR2">
+            <column name="MEASUR_UNIT" length="100">
+                <comment>计量单位</comment>
+            </column>
+        </property>
+        <property name="prodno" type="VARCHAR2">
+            <column name="PROD_NO" length="200">
+                <comment>产品系列或型号</comment>
+            </column>
+        </property>
+        <property name="avgoutput" type="VARCHAR2">
+            <column name="AVG_OUTPUT" length="200">
+                <comment>平均产量</comment>
+            </column>
+        </property>
+        <property name="maxoutput" type="VARCHAR2">
+            <column name="MAX_OUTPUT" length="200">
+                <comment>最大产量</comment>
+            </column>
+        </property>
+        <property name="singlemaxoutput" type="VARCHAR2">
+            <column name="SINGLE_MAX_OUTPUT" length="200">
+                <comment>单批最大产量</comment>
+            </column>
+        </property>
+        <property name="singlemaxdate" type="VARCHAR2">
+            <column name="SINGLE_MAX_DATE" length="200">
+                <comment>完成单批最大产量所用时间</comment>
+            </column>
+        </property>		
+        <property name="remark" type="VARCHAR2">
+            <column name="REMARK" length="1000">
+                <comment>备注</comment>
+            </column>
+        </property>		
+        <property name="prodimage" type="VARCHAR2">
+            <column name="PROD_IMAGE" length="50">
+                <comment>产品照片</comment>
+            </column>
+        </property>
+    </class>
+    
+</DTO-mapping>

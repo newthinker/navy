@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<DTO-mapping>
+    <class name="cn.com.hd.dto.navy.TTransport" table="T_TRANSPORT" schema="NAVYSYS">
+    	<comment>运输服务企业信息表</comment>
+        <id name="comid" type="VARCHAR2">
+            <column name="COM_ID" length="36">
+            	<comment>运输服务企业ID</comment> 
+            </column>
+        </id>
+        <property name="comname" type="VARCHAR2">
+            <column name="COM_NAME" length="64">
+            	<comment>运输服务企业名称</comment>
+            </column>
+        </property>
+        <property name="trucktype" type="VARCHAR2">
+            <column name="TRUCK_TYPE" length="3">
+            	<comment>运输车种类</comment>
+            </column>
+        </property>	
+        <property name="deadweight" type="INTEGER">
+            <column name="DEADWEIGHT">
+            	<comment>载重量</comment>
+            </column>
+        </property>
+        <property name="count" type="INTEGER">
+            <column name="COUNT">
+            	<comment>运输车数量</comment>
+            </column>
+        </property>	
+        <property name="nearrailway" type="VARCHAR2">
+            <column name="NEAR_RAILWAY" length="32">
+            	<comment>最近铁路货运站名称</comment>
+            </column>
+        </property>			
+        <property name="rwdis" type="DOUBLENUMBER">
+            <column name="RW_DIS" precision="10" scale="2">
+            	<comment>铁路距离</comment>
+            </column>
+        </property>			
+        <property name="nearport" type="VARCHAR2">
+            <column name="NEAR_PORT" length="32">
+            	<comment>最近港口名称</comment>
+            </column>
+        </property>		
+        <property name="portdis" type="DOUBLENUMBER">
+            <column name="PORT_DIS" precision="10" scale="2">
+            	<comment>水路距离</comment>
+            </column>
+        </property>	
+        <property name="nearairport" type="VARCHAR2">
+            <column name="NEAR_AIRPORT" precision="10" scale="2">
+            	<comment>最近几场名称</comment>
+            </column>
+        </property>		
+        <property name="apdis" type="DOUBLENUMBER">
+            <column name="AP_DIS" precision="10" scale="2">
+            	<comment>飞行距离</comment>
+            </column>
+        </property>		
+    </class>
+</DTO-mapping>

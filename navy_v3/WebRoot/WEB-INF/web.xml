@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+	
+  <listener>
+		<listener-class>
+			org.springframework.web.context.ContextLoaderListener
+		</listener-class>
+	</listener>
+
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			/config/serviceconfig/log/log.xml,
+			/config/serviceconfig/navy/importmanage.xml,
+			/config/serviceconfig/navy/supportormanage.xml,
+			/config/serviceconfig/dict/dictmanage.xml,
+			/config/serviceconfig/priv/privmanage.xml
+		</param-value>
+	</context-param>
+	
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+	<filter>
+		<filter-name>SystemFilter</filter-name>
+		<filter-class>cn.com.hd.filter.SystemFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>SystemFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<filter>
+		<filter-name>ChineseFilter</filter-name>
+		<filter-class>cn.com.hd.filter.ChineseFilter</filter-class>
+		<init-param>
+			<param-name>ENCODING</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+		<init-param>
+			<param-name>ENABLE</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>ChineseFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<servlet>
+		<servlet-name>SystemService</servlet-name>
+		<servlet-class>
+			cn.com.hd.servlet.SystemServiceServlet
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>LoginServiceServlet</servlet-name>
+		<servlet-class>
+			cn.com.hd.servlet.LoginServiceServlet
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>SystemUpload</servlet-name>
+		<servlet-class>
+			cn.com.hd.servlet.SystemUploadServiceServlet
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>DownloadServlet</servlet-name>
+		<servlet-class>cn.com.hd.servlet.DownloadServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>SystemService</servlet-name>
+		<url-pattern>/system</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>LoginServiceServlet</servlet-name>
+		<url-pattern>/login</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>SystemUpload</servlet-name>
+		<url-pattern>/upload</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>DownloadServlet</servlet-name>
+		<url-pattern>/download</url-pattern>
+	</servlet-mapping>
+	
+	<filter>
+		<filter-name>Session Timeout Filter</filter-name>
+		<filter-class>
+			cn.com.hd.filter.SessionTimeoutFilter
+		</filter-class>
+		<init-param>
+			<param-name>redirectURL</param-name>
+			<param-value>/navy/pages/login.jsp</param-value>
+		</init-param>
+		<init-param>
+			<param-name>exceptFiles</param-name>
+			<param-value>
+				/pages/login.jsp#/resources/#/login
+			</param-value>
+		</init-param>
+		<init-param>
+			<param-name>enable</param-name>
+			<param-value>true</param-value>
+		</init-param>
+		<init-param>
+			<param-name>userSession</param-name>
+			<param-value>USER_ID</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>Session Timeout Filter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+</web-app>
