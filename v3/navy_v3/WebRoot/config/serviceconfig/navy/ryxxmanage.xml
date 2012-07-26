@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<!-- 人员信息测试 -->
+	<bean id="HDCubeTestManage.RyxxAddService" class="cn.com.hd.testservice.ryxxmanage.RyxxAddService" />
+	<bean id="HDCubeTestManage.RyxxDeleteService" class="cn.com.hd.testservice.ryxxmanage.RyxxDeleteService" />
+	<bean id="HDCubeTestManage.RyxxQueryByIDService" class="cn.com.hd.testservice.ryxxmanage.RyxxQueryByIDService" />
+	<bean id="HDCubeTestManage.RyxxQueryService" class="cn.com.hd.testservice.ryxxmanage.RyxxQueryService" />
+	<bean id="HDCubeTestManage.RyxxUpdateService" class="cn.com.hd.testservice.ryxxmanage.RyxxUpdateService" />
+	<bean id="HDCubeTestManage.RyxxQueryItemsParamService" class="cn.com.hd.testservice.ryxxmanage.RyxxQueryItemsParamService" />
+	<bean id="HDCubeTestManage.RyxxQuerySaveOrUpdateService" class="cn.com.hd.testservice.ryxxmanage.RyxxQuerySaveOrUpdateService" />
+	
+</beans>
