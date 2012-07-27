@@ -243,7 +243,7 @@
 											for (int i = 0; i < economy.getList("RESULT").size(); i ++) {
 												DTO typedto = (DTO)economy.getList("RESULT").get(i);
 										%>
-										<option value="<%= typedto.getString("DICTNAME") %>"><%= typedto.getString("DICTNAME") %></option>
+										<option value="<%= typedto.getString("DICTCODE") %>"><%= typedto.getString("DICTNAME") %></option>
 										<%
 											}
 										%>
@@ -275,8 +275,20 @@
 									开户银行
 								</th>
 								<td>
-									<input type="text" name="STR_BANK" id="STR_BANK"
-										class="searchTbl_input" value="<%= dto.getString("BANK") == null ? "" : dto.getString("BANK") %>" />
+									<!--input type="text" name="STR_BANK" id="STR_BANK"
+										class="searchTbl_input" value="<--%= dto.getString("BANK") == null ? "" : dto.getString("BANK") %>" /-->
+									<select name="STR_BANK" id="STR_BANK" style="width:200px;"
+										onchange="setSelectLabel('STR_TYPE', this)">
+										<option value="">-请选择-</option>
+										<%
+											for (int i = 0; i < bank.getList("RESULT").size(); i ++) {
+												DTO typedto = (DTO)bank.getList("RESULT").get(i);
+										%>
+										<option value="<%= typedto.getString("DICTCODE") %>"><%= typedto.getString("DICTNAME") %></option>
+										<%
+											}
+										%>
+									</select>										
 								</td>
 								<th>
 									银行账号
