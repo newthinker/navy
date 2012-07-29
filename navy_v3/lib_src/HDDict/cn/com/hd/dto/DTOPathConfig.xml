@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<path-config>
+	<path>WEB-INF\classes\cn\com\hd\dto\dict\TDictDetail.xml</path>
+	<path>WEB-INF\classes\cn\com\hd\dto\dict\TDictType.xml</path>
+</path-config>
