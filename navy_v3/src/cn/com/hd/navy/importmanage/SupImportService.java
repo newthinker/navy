@@ -1,4 +1,4 @@
-package cn.com.hd.navy.importmanage;
+ï»¿package cn.com.hd.navy.importmanage;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -19,6 +19,7 @@ import cn.com.hd.dto.navy.TImport;
 import cn.com.hd.dto.navy.TStockholder;
 import cn.com.hd.dto.navy.TSupProduct;
 import cn.com.hd.dto.navy.TSupportor;
+import cn.com.hd.dto.navy.TTransport;
 import cn.com.hd.error.ErrorProcessor;
 import cn.com.hd.service.BaseService;
 import cn.com.hd.service.IService;
@@ -51,13 +52,12 @@ public class SupImportService extends BaseService implements IService {
 			CompressUtils.unCompressZip(target, targetPath);
 			List<TImage> imgList = new ArrayList<TImage>();
 			
-//			String impXml = targetPath + "/import.xml";
-			String supXml = targetPath + "/supportor.xml";				// ¹©Ó¦ÉÌ
-			String prodXml = targetPath + "/supportor_product.xml";		// ²úÆ·
-			String stockXml = targetPath + "/supportor_stock.xml";		// ¹É¶«
-			String orgXml = targetPath + "/supportor_org.xml";			// ÊÛºó
-			String tranXml = targetPath + "/supportor_tran.xml";		// ½»Í¨ÔËÊä
-			String wayXml = targetPath + "/supportor_highway.xml";		// ¸ßËÙ¹«Â·
+			String supXml = targetPath + "/supportor.xml";				// ä¾›åº”å•†
+			String prodXml = targetPath + "/supportor_product.xml";		// äº§å“
+			String stockXml = targetPath + "/supportor_stock.xml";		// è‚¡ä¸œ
+			String orgXml = targetPath + "/supportor_org.xml";			// å”®å
+			String tranXml = targetPath + "/supportor_tran.xml";		// äº¤é€šè¿è¾“
+			String wayXml = targetPath + "/supportor_highway.xml";		// é«˜é€Ÿå…¬è·¯
 			
 			Map<String, TSupportor> supMap = new HashMap<String, TSupportor>();
 			Document doc = XMLUtils.readXML(supXml);
@@ -163,8 +163,8 @@ public class SupImportService extends BaseService implements IService {
 				save(org);
 			}
 			
-			// ½âÎö½»Í¨ÔËÊäÎÄ¼ş
-			String comId = null;		// ÔËÊäÆóÒµ
+			// è§£æäº¤é€šè¿è¾“æ–‡ä»¶
+			String comId = null;		// è¿è¾“ä¼ä¸š
 			doc = XMLUtils.readXML(tranXml);
 			List tranElemList = doc.getRootElement().getChildren("ROW");
 			for (int i = 0; i < tranElemList.size(); i ++) {
@@ -210,7 +210,7 @@ public class SupImportService extends BaseService implements IService {
 			ErrorProcessor.prompt(this.getClass().getName(), ex.getMessage(), ex);
 			Response response = new Response();
 			response.setResult(0);
-			response.setErrorInfo("µ¼ÈëÊ§°Ü");
+			response.setErrorInfo("å¯¼å…¥å¤±è´¥");
 			return response;
 		}
 	}
