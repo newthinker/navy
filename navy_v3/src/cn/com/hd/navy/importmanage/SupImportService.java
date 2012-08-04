@@ -14,10 +14,12 @@ import com.jspsmart.upload.Files;
 
 import cn.com.hd.database.SelectResultSet;
 import cn.com.hd.dto.navy.TAftersaleOrg;
+import cn.com.hd.dto.navy.THighWay;
 import cn.com.hd.dto.navy.TImage;
 import cn.com.hd.dto.navy.TImport;
 import cn.com.hd.dto.navy.TStockholder;
 import cn.com.hd.dto.navy.TSupProduct;
+import cn.com.hd.dto.navy.TSupTrans;
 import cn.com.hd.dto.navy.TSupportor;
 import cn.com.hd.dto.navy.TTransport;
 import cn.com.hd.error.ErrorProcessor;
@@ -72,6 +74,40 @@ public class SupImportService extends BaseService implements IService {
 				}
 				
 				String supid = sup.getSupid();
+				
+				// 处理供应商信息表中的图片
+				if ( sup.getImage()!=null ) {
+					TImage img = new TImage();
+					img.setImageid(UUID.randomUUID().toString());
+					img.setImagename(sup.getImage());
+					
+					imgList.add(img);
+					sup.setImage(img.getImageid());
+				}
+				if ( sup.getStorehouseimage()!=null ) {			// 产品图片
+					TImage img = new TImage();
+					img.setImageid(UUID.randomUUID().toString());
+					img.setImagename(sup.getStorehouseimage());
+					
+					imgList.add(img);
+					sup.setStorehouseimage(img.getImageid());
+				}
+				if ( sup.getLicbusimage()!=null ) {				// 营业执照扫描件
+					TImage img = new TImage();
+					img.setImageid(UUID.randomUUID().toString());
+					img.setImagename(sup.getLicbusimage());
+					
+					imgList.add(img);
+					sup.setLicbusimage(img.getImageid());
+				}
+				if ( sup.getOrgstrimage()!=null ) {				// 组织结构代码证扫描件
+					TImage img = new TImage();
+					img.setImageid(UUID.randomUUID().toString());
+					img.setImagename(sup.getOrgstrimage());
+					
+					imgList.add(img);
+					sup.setOrgstrimage(img.getImageid());
+				}				
 				
 				Conditions cons = new Conditions();
 				cons.addCondition(new TSupportor());
@@ -134,6 +170,16 @@ public class SupImportService extends BaseService implements IService {
 				TSupProduct prod = new TSupProduct();
 				prod.fromXMLString(elem);
 				
+				// 处理产品图片
+				if ( prod.getProdimage()!=null ) {				// 组织结构代码证扫描件
+					TImage img = new TImage();
+					img.setImageid(UUID.randomUUID().toString());
+					img.setImagename(prod.getProdimage());
+					
+					imgList.add(img);
+					prod.setProdimage(img.getImageid());
+				}
+				
 				prod.setProdid(UUID.randomUUID().toString());
 				prod.setSupid(supMap.get(prod.getSupid()).getSupid());
 				save(prod);
@@ -163,7 +209,7 @@ public class SupImportService extends BaseService implements IService {
 				save(org);
 			}
 			
-			// 解析交通运输文件
+			// 解析运输服务企业 
 			String comId = null;		// 运输企业
 			doc = XMLUtils.readXML(tranXml);
 			List tranElemList = doc.getRootElement().getChildren("ROW");
@@ -172,13 +218,64 @@ public class SupImportService extends BaseService implements IService {
 				TTransport tran = new TTransport();
 				tran.fromXMLString(elem);
 				
-				tran.setComid(UUID.randomUUID().toString());
-				save(tran);
+				// 根据企业名称查询是否已经入库				
+				String comName = tran.getComname();
+				if ( comName!=null ) {
+					TTransport temp = new TTransport();
+					temp.setComname(tran.getComname());
+					SelectResultSet rs = queryResultSet(temp);
+					List list = getDTO(rs);
+					if ( list.size()>0 ) {	// 已经录入
+						DTO dto = (DTO) list.get(0);
+						getData(dto, temp);
+						comId = temp.getComid();
+					} else {	// 新运输服务企业
+						comId = UUID.randomUUID().toString();
+						tran.setComid(comId);
+						save(tran);
+					}						
+				} 					
+
 			}
+						
+			if ( comId!=null ) {
+				// 建立供应商和运输服务企业间的联系
+				TSupTrans supTrans = new TSupTrans();
+				supTrans.setSupid(supMap.get(supTrans.getSupid()).getSupid());
+				supTrans.setComid(comId);
+				// 查询是否已经有记录
+				SelectResultSet rs = queryResultSet(supTrans);
+				List list = getDTO(rs);
+				if ( list.size()==0 ) {		// 没有录入
+					save(supTrans);
+				}				
+								
+				// 解析高速公路文件 (高速公路信息表如何避免重复输入？首先得知道怎么确定唯一性？同一运输企业，同一入口，然后为不同的供应商服务，这如何区分？)
+/*				doc = XMLUtils.readXML(wayXml);
+				List wayElemList = doc.getRootElement().getChildren("ROW");
+				for (int i = 0; i < wayElemList.size(); i++) {
+					Element elem = (Element) wayElemList.get(i);
+					THighWay way = new THighWay();
+					way.fromXMLString(elem);
+					way.setComid(comId);
+					save(way);
+				}			
+*/			}
 			
 			for (TImage img : imgList) {
-				String src = targetPath + "/" + img.getImagename();
-				String desc = SystemParam.getParam("AbsolutePath") + img.getImagepath();
+				// 从文件名中获取文件类型
+				String imgName = img.getImagename();
+				String imgType = imgName.substring(imgName.lastIndexOf('.')+1);
+				img.setImagetype(imgType);
+				String src = targetPath + imgName;
+				
+				String desc = SystemParam.getParam("AbsolutePath");
+				if ( img.getImagepath()!=null ) {
+					desc = SystemParam.getParam("AbsolutePath") + img.getImagepath();
+				} else {
+					desc = SystemParam.getParam("AbsolutePath") + "ImgDir" + java.io.File.separator + imgName;
+				}
+				
 				try {
 					FileUtils.copy(src, desc);
 					

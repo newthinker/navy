@@ -14,16 +14,16 @@
             </column>
         </property>
         <property name="trucktype" type="VARCHAR2">
-            <column name="TRUCK_TYPE" length="3">
+            <column name="TRUCK_TYPE" length="10">
             	<comment>运输车种类</comment>
             </column>
         </property>	
-        <property name="deadweight" type="INTEGER">
+        <property name="deadweight" type="NUMBER">
             <column name="DEADWEIGHT">
             	<comment>载重量</comment>
             </column>
         </property>
-        <property name="count" type="INTEGER">
+        <property name="count" type="NUMBER">
             <column name="COUNT">
             	<comment>运输车数量</comment>
             </column>

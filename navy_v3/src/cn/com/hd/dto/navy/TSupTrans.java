@@ -19,7 +19,7 @@ public class TSupTrans extends BaseDTO {
 	}
 
 	public void setSupid(String Supid) {
-		this.supid = supid;
+		this.supid = Supid;
 	}
 
 	public String getComid() {
@@ -27,7 +27,7 @@ public class TSupTrans extends BaseDTO {
 	}
 
 	public void setComid(String Comid) {
-		this.comid = comid;
+		this.comid = Comid;
 	}
 
 }

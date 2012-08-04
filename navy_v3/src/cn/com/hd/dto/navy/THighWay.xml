@@ -9,7 +9,7 @@
             </column>
         </id>
         <property name="hiwid" type="VARCHAR2">
-            <column name="hiwid" length="32">
+            <column name="HIW_ID" length="32">
             	<comment>高速公路编号</comment>
             </column>
         </property>

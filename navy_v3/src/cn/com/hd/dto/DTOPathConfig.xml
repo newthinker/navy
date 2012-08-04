@@ -18,4 +18,8 @@
 	<path>WEB-INF\classes\cn\com\hd\dto\navy\TAftersaleOrg.xml</path>
 	<path>WEB-INF\classes\cn\com\hd\dto\navy\TStockholder.xml</path>
 	<path>WEB-INF\classes\cn\com\hd\dto\navy\TSupProduct.xml</path>
+	<path>WEB-INF\classes\cn\com\hd\dto\navy\THighWay.xml</path>
+	<path>WEB-INF\classes\cn\com\hd\dto\navy\TProveInfo.xml</path>
+	<path>WEB-INF\classes\cn\com\hd\dto\navy\TSupTrans.xml</path>
+	<path>WEB-INF\classes\cn\com\hd\dto\navy\TTransport.xml</path>
 </path-config>

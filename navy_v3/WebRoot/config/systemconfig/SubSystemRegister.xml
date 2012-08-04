@@ -6,6 +6,10 @@
 			<class>cn.com.hd.navy.importmanage.ImportService</class>
 		</service>
 		<service>
+			<name>NavyManage.SupImportService</name>
+			<class>cn.com.hd.navy.importmanage.SupImportService</class>
+		</service>
+		<service>
 			<name>NavyManage.ExportService</name>
 			<class>cn.com.hd.navy.importmanage.ExportService</class>
 		</service>

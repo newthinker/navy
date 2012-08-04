@@ -17,5 +17,6 @@
 	<bean id="NavyManage.ImportUploadService" class="cn.com.hd.navy.importmanage.ImportUploadService "/>
 	<bean id="NavyManage.ImportImageDeleteService" class="cn.com.hd.navy.importmanage.ImportImageDeleteService "/>
 	<bean id="NavyManage.NavyDictUpdateService" class="cn.com.hd.dict.NavyDictUpdateService "/>
+	<bean id="NavyManage.SupImportService" class="cn.com.hd.navy.importmanage.SupImportService "/>		<!-- 供应商导入 -->
 	
 </beans>
