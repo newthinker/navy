@@ -161,7 +161,7 @@ public class ImportService extends BaseService implements IService {
 				save(org);
 			}
 			
-			doc = XMLUtils.readXML(impXml);
+/*			doc = XMLUtils.readXML(impXml);
 			List impElemList = doc.getRootElement().getChildren("ROW");
 			for (int i = 0; i < impElemList.size(); i ++) {
 				Element elem = (Element) impElemList.get(i);
@@ -308,7 +308,7 @@ public class ImportService extends BaseService implements IService {
 					update(imp);
 				}
 			}
-			
+*/			
 			for (TImage img : imgList) {
 				String src = targetPath + "/" + img.getImagename();
 				String desc = SystemParam.getParam("AbsolutePath") + img.getImagepath();
