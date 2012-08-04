@@ -1,4 +1,4 @@
-package cn.com.hd.dict;
+ï»¿package cn.com.hd.dict;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -23,7 +23,7 @@ public class DictUpdateService extends BaseService implements IService {
 		super.getData(request.getDto(), dictdetail);
 
 		if (dictdetail.getDictcode() == null || dictdetail.getTypeid() == null) {
-			return error("×Öµä´úÂë»ò×Öµä·ÖÀà´úÂëÎª¿Õ£¬ĞŞ¸ÄÊ§°Ü", getDTO(dictdetail));
+			return error("å­—å…¸ä»£ç æˆ–å­—å…¸åˆ†ç±»ä»£ç ä¸ºç©ºï¼Œä¿®æ”¹å¤±è´¥", getDTO(dictdetail));
 		}
 		
 		Conditions cons = new Conditions();
@@ -31,7 +31,7 @@ public class DictUpdateService extends BaseService implements IService {
 		cons.addExpression("TYPE_ID = '" + dictdetail.getTypeid() + "' AND DICT_NAME = '" + dictdetail.getDictname() + "' AND DICT_CODE != '" + dictdetail.getDictcode() + "'");
 		SelectResultSet rs = queryResultSet(cons);
 		if (rs.getRowCount() > 0) {
-			return error("Ãû³ÆÒÑ´æÔÚ£¬ÇëÖØĞÂÌîĞ´", getDTO(dictdetail));
+			return error("åç§°å·²å­˜åœ¨ï¼Œè¯·é‡æ–°å¡«å†™", getDTO(dictdetail));
 		}
 		
 		dictdetail.setOperatorid(loginInfo.getUserid());

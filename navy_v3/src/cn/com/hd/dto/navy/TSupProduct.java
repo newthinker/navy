@@ -1,4 +1,4 @@
-package cn.com.hd.dto.navy;
+ï»¿package cn.com.hd.dto.navy;
 
 import cn.com.hd.service.BaseDTO;
 
@@ -23,7 +23,7 @@ public class TSupProduct extends BaseDTO {
 	private String singlemaxoutput;
 	private String singlemaxdate;
 	private String remark;
-	private String prodimage;		// ²úÆ·ÕÕÆ¬±àºÅ
+	private String prodimage;		// äº§å“ç…§ç‰‡ç¼–å·
 
 	public String getProdid() {
 		return prodid;

@@ -1,4 +1,4 @@
-package cn.com.hd.dto.log;
+﻿package cn.com.hd.dto.log;
 
 import java.util.Date;
 

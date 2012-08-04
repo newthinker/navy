@@ -1,9 +1,9 @@
-package cn.com.hd.utils;
+ï»¿package cn.com.hd.utils;
 
 /**
  * @(#)MD5.java  1.00 
  * Apr 26, 2008 3:55:28 PM
- * Copyright (c) 2007-2008 __MyCorp ÓĞÏŞ¹«Ë¾ °æÈ¨Ü²•Ê
+ * Copyright (c) 2007-2008 __MyCorp æœ‰é™å…¬å¸ ç‰ˆæƒæ‡¿æš¿
  * __Mycorp Company of China. All rights reserved.
  * 
  * This software is the confidential and proprietary
@@ -19,7 +19,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 /**
- * ÊµÓÃjava.security.MessageDigestÊµÏÖMD5µÄµ¥Ïò¼ÓŒ\
+ * å®ç”¨java.security.MessageDigestå®ç°MD5çš„å•å‘åŠ å­¿
  * 
  * @since BASE 0.1
  */
@@ -34,11 +34,11 @@ public class MD5 {
 	}
 
 	/**
-	 * ·µ»Ø½«ÖÆ¶¨µÄ×Ö·û´®½øĞĞMD5µ¥Ïò¼ÓÃÜºóµÄ½á¹û
+	 * è¿”å›å°†åˆ¶å®šçš„å­—ç¬¦ä¸²è¿›è¡ŒMD5å•å‘åŠ å¯†åçš„ç»“æœ
 	 * 
 	 * @param sourceData
 	 *            String
-	 * @return String ·µ»Ø½«ÖÆ¶¨µÄ×Ö·û´®½øĞĞMD5µ¥Ïò¼ÓÃÜºóµÄ½á¹û
+	 * @return String è¿”å›å°†åˆ¶å®šçš„å­—ç¬¦ä¸²è¿›è¡ŒMD5å•å‘åŠ å¯†åçš„ç»“æœ
 	 * @since BASE 0.1
 	 */
 	public static String getMD5Digest(String sourceData) {

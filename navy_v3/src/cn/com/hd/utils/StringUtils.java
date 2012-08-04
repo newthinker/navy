@@ -1,13 +1,13 @@
-/*******************************************************************************
- * ÎÄ¼şÃû£ºStringUtils.java
+ï»¿/*******************************************************************************
+ * æ–‡ä»¶åï¼šStringUtils.java
  * 
  * Copyright 2007 HD Co.[www.huadi.com.cn]
  * 
- * ×÷Õß£ºHuadi
+ * ä½œè€…ï¼šHuadi
  * 
- * ´´½¨ÈÕÆÚ£º2007-09-11
+ * åˆ›å»ºæ—¥æœŸï¼š2007-09-11
  * 
- * ËµÃ÷£ºÖ÷ÒªÉè¼ÆÀàÎªStringUtils
+ * è¯´æ˜ï¼šä¸»è¦è®¾è®¡ç±»ä¸ºStringUtils
  ******************************************************************************/
 package cn.com.hd.utils;
 
@@ -19,7 +19,7 @@ import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.DESKeySpec;
 
 /**
- * ÀàÎª´¦Àí×Ö·û´®µÄ¹¤¾ß
+ * ç±»ä¸ºå¤„ç†å­—ç¬¦ä¸²çš„å·¥å…·
  * 
  * @author Huadi
  * 
@@ -28,7 +28,7 @@ import javax.crypto.spec.DESKeySpec;
 public class StringUtils {
 
 	/**
-	 * µÇÂ½ÃÜÂëÃÜÔ¿
+	 * ç™»é™†å¯†ç å¯†é’¥
 	 */
 	private static final String PASSWORD_CRYPT_KEY = "huadifgw";
 
@@ -38,11 +38,11 @@ public class StringUtils {
 	private final static String DES = "DES";
 
 	/**
-	 * ¶ş½øÖÆ×ª×Ö·û´®
+	 * äºŒè¿›åˆ¶è½¬å­—ç¬¦ä¸²
 	 * 
-	 * @param b ¶ş½øÖÆ
+	 * @param b äºŒè¿›åˆ¶
 	 * 
-	 * @return ×Ö·û´®
+	 * @return å­—ç¬¦ä¸²
 	 */
 	public static String byte2hex(byte[] b) {
 		String hs = "";
@@ -63,45 +63,45 @@ public class StringUtils {
 	}
 
 	/**
-	 * ½âÃÜ
+	 * è§£å¯†
 	 * 
-	 * @param src Êı¾İÔ´
+	 * @param src æ•°æ®æº
 	 * 
-	 * @param key ÃÜÔ¿£¬³¤¶È±ØĞëÊÇ8µÄ±¶Êı
+	 * @param key å¯†é’¥ï¼Œé•¿åº¦å¿…é¡»æ˜¯8çš„å€æ•°
 	 * 
-	 * @return ·µ»Ø½âÃÜºóµÄÔ­Ê¼Êı¾İ
+	 * @return è¿”å›è§£å¯†åçš„åŸå§‹æ•°æ®
 	 * 
 	 * @throws Exception
 	 */
 	public static byte[] decrypt(byte[] src, byte[] key) throws Exception {
-		//DESËã·¨ÒªÇóÓĞÒ»¸ö¿ÉĞÅÈÎµÄËæ»úÊıÔ´
+		//DESç®—æ³•è¦æ±‚æœ‰ä¸€ä¸ªå¯ä¿¡ä»»çš„éšæœºæ•°æº
 		SecureRandom sr = new SecureRandom();
 
-		//´ÓÔ­Ê¼ÃÜ³×Êı¾İ´´½¨Ò»¸öDESKeySpec¶ÔÏó
+		//ä»åŸå§‹å¯†åŒ™æ•°æ®åˆ›å»ºä¸€ä¸ªDESKeySpecå¯¹è±¡
 		DESKeySpec dks = new DESKeySpec(key);
 
-		//´´½¨Ò»¸öÃÜ³×¹¤³§£¬È»ºóÓÃËü°ÑDESKeySpec¶ÔÏó×ª»»³É£¬Ò»¸öSecretKey¶ÔÏó
+		//åˆ›å»ºä¸€ä¸ªå¯†åŒ™å·¥å‚ï¼Œç„¶åç”¨å®ƒæŠŠDESKeySpecå¯¹è±¡è½¬æ¢æˆï¼Œä¸€ä¸ªSecretKeyå¯¹è±¡
 		SecretKeyFactory keyFactory = SecretKeyFactory.getInstance(DES);
 		SecretKey securekey = keyFactory.generateSecret(dks);
 
-		//Cipher¶ÔÏóÊµ¼ÊÍê³É½âÃÜ²Ù×÷
+		//Cipherå¯¹è±¡å®é™…å®Œæˆè§£å¯†æ“ä½œ
 		Cipher cipher = Cipher.getInstance(DES);
 
-		//ÓÃÃÜ³×³õÊ¼»¯Cipher¶ÔÏó
+		//ç”¨å¯†åŒ™åˆå§‹åŒ–Cipherå¯¹è±¡
 		cipher.init(Cipher.DECRYPT_MODE, securekey, sr);
 
-		// ÏÖÔÚ£¬»ñÈ¡Êı¾İ²¢½âÃÜ
+		// ç°åœ¨ï¼Œè·å–æ•°æ®å¹¶è§£å¯†
 
 		return cipher.doFinal(src);
 
 	}
 
 	/**
-	 * ÃÜÂë½âÃÜ
+	 * å¯†ç è§£å¯†
 	 * 
-	 * @param data Ô´×Ö·û
+	 * @param data æºå­—ç¬¦
 	 * 
-	 * @return ½âÃÜºó×Ö·û
+	 * @return è§£å¯†åå­—ç¬¦
 	 * 
 	 * @throws Exception
 	 */
@@ -117,44 +117,44 @@ public class StringUtils {
 	}
 
 	/**
-	 * ¼ÓÃÜ
+	 * åŠ å¯†
 	 * 
-	 * @param src Êı¾İÔ´
+	 * @param src æ•°æ®æº
 	 * 
-	 * @param key ÃÜÔ¿£¬³¤¶È±ØĞëÊÇ8µÄ±¶Êı
+	 * @param key å¯†é’¥ï¼Œé•¿åº¦å¿…é¡»æ˜¯8çš„å€æ•°
 	 * 
-	 * @return ·µ»Ø¼ÓÃÜºóµÄÊı¾İ
+	 * @return è¿”å›åŠ å¯†åçš„æ•°æ®
 	 * 
 	 * @throws Exception
 	 */
 	public static byte[] encrypt(byte[] src, byte[] key) throws Exception {
-		//DESËã·¨ÒªÇóÓĞÒ»¸ö¿ÉĞÅÈÎµÄËæ»úÊıÔ´
+		//DESç®—æ³•è¦æ±‚æœ‰ä¸€ä¸ªå¯ä¿¡ä»»çš„éšæœºæ•°æº
 		SecureRandom sr = new SecureRandom();
 
-		//´ÓÔ­Ê¼ÃÜ³×Êı¾İ´´½¨DESKeySpec¶ÔÏó
+		//ä»åŸå§‹å¯†åŒ™æ•°æ®åˆ›å»ºDESKeySpecå¯¹è±¡
 		DESKeySpec dks = new DESKeySpec(key);
 
-		//´´½¨Ò»¸öÃÜ³×¹¤³§£¬È»ºóÓÃËü°ÑDESKeySpec×ª»»³É£¬Ò»¸öSecretKey¶ÔÏó
+		//åˆ›å»ºä¸€ä¸ªå¯†åŒ™å·¥å‚ï¼Œç„¶åç”¨å®ƒæŠŠDESKeySpecè½¬æ¢æˆï¼Œä¸€ä¸ªSecretKeyå¯¹è±¡
 		SecretKeyFactory keyFactory = SecretKeyFactory.getInstance(DES);
 		SecretKey securekey = keyFactory.generateSecret(dks);
 
-		//Cipher¶ÔÏóÊµ¼ÊÍê³É¼ÓÃÜ²Ù×÷
+		//Cipherå¯¹è±¡å®é™…å®ŒæˆåŠ å¯†æ“ä½œ
 		Cipher cipher = Cipher.getInstance(DES);
 
-		//ÓÃÃÜ³×³õÊ¼»¯Cipher¶ÔÏó
+		//ç”¨å¯†åŒ™åˆå§‹åŒ–Cipherå¯¹è±¡
 		cipher.init(Cipher.ENCRYPT_MODE, securekey, sr);
 
-		//ÏÖÔÚ£¬»ñÈ¡Êı¾İ²¢¼ÓÃÜ
+		//ç°åœ¨ï¼Œè·å–æ•°æ®å¹¶åŠ å¯†
 
 		return cipher.doFinal(src);
 	}
 
 	/**
-	 * ¼ÓÃÜ
+	 * åŠ å¯†
 	 * 
-	 * @param password Ô´×Ö·û
+	 * @param password æºå­—ç¬¦
 	 * 
-	 * @return ¼ÓÃÜºó×Ö·û
+	 * @return åŠ å¯†åå­—ç¬¦
 	 * 
 	 * @throws Exception
 	 */
@@ -170,11 +170,11 @@ public class StringUtils {
 	}
 
 	/**
-	 * »ñµÃÎÄ¼şÀ©Õ¹Ãû
+	 * è·å¾—æ–‡ä»¶æ‰©å±•å
 	 * 
-	 * @param name Ãû³ÆÈ«Â·¾¶
+	 * @param name åç§°å…¨è·¯å¾„
 	 * 
-	 * @return ÎÄ¼şÀ©Õ¹Ãû
+	 * @return æ–‡ä»¶æ‰©å±•å
 	 */
 	public static String getFileExtName(String name) {
 		int index = name.lastIndexOf(".");
@@ -186,12 +186,12 @@ public class StringUtils {
 	}
 
 	/**
-	 * »ñµÃÎÄ¼şÃû³Æ
+	 * è·å¾—æ–‡ä»¶åç§°
 	 * 
-	 * @param name ÎÄ¼şÃû³Æ
-	 * @param pattern Â·¾¶·Ö¸ô·û
+	 * @param name æ–‡ä»¶åç§°
+	 * @param pattern è·¯å¾„åˆ†éš”ç¬¦
 	 *  
-	 * @return ÎÄ¼şÃû³Æ
+	 * @return æ–‡ä»¶åç§°
 	 */
 	public static String getFileFullName(String name, String pattern) {
 		int index = name.lastIndexOf(pattern);
@@ -204,11 +204,11 @@ public class StringUtils {
 	}
 	
 	/**
-	 * »ñµÃÎÄ¼şÂ·¾¶
+	 * è·å¾—æ–‡ä»¶è·¯å¾„
 	 * 
-	 * @param name ÎÄ¼şÂ·¾¶
+	 * @param name æ–‡ä»¶è·¯å¾„
 	 *  
-	 * @return ÎÄ¼şÂ·¾¶
+	 * @return æ–‡ä»¶è·¯å¾„
 	 */
 	public static String getFileFullPath(String name, String pattern) {
 		int index = name.lastIndexOf(pattern);
@@ -220,10 +220,10 @@ public class StringUtils {
 	}
 	
 	/**
-	 * »ñµÃÎÄ¼şÃû³Æ
+	 * è·å¾—æ–‡ä»¶åç§°
 	 * 
-	 * @param name Ãû³ÆÈ«Â·¾¶
-	 * @return ÎÄ¼şÃû³Æ
+	 * @param name åç§°å…¨è·¯å¾„
+	 * @return æ–‡ä»¶åç§°
 	 */
 	public static String getFileName(String name) {
 		int index = name.lastIndexOf(".");
@@ -235,15 +235,15 @@ public class StringUtils {
 	}
 	
 	/**
-	 * hex×ªÎª×Ö½Ú
+	 * hexè½¬ä¸ºå­—èŠ‚
 	 * 
-	 * @param b Ô´Êı¾İ
+	 * @param b æºæ•°æ®
 	 * 
-	 * @return ´¦ÀíºóÊı¾İ
+	 * @return å¤„ç†åæ•°æ®
 	 */
 	public static byte[] hex2byte(byte[] b) {
 		if ((b.length % 2) != 0) {
-			throw new IllegalArgumentException("³¤¶È²»ÊÇÅ¼Êı");
+			throw new IllegalArgumentException("é•¿åº¦ä¸æ˜¯å¶æ•°");
 		}
 
 		byte[] b2 = new byte[b.length / 2];
@@ -258,11 +258,11 @@ public class StringUtils {
 	}
 	
 	/**
-	 * ×Ö·û´®Ê××ÖÄ¸Ğ¡Ğ´
+	 * å­—ç¬¦ä¸²é¦–å­—æ¯å°å†™
 	 * 
-	 * @param string Ô´×Ö·û´®
+	 * @param string æºå­—ç¬¦ä¸²
 	 * 
-	 * @return ´¦Àíºó×Ö·û
+	 * @return å¤„ç†åå­—ç¬¦
 	 */
 	public static String toCapitalLower(String string) {
 		String first = new String(new char[] {string.charAt(0)});
@@ -270,11 +270,11 @@ public class StringUtils {
 	}
 	
 	/**
-	 * ×Ö·û´®Ê××ÖÄ¸´óĞ´
+	 * å­—ç¬¦ä¸²é¦–å­—æ¯å¤§å†™
 	 * 
-	 * @param string Ô´×Ö·û´®
+	 * @param string æºå­—ç¬¦ä¸²
 	 * 
-	 * @return ´¦Àíºó×Ö·û
+	 * @return å¤„ç†åå­—ç¬¦
 	 */
 	public static String toCapitalUpper(String string) {
 		String first = new String(new char[] {string.charAt(0)});

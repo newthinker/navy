@@ -1,4 +1,4 @@
-package cn.com.hd.dict;
+﻿package cn.com.hd.dict;
 
 import java.util.ArrayList;
 import java.util.Calendar;

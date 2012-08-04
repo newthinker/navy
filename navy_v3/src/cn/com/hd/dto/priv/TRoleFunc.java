@@ -1,4 +1,4 @@
-package cn.com.hd.dto.priv;
+﻿package cn.com.hd.dto.priv;
 
 import cn.com.hd.service.BaseDTO;
 

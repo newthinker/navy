@@ -1,4 +1,4 @@
-package cn.com.hd.dto.navy;
+ï»¿package cn.com.hd.dto.navy;
 
 import java.util.Date;
 
@@ -81,14 +81,14 @@ public class TSupportor extends BaseDTO {
 	private String manufacturerperformance;
 	private String manufacturersummary;
 	private String manufacturer;
-	private Double storehousearea;			// ²Ö¿â×ÜÃæ»ı
-	private Double warehousearea;			// »õ³¡×ÜÃæ»ı
-	private String storehouseimage;			// ²Ö¿âÕÕÆ¬
-	private String auditlast3y;				// ½üÈıÄêÉó¼Æ±¨¸æÑ¹ËõÎÄ¼ş
-	private String licbusimage;				// ÓªÒµÖ´ÕÕÉ¨Ãè¼ş
-	private String orgstrimage;				// ×éÖ¯½á¹¹´úÂëÖ¤É¨Ãè¼ş
-	private String purchasetype;			// ²É¹º·½Ê½
-	private String ifturnover;				// ÊÇ·ñ³É½»
+	private Double storehousearea;			// ä»“åº“æ€»é¢ç§¯
+	private Double warehousearea;			// è´§åœºæ€»é¢ç§¯
+	private String storehouseimage;			// ä»“åº“ç…§ç‰‡
+	private String auditlast3y;				// è¿‘ä¸‰å¹´å®¡è®¡æŠ¥å‘Šå‹ç¼©æ–‡ä»¶
+	private String licbusimage;				// è¥ä¸šæ‰§ç…§æ‰«æä»¶
+	private String orgstrimage;				// ç»„ç»‡ç»“æ„ä»£ç è¯æ‰«æä»¶
+	private String purchasetype;			// é‡‡è´­æ–¹å¼
+	private String ifturnover;				// æ˜¯å¦æˆäº¤
 
 	public String getSupid() {
 		return supid;

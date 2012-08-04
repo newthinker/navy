@@ -1,4 +1,4 @@
-package cn.com.hd.utils;
+﻿package cn.com.hd.utils;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

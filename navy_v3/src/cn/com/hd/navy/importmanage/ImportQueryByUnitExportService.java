@@ -1,4 +1,4 @@
-package cn.com.hd.navy.importmanage;
+ï»¿package cn.com.hd.navy.importmanage;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
@@ -63,7 +63,7 @@ public class ImportQueryByUnitExportService extends BaseService implements IServ
 		book.close();
 		
 		SimpleDateFormat fmtDate = new SimpleDateFormat("yyyy-MM-dd");
-		String filename = "º£¾üÎï×Ê°´µ¥Î»»ã×Ü·ÖÎö" + fmtDate.format(new Date()) + ".xls";
+		String filename = "æµ·å†›ç‰©èµ„æŒ‰å•ä½æ±‡æ€»åˆ†æ" + fmtDate.format(new Date()) + ".xls";
 		resp.getDto().setList("RESULT", list);
 		resp.getDto().put("DOWNLOAD", StringUtils.encrypt(target));
 		resp.getDto().put("DOWNLOAD_FILENAME", StringUtils.encrypt(filename));

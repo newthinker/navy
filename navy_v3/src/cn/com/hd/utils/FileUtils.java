@@ -1,4 +1,4 @@
-package cn.com.hd.utils;
+锘縫ackage cn.com.hd.utils;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -15,7 +15,7 @@ public class FileUtils {
 	
 	public static String copy(File source, File dest) throws IOException {
 		if (!source.exists()) {
-			throw new IOException("源文件不存在");
+			throw new IOException("婧愭枃浠朵笉瀛樺湪");
 		}
 		
 		if (!dest.getParentFile().exists()) {
@@ -47,7 +47,7 @@ public class FileUtils {
 			}
 		} catch (Exception ex) {
 			ex.printStackTrace();
-			throw new IOException("文件拷备失败");
+			throw new IOException("鏂囦欢鎷峰澶辫触");
 		} finally {
 			if (fis != null) {
 				try {

@@ -1,13 +1,13 @@
-/*******************************************************************************
- * ÎÄ¼şÃû£ºSessionTimeoutFilter.java
+ï»¿/*******************************************************************************
+ * æ–‡ä»¶åï¼šSessionTimeoutFilter.java
  * 
  * Copyright 2007 HD Co.[www.huadi.com.cn]
  * 
- * ×÷Õß£ºHuadi
+ * ä½œè€…ï¼šHuadi
  * 
- * ´´½¨ÈÕÆÚ£º2007-09-11
+ * åˆ›å»ºæ—¥æœŸï¼š2007-09-11
  * 
- * ËµÃ÷£ºÖ÷ÒªÉè¼ÆÀàÎªSessionTimeoutFilter
+ * è¯´æ˜ï¼šä¸»è¦è®¾è®¡ç±»ä¸ºSessionTimeoutFilter
  ******************************************************************************/
 package cn.com.hd.filter;
 
@@ -16,7 +16,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 
 /**
- * ¸ÃÀàÎªsession¹ıÂËÆ÷£¬ÅĞ¶ÏÓĞÃ»ÓĞsessionºÍÓĞÃ»ÓĞµÇÂ½ÏµÍ³
+ * è¯¥ç±»ä¸ºsessionè¿‡æ»¤å™¨ï¼Œåˆ¤æ–­æœ‰æ²¡æœ‰sessionå’Œæœ‰æ²¡æœ‰ç™»é™†ç³»ç»Ÿ
  * 
  * @author Huadi
  * 
@@ -25,32 +25,32 @@ import javax.servlet.http.*;
 public class SessionTimeoutFilter implements Filter {
 
 	/**
-	 * ¹ıÂËÅäÖÃ
+	 * è¿‡æ»¤é…ç½®
 	 */
 	private FilterConfig filterConfig;
 
 	/**
-	 * ¹ıÂËÆ÷ÊÇ·ñÓĞĞ§
+	 * è¿‡æ»¤å™¨æ˜¯å¦æœ‰æ•ˆ
 	 */
 	private String enable;
 
 	/**
-	 * ³öÏÖÃ»ÓĞsession»òÃ»ÓĞµÇÂ½ÏµÍ³Ê±£¬Ìø×ªÒ³Ãæurl
+	 * å‡ºç°æ²¡æœ‰sessionæˆ–æ²¡æœ‰ç™»é™†ç³»ç»Ÿæ—¶ï¼Œè·³è½¬é¡µé¢url
 	 */
 	private String redirectURL;
 
 	/**
-	 * ¹ıÂËÅÅ³ıÎÄ¼ş£¬ÒÔ"#"·Ö¸î
+	 * è¿‡æ»¤æ’é™¤æ–‡ä»¶ï¼Œä»¥"#"åˆ†å‰²
 	 */
 	private String exceptFiles;
 	
 	/**
-	 * µÇÂ½ºóÓÃ»§ĞÅÏ¢ÔÚsessionÖĞµÄ±êÊ¶³£Á¿
+	 * ç™»é™†åç”¨æˆ·ä¿¡æ¯åœ¨sessionä¸­çš„æ ‡è¯†å¸¸é‡
 	 */
 	private String userSession;
 
 	/**
-	 * ³õÊ¼»¯²ÎÊı
+	 * åˆå§‹åŒ–å‚æ•°
 	 */
 	public SessionTimeoutFilter() {
 		filterConfig = null;
@@ -61,11 +61,11 @@ public class SessionTimeoutFilter implements Filter {
 	}
 
 	/**
-	 * ¼ì²éÓĞÃ»ÓĞsessionºÍÓĞÃ»ÓĞµÇÂ½ÏµÍ³£¬Õı³£·µ»Øtrue£¬·ñÔòfalse
+	 * æ£€æŸ¥æœ‰æ²¡æœ‰sessionå’Œæœ‰æ²¡æœ‰ç™»é™†ç³»ç»Ÿï¼Œæ­£å¸¸è¿”å›trueï¼Œå¦åˆ™false
 	 * 
-	 * @param request Ò³ÃæÇëÇó
+	 * @param request é¡µé¢è¯·æ±‚
 	 * 
-	 * @return ÊÇ·ñÕı³£
+	 * @return æ˜¯å¦æ­£å¸¸
 	 */
 	private boolean checkSession(HttpServletRequest request) {
 		String requestURI = request.getRequestURI();
@@ -90,7 +90,7 @@ public class SessionTimeoutFilter implements Filter {
 	}
 
 	/**
-	 * ¹ıÂËÖÕÖ¹Ê±£¬»ØÊÕ×ÊÔ´
+	 * è¿‡æ»¤ç»ˆæ­¢æ—¶ï¼Œå›æ”¶èµ„æº
 	 */
 	public void destroy() {
 		filterConfig = null;
@@ -100,11 +100,11 @@ public class SessionTimeoutFilter implements Filter {
 	}
 
 	/**
-	 * ¿ªÊ¼½øĞĞ¹ıÂË
+	 * å¼€å§‹è¿›è¡Œè¿‡æ»¤
 	 * 
-	 * @param request Ò³ÃæÇëÇórequest
-	 * @param response Ò³ÃæÏìÓ¦response
-	 * @param filterChain ¹ıÂËÁ´
+	 * @param request é¡µé¢è¯·æ±‚request
+	 * @param response é¡µé¢å“åº”response
+	 * @param filterChain è¿‡æ»¤é“¾
 	 * 
 	 * @exception IOExcepion, ServletException
 	 */
@@ -125,9 +125,9 @@ public class SessionTimeoutFilter implements Filter {
 	}
 
 	/**
-	 * ÉèÖÃ³õÊ¼»¯²ÎÊı
+	 * è®¾ç½®åˆå§‹åŒ–å‚æ•°
 	 * 
-	 * @param filterConfig ¹ıÂËÅäÖÃ
+	 * @param filterConfig è¿‡æ»¤é…ç½®
 	 * 
 	 * @exception ServletException
 	 */

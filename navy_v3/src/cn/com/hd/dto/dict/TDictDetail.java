@@ -1,4 +1,4 @@
-package cn.com.hd.dto.dict;
+﻿package cn.com.hd.dto.dict;
 
 import java.util.Date;
 

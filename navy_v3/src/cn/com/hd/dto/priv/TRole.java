@@ -1,4 +1,4 @@
-package cn.com.hd.dto.priv;
+﻿package cn.com.hd.dto.priv;
 
 import java.util.Date;
 

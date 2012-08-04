@@ -1,4 +1,4 @@
-package cn.com.hd.servlet;
+﻿package cn.com.hd.servlet;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -96,7 +96,7 @@ public class SystemUploadServiceServlet extends HttpServlet {
 			ex.printStackTrace();
 		} catch (SecurityException ex) {
 			Response resp = new Response();
-			resp.setErrorInfo("�ļ���СӦС��" + size + "M");
+			resp.setErrorInfo("文件大小应小于" + size + "M");
 			request.setAttribute("XML_DATA", resp);
 			
 			String url = request.getParameter("url");

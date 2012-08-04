@@ -1,4 +1,4 @@
-package cn.com.hd.navy.supportormanage;
+ï»¿package cn.com.hd.navy.supportormanage;
 
 import cn.com.hd.dto.navy.TSupportor;
 import cn.com.hd.service.BaseService;
@@ -30,7 +30,7 @@ public class SupportorUpdateService extends BaseService implements IService {
 			response.getDto().setSelectItems(resp.getDto().getList("RESULT"));
 			response.setRequestParam(request.getDto());
 			response.getDto().setList("RESULT", getDTO(supportor));
-			response.setErrorInfo("¹©Ó¦ÉÌÃû³ÆÒÑ´æÔÚ");
+			response.setErrorInfo("ä¾›åº”å•†åç§°å·²å­˜åœ¨");
 			response.setResult(0);
 			
 			return response;
@@ -50,7 +50,7 @@ public class SupportorUpdateService extends BaseService implements IService {
 			response.getDto().setSelectItems(resp.getDto().getList("RESULT"));
 			response.setRequestParam(request.getDto());
 			response.getDto().setList("RESULT", getDTO(supportor));
-			response.setErrorInfo("×éÖ¯»ú¹¹´úÂëÒÑ´æÔÚ");
+			response.setErrorInfo("ç»„ç»‡æœºæ„ä»£ç å·²å­˜åœ¨");
 			response.setResult(0);
 			
 			return response;
@@ -60,7 +60,7 @@ public class SupportorUpdateService extends BaseService implements IService {
 			response.setRequestParam(request.getDto());
 			response.setResult(0);
 			response.getDto().setList("RESULT", getDTO(supportor));
-			response.setErrorInfo("¹©Ó¦ÉÌIDÎª¿Õ£¬ĞŞ¸ÄÊ§°Ü");
+			response.setErrorInfo("ä¾›åº”å•†IDä¸ºç©ºï¼Œä¿®æ”¹å¤±è´¥");
 			return response;
 		}
 		

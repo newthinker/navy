@@ -1,4 +1,4 @@
-package cn.com.hd.navy.importmanage;
+ï»¿package cn.com.hd.navy.importmanage;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
@@ -34,7 +34,7 @@ public class ExportService extends BaseService implements IService {
 		String folder = UUID.randomUUID().toString();
 		String base = SystemParam.getParam("AbsolutePath");
 		String targetPath = base + "temp/export/" + folder + "/resources/";
-		String target = base + "temp/export/" + folder + "/" + "º£¾üÕ½±¸´¢±¸Îï×ÊĞÅÏ¢" + new SimpleDateFormat("yyyy-MM-dd").format(new Date()) + ".dat";
+		String target = base + "temp/export/" + folder + "/" + "æµ·å†›æˆ˜å¤‡å‚¨å¤‡ç‰©èµ„ä¿¡æ¯" + new SimpleDateFormat("yyyy-MM-dd").format(new Date()) + ".dat";
 		File f = new File(targetPath);
 		f.mkdirs();
 		
@@ -48,7 +48,7 @@ public class ExportService extends BaseService implements IService {
         StringBuffer impXml = new StringBuffer();
         impXml.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?><DTO>");
         
-		//µ¼³öÎï×ÊĞÅÏ¢¼°ÆäÉ¨Ãè¼ş²¢²éÕÒ¹©Ó¦ÉÌ
+		//å¯¼å‡ºç‰©èµ„ä¿¡æ¯åŠå…¶æ‰«æä»¶å¹¶æŸ¥æ‰¾ä¾›åº”å•†
 		for (int i = 0; i < impList.size(); i ++) {
 			DTO impDTO = (DTO) impList.get(i);
 			imp = new TImport();
@@ -108,7 +108,7 @@ public class ExportService extends BaseService implements IService {
 		
 		impXml.append("</DTO>");
 		
-		//µ¼³ö¹©Ó¦ÉÌĞÅÏ¢
+		//å¯¼å‡ºä¾›åº”å•†ä¿¡æ¯
 		supids = supids.replaceFirst(",", "");
 		Conditions cons = new Conditions();
 		cons.addCondition(new TSupportor());
@@ -119,7 +119,7 @@ public class ExportService extends BaseService implements IService {
 		StringBuffer supXml = new StringBuffer();
 		supXml.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?><DTO>");
         
-		//µ¼³ö¹©Ó¦ÉÌĞÅÏ¢
+		//å¯¼å‡ºä¾›åº”å•†ä¿¡æ¯
 		for (Object object : list) {
 			DTO dto = (DTO) object;
 			TSupportor sup = new TSupportor();
@@ -133,7 +133,7 @@ public class ExportService extends BaseService implements IService {
 		supXml.append("</DTO>");
 		
 			
-		//µ¼³ö¹©Ó¦ÉÌ²úÆ·ĞÅÏ¢
+		//å¯¼å‡ºä¾›åº”å•†äº§å“ä¿¡æ¯
 		StringBuffer prodXml = new StringBuffer();
 		prodXml.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?><DTO>");
 		
@@ -154,7 +154,7 @@ public class ExportService extends BaseService implements IService {
 		
 		prodXml.append("</DTO>");
 			
-		//µ¼³ö¹©Ó¦ÉÌ¹É¶«ĞÅÏ¢
+		//å¯¼å‡ºä¾›åº”å•†è‚¡ä¸œä¿¡æ¯
 		StringBuffer stockXml = new StringBuffer();
 		stockXml.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?><DTO>");
 		
@@ -175,7 +175,7 @@ public class ExportService extends BaseService implements IService {
 		
 		stockXml.append("</DTO>");
 			
-		//µ¼³ö¹©Ó¦ÉÌÊÛºó·şÎñĞÅÏ¢
+		//å¯¼å‡ºä¾›åº”å•†å”®åæœåŠ¡ä¿¡æ¯
 		StringBuffer orgXml = new StringBuffer();
 		orgXml.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?><DTO>");
 		
@@ -213,7 +213,7 @@ public class ExportService extends BaseService implements IService {
 		response.setResult(2);
 		
 		response.getDto().put("DOWNLOAD", StringUtils.encrypt(target));
-		response.getDto().put("DOWNLOAD_FILENAME", StringUtils.encrypt("º£¾üÕ½±¸´¢±¸Îï×ÊĞÅÏ¢" + new SimpleDateFormat("yyyy-MM-dd").format(new Date()) + ".dat"));
+		response.getDto().put("DOWNLOAD_FILENAME", StringUtils.encrypt("æµ·å†›æˆ˜å¤‡å‚¨å¤‡ç‰©èµ„ä¿¡æ¯" + new SimpleDateFormat("yyyy-MM-dd").format(new Date()) + ".dat"));
 		
 		return response;
 	}
