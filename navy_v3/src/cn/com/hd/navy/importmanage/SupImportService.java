@@ -250,17 +250,25 @@ public class SupImportService extends BaseService implements IService {
 					save(supTrans);
 				}				
 								
-				// 解析高速公路文件 (高速公路信息表如何避免重复输入？首先得知道怎么确定唯一性？同一运输企业，同一入口，然后为不同的供应商服务，这如何区分？)
-/*				doc = XMLUtils.readXML(wayXml);
-				List wayElemList = doc.getRootElement().getChildren("ROW");
-				for (int i = 0; i < wayElemList.size(); i++) {
-					Element elem = (Element) wayElemList.get(i);
-					THighWay way = new THighWay();
-					way.fromXMLString(elem);
-					way.setComid(comId);
-					save(way);
+				// 解析高速公路文件 
+				// 首先查找数据库中是否已经存在此条记录
+				THighWay temp = new THighWay();
+				temp.setComid(comId);
+				rs = queryResultSet(temp);
+				list = getDTO(rs);
+				if( list.size()==0 ) {
+					doc = XMLUtils.readXML(wayXml);
+					List wayElemList = doc.getRootElement().getChildren("ROW");
+					for (int i = 0; i < wayElemList.size(); i++) {
+						Element elem = (Element) wayElemList.get(i);
+						THighWay way = new THighWay();
+						way.fromXMLString(elem);
+						
+						way.setComid(comId);
+						save(way);
+					}
 				}			
-*/			}
+			}
 			
 			for (TImage img : imgList) {
 				// 从文件名中获取文件类型
