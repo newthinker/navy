@@ -137,6 +137,15 @@
 			<name>NavyManage.SupportorSaleOrgSaveOrUpdateService</name>
 			<class>cn.com.hd.navy.Supportorormanage.SupportorSaleOrgSaveOrUpdateService</class>
 		</service>
+		
+		<service>
+			<name>NavyManage.SupSupportorQueryService</name>
+			<class>cn.com.hd.navy.Supportorormanage.SupSupportorQueryService</class>
+		</service>
+		<service>
+			<name>NavyManage.SupSupportorQueryParamService</name>
+			<class>cn.com.hd.navy.Supportorormanage.SupSupportorQueryParamService</class>
+		</service>
 	</subsystem>
 	
 	<subsystem name="DictManage">
@@ -167,6 +176,23 @@
 		<service>
 			<name>DictManage.SupportorDictQueryService</name>
 			<class>cn.com.hd.dict.SupportorDictQueryService</class>
+		</service>
+		
+		<service>
+			<name>DictManage.SupSupportorDictQueryService</name>
+			<class>cn.com.hd.dict.SupSupportorDictQueryService</class>
+		</service>
+		<service>
+			<name>DictManage.AreaQueryByIDService</name>
+			<class>cn.com.hd.dict.dictmanage.AreaQueryByIDService</class>
+		</service>
+		<service>
+			<name>DictManage.AreaQueryService</name>
+			<class>cn.com.hd.dict.dictmanage.AreaQueryService</class>
+		</service>
+		<service>
+			<name>DictManage.AreaQueryByCodeService</name>
+			<class>cn.com.hd.dict.AreaQueryByCodeService</class>
 		</service>
 	</subsystem>
 	

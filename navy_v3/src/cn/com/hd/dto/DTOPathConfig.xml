@@ -2,6 +2,7 @@
 <path-config>
 	<path>WEB-INF\classes\cn\com\hd\dto\dict\TDictDetail.xml</path>
 	<path>WEB-INF\classes\cn\com\hd\dto\dict\TDictType.xml</path>
+	<path>WEB-INF\classes\cn\com\hd\dto\dict\TDictArea.xml</path>
 	
 	<path>WEB-INF\classes\cn\com\hd\dto\log\TLog.xml</path>
 	

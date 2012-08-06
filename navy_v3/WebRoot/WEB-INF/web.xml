@@ -59,6 +59,12 @@
 		</servlet-class>
 	</servlet>
 	<servlet>
+		<servlet-name>SystemXhrService</servlet-name>
+		<servlet-class>
+			cn.com.hd.servlet.SystemXhrServiceServlet
+		</servlet-class>
+	</servlet>
+	<servlet>
 		<servlet-name>LoginServiceServlet</servlet-name>
 		<servlet-class>
 			cn.com.hd.servlet.LoginServiceServlet
@@ -78,6 +84,10 @@
 	<servlet-mapping>
 		<servlet-name>SystemService</servlet-name>
 		<url-pattern>/system</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>SystemXhrService</servlet-name>
+		<url-pattern>/systemxhr</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>LoginServiceServlet</servlet-name>

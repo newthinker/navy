@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<DTO-mapping>
+    <class name="cn.com.hd.dto.dict.TDictArea" table="T_DICT_AREA" schema="DICTSYS">
+        <comment>公用字典地区表</comment>
+        <id name="areacode" type="VARCHAR2">
+            <column name="AREA_CODE" length="6" />
+        </id>
+        <property name="areaname" type="VARCHAR2">
+            <column name="AREA_NAME" length="32" />
+        </property>
+        <property name="parentcodeid" type="VARCHAR2">
+            <column name="PARENT_CODEID" length="6" />
+        </property>
+    </class>
+</DTO-mapping>

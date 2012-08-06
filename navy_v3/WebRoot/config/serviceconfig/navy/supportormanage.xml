@@ -23,4 +23,7 @@
 	<bean id="NavyManage.SupportorSaleOrgQueryByIdService" class="cn.com.hd.navy.supportormanage.SupportorSaleOrgQueryByIdService "/>
 	<bean id="NavyManage.SupportorSaleOrgQueryService" class="cn.com.hd.navy.supportormanage.SupportorSaleOrgQueryService "/>
 	<bean id="NavyManage.SupportorSaleOrgSaveOrUpdateService" class="cn.com.hd.navy.supportormanage.SupportorSaleOrgSaveOrUpdateService "/>
+	
+	<bean id="NavyManage.SupSupportorQueryService" class="cn.com.hd.navy.supportormanage.SupSupportorQueryService" />
+	<bean id="NavyManage.SupSupportorQueryParamService" class="cn.com.hd.navy.supportormanage.SupSupportorQueryParamService" />
 </beans>
