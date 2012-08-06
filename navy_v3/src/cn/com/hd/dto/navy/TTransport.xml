@@ -18,8 +18,8 @@
             	<comment>运输车种类</comment>
             </column>
         </property>	
-        <property name="deadweight" type="NUMBER">
-            <column name="DEADWEIGHT">
+        <property name="deadweight" type="DOUBLENUMBER">
+            <column name="DEADWEIGHT" precision="10" scale="2">
             	<comment>载重量</comment>
             </column>
         </property>

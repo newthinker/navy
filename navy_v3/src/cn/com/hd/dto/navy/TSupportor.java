@@ -67,11 +67,9 @@ public class TSupportor extends BaseDTO {
 	private String iflocaltax;
 	private String suptypecode;
 	private String suptype;
+	private String location;
 	private String summary;
 	private String image;
-	private String location;
-	private String longitude;
-	private String latitude;
 	private String productsclass;
 	private String manufacturercontact;
 	private String manufacturerphone;
@@ -81,6 +79,11 @@ public class TSupportor extends BaseDTO {
 	private String manufacturerperformance;
 	private String manufacturersummary;
 	private String manufacturer;
+	
+	private String l1loc;					// 供应商所在省/地区
+	private String l2loc;					// 供应商所在市
+	private String longitude;				// 经度
+	private String latitude;				// 纬度
 	private Double storehousearea;			// 仓库总面积
 	private Double warehousearea;			// 货场总面积
 	private String storehouseimage;			// 仓库照片
@@ -507,29 +510,13 @@ public class TSupportor extends BaseDTO {
 	}
 
 	public String getLocation() {
-		return location;
+		return this.location;
 	}
-
+	
 	public void setLocation(String location) {
 		this.location = location;
 	}
-
-	public String getLongitude() {
-		return longitude;
-	}
-
-	public void setLongitude(String longitude) {
-		this.longitude = longitude;
-	}
-
-	public String getLatitude() {
-		return latitude;
-	}
-
-	public void setLatitude(String latitude) {
-		this.latitude = latitude;
-	}
-
+	
 	public String getProductsclass() {
 		return productsclass;
 	}
@@ -601,7 +588,39 @@ public class TSupportor extends BaseDTO {
 	public void setManufacturer(String manufacturer) {
 		this.manufacturer = manufacturer;
 	}
+	////////////////////////////////////////////////////////////////////////////
+	public String getL1Loc() {
+		return l1loc;
+	}
+	
+	public void setL1Loc(String l1loc) {
+		this.l1loc = l1loc;
+	}
+	
+	public String getL2Loc() {
+		return l2loc;
+	}
+	
+	public void setL2Loc(String l2loc) {
+		this.l2loc = l2loc;
+	}	
 
+	public String getLongitude() {
+		return longitude;
+	}
+
+	public void setLongitude(String longitude) {
+		this.longitude = longitude;
+	}
+
+	public String getLatitude() {
+		return latitude;
+	}
+
+	public void setLatitude(String latitude) {
+		this.latitude = latitude;
+	}	
+	
 	public Double getStorehousearea() {
 		return storehousearea;
 	}

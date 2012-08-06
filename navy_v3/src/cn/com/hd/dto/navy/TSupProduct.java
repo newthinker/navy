@@ -18,9 +18,9 @@ public class TSupProduct extends BaseDTO {
 	private String prodname;
 	private String measurunit;
 	private String prodno;
-	private String avgoutput;
-	private String maxoutput;
-	private String singlemaxoutput;
+	private Double avgoutput;
+	private Double maxoutput;
+	private Double singlemaxoutput;
 	private String singlemaxdate;
 	private String remark;
 	private String prodimage;		// 产品照片编号
@@ -73,27 +73,27 @@ public class TSupProduct extends BaseDTO {
 		this.prodno = prodno;
 	}
 
-	public String getAvgoutput() {
+	public Double getAvgoutput() {
 		return avgoutput;
 	}
 
-	public void setAvgoutput(String avgoutput) {
+	public void setAvgoutput(Double avgoutput) {
 		this.avgoutput = avgoutput;
 	}
 
-	public String getMaxoutput() {
+	public Double getMaxoutput() {
 		return maxoutput;
 	}
 
-	public void setMaxoutput(String maxoutput) {
+	public void setMaxoutput(Double maxoutput) {
 		this.maxoutput = maxoutput;
 	}
 
-	public String getSinglemaxoutput() {
+	public Double getSinglemaxoutput() {
 		return singlemaxoutput;
 	}
 
-	public void setSinglemaxoutput(String singlemaxoutput) {
+	public void setSinglemaxoutput(Double singlemaxoutput) {
 		this.singlemaxoutput = singlemaxoutput;
 	}
 

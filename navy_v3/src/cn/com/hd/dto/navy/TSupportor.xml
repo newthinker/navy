@@ -259,10 +259,14 @@
             <column name="LOCATION" length="1000" />
         </property>
         <property name="longitude" type="VARCHAR2">
-            <column name="LONGITUDE" length="50" />
+            <column name="LONGITUDE" length="50">
+				<comment>供应商位置的经度</comment>
+			</column>
         </property>
         <property name="latitude" type="VARCHAR2">
-            <column name="LATITUDE" length="50" />
+            <column name="LATITUDE" length="50">
+				<comment>供应商位置的纬度</comment>
+			</column>
         </property>
         <property name="productsclass" type="VARCHAR2">
             <column name="PRODUCTS_CLASS" length="1000" />
@@ -291,6 +295,17 @@
         <property name="manufacturer" type="VARCHAR2">
             <column name="MANUFACTURER" length="200" />
         </property>
+		
+        <property name="l1loc" type="VARCHAR2">		
+            <column name="L1_LOC" length="30">
+				<comment>供应商所在省</comment>
+			</column>
+        </property>
+        <property name="l2loc" type="VARCHAR2">		
+            <column name="L2_LOC" length="30">
+				<comment>供应商所在市</comment>
+			</column>
+        </property>		
 		<property name="storehousearea" type="DOUBLENUMBER">
 			<column name="STOREHOUSE_AREA" precision="8" scale="2">
 				<comment>仓库总面积</comment>

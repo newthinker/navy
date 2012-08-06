@@ -32,18 +32,18 @@
                 <comment>产品系列或型号</comment>
             </column>
         </property>
-        <property name="avgoutput" type="VARCHAR2">
-            <column name="AVG_OUTPUT" length="200">
+        <property name="avgoutput" type="DOUBLENUMBER">
+            <column name="AVG_OUTPUT" precision="10" scale="2">
                 <comment>平均产量</comment>
             </column>
         </property>
-        <property name="maxoutput" type="VARCHAR2">
-            <column name="MAX_OUTPUT" length="200">
+        <property name="maxoutput" type="DOUBLENUMBER">
+            <column name="MAX_OUTPUT" precision="10" scale="2">
                 <comment>最大产量</comment>
             </column>
         </property>
-        <property name="singlemaxoutput" type="VARCHAR2">
-            <column name="SINGLE_MAX_OUTPUT" length="200">
+        <property name="singlemaxoutput" type="DOUBLENUMBER">
+            <column name="SINGLE_MAX_OUTPUT" precision="10" scale="2">
                 <comment>单批最大产量</comment>
             </column>
         </property>

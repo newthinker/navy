@@ -14,7 +14,7 @@ public class TTransport extends BaseDTO {
 	private String comid;
 	private String comname;
 	private String trucktype;
-	private Integer deadweight;
+	private Double deadweight;
 	private Integer count;
 	private String nearrailway;
 	private Double rwdis;
@@ -47,11 +47,11 @@ public class TTransport extends BaseDTO {
 		this.trucktype = trucktype;
 	}
 
-	public Integer getDeadweight() {
+	public Double getDeadweight() {
 		return deadweight;
 	}
 
-	public void setDeadweight(Integer deadweight) {
+	public void setDeadweight(Double deadweight) {
 		this.deadweight = deadweight;
 	}
 
