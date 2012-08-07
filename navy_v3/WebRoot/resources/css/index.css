@@ -10,7 +10,7 @@ html a:active{  color:#424242;text-decoration: none;}
 html a:visited{color:#424242;text-decoration: none;}
 html a:hover{    color:#0860A8;text-decoration: underline;}	
 
-/**ÕûÌå¿ò¼Ü**/
+/**æ•´ä½“æ¡†æ¶**/
 #index_frame{ width:100%; height:100%; margin:0px auto; background: url(../images/common/index_maintopbg.jpg) top left no-repeat;}
 /**top**/
 #index_top{ width:100%; height:76px; background:url(../images/common/index_topbg.jpg) top left repeat-x;}
@@ -44,13 +44,13 @@ html a:hover{    color:#0860A8;text-decoration: underline;}
 .index_top_btn td a:visited{color:#fff;text-decoration: none;}
 .index_top_btn td a:hover{    color:#FF7800;text-decoration: none;}
 
-/**Ê±¼äÏÔÊ¾**/
+/**æ—¶é—´æ˜¾ç¤º**/
 .index_date{ display:inline;height:34px;font-size:12px; color:#fff; font-weight:normal !important; margin-top:15px;}
 
-/**Ê±¼äÏÔÊ¾**/
+/**æ—¶é—´æ˜¾ç¤º**/
 .time_zone{ background:url(../images/common/time_bg.gif) repeat-x left top; height:34px;font-size:13px; color:#fff; line-height:34px; vertical-align:middle}
 .time_zone img{ margin-left:3px; margin-right:10px;line-height:34px; vertical-align:middle;}
-/**µ¼º½**/
+/**å¯¼èˆª**/
 .menu{ width:100%; height:24px; background:url(../images/common/index_menu_bg.jpg) repeat-x;}
 .menu td{ font-size:12px; color:#3A5AA7;text-align:left; vertical-align:middle; font-weight:bold;}
 
@@ -59,18 +59,18 @@ html a:hover{    color:#0860A8;text-decoration: underline;}
 .menu th a:active{  color:#1074BB;text-decoration: none; font-weight: bold;}
 .menu th a:visited{color:#000;text-decoration: none;}
 .menu th a:hover{    color:#FF7800;text-decoration: none;}
-/**Ê÷²Ëµ¥**/
+/**æ ‘èœå•**/
 .tree_tbl{ background:url(../images/common/index_menu_tree_bg.jpg) left bottom no-repeat; widows:213px;}
 
 
-/**¹¤×÷ÇøÍ·²¿Í¼Æ¬**/
+/**å·¥ä½œåŒºå¤´éƒ¨å›¾ç‰‡**/
 #site{width:98%; height:30px; font-size:14px; color:#000; text-align:left; margin:0px auto;padding-left:20px;line-height:30px; vertical-align:middle; background:url(../images/common/site_cion.gif) 5px 50% no-repeat; border-bottom:1px solid #375d9c;}
 #site span{ font-weight:bold; !important; color:#000;}
 #site a:link{color:#000; text-decoration: none;}
 #site a:active{  color:#000;text-decoration: none;}
 #site a:visited{color:#000;text-decoration: none;}
 #site a:hover{    color:#000;text-decoration: none;}
-/**Ê×Ò³tbl**/
+/**é¦–é¡µtbl**/
 #welcome{ width:760px; height:100%; margin:0px auto; background:url(../images/common/index_welcombg2.jpg) 421px left no-repeat;}
 .welcomeLink{ width:100%; height:421; margin:0px auto; background:url(../images/common/index_welcombgLink.jpg) no-repeat;}
 .welcomeLinkTxt{
@@ -80,11 +80,11 @@ html a:hover{    color:#0860A8;text-decoration: underline;}
 	line-height: 150%;
 }
 
-/**µ¯³ö´°¿Ú**/
+/**å¼¹å‡ºçª—å£**/
 #warn{ width:444px; height:183px;background:url(../images/common/warn_bg.jpg) top left repeat-x; background-color:#ffffff;}
 #warn_text{ font-size:14px !important; color:#957171; text-align:left; line-height:1.6; font-weight:bold; padding-left:20px; padding-top:30px;}
 .warnning_btn{ width:87px; height:31px; font-size:14px; color:#ffffff; text-align:center; background:url(../images/common/warning_btn.jpg) top left no-repeat; border:none; cursor:pointer;}
-/**µ×²¿**/
+/**åº•éƒ¨**/
 .bottom{  height:50px; font-size:12px; color:#fff; text-align:center !important;}
 
 .tree_tes{ font-size:12px; font-weight:normal; color:#000; text-align:left;}

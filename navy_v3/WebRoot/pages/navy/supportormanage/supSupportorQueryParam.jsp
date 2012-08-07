@@ -143,14 +143,14 @@
 			<td align="right" width="14%">
 				供应商名称:&nbsp;
 			</td>
-			<td align="left" width="16%">
+			<td align="left" width="25%">
 				<input id="STR_QUERY_SUPNAME" name="STR_QUERY_SUPNAME" style="width:150px"
 					value="<%= queryParam.getString("QUERY_SUPNAME") == null ? "" : queryParam.getString("QUERY_SUPNAME") %>" />
 			</td>
-			<td align="right" width="14%">
+			<td align="right" width="10%">
 				省市地区:&nbsp;
 			</td>
-			<td align="left" width="26%">
+			<td align="left" width="21%">
 				<select name="STR_QUERY_L1LOC" id="STR_QUERY_L1LOC" style="width:100px" onchange="change_province(this.value)">
 					<option value="">-请选择-</option>
 					<%
@@ -187,6 +187,8 @@
 			<td align="left">
 				<input id="STR_QUERY_GOODNAME" name="STR_QUERY_GOODNAME" style="width:150px"
 					value="<%= queryParam.getString("QUERY_GOODNAME") == null ? "" : queryParam.getString("QUERY_GOODNAME") %>" />
+				<img src="resources/images/common/btn_search.gif" alt=" " width="62" height="22"
+					onclick="alert('show');" /> 
 			</td>
 			<td align="right">
 				产品产能:&nbsp;

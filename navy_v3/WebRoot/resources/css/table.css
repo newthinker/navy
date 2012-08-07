@@ -77,24 +77,24 @@ a.link_blue_table:hover {
 	font-style: italic;
 }
 
-/**ÊÊÓÃÓÚIE7±í¸ñ¸ßÁÁÏÔÊ¾**/
+/**é€‚ç”¨äºIE7è¡¨æ ¼é«˜äº®æ˜¾ç¤º**/
 .tbl tr:hover {
 	background: #F0F0F0;
 }
 
-/**ÁĞ±íÎÄ×Ö¾Ó×ó**/
+/**åˆ—è¡¨æ–‡å­—å±…å·¦**/
 .align_text {
 	text-align: left !important;
 	padding-left: 3px;
 }
 
-/**ÁĞ±í½ğ¶î¾ÓÓÒ**/
+/**åˆ—è¡¨é‡‘é¢å±…å³**/
 .align_number {
 	text-align: right !important;
 	padding-right: 3px;
 }
 
-/**ÈıÖÖ³¤¶ÈµÄinput**/
+/**ä¸‰ç§é•¿åº¦çš„input**/
 .input_short1 {
 	border: 1px solid #b3c9d2;
 	background-color: white;
@@ -131,7 +131,7 @@ a.link_blue_table:hover {
 	width: 96% !important;
 }
 
-/**±í¸ñÑùÊ½¿ªÊ¼**/ /**±êÌâ**/
+/**è¡¨æ ¼æ ·å¼å¼€å§‹**/ /**æ ‡é¢˜**/
 .tbl_title {
 	text-align: center;
 	height: 25px;
@@ -142,7 +142,7 @@ a.link_blue_table:hover {
 	vertical-align: middle;
 }
 
-/**±íÍ·ÌáÊ¾ĞÔÎÄ×Ö×¢ÊÍ**/
+/**è¡¨å¤´æç¤ºæ€§æ–‡å­—æ³¨é‡Š**/
 .tbl_note {
 	text-align: left;
 	height: 20px;
@@ -167,7 +167,7 @@ span {
 	color: red;
 }
 
-/*±íµ¥ÑùÊ½1¡ª¡ªÊúÏò±íµ¥±íÍ·¹Ì¶¨¿í¶È*/
+/*è¡¨å•æ ·å¼1â€”â€”ç«–å‘è¡¨å•è¡¨å¤´å›ºå®šå®½åº¦*/
 .tbl_search2 td {
 	background: #ffffff;
 	font-size: 9pt;
@@ -198,7 +198,7 @@ span {
 	background-position: 0% 50%;
 }
 
-/**Á½ÁĞ²»¹Ì¶¨±êÌâÁĞ¿í¶È**/
+/**ä¸¤åˆ—ä¸å›ºå®šæ ‡é¢˜åˆ—å®½åº¦**/
 .tbl_search2_free th {
 	background-color: #e8f2f5;
 	line-height: 26px;
@@ -227,7 +227,7 @@ span {
 	border-bottom: 1px solid #b3c9d2;
 }
 
-/**Á½ÁĞ²»¹Ì¶¨±êÌâÁĞ¿í¶È**/ /**Á½ÁĞ¹Ì¶¨¿í¶È**/
+/**ä¸¤åˆ—ä¸å›ºå®šæ ‡é¢˜åˆ—å®½åº¦**/ /**ä¸¤åˆ—å›ºå®šå®½åº¦**/
 .tbl_search2_fix th {
 	background-color: #e8f2f5;
 	line-height: 26px;
@@ -257,7 +257,7 @@ span {
 	border-bottom: 1px solid #b3c9d2;
 }
 
-/**Á½ÁĞ¹Ì¶¨¿í¶È**/
+/**ä¸¤åˆ—å›ºå®šå®½åº¦**/
 .tbl_search2 .title {
 	text-align: center !important;
 	font-weight: bold;
@@ -370,7 +370,7 @@ span {
 	background-color: #F7F8FD;
 }
 
-/**±íÌ×±í**/
+/**è¡¨å¥—è¡¨**/
 .tbl_search2 table {
 	margin: 0px 0px 1px -5px;
 	width: 100% !important;
@@ -446,7 +446,7 @@ span {
 	width: 80% !important;
 }
 
-/**±íÌ×±í½áÊø**/ /*ÁĞ±íÑùÊ½*/
+/**è¡¨å¥—è¡¨ç»“æŸ**/ /*åˆ—è¡¨æ ·å¼*/
 .tbl {
 	width: 100%;
 	margin: 0px;
@@ -527,7 +527,7 @@ span {
 	vertical-align: middle;
 }
 
-/**´ø¹ö¶¯ÌõµÄ±í¸ñ±êÌâĞĞ**/
+/**å¸¦æ»šåŠ¨æ¡çš„è¡¨æ ¼æ ‡é¢˜è¡Œ**/
 .tScroll {
 	white-space: nowrap;
 	display: block;
@@ -539,7 +539,7 @@ span {
 	width: 99%;
 }
 
-/*ĞÂÔö°´Å¥ĞĞ/µ×²¿±£´æ°´Å¥ĞĞÑùÊ½*/
+/*æ–°å¢æŒ‰é’®è¡Œ/åº•éƒ¨ä¿å­˜æŒ‰é’®è¡Œæ ·å¼*/
 .btu {
 	text-align: center !important;
 	padding-top: 5px;
@@ -589,7 +589,7 @@ span {
 	cursor: pointer;
 }
 
-/**µ¯³öÒ³Ãæ**/
+/**å¼¹å‡ºé¡µé¢**/
 .blank_tbl {
 	width: 400px;
 	height: 187px;
@@ -619,7 +619,7 @@ span {
 	color: #3a637a !important;
 }
 
-/**·­Ò³**/
+/**ç¿»é¡µ**/
 .linepage {
 	margin: 0px;
 	font-size: 12px;
@@ -687,7 +687,7 @@ span {
 	text-decoration: underline;
 }
 
-/**·­Ò³½áÊø**/ /**²éÑ¯ÑùÊ½**/
+/**ç¿»é¡µç»“æŸ**/ /**æŸ¥è¯¢æ ·å¼**/
 .searchTbl {
 	width: 98%;
 	margin: 10px auto;
@@ -747,7 +747,7 @@ span {
 	height: 18px;
 }
 
-/**·ÖÀà±í¸ñ±íÍ·**/
+/**åˆ†ç±»è¡¨æ ¼è¡¨å¤´**/
 .fen_div {
 	width: 98%;
 	margin: 20px auto 10px;
@@ -771,7 +771,7 @@ span {
 	display: inline;
 }
 
-/**°ßÂíÏß»®¹ı**/
+/**æ–‘é©¬çº¿åˆ’è¿‡**/
 .barry1 {
 	background: #ffffff;
 	height: 29px;
@@ -787,7 +787,7 @@ span {
 	height: 29px;
 }
 
-/**¹ö¶¯tbl**/
+/**æ»šåŠ¨tbl**/
 .title {
 	BORDER-RIGHT: #b3c9d2 1px solid;
 	font-size: 14px;
