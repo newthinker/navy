@@ -32,7 +32,10 @@ public class SupSupportorQueryService extends BaseService implements IService {
 		String l1Area = supportor.getL1Loc();
 		String l2Area = supportor.getL2Loc();		
 		// 供应商注册资金
-		double capital = supportor.getLiccapital();
+		double capital = 0;
+		if(supportor.getLiccapital()!=null) {
+			capital = supportor.getLiccapital();
+		}
 		
 		Conditions cons = new Conditions();
 		cons.addCondition(supportor);
@@ -63,7 +66,10 @@ public class SupSupportorQueryService extends BaseService implements IService {
 		// 生产范围--产品类型
 		String dictcode = supProduct.getProdid();
 		// 产品产能--年产量
-		Double output = supProduct.getAvgoutput();
+		double output = 0;
+		if ( supProduct.getAvgoutput()!=null ) {
+			output = supProduct.getAvgoutput();
+		}
 		String exp = null;
 		if (dictcode!=null || output>0) {
 			exp = "exists (select 1 from T_SUP_PRODUCT dto2 where dto1.SUP_ID=dto2.SUP_ID";
@@ -86,7 +92,10 @@ public class SupSupportorQueryService extends BaseService implements IService {
 		super.getQueryData(request.getDto(), transport);
 		
 		// 相应运力
-		Double capacity = transport.getDeadweight();		/// 将用户输入的运力条件保存到载重量字段中
+		double capacity = 0;
+		if (transport.getDeadweight()!=null) {
+			capacity = transport.getDeadweight();		/// 将用户输入的运力条件保存到载重量字段中
+		}
 		exp = null;
 		if (capacity>0) {
 			exp = "exists (select 1 from T_SUP_TRANS dto3, T_TRANSPORT dto4 where dto1.SUP_ID=dto3.SUP_ID and dto3.COM_ID=dto4.COM_ID and " + 
