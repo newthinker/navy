@@ -25,7 +25,7 @@ public class AreaQueryByCodeService extends BaseService implements IService {
 		DTO dictDTO = new DTO();
 		Conditions cons = new Conditions();
 		cons.addCondition(new TDictArea());
-		cons.addExpression("parent_codeid = '" + dictarea.getAreacode() + "'");
+		cons.addExpression("parent_codeid = '" + dictarea.getAreacode() + "' order by area_code asc");
 		SelectResultSet result = super.queryResultSet(cons);
 		List dictlist = super.getDTO(result);
 		dictDTO.setList("RESULT", dictlist);
