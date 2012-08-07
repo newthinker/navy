@@ -5,7 +5,7 @@
 			<name>NavyManage.ImportService</name>
 			<class>cn.com.hd.navy.importmanage.ImportService</class>
 		</service>
-		<service>
+		<service>	<!-- 新版导入服务 -->
 			<name>NavyManage.SupImportService</name>
 			<class>cn.com.hd.navy.importmanage.SupImportService</class>
 		</service>
@@ -79,6 +79,10 @@
 			<name>NavyManage.SupportorQueryService</name>
 			<class>cn.com.hd.navy.Supportorormanage.SupportorQueryService</class>
 		</service>
+		<service>		<!-- 高级查询服务 -->
+			<name>NavyManage.SupSupportorQueryService</name>	
+			<class>cn.com.hd.navy.Supportorormanage.SupSupportorQueryService</class>
+		</service>		
 		<service>
 			<name>NavyManage.SupportorUpdateService</name>
 			<class>cn.com.hd.navy.Supportorormanage.SupportorUpdateService</class>

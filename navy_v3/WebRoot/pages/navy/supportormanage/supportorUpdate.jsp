@@ -258,7 +258,7 @@
 										<%
 											for (int i = 0; i < type.getList("RESULT").size(); i ++) {
 												DTO typedto = (DTO)type.getList("RESULT").get(i);
-												if (typedto.getString("RELEVANCECODE").equals("000000000")) {
+												if (typedto.getString("RELEVANCECODE")==null || typedto.getString("RELEVANCECODE").equals("000000000")) {
 										%>
 										<option value="<%= typedto.getString("DICTCODE") %>"><%= typedto.getString("DICTNAME") %></option>
 										<%
