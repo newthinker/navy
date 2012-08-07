@@ -199,10 +199,6 @@
 		<script type="text/javascript">
 			setSelect("page", "<%= pages.getPageIndex() %>");
 
-			if ("<%= sOpt %>" == "null" || "<%= sOpt %>" == "refresh") {
-				document.getElementById("str_supid").value = "-1";
-				submit_form('Navy', 'NavyManage', 'SupSupportorQueryParamService', '/pages/navy/supportormanage/supSupportorQuery.jsp');
-			}
 		</script>
 		<iframe id="download" src="" width="0" height="0" frameborder="0"></iframe>
 	</body>

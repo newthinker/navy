@@ -43,6 +43,47 @@
 		}
 		return request;
 	}
+	function set_province()
+	{
+		var requestTest = "<?xml version='1.0' encoding='UTF-8'?><Request>" +
+		"<header>" +
+			"<responseSystemName>Navy</responseSystemName>" +
+			"<responseSubsystemName>DictManage</responseSubsystemName>" +
+			"<responseService>AreaQueryByCodeService</responseService>" +
+			"<dispatcherUrl></dispatcherUrl>" +
+		"</header>" +
+		"<DTO>" +
+			"<STR_AREACODE>0</STR_AREACODE>" +
+		"</DTO></Request>";
+
+		var request = getRequest();
+		var url = '<%=request.getContextPath()%>/systemxhr?opt=&XML_DATA='+escape(requestTest);
+		request.open('POST',url,true);
+		request.onreadystatechange = function()
+		{
+			if (request.readyState==4 && request.status==200)
+			{
+				var provdom = document.getElementById("STR_QUERY_L1LOC");
+				while (provdom.options.length > 1)
+				{
+					provdom.options.length = 1;
+				}
+				//console.log(request);
+				var xmldata = request.responseXML.getElementsByTagName("Response/DTO/DICT_LIST/Row/LIS_RESULT/Row");
+				for (var i=0; i<xmldata.length; i++)
+				{
+					var xmlname = xmldata[i].getElementsByTagName("STR_AREANAME");
+					var xmlcode = xmldata[i].getElementsByTagName("STR_AREACODE");
+					if (xmlname.length > 0 && xmlcode.length > 0)
+					{
+	                    var item = new Option(xmlname[0].nodeTypedValue, xmlcode[0].nodeTypedValue);  
+	                    provdom.options.add(item);
+					}
+				}
+			}
+		};
+		request.send(null);
+	}
 	function change_province(provalue) {
 		var value = provalue;
 		value = value.replace(/&/g, "&amp;");
@@ -89,12 +130,8 @@
 		};
 		request.send(null);
 	}
-	function show_city()
-	{
-		
-		getRequest();
-		//alert("test");
-	}
+	
+	set_province();
 </script>
 
 <input id="int_rownumber" name="int_rownumber" value="20" type="hidden">
