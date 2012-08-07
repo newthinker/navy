@@ -12,7 +12,7 @@ import cn.com.hd.transfer.PageInfo;
 import cn.com.hd.transfer.Request;
 import cn.com.hd.transfer.Response;
 
-public class SupportorSuperQueryService extends BaseService implements IService {
+public class SupportorProductStatService extends BaseService implements IService {
 
 	@SuppressWarnings("unchecked")
 	public Response service(Request request) throws Exception {

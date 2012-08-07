@@ -1,4 +1,4 @@
-package cn.com.hd.navy.supportormanage;
+ï»¿package cn.com.hd.navy.supportormanage;
 
 import java.util.List;
 
@@ -19,25 +19,25 @@ public class SupSupportorQueryService extends BaseService implements IService {
 	public Response service(Request request) throws Exception {
 		Response resp = new Response();
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////
-		/// ¹©Ó¦ÉÌ±í²éÑ¯½á¹û
+		/// ä¾›åº”å•†è¡¨æŸ¥è¯¢ç»“æžœ
 		TSupportor supportor = new TSupportor();
 		super.getQueryData(request.getDto(), supportor);
 		
 		PageInfo page = super.getPageInfo();
 		
-		// ¹©Ó¦ÉÌÃû³Æ
+		// ä¾›åº”å•†åç§°
 		String supname = supportor.getSupname();
 		supportor.setSupname(null);		
-		// ¹©Ó¦ÉÌÎ»ÖÃ
+		// ä¾›åº”å•†ä½ç½®
 		String l1Area = supportor.getL1Loc();
 		String l2Area = supportor.getL2Loc();		
-		// ¹©Ó¦ÉÌ×¢²á×Ê½ð
+		// ä¾›åº”å•†æ³¨å†Œèµ„é‡‘
 		double capital = supportor.getLiccapital();
 		
 		Conditions cons = new Conditions();
 		cons.addCondition(supportor);
 		
-		// Ê×ÏÈ¸ù¾Ý¹©Ó¦ÉÌÌá½»µÄÌõ¼þ²éÑ¯³ö·ûºÏ·¶Î§µÄ¹©Ó¦ÉÌ
+		// é¦–å…ˆæ ¹æ®ä¾›åº”å•†æäº¤çš„æ¡ä»¶æŸ¥è¯¢å‡ºç¬¦åˆèŒƒå›´çš„ä¾›åº”å•†
 		if (supname != null && !supname.trim().equals("")) {
 			cons.addExpression("SUP_NAME like '%" + supname + "%' OR SUP_EN_NAME like '%" + supname + "%'");
 		}
@@ -56,13 +56,13 @@ public class SupSupportorQueryService extends BaseService implements IService {
 		}
 
 		/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-		/// ²úÆ·±í
+		/// äº§å“è¡¨
 		TSupProduct supProduct = new TSupProduct();
 		super.getQueryData(request.getDto(), supProduct);
 		
-		// Éú²ú·¶Î§--²úÆ·ÀàÐÍ
+		// ç”Ÿäº§èŒƒå›´--äº§å“ç±»åž‹
 		String dictcode = supProduct.getProdid();
-		// ²úÆ·²úÄÜ--Äê²úÁ¿
+		// äº§å“äº§èƒ½--å¹´äº§é‡
 		Double output = supProduct.getAvgoutput();
 		String exp = null;
 		if (dictcode!=null || output>0) {
@@ -81,16 +81,16 @@ public class SupSupportorQueryService extends BaseService implements IService {
 			cons.addExpression(exp);
 		}
 		/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-		/// ÔËÊä±í
+		/// è¿è¾“è¡¨
 		TTransport transport = new TTransport();
 		super.getQueryData(request.getDto(), transport);
 		
-		// ÏàÓ¦ÔËÁ¦
-		Double capacity = transport.getDeadweight();		/// ½«ÓÃ»§ÊäÈëµÄÔËÁ¦Ìõ¼þ±£´æµ½ÔØÖØÁ¿×Ö¶ÎÖÐ
+		// ç›¸åº”è¿åŠ›
+		Double capacity = transport.getDeadweight();		/// å°†ç”¨æˆ·è¾“å…¥çš„è¿åŠ›æ¡ä»¶ä¿å­˜åˆ°è½½é‡é‡å­—æ®µä¸­
 		exp = null;
 		if (capacity>0) {
 			exp = "exists (select 1 from T_SUP_TRANS dto3, T_TRANSPORT dto4 where dto1.SUP_ID=dto3.SUP_ID and dto3.COM_ID=dto4.COM_ID and " + 
-				"dto4.DEADWEIGHT¡Ádto4.COUNT>=" + capacity + ")";
+				"dto4.DEADWEIGHTÃ—dto4.COUNT>=" + capacity + ")";
 		}
 		if(exp!=null) {
 			cons.addExpression(exp);
