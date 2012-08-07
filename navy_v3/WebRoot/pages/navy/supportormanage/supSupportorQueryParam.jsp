@@ -68,7 +68,7 @@
 		{
 			if (request.readyState==4 && request.status==200)
 			{
-				var citydom = document.getElementById("STR_QUERY_L2NAME");
+				var citydom = document.getElementById("STR_QUERY_L2LOC");
 				while (citydom.options.length > 1)
 				{
 					citydom.options.length = 1;
@@ -114,7 +114,7 @@
 				省市地区:&nbsp;
 			</td>
 			<td align="left" width="26%">
-				<select name="STR_QUERY_L1NAME" id="STR_QUERY_L1NAME" style="width:100px" onchange="change_province(this.value)">
+				<select name="STR_QUERY_L1LOC" id="STR_QUERY_L1LOC" style="width:100px" onchange="change_province(this.value)">
 					<option value="">-请选择-</option>
 					<%
 						for (int i = 0; i < l1Name.getList("RESULT").size(); i ++) {
@@ -125,7 +125,7 @@
 						}
 					%>
 				</select>
-				<select name="STR_QUERY_L2NAME" id="STR_QUERY_L2NAME" style="width:100px">
+				<select name="STR_QUERY_L2LOC" id="STR_QUERY_L2LOC" style="width:100px">
 					<option value="">-请选择-</option>
 				</select>
 			</td>
@@ -133,7 +133,7 @@
 				注册资金:&nbsp;
 			</td>
 			<td align="left" width="16%">
-				<select name="STR_QUERY_CAPITAL" id="STR_QUERY_CAPITAL" style="width:150px">
+				<select name="STR_QUERY_LICCAPITAL" id="STR_QUERY_LICCAPITAL" style="width:150px">
 					<option value="">-请选择-</option>
 					<option value="1">1万~10万</option>
 					<option value="2">10万~100万</option>
