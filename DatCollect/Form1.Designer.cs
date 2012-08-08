@@ -107,11 +107,7 @@
 			this.label14 = new System.Windows.Forms.Label();
 			this.label15 = new System.Windows.Forms.Label();
 			this.label17 = new System.Windows.Forms.Label();
-			this.textBox_designRep2011 = new System.Windows.Forms.TextBox();
-			this.button_br2011 = new System.Windows.Forms.Button();
-			this.button_br2010 = new System.Windows.Forms.Button();
 			this.button_br2009 = new System.Windows.Forms.Button();
-			this.textBox_designRep2010 = new System.Windows.Forms.TextBox();
 			this.textBox_designRep2009 = new System.Windows.Forms.TextBox();
 			this.label51 = new System.Windows.Forms.Label();
 			this.textBox_bankMail = new System.Windows.Forms.TextBox();
@@ -253,6 +249,13 @@
 			this.label71 = new System.Windows.Forms.Label();
 			this.label73 = new System.Windows.Forms.Label();
 			this.label74 = new System.Windows.Forms.Label();
+			this.label88 = new System.Windows.Forms.Label();
+			this.label89 = new System.Windows.Forms.Label();
+			this.comboBox_purchaseSuccese = new System.Windows.Forms.ComboBox();
+			this.comboBox_purchaseType = new System.Windows.Forms.ComboBox();
+			this.label90 = new System.Windows.Forms.Label();
+			this.textBox_bankCertify = new System.Windows.Forms.TextBox();
+			this.button_bankCertify = new System.Windows.Forms.Button();
 			this.tabControl_data.SuspendLayout();
 			this.tabPage1.SuspendLayout();
 			this.panel1.SuspendLayout();
@@ -309,7 +312,7 @@
 			// 
 			this.panel1.Controls.Add(this.button_next1);
 			this.panel1.Controls.Add(this.button_cancel1);
-			this.panel1.Location = new System.Drawing.Point(242, 616);
+			this.panel1.Location = new System.Drawing.Point(242, 652);
 			this.panel1.Name = "panel1";
 			this.panel1.Size = new System.Drawing.Size(250, 50);
 			this.panel1.TabIndex = 4;
@@ -345,7 +348,7 @@
 			this.groupBox_stockholder.Controls.Add(this.textBox_stockholderName);
 			this.groupBox_stockholder.Controls.Add(this.label63);
 			this.groupBox_stockholder.Controls.Add(this.dateTimePicker_stockholderStockDate);
-			this.groupBox_stockholder.Location = new System.Drawing.Point(7, 474);
+			this.groupBox_stockholder.Location = new System.Drawing.Point(7, 510);
 			this.groupBox_stockholder.Name = "groupBox_stockholder";
 			this.groupBox_stockholder.Size = new System.Drawing.Size(719, 138);
 			this.groupBox_stockholder.TabIndex = 1;
@@ -453,6 +456,8 @@
 			this.groupBox1.Controls.Add(this.textBox_referee);
 			this.groupBox1.Controls.Add(this.label27);
 			this.groupBox1.Controls.Add(this.comboBox_city);
+			this.groupBox1.Controls.Add(this.comboBox_purchaseType);
+			this.groupBox1.Controls.Add(this.comboBox_purchaseSuccese);
 			this.groupBox1.Controls.Add(this.comboBox_supplierType);
 			this.groupBox1.Controls.Add(this.comboBox_economyNature);
 			this.groupBox1.Controls.Add(this.comboBox_provice);
@@ -460,9 +465,11 @@
 			this.groupBox1.Controls.Add(this.textBox_supplierContact);
 			this.groupBox1.Controls.Add(this.textBox_website);
 			this.groupBox1.Controls.Add(this.textBox_adress);
+			this.groupBox1.Controls.Add(this.label89);
 			this.groupBox1.Controls.Add(this.label39);
 			this.groupBox1.Controls.Add(this.label12);
 			this.groupBox1.Controls.Add(this.label84);
+			this.groupBox1.Controls.Add(this.label88);
 			this.groupBox1.Controls.Add(this.label40);
 			this.groupBox1.Controls.Add(this.label10);
 			this.groupBox1.Controls.Add(this.textBox_postid);
@@ -477,17 +484,17 @@
 			this.groupBox1.Controls.Add(this.label1);
 			this.groupBox1.Location = new System.Drawing.Point(6, 6);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(720, 453);
+			this.groupBox1.Size = new System.Drawing.Size(720, 490);
 			this.groupBox1.TabIndex = 0;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "基本信息";
 			// 
 			// button_storehouseImage
 			// 
-			this.button_storehouseImage.Location = new System.Drawing.Point(324, 415);
+			this.button_storehouseImage.Location = new System.Drawing.Point(324, 450);
 			this.button_storehouseImage.Name = "button_storehouseImage";
 			this.button_storehouseImage.Size = new System.Drawing.Size(39, 23);
-			this.button_storehouseImage.TabIndex = 22;
+			this.button_storehouseImage.TabIndex = 24;
 			this.button_storehouseImage.Text = "...";
 			this.button_storehouseImage.UseVisualStyleBackColor = true;
 			this.button_storehouseImage.Click += new System.EventHandler(this.button_storehouseImage_Click);
@@ -508,17 +515,17 @@
 			// 
 			// textBox_warehouseArea
 			// 
-			this.textBox_warehouseArea.Location = new System.Drawing.Point(514, 377);
+			this.textBox_warehouseArea.Location = new System.Drawing.Point(514, 412);
 			this.textBox_warehouseArea.Name = "textBox_warehouseArea";
 			this.textBox_warehouseArea.Size = new System.Drawing.Size(175, 21);
-			this.textBox_warehouseArea.TabIndex = 20;
+			this.textBox_warehouseArea.TabIndex = 22;
 			// 
 			// textBox_supplierMobile
 			// 
-			this.textBox_supplierMobile.Location = new System.Drawing.Point(514, 295);
+			this.textBox_supplierMobile.Location = new System.Drawing.Point(514, 330);
 			this.textBox_supplierMobile.Name = "textBox_supplierMobile";
 			this.textBox_supplierMobile.Size = new System.Drawing.Size(175, 21);
-			this.textBox_supplierMobile.TabIndex = 16;
+			this.textBox_supplierMobile.TabIndex = 18;
 			// 
 			// textBox_mobile
 			// 
@@ -538,24 +545,24 @@
 			// 
 			// textBox_supplierFax
 			// 
-			this.textBox_supplierFax.Location = new System.Drawing.Point(514, 335);
+			this.textBox_supplierFax.Location = new System.Drawing.Point(514, 370);
 			this.textBox_supplierFax.Name = "textBox_supplierFax";
 			this.textBox_supplierFax.Size = new System.Drawing.Size(175, 21);
-			this.textBox_supplierFax.TabIndex = 18;
+			this.textBox_supplierFax.TabIndex = 20;
 			// 
 			// textBox_storehouseImage
 			// 
-			this.textBox_storehouseImage.Location = new System.Drawing.Point(142, 416);
+			this.textBox_storehouseImage.Location = new System.Drawing.Point(142, 451);
 			this.textBox_storehouseImage.Name = "textBox_storehouseImage";
 			this.textBox_storehouseImage.Size = new System.Drawing.Size(175, 21);
-			this.textBox_storehouseImage.TabIndex = 21;
+			this.textBox_storehouseImage.TabIndex = 23;
 			// 
 			// textBox_supplierTelephone
 			// 
-			this.textBox_supplierTelephone.Location = new System.Drawing.Point(142, 335);
+			this.textBox_supplierTelephone.Location = new System.Drawing.Point(142, 370);
 			this.textBox_supplierTelephone.Name = "textBox_supplierTelephone";
 			this.textBox_supplierTelephone.Size = new System.Drawing.Size(175, 21);
-			this.textBox_supplierTelephone.TabIndex = 17;
+			this.textBox_supplierTelephone.TabIndex = 19;
 			// 
 			// textBox_telephone
 			// 
@@ -576,7 +583,7 @@
 			// label44
 			// 
 			this.label44.AutoSize = true;
-			this.label44.Location = new System.Drawing.Point(404, 339);
+			this.label44.Location = new System.Drawing.Point(404, 374);
 			this.label44.Name = "label44";
 			this.label44.Size = new System.Drawing.Size(65, 12);
 			this.label44.TabIndex = 0;
@@ -585,7 +592,7 @@
 			// label86
 			// 
 			this.label86.AutoSize = true;
-			this.label86.Location = new System.Drawing.Point(30, 420);
+			this.label86.Location = new System.Drawing.Point(30, 455);
 			this.label86.Name = "label86";
 			this.label86.Size = new System.Drawing.Size(65, 12);
 			this.label86.TabIndex = 0;
@@ -594,7 +601,7 @@
 			// label42
 			// 
 			this.label42.AutoSize = true;
-			this.label42.Location = new System.Drawing.Point(30, 339);
+			this.label42.Location = new System.Drawing.Point(30, 374);
 			this.label42.Name = "label42";
 			this.label42.Size = new System.Drawing.Size(65, 12);
 			this.label42.TabIndex = 0;
@@ -603,7 +610,7 @@
 			// label85
 			// 
 			this.label85.AutoSize = true;
-			this.label85.Location = new System.Drawing.Point(404, 381);
+			this.label85.Location = new System.Drawing.Point(404, 416);
 			this.label85.Name = "label85";
 			this.label85.Size = new System.Drawing.Size(77, 12);
 			this.label85.TabIndex = 0;
@@ -612,7 +619,7 @@
 			// label41
 			// 
 			this.label41.AutoSize = true;
-			this.label41.Location = new System.Drawing.Point(404, 299);
+			this.label41.Location = new System.Drawing.Point(404, 334);
 			this.label41.Name = "label41";
 			this.label41.Size = new System.Drawing.Size(41, 12);
 			this.label41.TabIndex = 0;
@@ -665,7 +672,7 @@
 			// 
 			this.comboBox_supplierType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.comboBox_supplierType.FormattingEnabled = true;
-			this.comboBox_supplierType.Location = new System.Drawing.Point(514, 255);
+			this.comboBox_supplierType.Location = new System.Drawing.Point(514, 253);
 			this.comboBox_supplierType.Name = "comboBox_supplierType";
 			this.comboBox_supplierType.Size = new System.Drawing.Size(175, 20);
 			this.comboBox_supplierType.TabIndex = 14;
@@ -674,7 +681,7 @@
 			// 
 			this.comboBox_economyNature.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.comboBox_economyNature.FormattingEnabled = true;
-			this.comboBox_economyNature.Location = new System.Drawing.Point(142, 255);
+			this.comboBox_economyNature.Location = new System.Drawing.Point(142, 253);
 			this.comboBox_economyNature.Name = "comboBox_economyNature";
 			this.comboBox_economyNature.Size = new System.Drawing.Size(175, 20);
 			this.comboBox_economyNature.TabIndex = 13;
@@ -693,17 +700,17 @@
 			// 
 			// textBox_storehouseArea
 			// 
-			this.textBox_storehouseArea.Location = new System.Drawing.Point(142, 377);
+			this.textBox_storehouseArea.Location = new System.Drawing.Point(142, 412);
 			this.textBox_storehouseArea.Name = "textBox_storehouseArea";
 			this.textBox_storehouseArea.Size = new System.Drawing.Size(175, 21);
-			this.textBox_storehouseArea.TabIndex = 19;
+			this.textBox_storehouseArea.TabIndex = 21;
 			// 
 			// textBox_supplierContact
 			// 
-			this.textBox_supplierContact.Location = new System.Drawing.Point(142, 295);
+			this.textBox_supplierContact.Location = new System.Drawing.Point(142, 330);
 			this.textBox_supplierContact.Name = "textBox_supplierContact";
 			this.textBox_supplierContact.Size = new System.Drawing.Size(175, 21);
-			this.textBox_supplierContact.TabIndex = 15;
+			this.textBox_supplierContact.TabIndex = 17;
 			// 
 			// textBox_website
 			// 
@@ -722,7 +729,7 @@
 			// label39
 			// 
 			this.label39.AutoSize = true;
-			this.label39.Location = new System.Drawing.Point(404, 259);
+			this.label39.Location = new System.Drawing.Point(404, 257);
 			this.label39.Name = "label39";
 			this.label39.Size = new System.Drawing.Size(77, 12);
 			this.label39.TabIndex = 0;
@@ -731,7 +738,7 @@
 			// label12
 			// 
 			this.label12.AutoSize = true;
-			this.label12.Location = new System.Drawing.Point(30, 259);
+			this.label12.Location = new System.Drawing.Point(30, 257);
 			this.label12.Name = "label12";
 			this.label12.Size = new System.Drawing.Size(65, 12);
 			this.label12.TabIndex = 0;
@@ -740,7 +747,7 @@
 			// label84
 			// 
 			this.label84.AutoSize = true;
-			this.label84.Location = new System.Drawing.Point(30, 381);
+			this.label84.Location = new System.Drawing.Point(30, 416);
 			this.label84.Name = "label84";
 			this.label84.Size = new System.Drawing.Size(77, 12);
 			this.label84.TabIndex = 0;
@@ -749,7 +756,7 @@
 			// label40
 			// 
 			this.label40.AutoSize = true;
-			this.label40.Location = new System.Drawing.Point(30, 293);
+			this.label40.Location = new System.Drawing.Point(30, 328);
 			this.label40.Name = "label40";
 			this.label40.Size = new System.Drawing.Size(101, 24);
 			this.label40.TabIndex = 0;
@@ -868,7 +875,7 @@
 			// 
 			this.panel2.Controls.Add(this.button_next2);
 			this.panel2.Controls.Add(this.button_cancel2);
-			this.panel2.Location = new System.Drawing.Point(242, 849);
+			this.panel2.Location = new System.Drawing.Point(242, 804);
 			this.panel2.Name = "panel2";
 			this.panel2.Size = new System.Drawing.Size(250, 50);
 			this.panel2.TabIndex = 1;
@@ -908,12 +915,11 @@
 			this.groupBox2.Controls.Add(this.label14);
 			this.groupBox2.Controls.Add(this.label15);
 			this.groupBox2.Controls.Add(this.label17);
-			this.groupBox2.Controls.Add(this.textBox_designRep2011);
-			this.groupBox2.Controls.Add(this.button_br2011);
-			this.groupBox2.Controls.Add(this.button_br2010);
+			this.groupBox2.Controls.Add(this.button_bankCertify);
 			this.groupBox2.Controls.Add(this.button_br2009);
-			this.groupBox2.Controls.Add(this.textBox_designRep2010);
+			this.groupBox2.Controls.Add(this.textBox_bankCertify);
 			this.groupBox2.Controls.Add(this.textBox_designRep2009);
+			this.groupBox2.Controls.Add(this.label90);
 			this.groupBox2.Controls.Add(this.label51);
 			this.groupBox2.Controls.Add(this.textBox_bankMail);
 			this.groupBox2.Controls.Add(this.textBox_bankMobile);
@@ -974,7 +980,7 @@
 			this.groupBox2.Controls.Add(this.label20);
 			this.groupBox2.Location = new System.Drawing.Point(6, 6);
 			this.groupBox2.Name = "groupBox2";
-			this.groupBox2.Size = new System.Drawing.Size(723, 837);
+			this.groupBox2.Size = new System.Drawing.Size(723, 792);
 			this.groupBox2.TabIndex = 0;
 			this.groupBox2.TabStop = false;
 			this.groupBox2.Text = "财务信息";
@@ -1023,9 +1029,9 @@
 			this.label21.AutoSize = true;
 			this.label21.Location = new System.Drawing.Point(30, 74);
 			this.label21.Name = "label21";
-			this.label21.Size = new System.Drawing.Size(41, 12);
+			this.label21.Size = new System.Drawing.Size(53, 12);
 			this.label21.TabIndex = 192;
-			this.label21.Text = "注册号";
+			this.label21.Text = "注册号：";
 			// 
 			// textBox_businessLicId
 			// 
@@ -1053,9 +1059,9 @@
 			this.label13.AutoSize = true;
 			this.label13.Location = new System.Drawing.Point(404, 74);
 			this.label13.Name = "label13";
-			this.label13.Size = new System.Drawing.Size(53, 12);
+			this.label13.Size = new System.Drawing.Size(65, 12);
 			this.label13.TabIndex = 188;
-			this.label13.Text = "注册资本";
+			this.label13.Text = "注册资本：";
 			// 
 			// textBox_businessLicOrg
 			// 
@@ -1069,58 +1075,31 @@
 			this.label14.AutoSize = true;
 			this.label14.Location = new System.Drawing.Point(30, 30);
 			this.label14.Name = "label14";
-			this.label14.Size = new System.Drawing.Size(65, 24);
+			this.label14.Size = new System.Drawing.Size(77, 24);
 			this.label14.TabIndex = 191;
-			this.label14.Text = "营业执照或\r\n事业法人证";
+			this.label14.Text = "营业执照或\r\n事业法人证：";
 			// 
 			// label15
 			// 
 			this.label15.AutoSize = true;
 			this.label15.Location = new System.Drawing.Point(30, 113);
 			this.label15.Name = "label15";
-			this.label15.Size = new System.Drawing.Size(65, 12);
+			this.label15.Size = new System.Drawing.Size(77, 12);
 			this.label15.TabIndex = 190;
-			this.label15.Text = "注册所在地";
+			this.label15.Text = "注册所在地：";
 			// 
 			// label17
 			// 
 			this.label17.AutoSize = true;
 			this.label17.Location = new System.Drawing.Point(404, 36);
 			this.label17.Name = "label17";
-			this.label17.Size = new System.Drawing.Size(53, 12);
+			this.label17.Size = new System.Drawing.Size(65, 12);
 			this.label17.TabIndex = 189;
-			this.label17.Text = "发证机关";
-			// 
-			// textBox_designRep2011
-			// 
-			this.textBox_designRep2011.Location = new System.Drawing.Point(142, 762);
-			this.textBox_designRep2011.Name = "textBox_designRep2011";
-			this.textBox_designRep2011.Size = new System.Drawing.Size(362, 21);
-			this.textBox_designRep2011.TabIndex = 42;
-			// 
-			// button_br2011
-			// 
-			this.button_br2011.Location = new System.Drawing.Point(514, 761);
-			this.button_br2011.Name = "button_br2011";
-			this.button_br2011.Size = new System.Drawing.Size(35, 23);
-			this.button_br2011.TabIndex = 43;
-			this.button_br2011.Text = "...";
-			this.button_br2011.UseVisualStyleBackColor = true;
-			this.button_br2011.Click += new System.EventHandler(this.button_br2011_Click);
-			// 
-			// button_br2010
-			// 
-			this.button_br2010.Location = new System.Drawing.Point(514, 735);
-			this.button_br2010.Name = "button_br2010";
-			this.button_br2010.Size = new System.Drawing.Size(35, 23);
-			this.button_br2010.TabIndex = 41;
-			this.button_br2010.Text = "...";
-			this.button_br2010.UseVisualStyleBackColor = true;
-			this.button_br2010.Click += new System.EventHandler(this.button_br2010_Click);
+			this.label17.Text = "发证机关：";
 			// 
 			// button_br2009
 			// 
-			this.button_br2009.Location = new System.Drawing.Point(514, 709);
+			this.button_br2009.Location = new System.Drawing.Point(514, 750);
 			this.button_br2009.Name = "button_br2009";
 			this.button_br2009.Size = new System.Drawing.Size(35, 23);
 			this.button_br2009.TabIndex = 39;
@@ -1128,16 +1107,9 @@
 			this.button_br2009.UseVisualStyleBackColor = true;
 			this.button_br2009.Click += new System.EventHandler(this.button_br2009_Click);
 			// 
-			// textBox_designRep2010
-			// 
-			this.textBox_designRep2010.Location = new System.Drawing.Point(142, 736);
-			this.textBox_designRep2010.Name = "textBox_designRep2010";
-			this.textBox_designRep2010.Size = new System.Drawing.Size(362, 21);
-			this.textBox_designRep2010.TabIndex = 40;
-			// 
 			// textBox_designRep2009
 			// 
-			this.textBox_designRep2009.Location = new System.Drawing.Point(142, 710);
+			this.textBox_designRep2009.Location = new System.Drawing.Point(142, 751);
 			this.textBox_designRep2009.Name = "textBox_designRep2009";
 			this.textBox_designRep2009.Size = new System.Drawing.Size(362, 21);
 			this.textBox_designRep2009.TabIndex = 38;
@@ -1145,11 +1117,11 @@
 			// label51
 			// 
 			this.label51.AutoSize = true;
-			this.label51.Location = new System.Drawing.Point(30, 728);
+			this.label51.Location = new System.Drawing.Point(30, 749);
 			this.label51.Name = "label51";
-			this.label51.Size = new System.Drawing.Size(53, 36);
+			this.label51.Size = new System.Drawing.Size(101, 24);
 			this.label51.TabIndex = 180;
-			this.label51.Text = "近三年\r\n设计报告\r\n扫描件：";
+			this.label51.Text = "近三年设计报告\r\n        扫描件：";
 			// 
 			// textBox_bankMail
 			// 
@@ -1268,27 +1240,27 @@
 			this.label34.AutoSize = true;
 			this.label34.Location = new System.Drawing.Point(30, 471);
 			this.label34.Name = "label34";
-			this.label34.Size = new System.Drawing.Size(101, 12);
+			this.label34.Size = new System.Drawing.Size(113, 12);
 			this.label34.TabIndex = 157;
-			this.label34.Text = "经营范围（兼营）";
+			this.label34.Text = "经营范围（兼营）：";
 			// 
 			// label33
 			// 
 			this.label33.AutoSize = true;
 			this.label33.Location = new System.Drawing.Point(30, 432);
 			this.label33.Name = "label33";
-			this.label33.Size = new System.Drawing.Size(101, 12);
+			this.label33.Size = new System.Drawing.Size(113, 12);
 			this.label33.TabIndex = 158;
-			this.label33.Text = "经营范围（主营）";
+			this.label33.Text = "经营范围（主营）：";
 			// 
 			// label28
 			// 
 			this.label28.AutoSize = true;
 			this.label28.Location = new System.Drawing.Point(404, 394);
 			this.label28.Name = "label28";
-			this.label28.Size = new System.Drawing.Size(77, 12);
+			this.label28.Size = new System.Drawing.Size(89, 12);
 			this.label28.TabIndex = 155;
-			this.label28.Text = "最近年检时间";
+			this.label28.Text = "最近年检时间：";
 			// 
 			// comboBox_creditLevel
 			// 
@@ -1370,9 +1342,9 @@
 			this.label24.AutoSize = true;
 			this.label24.Location = new System.Drawing.Point(404, 592);
 			this.label24.Name = "label24";
-			this.label24.Size = new System.Drawing.Size(137, 12);
+			this.label24.Size = new System.Drawing.Size(149, 12);
 			this.label24.TabIndex = 145;
-			this.label24.Text = "近三年有无重大违法记录";
+			this.label24.Text = "近三年有无重大违法记录：";
 			// 
 			// dateTimePicker_businessLicCheckDate
 			// 
@@ -1465,18 +1437,18 @@
 			this.label22.AutoSize = true;
 			this.label22.Location = new System.Drawing.Point(30, 510);
 			this.label22.Name = "label22";
-			this.label22.Size = new System.Drawing.Size(53, 12);
+			this.label22.Size = new System.Drawing.Size(65, 12);
 			this.label22.TabIndex = 136;
-			this.label22.Text = "开户银行";
+			this.label22.Text = "开户银行：";
 			// 
 			// label23
 			// 
 			this.label23.AutoSize = true;
 			this.label23.Location = new System.Drawing.Point(404, 510);
 			this.label23.Name = "label23";
-			this.label23.Size = new System.Drawing.Size(53, 12);
+			this.label23.Size = new System.Drawing.Size(65, 12);
 			this.label23.TabIndex = 137;
-			this.label23.Text = "银行帐号";
+			this.label23.Text = "银行帐号：";
 			// 
 			// textBox_landTaxOrg
 			// 
@@ -1504,9 +1476,9 @@
 			this.label16.AutoSize = true;
 			this.label16.Location = new System.Drawing.Point(404, 551);
 			this.label16.Name = "label16";
-			this.label16.Size = new System.Drawing.Size(137, 12);
+			this.label16.Size = new System.Drawing.Size(149, 12);
 			this.label16.TabIndex = 122;
-			this.label16.Text = "是否依法缴纳社会保险费";
+			this.label16.Text = "是否依法缴纳社会保险费：";
 			// 
 			// label48
 			// 
@@ -1724,9 +1696,9 @@
 			this.textBox_productType.Size = new System.Drawing.Size(175, 21);
 			this.textBox_productType.TabIndex = 11;
 			this.textBox_productType.TabStop = false;
-			this.textBox_productType.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-			this.textBox_productType.Text = "未分类";
 			this.textBox_productType.Tag = "0";
+			this.textBox_productType.Text = "未分类";
+			this.textBox_productType.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
 			// button_selectProduct
 			// 
@@ -2013,9 +1985,9 @@
 			this.label43.AutoSize = true;
 			this.label43.Location = new System.Drawing.Point(25, 70);
 			this.label43.Name = "label43";
-			this.label43.Size = new System.Drawing.Size(65, 12);
+			this.label43.Size = new System.Drawing.Size(77, 12);
 			this.label43.TabIndex = 157;
-			this.label43.Text = "注册所在地";
+			this.label43.Text = "注册所在地：";
 			// 
 			// comboBox_aftersalesType
 			// 
@@ -2423,6 +2395,71 @@
 			this.label74.TabIndex = 1;
 			this.label74.Text = "企业名称：";
 			// 
+			// label88
+			// 
+			this.label88.AutoSize = true;
+			this.label88.Location = new System.Drawing.Point(30, 295);
+			this.label88.Name = "label88";
+			this.label88.Size = new System.Drawing.Size(65, 12);
+			this.label88.TabIndex = 0;
+			this.label88.Text = "采购方式：";
+			// 
+			// label89
+			// 
+			this.label89.AutoSize = true;
+			this.label89.Location = new System.Drawing.Point(404, 295);
+			this.label89.Name = "label89";
+			this.label89.Size = new System.Drawing.Size(65, 12);
+			this.label89.TabIndex = 0;
+			this.label89.Text = "是否成交：";
+			// 
+			// comboBox_purchaseSuccese
+			// 
+			this.comboBox_purchaseSuccese.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.comboBox_purchaseSuccese.FormattingEnabled = true;
+			this.comboBox_purchaseSuccese.Items.AddRange(new object[] {
+            "是",
+            "否"});
+			this.comboBox_purchaseSuccese.Location = new System.Drawing.Point(514, 291);
+			this.comboBox_purchaseSuccese.Name = "comboBox_purchaseSuccese";
+			this.comboBox_purchaseSuccese.Size = new System.Drawing.Size(175, 20);
+			this.comboBox_purchaseSuccese.TabIndex = 16;
+			// 
+			// comboBox_purchaseType
+			// 
+			this.comboBox_purchaseType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.comboBox_purchaseType.FormattingEnabled = true;
+			this.comboBox_purchaseType.Location = new System.Drawing.Point(142, 291);
+			this.comboBox_purchaseType.Name = "comboBox_purchaseType";
+			this.comboBox_purchaseType.Size = new System.Drawing.Size(175, 20);
+			this.comboBox_purchaseType.TabIndex = 15;
+			// 
+			// label90
+			// 
+			this.label90.AutoSize = true;
+			this.label90.Location = new System.Drawing.Point(30, 716);
+			this.label90.Name = "label90";
+			this.label90.Size = new System.Drawing.Size(65, 12);
+			this.label90.TabIndex = 180;
+			this.label90.Text = "资信证明：";
+			// 
+			// textBox_bankCertify
+			// 
+			this.textBox_bankCertify.Location = new System.Drawing.Point(142, 712);
+			this.textBox_bankCertify.Name = "textBox_bankCertify";
+			this.textBox_bankCertify.Size = new System.Drawing.Size(362, 21);
+			this.textBox_bankCertify.TabIndex = 38;
+			// 
+			// button_bankCertify
+			// 
+			this.button_bankCertify.Location = new System.Drawing.Point(514, 711);
+			this.button_bankCertify.Name = "button_bankCertify";
+			this.button_bankCertify.Size = new System.Drawing.Size(35, 23);
+			this.button_bankCertify.TabIndex = 39;
+			this.button_bankCertify.Text = "...";
+			this.button_bankCertify.UseVisualStyleBackColor = true;
+			this.button_bankCertify.Click += new System.EventHandler(this.button_bankCertify_Click);
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -2631,11 +2668,7 @@
 		private System.Windows.Forms.Label label14;
 		private System.Windows.Forms.Label label15;
 		private System.Windows.Forms.Label label17;
-		private System.Windows.Forms.TextBox textBox_designRep2011;
-		private System.Windows.Forms.Button button_br2011;
-		private System.Windows.Forms.Button button_br2010;
 		private System.Windows.Forms.Button button_br2009;
-		private System.Windows.Forms.TextBox textBox_designRep2010;
 		private System.Windows.Forms.TextBox textBox_designRep2009;
 		private System.Windows.Forms.Label label51;
 		private System.Windows.Forms.TextBox textBox_bankMail;
@@ -2695,6 +2728,13 @@
 		private System.Windows.Forms.Label label20;
 		private System.Windows.Forms.TextBox textBox_organizationId;
 		private System.Windows.Forms.Label label87;
+		private System.Windows.Forms.ComboBox comboBox_purchaseSuccese;
+		private System.Windows.Forms.Label label89;
+		private System.Windows.Forms.Label label88;
+		private System.Windows.Forms.ComboBox comboBox_purchaseType;
+		private System.Windows.Forms.Button button_bankCertify;
+		private System.Windows.Forms.TextBox textBox_bankCertify;
+		private System.Windows.Forms.Label label90;
 	}
 }
 

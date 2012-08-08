@@ -687,7 +687,7 @@ namespace DatCollect
 
 			Dictionary<string, SDict> tdi = null;
 			// 经济性质
-			if (_dict.TryGetValue(16, out tdi))
+			if (_dict.TryGetValue(14, out tdi))
 			{
 				foreach (KeyValuePair<string, SDict> item in tdi)
 				{
@@ -704,6 +704,16 @@ namespace DatCollect
 					comboBox_supplierType.Items.Add(item.Value.name);
 				}
 				comboBox_supplierType.SelectedIndex = 0;
+			}
+			tdi = null;
+			// 采购方式
+			if (_dict.TryGetValue(16, out tdi))
+			{
+				foreach (KeyValuePair<string, SDict> item in tdi)
+				{
+					comboBox_purchaseType.Items.Add(item.Value.name);
+				}
+				comboBox_purchaseType.SelectedIndex = 0;
 			}
 			tdi = null;
 
@@ -748,6 +758,11 @@ namespace DatCollect
 			}
 			tdi = null;
 
+			this.comboBox_natualTaxPay.SelectedIndex = 0;
+			this.comboBox_landTaxPay.SelectedIndex = 0;
+			this.comboBox_bankHasIllegal.SelectedIndex = 0;
+			this.comboBox_bankHasPay.SelectedIndex = 0;
+			this.comboBox_purchaseSuccese.SelectedIndex = 0;
 		}
 
 		private void comboBox_provice_SelectedIndexChanged(object sender, EventArgs e)
@@ -778,7 +793,15 @@ namespace DatCollect
 			fileDialog1.Filter = "image files|*.jpg;*.png;*.gif";
 			if (fileDialog1.ShowDialog() == DialogResult.OK)
 			{
-				textBox_storehouseImage.Text = fileDialog1.FileName;
+				FileInfo fi = new FileInfo(fileDialog1.FileName);
+				if (fi.Exists && fi.Length <= 500 * 1024)
+				{
+					textBox_storehouseImage.Text = fileDialog1.FileName;
+				}
+				else
+				{
+					MessageBox.Show("文件超过限制");
+				}
 			}
 
 		}
@@ -858,7 +881,15 @@ namespace DatCollect
 			fileDialog1.Filter = "image files|*.jpg;*.png;*.gif";
 			if (fileDialog1.ShowDialog() == DialogResult.OK)
 			{
-				textBox_businessLicId.Text = fileDialog1.FileName;
+				FileInfo fi = new FileInfo(fileDialog1.FileName);
+				if (fi.Exists && fi.Length <= 500 * 1024)
+				{
+					textBox_businessLicId.Text = fileDialog1.FileName;
+				}
+				else
+				{
+					MessageBox.Show("文件超过限制");
+				}
 			}
 
 		}
@@ -869,38 +900,52 @@ namespace DatCollect
 			fileDialog1.Filter = "image files|*.jpg;*.png;*.gif";
 			if (fileDialog1.ShowDialog() == DialogResult.OK)
 			{
-				textBox_organizationImage.Text = fileDialog1.FileName;
+				FileInfo fi = new FileInfo(fileDialog1.FileName);
+				if (fi.Exists && fi.Length <= 500 * 1024)
+				{
+					textBox_organizationImage.Text = fileDialog1.FileName;
+				}
+				else
+				{
+					MessageBox.Show("文件超过限制");
+				}
 			}
 
+		}
+
+		private void button_bankCertify_Click(object sender, EventArgs e)
+		{
+			OpenFileDialog fileDialog1 = new OpenFileDialog();
+			fileDialog1.Filter = "image files|*.jpg;*.png;*.gif";
+			if (fileDialog1.ShowDialog() == DialogResult.OK)
+			{
+				FileInfo fi = new FileInfo(fileDialog1.FileName);
+				if (fi.Exists && fi.Length <= 500 * 1024)
+				{
+					textBox_bankCertify.Text = fileDialog1.FileName;
+				}
+				else
+				{
+					MessageBox.Show("文件超过限制");
+				}
+			}
 		}
 
 		private void button_br2009_Click(object sender, EventArgs e)
 		{
 			OpenFileDialog fileDialog1 = new OpenFileDialog();
-			fileDialog1.Filter = "image files|*.jpg;*.png;*.gif";
+			fileDialog1.Filter = "zip files|*.zip";
 			if (fileDialog1.ShowDialog() == DialogResult.OK)
 			{
-				textBox_designRep2009.Text = fileDialog1.FileName;
-			}
-		}
-
-		private void button_br2010_Click(object sender, EventArgs e)
-		{
-			OpenFileDialog fileDialog1 = new OpenFileDialog();
-			fileDialog1.Filter = "image files|*.jpg;*.png;*.gif";
-			if (fileDialog1.ShowDialog() == DialogResult.OK)
-			{
-				textBox_designRep2010.Text = fileDialog1.FileName;
-			}
-		}
-
-		private void button_br2011_Click(object sender, EventArgs e)
-		{
-			OpenFileDialog fileDialog1 = new OpenFileDialog();
-			fileDialog1.Filter = "image files|*.jpg;*.png;*.gif";
-			if (fileDialog1.ShowDialog() == DialogResult.OK)
-			{
-				textBox_designRep2011.Text = fileDialog1.FileName;
+				FileInfo fi = new FileInfo(fileDialog1.FileName);
+				if (fi.Exists && fi.Length <= 5 * 1024 * 1024)
+				{
+					textBox_designRep2009.Text = fileDialog1.FileName;
+				}
+				else
+				{
+					MessageBox.Show("文件超过限制");
+				}
 			}
 		}
 
@@ -953,7 +998,15 @@ namespace DatCollect
 				fileDialog1.Filter = "image files|*.jpg;*.png;*.gif";
 				if (fileDialog1.ShowDialog() == DialogResult.OK)
 				{
-					textBox_productPhoto.Text = fileDialog1.FileName;
+					FileInfo fi = new FileInfo(fileDialog1.FileName);
+					if (fi.Exists && fi.Length <= 500 * 1024)
+					{
+						textBox_productPhoto.Text = fileDialog1.FileName;
+					}
+					else
+					{
+						MessageBox.Show("文件超过限制");
+					}
 				}
 			}
 			else
@@ -966,7 +1019,15 @@ namespace DatCollect
 						fileDialog1.Filter = "image files|*.jpg;*.png;*.gif";
 						if (fileDialog1.ShowDialog() == DialogResult.OK)
 						{
-							item.textBoxProductPhoto.Text = fileDialog1.FileName;
+							FileInfo fi = new FileInfo(fileDialog1.FileName);
+							if (fi.Exists && fi.Length <= 500 * 1024)
+							{
+								item.textBoxProductPhoto.Text = fileDialog1.FileName;
+							}
+							else
+							{
+								MessageBox.Show("文件超过限制");
+							}
 						}
 						break;
 					}
@@ -1471,6 +1532,11 @@ namespace DatCollect
 					this.textBox_bankMail.Focus();
 					return false;
 				}
+				if (this.textBox_bankCertify.Text.Length == 0)
+				{
+					this.textBox_bankCertify.Focus();
+					return false;
+				}
 				if (this.textBox_designRep2009.Text.Length == 0)
 				{
 					this.textBox_designRep2009.Focus();
@@ -1676,7 +1742,10 @@ namespace DatCollect
 		private void button_finish_Click(object sender, EventArgs e)
 		{
 			if (!check())
+			{
+				MessageBox.Show("数据填写不完整！");
 				return;
+			}
 
 			SaveFileDialog saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
 			saveFileDialog1.Filter = "dat文件(*.dat)|*.dat";
@@ -1715,6 +1784,8 @@ namespace DatCollect
 				setXmlElem(writer, "TYPECODE", "");
 			}
 			setXmlElem(writer, "TYPE", this.comboBox_supplierType.Text);
+			setXmlElem(writer, "PURCHASETYPE", this.comboBox_purchaseType.Text);
+			setXmlElem(writer, "IFTURNOVER", this.comboBox_purchaseSuccese.Text);
 			try
 			{
 				setXmlElem(writer, "BANKID", _dict[12][this.comboBox_bank.Text].code);
@@ -1812,6 +1883,19 @@ namespace DatCollect
 				setXmlElem(writer, "STOCKDATE", sh.dateTimePickerStockholderStockDate.Text);
 				writer.WriteEndElement();
 			}
+			writer.WriteEndElement();
+			writer.Flush();
+			writer.Close();
+
+			// 证明文件
+			writer = new XmlTextWriter(tmppath + "\\supportor_prove.xml", Encoding.UTF8);
+			writer.Formatting = Formatting.Indented;  //缩进格式
+			writer.Indentation = 4;
+			writer.WriteStartDocument();
+			writer.WriteStartElement("DTO");
+			writer.WriteStartElement("ROW");
+			setXmlElem(writer, "PROVENAME", this.textBox_bankCertify.Text);
+			writer.WriteEndElement();
 			writer.WriteEndElement();
 			writer.Flush();
 			writer.Close();
