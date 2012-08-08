@@ -31,6 +31,8 @@
 	String mode = request.getParameter("mode");
 %>
 
+<script type="text/javascript" src='resources/javascript/xtree.js'></script>
+<script type="text/javascript" src="resources/javascript/floatdiv.js"></script>
 <script type="text/javascript">
 	function getRequest(){
 		if(window.XMLHttpRequest){
@@ -130,6 +132,66 @@
 		};
 		request.send(null);
 	}
+
+	function set_producttype()
+	{
+		var requestTest = "<?xml version='1.0' encoding='UTF-8'?><Request>" +
+		"<header>" +
+			"<responseSystemName>Navy</responseSystemName>" +
+			"<responseSubsystemName>DictManage</responseSubsystemName>" +
+			"<responseService>ProductTypeQueryService</responseService>" +
+			"<dispatcherUrl></dispatcherUrl>" +
+		"</header>" +
+		"<DTO></DTO></Request>";
+	
+		var request = getRequest();
+		var url = '<%=request.getContextPath()%>/systemxhr?opt=&XML_DATA='+escape(requestTest);
+		request.open('POST',url,true);
+		request.onreadystatechange = function()
+		{
+			if (request.readyState==4 && request.status==200)
+			{
+				//console.log(request.responseText);
+				alert("waiting for creating tree...");
+				var xmldata1 = request.responseXML.getElementsByTagName("Response/DTO/DICT_LIST/Row/LIS_RESULT/Row");
+				for (var i=0; i<xmldata1.length; i++)
+				{
+					var xmlname1 = xmldata1[i].getElementsByTagName("STR_DICTNAME");
+					var xmlcode1 = xmldata1[i].getElementsByTagName("STR_DICTCODE");
+					if (xmlname1 && xmlname1.length > 0 && xmlcode1 && xmlcode1.length > 0)
+					{
+						var item1 = new treeItem(xmlname1, "javascript:setvalue(" + xmlcode1 + ");");
+						item1.setup(document.getElementById("protypetree"));
+						
+						var xmldata2 = xmldata1[i].getElementsByTagName("CHILDREN/Row");
+						for (var j=0; j<xmldata2.length; j++)
+						{
+							var xmlname2 = xmldata2[j].getElementsByTagName("STR_DICTNAME");
+							var xmlcode2 = xmldata2[j].getElementsByTagName("STR_DICTCODE");
+							if (xmlname2 && xmlname2.length > 0 && xmlcode2 && xmlcode2.length > 0)
+							{
+								var item2 = new treeItem(xmlname2, "javascript:setvalue(" + xmlcode2 + ");");
+								item1.add(item2);
+
+								var xmldata3 = xmldata2[j].getElementsByTagName("CHILDREN/Row");
+								for (var k=0; k<xmldata3.length; k++)
+								{
+									var xmlname3 = xmldata2[k].getElementsByTagName("STR_DICTNAME");
+									var xmlcode3 = xmldata2[k].getElementsByTagName("STR_DICTCODE");
+									if (xmlname3 && xmlname3.length > 0 && xmlcode3 && xmlcode3.length > 0)
+									{
+										var item3 = new treeItem(xmlname3, "javascript:setvalue(" + xmlcode3 + ");");
+										item2.add(item3);
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		};
+		request.send(null);
+	}
 	
 	set_province();
 </script>
@@ -188,7 +250,28 @@
 				<input id="STR_QUERY_GOODNAME" name="STR_QUERY_GOODNAME" style="width:150px"
 					value="<%= queryParam.getString("QUERY_GOODNAME") == null ? "" : queryParam.getString("QUERY_GOODNAME") %>" />
 				<img src="resources/images/common/btn_search.gif" alt=" " width="62" height="22"
-					onclick="alert('show');" /> 
+					onclick="ScriptHelper.showDivCommon(this,'protypetree');" />  
+				<div id="protypetree" style="position:absolute; display:none; background-color:#D7EFCD; border:solid 1px #000000; padding:5px; width:200px; height:200px;" ></div>
+				<script type="text/javascript">
+					function setvalue(value)
+					{
+						document.getElementById("STR_QUERY_GOODNAME").value = value;
+					}
+					//var root = new treeItem("一级", "javascript:setprotype('一级');");
+				    //
+					//var item0 = new treeItem("二级1", "javascript:setprotype('二级1');");
+					//root.add(item0);
+					//var item01 = new treeItem("三级1", "javascript:setprotype('三级1');");
+					//item0.add(item01);
+					//var item02 = new treeItem("三级1", "javascript:setprotype('三级1');");
+					//item0.add(item02);
+					//var item1 = new treeItem("二级2", "javascript:setprotype('二级2');");
+					//root.add(item1);
+				    //
+					//root.setup(document.getElementById("protypetree"));
+				    
+					set_producttype();
+				</script>
 			</td>
 			<td align="right">
 				产品产能:&nbsp;
