@@ -16,6 +16,7 @@ import cn.com.hd.database.SelectResultSet;
 import cn.com.hd.dto.navy.TAftersaleOrg;
 import cn.com.hd.dto.navy.TImage;
 import cn.com.hd.dto.navy.TImport;
+import cn.com.hd.dto.navy.TProveInfo;
 import cn.com.hd.dto.navy.TStockholder;
 import cn.com.hd.dto.navy.TSupProduct;
 import cn.com.hd.dto.navy.TSupportor;
@@ -123,6 +124,7 @@ public class ImportService extends BaseService implements IService {
 					getData(dto, sale);
 					delete(sale);
 				}
+				
 			}
 			
 			doc = XMLUtils.readXML(prodXml);

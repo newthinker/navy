@@ -65,13 +65,16 @@
 		{
 			if (request.readyState==4 && request.status==200)
 			{
+				alert(request.responseXML);
+				console.log("text:"+request.responseText);
 				var provdom = document.getElementById("STR_QUERY_L1LOC");
 				while (provdom.options.length > 1)
 				{
 					provdom.options.length = 1;
 				}
-				//console.log(request);
 				var xmldata = request.responseXML.getElementsByTagName("Response/DTO/DICT_LIST/Row/LIS_RESULT/Row");
+				console.log(xmldata);
+				console.log(xmldata.length);
 				for (var i=0; i<xmldata.length; i++)
 				{
 					var xmlname = xmldata[i].getElementsByTagName("STR_AREANAME");
@@ -80,6 +83,7 @@
 					{
 	                    var item = new Option(xmlname[0].nodeTypedValue, xmlcode[0].nodeTypedValue);  
 	                    provdom.options.add(item);
+	                    console.log(xmlname[0].nodeTypedValue);
 					}
 				}
 			}

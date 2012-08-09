@@ -336,6 +336,16 @@
 				<comment>组织结构代码证扫描件</comment>
 			</column>
 		</property>		
+		<property name="bankprove" type="VARCHAR2">
+			<column name="BANK_PROVE" length="50">
+				<comment>银行资信证明扫描件</comment>
+			</column>
+		</property>		
+		<property name="otherprove" type="VARCHAR2">
+			<column name="OTHER_PROVE" length="200">
+				<comment>其它资质证明压缩包文件(</comment>
+			</column>
+		</property>			
 		<property name="purchasetype" type="VARCHAR2">
 			<column name="PURCHASE_TYPE" length="100">
 				<comment>采购方式</comment>
@@ -346,5 +356,10 @@
 				<comment>是否成交</comment>
 			</column>
 		</property>
+		<property name="qualityprove" type="VARCHAR2">
+			<column name="QUALITY_PROVE" length="50">
+				<comment>质量管理认证证书扫描件</comment>
+			</column>
+		</property>			
     </class>
 </DTO-mapping>

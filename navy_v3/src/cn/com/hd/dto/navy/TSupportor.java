@@ -90,8 +90,11 @@ public class TSupportor extends BaseDTO {
 	private String auditlast3y;				// 近三年审计报告压缩文件
 	private String licbusimage;				// 营业执照扫描件
 	private String orgstrimage;				// 组织结构代码证扫描件
+	private String bankprove;				// 银行资信证明扫描件
+	private String otherprove;				// 其他资质证明文件
 	private String purchasetype;			// 采购方式
 	private String ifturnover;				// 是否成交
+	private String qualityprove;			// 质量管理认证证书扫描件
 
 	public String getSupid() {
 		return supid;
@@ -669,6 +672,22 @@ public class TSupportor extends BaseDTO {
 		this.orgstrimage = orgstrimage;
 	}
 	
+	public String getBankProve() {
+		return bankprove;
+	}
+	
+	public void setBankProve(String bankprove) {
+		this.bankprove = bankprove;
+	}
+	
+	public String getOtherProve() {
+		return otherprove;
+	}
+	
+	public void setOtherProve(String otherprove) {
+		this.otherprove = otherprove;
+	}
+	
 	public String getPurchasetype () {
 		return purchasetype;
 	}
@@ -684,4 +703,13 @@ public class TSupportor extends BaseDTO {
 	public void setIfturnover ( String iftureover ) {
 		this.ifturnover = ifturnover;
 	}
+	
+	public String getQualityProve() {
+		return qualityprove;
+	}
+	
+	public void setQualityProve(String qualityprove) {
+		this.qualityprove = qualityprove;
+	}
+	
 }

@@ -147,7 +147,7 @@ public class SystemXhrServiceServlet extends HttpServlet {
 				req.setIsremote("false");
 				
 			} else {
-				response.setContentType("text/xml;");
+				response.setContentType("text/xml; charset=utf-8");
 				OutputStream os = response.getOutputStream(); 
 				os.write(resp.toXMLString().getBytes());
 //				request.setAttribute("XML_DATA", resp);
@@ -172,7 +172,7 @@ public class SystemXhrServiceServlet extends HttpServlet {
 						req.setIsremote("false");
 						
 					} else {
-						response.setContentType("text/xml;");
+						response.setContentType("text/xml; charset=utf-8");
 						OutputStream os = response.getOutputStream(); 
 						os.write(resp.toXMLString().getBytes());
 //						request.setAttribute("XML_DATA", resp);
@@ -193,7 +193,7 @@ public class SystemXhrServiceServlet extends HttpServlet {
 				req.setIsremote("false");
 				
 			} else {
-				response.setContentType("text/xml;");
+				response.setContentType("text/xml; charset=utf-8");
 				OutputStream os = response.getOutputStream(); 
 				os.write(resp.toXMLString().getBytes());
 //				request.setAttribute("XML_DATA", resp);

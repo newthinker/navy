@@ -17,6 +17,11 @@
                 <comment>物资品名</comment>
             </column>
         </property>
+        <property name="dictcode" type="VARCHAR2">
+            <column name="DICT_CODE" length="200">
+                <comment>物资编号</comment>
+            </column>
+        </property>		
         <property name="prodname" type="VARCHAR2">
             <column name="PROD_NAME" length="200">
                 <comment>产品名称</comment>

@@ -17,6 +17,7 @@ import cn.com.hd.dto.navy.TAftersaleOrg;
 import cn.com.hd.dto.navy.THighWay;
 import cn.com.hd.dto.navy.TImage;
 import cn.com.hd.dto.navy.TImport;
+import cn.com.hd.dto.navy.TProveInfo;
 import cn.com.hd.dto.navy.TStockholder;
 import cn.com.hd.dto.navy.TSupProduct;
 import cn.com.hd.dto.navy.TSupTrans;
@@ -60,6 +61,7 @@ public class SupImportService extends BaseService implements IService {
 			String orgXml = targetPath + "/supportor_org.xml";			// 售后
 			String tranXml = targetPath + "/supportor_tran.xml";		// 交通运输
 			String wayXml = targetPath + "/supportor_highway.xml";		// 高速公路
+			String proveXml = targetPath + "/supportor_prove.xml";
 			
 			Map<String, TSupportor> supMap = new HashMap<String, TSupportor>();
 			Document doc = XMLUtils.readXML(supXml);
@@ -107,6 +109,38 @@ public class SupImportService extends BaseService implements IService {
 					
 					imgList.add(img);
 					sup.setOrgstrimage(img.getImageid());
+				}
+				if ( sup.getAuditlast3y()!=null ) {				// 近三年审计报告压缩文件--当作图片处理
+					TImage img = new TImage();
+					img.setImageid(UUID.randomUUID().toString());
+					img.setImagename(sup.getAuditlast3y());
+					
+					imgList.add(img);
+					sup.setAuditlast3y(img.getImageid());
+				}
+				if ( sup.getBankProve()!=null ) {				// 银行资信证明文件扫描件
+					TImage img = new TImage();
+					img.setImageid(UUID.randomUUID().toString());
+					img.setImagename(sup.getBankProve());
+					
+					imgList.add(img);
+					sup.setBankProve(img.getImageid());					
+				}				
+				if ( sup.getOtherProve()!=null ) {				// 其它证明压缩文件
+					TImage img = new TImage();
+					img.setImageid(UUID.randomUUID().toString());
+					img.setImagename(sup.getOtherProve());
+					
+					imgList.add(img);
+					sup.setOtherProve(img.getImageid());					
+				}
+				if ( sup.getQualityProve()!=null ) {				// 银行资信证明文件扫描件
+					TImage img = new TImage();
+					img.setImageid(UUID.randomUUID().toString());
+					img.setImagename(sup.getQualityProve());
+					
+					imgList.add(img);
+					sup.setQualityProve(img.getImageid());					
 				}				
 				
 				Conditions cons = new Conditions();
@@ -161,6 +195,18 @@ public class SupImportService extends BaseService implements IService {
 					getData(dto, sale);
 					delete(sale);
 				}
+				
+/*				TProveInfo prove = new TProveInfo();
+				prove.setSupid(supid);
+				rs = queryResultSet(prove);
+				list = getDTO(rs);
+				for (Object object : list) {
+					DTO dto = (DTO) object;
+					prove = new TProveInfo();
+					getData(dto, prove);
+					delete(prove);
+				}		
+*/				
 			}
 			
 			doc = XMLUtils.readXML(prodXml);
@@ -270,6 +316,29 @@ public class SupImportService extends BaseService implements IService {
 				}			
 			}
 			
+/*			// 解析资信证明文件
+			doc = XMLUtils.readXML(orgXml);
+			List proveElemList = doc.getRootElement().getChildren("ROW");
+			for (int i = 0; i < proveElemList.size(); i ++) {
+				Element elem = (Element) proveElemList.get(i);
+				TProveInfo prove = new TProveInfo();
+				prove.fromXMLString(elem);
+				
+				// 处理图片
+				if (prove.getImageid()!=null) {
+					TImage img = new TImage();
+					img.setImageid(UUID.randomUUID().toString());
+					img.setImagename(prove.getProvename());
+					img.setImagepath(prove.getImageid());
+					imgList.add(img);
+					
+					prove.setImageid(img.getImageid());
+				}
+				
+				prove.setSupid(supMap.get(prove.getSupid()).getSupid());
+				save(prove);
+			}			
+*/			
 			for (TImage img : imgList) {
 				// 从文件名中获取文件类型
 				String imgName = img.getImagename();
