@@ -1958,7 +1958,7 @@ namespace DatCollect
 			{
 				writer.WriteStartElement("ROW");
 				setXmlElem(writer, "GOODNAME", this.textBox_productType.Text);
-				setXmlElem(writer, "DICTCODE", (string)this.textBox_productType.Tag);
+				setXmlElem(writer, "PRODTYPE", (string)this.textBox_productType.Tag);
 				setXmlElem(writer, "PRODNAME", this.textBox_productName.Text);
 				setXmlElem(writer, "MEASURUNIT", this.textBox_productUnit.Text);
 				setXmlElem(writer, "PRODNO", this.textBox_productMode.Text);
