@@ -15,7 +15,7 @@ public class TSupProduct extends BaseDTO {
 	private String prodid;
 	private String supid;
 	private String goodname;
-	private String dictcode;
+	private String prodtype;
 	private String prodname;
 	private String measurunit;
 	private String prodno;
@@ -50,12 +50,12 @@ public class TSupProduct extends BaseDTO {
 		this.goodname = goodname;
 	}
 	
-	public String getDictcode() {
-		return dictcode;
+	public String getProdtype() {
+		return prodtype;
 	}
 
-	public void setDictcode(String dictcode) {
-		this.dictcode = dictcode;
+	public void setProdtype(String prodtype) {
+		this.prodtype = prodtype;
 	}	
 
 	public String getProdname() {

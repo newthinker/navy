@@ -65,25 +65,20 @@
 		{
 			if (request.readyState==4 && request.status==200)
 			{
-				alert(request.responseXML);
-				console.log("text:"+request.responseText);
 				var provdom = document.getElementById("STR_QUERY_L1LOC");
 				while (provdom.options.length > 1)
 				{
 					provdom.options.length = 1;
 				}
 				var xmldata = request.responseXML.getElementsByTagName("Response/DTO/DICT_LIST/Row/LIS_RESULT/Row");
-				console.log(xmldata);
-				console.log(xmldata.length);
 				for (var i=0; i<xmldata.length; i++)
 				{
 					var xmlname = xmldata[i].getElementsByTagName("STR_AREANAME");
 					var xmlcode = xmldata[i].getElementsByTagName("STR_AREACODE");
 					if (xmlname.length > 0 && xmlcode.length > 0)
 					{
-	                    var item = new Option(xmlname[0].nodeTypedValue, xmlcode[0].nodeTypedValue);  
-	                    provdom.options.add(item);
-	                    console.log(xmlname[0].nodeTypedValue);
+						var item = new Option(xmlname[0].nodeTypedValue, xmlcode[0].nodeTypedValue);  
+						provdom.options.add(item);
 					}
 				}
 			}
@@ -120,7 +115,6 @@
 				{
 					citydom.options.length = 1;
 				}
-				//console.log(request);
 				var xmldata = request.responseXML.getElementsByTagName("Response/DTO/DICT_LIST/Row/LIS_RESULT/Row");
 				for (var i=0; i<xmldata.length; i++)
 				{
@@ -128,7 +122,7 @@
 					var xmlcode = xmldata[i].getElementsByTagName("STR_AREACODE");
 					if (xmlname.length > 0 && xmlcode.length > 0)
 					{
-	                    var item = new Option(xmlname[0].nodeTypedValue, xmlcode[0].nodeTypedValue);  
+						var item = new Option(xmlname[0].nodeTypedValue, xmlcode[0].nodeTypedValue);  
 						citydom.options.add(item);
 					}
 				}
@@ -257,8 +251,8 @@
 			</td>
 			<td align="left">
 				<span id="protypename" style="border:solid 1px #b3c9d2; width:150px" > -请选择产品分类- </span>
-				<input id="STR_QUERY_GOODNAME" name="STR_QUERY_GOODNAME" style="width:150px" type="hidden"
-					value="<%= queryParam.getString("QUERY_GOODNAME") == null ? "" : queryParam.getString("QUERY_GOODNAME") %>" />
+				<input id="STR_QUERY_PRODTYPE" name="STR_QUERY_PRODTYPE" style="width:150px" type="hidden"
+					value="<%= queryParam.getString("QUERY_PRODTYPE") == null ? "" : queryParam.getString("QUERY_PRODTYPE") %>" />
 				<a id="a_protypediv" class="link_blue_table" href="javascript:void(0)" onclick="showProtypeTree(this);">显示产品编目</a>
 				<div id="protypediv" style="position:absolute; display:none; overflow:auto; background-color:#FFFFFF; border:solid 1px #000000; padding:5px; width:250px; height:300px;" >
 					<div id="protypenotify">请稍等...</div>
@@ -283,7 +277,7 @@
 					function setvalue(value1, value2)
 					{
 						document.getElementById("protypename").innerText = value1;
-						document.getElementById("STR_QUERY_GOODNAME").value = value2;
+						document.getElementById("STR_QUERY_PRODTYPE").value = value2;
 					}
 				</script>
 			</td>
