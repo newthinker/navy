@@ -27,10 +27,10 @@ public class SupSupportorQueryService extends BaseService implements IService {
 		
 		// 供应商名称
 		String supname = supportor.getSupname();
-		supportor.setSupname(null);		
+			
 		// 供应商位置
 		String l1Area = supportor.getL1Loc();
-		String l2Area = supportor.getL2Loc();		
+		String l2Area = supportor.getL2Loc();	
 		// 供应商注册资金
 		double capital = 0;
 		if(supportor.getLiccapital()!=null) {
@@ -42,19 +42,39 @@ public class SupSupportorQueryService extends BaseService implements IService {
 		
 		// 首先根据供应商提交的条件查询出符合范围的供应商
 		if (supname != null && !supname.trim().equals("")) {
-			cons.addExpression("SUP_NAME like '%" + supname + "%' OR SUP_EN_NAME like '%" + supname + "%'");
+			supportor.setSupname(null);	
+			cons.addExpression("dto1.SUP_NAME like '%" + supname + "%'");
 		}
 		if (l1Area!=null) {
-			cons.addExpression("L1_LOC = '" + l1Area + "'");
+			// 将areacode转换成地名
+			Request req = new Request();
+			req.setResponseSystemName("HDDict");
+			req.setResponseSubsystemName("DictManage");
+			req.setResponseServiceName("AreaQueryByIDService");
+			req.getDto().setString("AREACODE", l1Area);	
+			resp = requestService(req);
+			String areaName = resp.getDto().getList("RESULT").get(0).getString("AREANAME");
+			
+			supportor.setL1Loc(areaName);			
 		}
 		if (l2Area!=null) {
-			cons.addExpression("L2_LOC = '" + l2Area + "'");
+			Request req = new Request();
+			req.setResponseSystemName("HDDict");
+			req.setResponseSubsystemName("DictManage");
+			req.setResponseServiceName("AreaQueryByIDService");
+			req.getDto().setString("AREACODE", l1Area);	
+			resp = requestService(req);
+			String areaName = resp.getDto().getList("RESULT").get(0).getString("AREANAME");
+			
+			supportor.setL2Loc(areaName);
 		}
 		if (capital>0 && capital<6) {
+			supportor.setLiccapital(null);
+			
 			if(capital<5) {
-				cons.addExpression("LIC_CAPITAL>" + Math.pow(10, capital-1) + " and LIC_CAPITAL<" + Math.pow(10,capital));
+				cons.addExpression("dto1.LIC_CAPITAL>" + Math.pow(10, capital-1) + " and dto1.LIC_CAPITAL<" + Math.pow(10,capital));
 			} else {
-				cons.addExpression("LIC_CAPITAL>" + Math.pow(10, 5));
+				cons.addExpression("dto1.LIC_CAPITAL>" + Math.pow(10, 5));
 			}
 		}
 
