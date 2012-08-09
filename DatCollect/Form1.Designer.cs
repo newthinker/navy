@@ -67,6 +67,8 @@
 			this.textBox_referee = new System.Windows.Forms.TextBox();
 			this.label27 = new System.Windows.Forms.Label();
 			this.comboBox_city = new System.Windows.Forms.ComboBox();
+			this.comboBox_purchaseType = new System.Windows.Forms.ComboBox();
+			this.comboBox_purchaseSuccese = new System.Windows.Forms.ComboBox();
 			this.comboBox_supplierType = new System.Windows.Forms.ComboBox();
 			this.comboBox_economyNature = new System.Windows.Forms.ComboBox();
 			this.comboBox_provice = new System.Windows.Forms.ComboBox();
@@ -74,9 +76,11 @@
 			this.textBox_supplierContact = new System.Windows.Forms.TextBox();
 			this.textBox_website = new System.Windows.Forms.TextBox();
 			this.textBox_adress = new System.Windows.Forms.TextBox();
+			this.label89 = new System.Windows.Forms.Label();
 			this.label39 = new System.Windows.Forms.Label();
 			this.label12 = new System.Windows.Forms.Label();
 			this.label84 = new System.Windows.Forms.Label();
+			this.label88 = new System.Windows.Forms.Label();
 			this.label40 = new System.Windows.Forms.Label();
 			this.label10 = new System.Windows.Forms.Label();
 			this.textBox_postid = new System.Windows.Forms.TextBox();
@@ -107,8 +111,11 @@
 			this.label14 = new System.Windows.Forms.Label();
 			this.label15 = new System.Windows.Forms.Label();
 			this.label17 = new System.Windows.Forms.Label();
+			this.button_otherProve = new System.Windows.Forms.Button();
 			this.button_br2009 = new System.Windows.Forms.Button();
+			this.textBox_otherProve = new System.Windows.Forms.TextBox();
 			this.textBox_designRep2009 = new System.Windows.Forms.TextBox();
+			this.label90 = new System.Windows.Forms.Label();
 			this.label51 = new System.Windows.Forms.Label();
 			this.textBox_bankMail = new System.Windows.Forms.TextBox();
 			this.textBox_bankMobile = new System.Windows.Forms.TextBox();
@@ -249,13 +256,12 @@
 			this.label71 = new System.Windows.Forms.Label();
 			this.label73 = new System.Windows.Forms.Label();
 			this.label74 = new System.Windows.Forms.Label();
-			this.label88 = new System.Windows.Forms.Label();
-			this.label89 = new System.Windows.Forms.Label();
-			this.comboBox_purchaseSuccese = new System.Windows.Forms.ComboBox();
-			this.comboBox_purchaseType = new System.Windows.Forms.ComboBox();
-			this.label90 = new System.Windows.Forms.Label();
-			this.textBox_bankCertify = new System.Windows.Forms.TextBox();
-			this.button_bankCertify = new System.Windows.Forms.Button();
+			this.label91 = new System.Windows.Forms.Label();
+			this.textBox_qualityProve = new System.Windows.Forms.TextBox();
+			this.button_qualityProve = new System.Windows.Forms.Button();
+			this.label92 = new System.Windows.Forms.Label();
+			this.textBox_bankProve = new System.Windows.Forms.TextBox();
+			this.button_bankProve = new System.Windows.Forms.Button();
 			this.tabControl_data.SuspendLayout();
 			this.tabPage1.SuspendLayout();
 			this.panel1.SuspendLayout();
@@ -668,6 +674,27 @@
 			this.comboBox_city.Size = new System.Drawing.Size(83, 20);
 			this.comboBox_city.TabIndex = 3;
 			// 
+			// comboBox_purchaseType
+			// 
+			this.comboBox_purchaseType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.comboBox_purchaseType.FormattingEnabled = true;
+			this.comboBox_purchaseType.Location = new System.Drawing.Point(142, 291);
+			this.comboBox_purchaseType.Name = "comboBox_purchaseType";
+			this.comboBox_purchaseType.Size = new System.Drawing.Size(175, 20);
+			this.comboBox_purchaseType.TabIndex = 15;
+			// 
+			// comboBox_purchaseSuccese
+			// 
+			this.comboBox_purchaseSuccese.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.comboBox_purchaseSuccese.FormattingEnabled = true;
+			this.comboBox_purchaseSuccese.Items.AddRange(new object[] {
+            "是",
+            "否"});
+			this.comboBox_purchaseSuccese.Location = new System.Drawing.Point(514, 291);
+			this.comboBox_purchaseSuccese.Name = "comboBox_purchaseSuccese";
+			this.comboBox_purchaseSuccese.Size = new System.Drawing.Size(175, 20);
+			this.comboBox_purchaseSuccese.TabIndex = 16;
+			// 
 			// comboBox_supplierType
 			// 
 			this.comboBox_supplierType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -726,6 +753,15 @@
 			this.textBox_adress.Size = new System.Drawing.Size(175, 21);
 			this.textBox_adress.TabIndex = 7;
 			// 
+			// label89
+			// 
+			this.label89.AutoSize = true;
+			this.label89.Location = new System.Drawing.Point(404, 295);
+			this.label89.Name = "label89";
+			this.label89.Size = new System.Drawing.Size(65, 12);
+			this.label89.TabIndex = 0;
+			this.label89.Text = "是否成交：";
+			// 
 			// label39
 			// 
 			this.label39.AutoSize = true;
@@ -752,6 +788,15 @@
 			this.label84.Size = new System.Drawing.Size(77, 12);
 			this.label84.TabIndex = 0;
 			this.label84.Text = "仓库总面积：";
+			// 
+			// label88
+			// 
+			this.label88.AutoSize = true;
+			this.label88.Location = new System.Drawing.Point(30, 295);
+			this.label88.Name = "label88";
+			this.label88.Size = new System.Drawing.Size(65, 12);
+			this.label88.TabIndex = 0;
+			this.label88.Text = "采购方式：";
 			// 
 			// label40
 			// 
@@ -875,7 +920,7 @@
 			// 
 			this.panel2.Controls.Add(this.button_next2);
 			this.panel2.Controls.Add(this.button_cancel2);
-			this.panel2.Location = new System.Drawing.Point(242, 804);
+			this.panel2.Location = new System.Drawing.Point(242, 884);
 			this.panel2.Name = "panel2";
 			this.panel2.Size = new System.Drawing.Size(250, 50);
 			this.panel2.TabIndex = 1;
@@ -915,9 +960,15 @@
 			this.groupBox2.Controls.Add(this.label14);
 			this.groupBox2.Controls.Add(this.label15);
 			this.groupBox2.Controls.Add(this.label17);
-			this.groupBox2.Controls.Add(this.button_bankCertify);
+			this.groupBox2.Controls.Add(this.button_bankProve);
+			this.groupBox2.Controls.Add(this.button_qualityProve);
+			this.groupBox2.Controls.Add(this.button_otherProve);
 			this.groupBox2.Controls.Add(this.button_br2009);
-			this.groupBox2.Controls.Add(this.textBox_bankCertify);
+			this.groupBox2.Controls.Add(this.textBox_bankProve);
+			this.groupBox2.Controls.Add(this.textBox_qualityProve);
+			this.groupBox2.Controls.Add(this.label92);
+			this.groupBox2.Controls.Add(this.textBox_otherProve);
+			this.groupBox2.Controls.Add(this.label91);
 			this.groupBox2.Controls.Add(this.textBox_designRep2009);
 			this.groupBox2.Controls.Add(this.label90);
 			this.groupBox2.Controls.Add(this.label51);
@@ -980,7 +1031,7 @@
 			this.groupBox2.Controls.Add(this.label20);
 			this.groupBox2.Location = new System.Drawing.Point(6, 6);
 			this.groupBox2.Name = "groupBox2";
-			this.groupBox2.Size = new System.Drawing.Size(723, 792);
+			this.groupBox2.Size = new System.Drawing.Size(723, 861);
 			this.groupBox2.TabIndex = 0;
 			this.groupBox2.TabStop = false;
 			this.groupBox2.Text = "财务信息";
@@ -1097,9 +1148,19 @@
 			this.label17.TabIndex = 189;
 			this.label17.Text = "发证机关：";
 			// 
+			// button_otherProve
+			// 
+			this.button_otherProve.Location = new System.Drawing.Point(514, 788);
+			this.button_otherProve.Name = "button_otherProve";
+			this.button_otherProve.Size = new System.Drawing.Size(35, 23);
+			this.button_otherProve.TabIndex = 39;
+			this.button_otherProve.Text = "...";
+			this.button_otherProve.UseVisualStyleBackColor = true;
+			this.button_otherProve.Click += new System.EventHandler(this.button_otherProve_Click);
+			// 
 			// button_br2009
 			// 
-			this.button_br2009.Location = new System.Drawing.Point(514, 750);
+			this.button_br2009.Location = new System.Drawing.Point(514, 827);
 			this.button_br2009.Name = "button_br2009";
 			this.button_br2009.Size = new System.Drawing.Size(35, 23);
 			this.button_br2009.TabIndex = 39;
@@ -1107,17 +1168,33 @@
 			this.button_br2009.UseVisualStyleBackColor = true;
 			this.button_br2009.Click += new System.EventHandler(this.button_br2009_Click);
 			// 
+			// textBox_otherProve
+			// 
+			this.textBox_otherProve.Location = new System.Drawing.Point(142, 789);
+			this.textBox_otherProve.Name = "textBox_otherProve";
+			this.textBox_otherProve.Size = new System.Drawing.Size(362, 21);
+			this.textBox_otherProve.TabIndex = 38;
+			// 
 			// textBox_designRep2009
 			// 
-			this.textBox_designRep2009.Location = new System.Drawing.Point(142, 751);
+			this.textBox_designRep2009.Location = new System.Drawing.Point(142, 828);
 			this.textBox_designRep2009.Name = "textBox_designRep2009";
 			this.textBox_designRep2009.Size = new System.Drawing.Size(362, 21);
 			this.textBox_designRep2009.TabIndex = 38;
 			// 
+			// label90
+			// 
+			this.label90.AutoSize = true;
+			this.label90.Location = new System.Drawing.Point(30, 793);
+			this.label90.Name = "label90";
+			this.label90.Size = new System.Drawing.Size(77, 12);
+			this.label90.TabIndex = 180;
+			this.label90.Text = "资信证明包：";
+			// 
 			// label51
 			// 
 			this.label51.AutoSize = true;
-			this.label51.Location = new System.Drawing.Point(30, 749);
+			this.label51.Location = new System.Drawing.Point(30, 826);
 			this.label51.Name = "label51";
 			this.label51.Size = new System.Drawing.Size(101, 24);
 			this.label51.TabIndex = 180;
@@ -2395,70 +2472,57 @@
 			this.label74.TabIndex = 1;
 			this.label74.Text = "企业名称：";
 			// 
-			// label88
+			// label91
 			// 
-			this.label88.AutoSize = true;
-			this.label88.Location = new System.Drawing.Point(30, 295);
-			this.label88.Name = "label88";
-			this.label88.Size = new System.Drawing.Size(65, 12);
-			this.label88.TabIndex = 0;
-			this.label88.Text = "采购方式：";
+			this.label91.AutoSize = true;
+			this.label91.Location = new System.Drawing.Point(30, 756);
+			this.label91.Name = "label91";
+			this.label91.Size = new System.Drawing.Size(89, 12);
+			this.label91.TabIndex = 180;
+			this.label91.Text = "质量管理认证：";
 			// 
-			// label89
+			// textBox_qualityProve
 			// 
-			this.label89.AutoSize = true;
-			this.label89.Location = new System.Drawing.Point(404, 295);
-			this.label89.Name = "label89";
-			this.label89.Size = new System.Drawing.Size(65, 12);
-			this.label89.TabIndex = 0;
-			this.label89.Text = "是否成交：";
+			this.textBox_qualityProve.Location = new System.Drawing.Point(142, 752);
+			this.textBox_qualityProve.Name = "textBox_qualityProve";
+			this.textBox_qualityProve.Size = new System.Drawing.Size(362, 21);
+			this.textBox_qualityProve.TabIndex = 38;
 			// 
-			// comboBox_purchaseSuccese
+			// button_qualityProve
 			// 
-			this.comboBox_purchaseSuccese.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.comboBox_purchaseSuccese.FormattingEnabled = true;
-			this.comboBox_purchaseSuccese.Items.AddRange(new object[] {
-            "是",
-            "否"});
-			this.comboBox_purchaseSuccese.Location = new System.Drawing.Point(514, 291);
-			this.comboBox_purchaseSuccese.Name = "comboBox_purchaseSuccese";
-			this.comboBox_purchaseSuccese.Size = new System.Drawing.Size(175, 20);
-			this.comboBox_purchaseSuccese.TabIndex = 16;
+			this.button_qualityProve.Location = new System.Drawing.Point(514, 751);
+			this.button_qualityProve.Name = "button_qualityProve";
+			this.button_qualityProve.Size = new System.Drawing.Size(35, 23);
+			this.button_qualityProve.TabIndex = 39;
+			this.button_qualityProve.Text = "...";
+			this.button_qualityProve.UseVisualStyleBackColor = true;
+			this.button_qualityProve.Click += new System.EventHandler(this.button_qualityProve_Click);
 			// 
-			// comboBox_purchaseType
+			// label92
 			// 
-			this.comboBox_purchaseType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.comboBox_purchaseType.FormattingEnabled = true;
-			this.comboBox_purchaseType.Location = new System.Drawing.Point(142, 291);
-			this.comboBox_purchaseType.Name = "comboBox_purchaseType";
-			this.comboBox_purchaseType.Size = new System.Drawing.Size(175, 20);
-			this.comboBox_purchaseType.TabIndex = 15;
+			this.label92.AutoSize = true;
+			this.label92.Location = new System.Drawing.Point(30, 717);
+			this.label92.Name = "label92";
+			this.label92.Size = new System.Drawing.Size(89, 12);
+			this.label92.TabIndex = 180;
+			this.label92.Text = "银行资信证明：";
 			// 
-			// label90
+			// textBox_bankProve
 			// 
-			this.label90.AutoSize = true;
-			this.label90.Location = new System.Drawing.Point(30, 716);
-			this.label90.Name = "label90";
-			this.label90.Size = new System.Drawing.Size(65, 12);
-			this.label90.TabIndex = 180;
-			this.label90.Text = "资信证明：";
+			this.textBox_bankProve.Location = new System.Drawing.Point(142, 713);
+			this.textBox_bankProve.Name = "textBox_bankProve";
+			this.textBox_bankProve.Size = new System.Drawing.Size(362, 21);
+			this.textBox_bankProve.TabIndex = 38;
 			// 
-			// textBox_bankCertify
+			// button_bankProve
 			// 
-			this.textBox_bankCertify.Location = new System.Drawing.Point(142, 712);
-			this.textBox_bankCertify.Name = "textBox_bankCertify";
-			this.textBox_bankCertify.Size = new System.Drawing.Size(362, 21);
-			this.textBox_bankCertify.TabIndex = 38;
-			// 
-			// button_bankCertify
-			// 
-			this.button_bankCertify.Location = new System.Drawing.Point(514, 711);
-			this.button_bankCertify.Name = "button_bankCertify";
-			this.button_bankCertify.Size = new System.Drawing.Size(35, 23);
-			this.button_bankCertify.TabIndex = 39;
-			this.button_bankCertify.Text = "...";
-			this.button_bankCertify.UseVisualStyleBackColor = true;
-			this.button_bankCertify.Click += new System.EventHandler(this.button_bankCertify_Click);
+			this.button_bankProve.Location = new System.Drawing.Point(514, 712);
+			this.button_bankProve.Name = "button_bankProve";
+			this.button_bankProve.Size = new System.Drawing.Size(35, 23);
+			this.button_bankProve.TabIndex = 39;
+			this.button_bankProve.Text = "...";
+			this.button_bankProve.UseVisualStyleBackColor = true;
+			this.button_bankProve.Click += new System.EventHandler(this.button_bankProve_Click);
 			// 
 			// Form1
 			// 
@@ -2732,9 +2796,15 @@
 		private System.Windows.Forms.Label label89;
 		private System.Windows.Forms.Label label88;
 		private System.Windows.Forms.ComboBox comboBox_purchaseType;
-		private System.Windows.Forms.Button button_bankCertify;
-		private System.Windows.Forms.TextBox textBox_bankCertify;
+		private System.Windows.Forms.Button button_otherProve;
+		private System.Windows.Forms.TextBox textBox_otherProve;
 		private System.Windows.Forms.Label label90;
+		private System.Windows.Forms.Button button_bankProve;
+		private System.Windows.Forms.Button button_qualityProve;
+		private System.Windows.Forms.TextBox textBox_bankProve;
+		private System.Windows.Forms.TextBox textBox_qualityProve;
+		private System.Windows.Forms.Label label92;
+		private System.Windows.Forms.Label label91;
 	}
 }
 

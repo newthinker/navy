@@ -913,7 +913,7 @@ namespace DatCollect
 
 		}
 
-		private void button_bankCertify_Click(object sender, EventArgs e)
+		private void button_bankProve_Click(object sender, EventArgs e)
 		{
 			OpenFileDialog fileDialog1 = new OpenFileDialog();
 			fileDialog1.Filter = "image files|*.jpg;*.png;*.gif";
@@ -922,13 +922,52 @@ namespace DatCollect
 				FileInfo fi = new FileInfo(fileDialog1.FileName);
 				if (fi.Exists && fi.Length <= 500 * 1024)
 				{
-					textBox_bankCertify.Text = fileDialog1.FileName;
+					textBox_bankProve.Text = fileDialog1.FileName;
 				}
 				else
 				{
 					MessageBox.Show("文件超过限制");
 				}
 			}
+
+		}
+
+		private void button_qualityProve_Click(object sender, EventArgs e)
+		{
+			OpenFileDialog fileDialog1 = new OpenFileDialog();
+			fileDialog1.Filter = "image files|*.jpg;*.png;*.gif";
+			if (fileDialog1.ShowDialog() == DialogResult.OK)
+			{
+				FileInfo fi = new FileInfo(fileDialog1.FileName);
+				if (fi.Exists && fi.Length <= 500 * 1024)
+				{
+					textBox_qualityProve.Text = fileDialog1.FileName;
+				}
+				else
+				{
+					MessageBox.Show("文件超过限制");
+				}
+			}
+
+		}
+
+		private void button_otherProve_Click(object sender, EventArgs e)
+		{
+			OpenFileDialog fileDialog1 = new OpenFileDialog();
+			fileDialog1.Filter = "zip files|*.zip";
+			if (fileDialog1.ShowDialog() == DialogResult.OK)
+			{
+				FileInfo fi = new FileInfo(fileDialog1.FileName);
+				if (fi.Exists && fi.Length <= 5 * 1024 * 1024)
+				{
+					textBox_otherProve.Text = fileDialog1.FileName;
+				}
+				else
+				{
+					MessageBox.Show("文件超过限制");
+				}
+			}
+
 		}
 
 		private void button_br2009_Click(object sender, EventArgs e)
@@ -1388,7 +1427,7 @@ namespace DatCollect
 					this.textBox_warehouseArea.Focus();
 					return false;
 				}
-				if (this.textBox_storehouseImage.Text.Length == 0)
+				if (!File.Exists(this.textBox_storehouseImage.Text))
 				{
 					this.textBox_storehouseImage.Focus();
 					return false;
@@ -1426,8 +1465,8 @@ namespace DatCollect
 						return false;
 					}
 				}
-				
-				if (this.textBox_businessLicId.Text.Length == 0)
+
+				if (!File.Exists(this.textBox_businessLicId.Text))
 				{
 					this.textBox_businessLicId.Focus();
 					return false;
@@ -1472,7 +1511,7 @@ namespace DatCollect
 					this.textBox_landTaxOrg.Focus();
 					return false;
 				}
-				if (this.textBox_organizationImage.Text.Length == 0)
+				if (!File.Exists(this.textBox_organizationImage.Text))
 				{
 					this.textBox_organizationImage.Focus();
 					return false;
@@ -1532,12 +1571,22 @@ namespace DatCollect
 					this.textBox_bankMail.Focus();
 					return false;
 				}
-				if (this.textBox_bankCertify.Text.Length == 0)
+				if (!File.Exists(this.textBox_bankProve.Text))
 				{
-					this.textBox_bankCertify.Focus();
+					this.textBox_bankProve.Focus();
 					return false;
 				}
-				if (this.textBox_designRep2009.Text.Length == 0)
+				if (!File.Exists(this.textBox_qualityProve.Text))
+				{
+					this.textBox_qualityProve.Focus();
+					return false;
+				}
+				if (!File.Exists(this.textBox_otherProve.Text))
+				{
+					this.textBox_otherProve.Focus();
+					return false;
+				}
+				if (!File.Exists(this.textBox_designRep2009.Text))
 				{
 					this.textBox_designRep2009.Focus();
 					return false;
@@ -1578,7 +1627,7 @@ namespace DatCollect
 					this.textBox_productDayofMaxYeild.Focus();
 					return false;
 				}
-				if (this.textBox_productPhoto.Text.Length == 0)
+				if (!File.Exists(this.textBox_productPhoto.Text))
 				{
 					this.textBox_productPhoto.Focus();
 					return false;
@@ -1620,7 +1669,7 @@ namespace DatCollect
 						pc.textBoxProductDayofMaxYeild.Focus();
 						return false;
 					}
-					if (pc.textBoxProductPhoto.Text.Length == 0)
+					if (!File.Exists(pc.textBoxProductPhoto.Text))
 					{
 						pc.textBoxProductPhoto.Focus();
 						return false;
@@ -1777,7 +1826,13 @@ namespace DatCollect
 			setXmlElem(writer, "ECONOMY", this.comboBox_economyNature.Text);
 			try
 			{
-				setXmlElem(writer, "TYPECODE", _dict[14][this.comboBox_supplierType.Text].code);
+				foreach (KeyValuePair<string, SDict> item in _dict[11])
+				{
+					if (this.comboBox_supplierType.Text == item.Value.name)
+					{
+						setXmlElem(writer, "TYPECODE", item.Value.code);
+					}
+				}
 			}
 			catch
 			{
@@ -1788,7 +1843,13 @@ namespace DatCollect
 			setXmlElem(writer, "IFTURNOVER", this.comboBox_purchaseSuccese.Text);
 			try
 			{
-				setXmlElem(writer, "BANKID", _dict[12][this.comboBox_bank.Text].code);
+				foreach (KeyValuePair<string, SDict> item in _dict[12])
+				{
+					if (this.comboBox_bank.Text == item.Value.name)
+					{
+						setXmlElem(writer, "BANKID", item.Value.code);
+					}
+				}
 			}
 			catch
 			{
@@ -1852,6 +1913,7 @@ namespace DatCollect
 			setXmlElemFile(writer, "STOREHOUSEIMAGE", this.textBox_storehouseImage.Text, tmppath);
 			setXmlElemFile(writer, "LICBUSIMAGE", this.textBox_businessLicId.Text, tmppath);
 			setXmlElemFile(writer, "ORGSTRIMAGE", this.textBox_organizationImage.Text, tmppath);
+			setXmlElemFile(writer, "PROVEFILES", this.textBox_otherProve.Text, tmppath);
 			setXmlElemFile(writer, "AUDITLAST3Y", this.textBox_designRep2009.Text, tmppath);
 			//setXmlElem(writer, "PURCHASETYPE", this.textBox_fullName.Text);
 			//setXmlElem(writer, "IFTURNOVER", this.textBox_fullName.Text);
@@ -1887,19 +1949,6 @@ namespace DatCollect
 			writer.Flush();
 			writer.Close();
 
-			// 证明文件
-			writer = new XmlTextWriter(tmppath + "\\supportor_prove.xml", Encoding.UTF8);
-			writer.Formatting = Formatting.Indented;  //缩进格式
-			writer.Indentation = 4;
-			writer.WriteStartDocument();
-			writer.WriteStartElement("DTO");
-			writer.WriteStartElement("ROW");
-			setXmlElem(writer, "PROVENAME", this.textBox_bankCertify.Text);
-			writer.WriteEndElement();
-			writer.WriteEndElement();
-			writer.Flush();
-			writer.Close();
-
 			// 产品
 			writer = new XmlTextWriter(tmppath + "\\supportor_product.xml", Encoding.UTF8);
 			writer.Formatting = Formatting.Indented;  //缩进格式
@@ -1909,6 +1958,7 @@ namespace DatCollect
 			{
 				writer.WriteStartElement("ROW");
 				setXmlElem(writer, "GOODNAME", this.textBox_productType.Text);
+				setXmlElem(writer, "DICTCODE", (string)this.textBox_productType.Tag);
 				setXmlElem(writer, "PRODNAME", this.textBox_productName.Text);
 				setXmlElem(writer, "MEASURUNIT", this.textBox_productUnit.Text);
 				setXmlElem(writer, "PRODNO", this.textBox_productMode.Text);
