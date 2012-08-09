@@ -222,8 +222,11 @@ create table T_SUPPORTOR  (
    AUDIT_LAST3Y			VARCHAR2(200),		-- 近三年审计报告压缩文件(RAR或ZIP格式)
    LIC_BUS_IMAGE		VARCHAR2(50),		-- 营业执照扫描件
    ORG_STR_IMAGE		VARCHAR2(50),		-- 组织结构代码证扫描件
+   BANK_PROVE			VARCHAR2(200),		-- 银行资信证明文件扫描件
+   OTHER_PROVE			VARCHAR2(200),		-- 其它资质证明文件(RAR或ZIP格式)
    PURCHASE_TYPE		VARCHAR2(100),		-- 采购方式
    IF_TURNOVER			VARCHAR2(20),		-- 是否成交
+   QUALITY_PROVE		VARCHAR2(200),		-- 质量管理认证证书扫描件
    constraint PK_T_SUPPORTOR primary key (SUP_ID)
 );
 comment on table T_SUPPORTOR is
@@ -322,11 +325,38 @@ comment on column T_SUPPORTOR.IF_STATE_TAX is
 	'是否依法缴纳国税税收';
 comment on column T_SUPPORTOR.IF_LOCAL_TAX is
 	'是否依法缴纳地税税收';
+comment on column T_SUPPORTOR.L1_LOC is
+	'供应商所在省/地区';
+comment on column T_SUPPORTOR.L2_LOC is
+	'供应商所在市';
+comment on column T_SUPPORTOR.STOREHOUSE_AREA is 
+	'仓库总面积';
+comment on column T_SUPPORTOR.WAREHOUSE_AREA is 
+	'货场总面积';
+comment on column T_SUPPORTOR.STOREHOUSE_IMAGE is 
+	'仓库照片';
+column on column T_SUPPORTOR.AUDIT_LAST3Y is
+	'近三年审计报告压缩文件(RAR或ZIP格式)';
+column on column T_SUPPORTOR.LIC_BUS_IMAGE is
+	'营业执照扫描件';
+column on column T_SUPPORTOR.ORG_STR_IMAGE is 
+	'组织结构代码证扫描件';
+column on column T_SUPPORTOR.BANK_PROVE is
+	'银行资信证明文件扫描件';
+comment on column T_SUPPORTOR.OTHER_PROVE is
+	'其它资质证明文件(RAR或ZIP格式)';
+comment on column T_SUPPORTOR.PURCHASE_TYPE is 
+	'采购方式';
+comment on column T_SUPPORTOR.IF_TURNOVER is 
+	'是否成交';
+column on column T_SUPPORTOR.QUALITY_PROVE is
+	'质量管理认证证书扫描件';
 				
 create table T_SUP_PRODUCT (
 	PROD_ID				VARCHAR2(36)		not null,
 	SUP_ID				VARCHAR(36),	
 	GOOD_NAME			VARCHAR2(200),	
+	DICT_CODE			VARCHAR2(100),
 	PROD_NAME			VARCHAR2(200),
 	MEASUR_UNIT			VARCHAR2(100),
 	PROD_NO				VARCHAR2(200),
@@ -346,6 +376,8 @@ comment on column T_SUP_PRODUCT.SUP_ID is
 	'供应物资所属供应商ID';		
 comment on column T_SUP_PRODUCT.GOOD_NAME is	
 	'物资品名';
+column on column T_SUP_PRODUCT.DICT_CODE is
+	'物资分类编号';
 comment on column T_SUP_PRODUCT.PROD_NAME is
 	'产品名称';
 comment on column T_SUP_PRODUCT.MEASUR_UNIT is
@@ -440,7 +472,7 @@ comment on column T_HIGHWAY.HIW_IN_ID is
 comment on column T_HIGHWAY.HIW_DIS is
 	'距离';
 
-create table T_PROVE_INFO (
+/*create table T_PROVE_INFO (
 	SUP_ID				VARCHAR2(36)		not null,
 	PROVE_NAME			VARCHAR2(200),
 	IMAGE_ID			VARCHAR2(50)
@@ -453,6 +485,7 @@ comment on column T_PROVE_INFO.PROVE_NAME is
 	'资质证书名称';
 comment on column T_PROVE_INFO.IMAGE_ID is
 	'资质证书扫描件ID';
+*/
 	
 create table T_IMAGE  (
    IMAGE_ID             VARCHAR2(50)                    not null,
