@@ -152,42 +152,47 @@
 			if (request.readyState==4 && request.status==200)
 			{
 				//console.log(request.responseText);
-				alert("waiting for creating tree...");
-				var xmldata1 = request.responseXML.getElementsByTagName("Response/DTO/DICT_LIST/Row/LIS_RESULT/Row");
-				for (var i=0; i<xmldata1.length; i++)
+				//alert("waiting for creating tree...");
+				var xmldata1 = request.responseXML.selectSingleNode("Response/DTO/DICT_LIST/Row/LIS_RESULT/Row");
+				while (xmldata1)
 				{
-					var xmlname1 = xmldata1[i].getElementsByTagName("STR_DICTNAME");
-					var xmlcode1 = xmldata1[i].getElementsByTagName("STR_DICTCODE");
-					if (xmlname1 && xmlname1.length > 0 && xmlcode1 && xmlcode1.length > 0)
+					var xmlname1 = xmldata1.selectSingleNode("STR_DICTNAME");
+					var xmlcode1 = xmldata1.selectSingleNode("STR_DICTCODE");
+					if (xmlname1 && xmlcode1)
 					{
-						var item1 = new treeItem(xmlname1, "javascript:setvalue(" + xmlcode1 + ");");
+						var item1 = new treeItem(xmlname1.text, "javascript:setvalue('" + xmlname1.text + "', '" + xmlcode1.text + "');", "_self");
 						item1.setup(document.getElementById("protypetree"));
 						
-						var xmldata2 = xmldata1[i].getElementsByTagName("CHILDREN/Row");
-						for (var j=0; j<xmldata2.length; j++)
+						var xmldata2 = xmldata1.selectSingleNode("CHILDREN/Row");
+						while (xmldata2)
 						{
-							var xmlname2 = xmldata2[j].getElementsByTagName("STR_DICTNAME");
-							var xmlcode2 = xmldata2[j].getElementsByTagName("STR_DICTCODE");
-							if (xmlname2 && xmlname2.length > 0 && xmlcode2 && xmlcode2.length > 0)
+							var xmlname2 = xmldata2.selectSingleNode("STR_DICTNAME");
+							var xmlcode2 = xmldata2.selectSingleNode("STR_DICTCODE");
+							if (xmlname2 && xmlcode2)
 							{
-								var item2 = new treeItem(xmlname2, "javascript:setvalue(" + xmlcode2 + ");");
+								var item2 = new treeItem(xmlname2.text, "javascript:setvalue('" + xmlname2.text + "', '" + xmlcode2.text + "');", "_self");
 								item1.add(item2);
 
-								var xmldata3 = xmldata2[j].getElementsByTagName("CHILDREN/Row");
-								for (var k=0; k<xmldata3.length; k++)
+								var xmldata3 = xmldata2.selectSingleNode("CHILDREN/Row");
+								while (xmldata3)
 								{
-									var xmlname3 = xmldata2[k].getElementsByTagName("STR_DICTNAME");
-									var xmlcode3 = xmldata2[k].getElementsByTagName("STR_DICTCODE");
-									if (xmlname3 && xmlname3.length > 0 && xmlcode3 && xmlcode3.length > 0)
+									var xmlname3 = xmldata3.selectSingleNode("STR_DICTNAME");
+									var xmlcode3 = xmldata3.selectSingleNode("STR_DICTCODE");
+									if (xmlname3 && xmlcode3)
 									{
-										var item3 = new treeItem(xmlname3, "javascript:setvalue(" + xmlcode3 + ");");
+										var item3 = new treeItem(xmlname3.text, "javascript:setvalue('" + xmlname3.text + "', '" + xmlcode3.text + "');", "_self");
 										item2.add(item3);
 									}
+									xmldata3 = xmldata3.nextSibling;
 								}
 							}
+							xmldata2 = xmldata2.nextSibling;
 						}
 					}
+					xmldata1 = xmldata1.nextSibling;
 				}
+
+				document.getElementById("protypenotify").style.display = "none";
 			}
 		};
 		request.send(null);
@@ -247,30 +252,35 @@
 				生产范围:&nbsp;
 			</td>
 			<td align="left">
-				<input id="STR_QUERY_GOODNAME" name="STR_QUERY_GOODNAME" style="width:150px"
+				<span id="protypename" style="border:solid 1px #b3c9d2; width:150px" > -请选择产品分类- </span>
+				<input id="STR_QUERY_GOODNAME" name="STR_QUERY_GOODNAME" style="width:150px" type="hidden"
 					value="<%= queryParam.getString("QUERY_GOODNAME") == null ? "" : queryParam.getString("QUERY_GOODNAME") %>" />
-				<img src="resources/images/common/btn_search.gif" alt=" " width="62" height="22"
-					onclick="ScriptHelper.showDivCommon(this,'protypetree');" />  
-				<div id="protypetree" style="position:absolute; display:none; background-color:#D7EFCD; border:solid 1px #000000; padding:5px; width:200px; height:200px;" ></div>
+				<a id="a_protypediv" class="link_blue_table" href="javascript:void(0)" onclick="showProtypeTree(this);">显示产品编目</a>
+				<div id="protypediv" style="position:absolute; display:none; overflow:auto; background-color:#FFFFFF; border:solid 1px #000000; padding:5px; width:250px; height:300px;" >
+					<div id="protypenotify">请稍等...</div>
+					<div id="protypetree"></div>
+				</div>
 				<script type="text/javascript">
-					function setvalue(value)
+					var protypetreeInit = 0;
+					function showProtypeTree(obj)
 					{
-						document.getElementById("STR_QUERY_GOODNAME").value = value;
+						ScriptHelper.showDivCommon(obj,'protypediv');
+						if (protypetreeInit == 0)
+						{
+							set_producttype();
+							protypetreeInit = 1;
+						}
+						if (document.getElementById("a_protypediv").innerText == "显示产品编目")
+							document.getElementById("a_protypediv").innerText = "隐藏产品编目";
+						else
+							document.getElementById("a_protypediv").innerText = "显示产品编目";
 					}
-					//var root = new treeItem("一级", "javascript:setprotype('一级');");
-				    //
-					//var item0 = new treeItem("二级1", "javascript:setprotype('二级1');");
-					//root.add(item0);
-					//var item01 = new treeItem("三级1", "javascript:setprotype('三级1');");
-					//item0.add(item01);
-					//var item02 = new treeItem("三级1", "javascript:setprotype('三级1');");
-					//item0.add(item02);
-					//var item1 = new treeItem("二级2", "javascript:setprotype('二级2');");
-					//root.add(item1);
-				    //
-					//root.setup(document.getElementById("protypetree"));
-				    
-					set_producttype();
+
+					function setvalue(value1, value2)
+					{
+						document.getElementById("protypename").innerText = value1;
+						document.getElementById("STR_QUERY_GOODNAME").value = value2;
+					}
 				</script>
 			</td>
 			<td align="right">

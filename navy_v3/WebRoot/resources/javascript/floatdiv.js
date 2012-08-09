@@ -1,21 +1,21 @@
 
-/* ==================== ScriptHelper ¿ªÊ¼ ==================== */
-/* scriptHelper ½Å±¾°ïÖú¶ÔÏó.
-´´½¨ÈË: ziqiu.zhang 2008.3.5
-Ìí¼Óº¯Êı:
-getScroll():µÃµ½Êó±ê¹ö¹ıµÄ¾àÀë-¼æÈİXHTML
-getClient():µÃµ½ä¯ÀÀÆ÷µ±Ç°ÏÔÊ¾ÇøÓòµÄ´óĞ¡-¼æÈİXHTML
-showDivCommon():ÏÔÊ¾Í¼²ã.
-Ê¹ÓÃ¾ÙÀı:
-<div id="testDiv" style="display:none; position:absolute; border:1px #000000;">ÎÒÊÇ²âÊÔÍ¼²ãÎÒÊÇ²âÊÔÍ¼²ã</div>
-<div style="width:400px; text-align:center;"><div><a href="#" onclick="ScriptHelper.showDivCommon(this,'testDiv', 20, 70)">ÊÂ¼şÔ´</a></div></div>
+/* ==================== ScriptHelper å¼€å§‹ ==================== */
+/* scriptHelper è„šæœ¬å¸®åŠ©å¯¹è±¡.
+åˆ›å»ºäºº: ziqiu.zhang 2008.3.5
+æ·»åŠ å‡½æ•°:
+getScroll():å¾—åˆ°é¼ æ ‡æ»šè¿‡çš„è·ç¦»-å…¼å®¹XHTML
+getClient():å¾—åˆ°æµè§ˆå™¨å½“å‰æ˜¾ç¤ºåŒºåŸŸçš„å¤§å°-å…¼å®¹XHTML
+showDivCommon():æ˜¾ç¤ºå›¾å±‚.
+ä½¿ç”¨ä¸¾ä¾‹:
+<div id="testDiv" style="display:none; position:absolute; border:1px #000000;">æˆ‘æ˜¯æµ‹è¯•å›¾å±‚æˆ‘æ˜¯æµ‹è¯•å›¾å±‚</div>
+<div style="width:400px; text-align:center;"><div><a href="#" onclick="ScriptHelper.showDivCommon(this,'testDiv', 20, 70)">äº‹ä»¶æº</a></div></div>
 */
 function scriptHelper() 
 {
 }
 
-// µÃµ½Êó±ê¹ö¹ıµÄ¾àÀë scrollTop Óë scrollLeft
-/* ÓÃ·¨Óë²âÊÔ:
+// å¾—åˆ°é¼ æ ‡æ»šè¿‡çš„è·ç¦» scrollTop ä¸ scrollLeft
+/* ç”¨æ³•ä¸æµ‹è¯•:
 var myScroll = getScroll();
 alert("myScroll.scrollTop:" + myScroll.scrollTop);
 alert("myScroll.scrollLeft:" + myScroll.scrollLeft);
@@ -33,15 +33,15 @@ scriptHelper.prototype.getScroll = function()
     }
     return {scrollTop: scrollTop,scrollLeft: scrollLeft};
 }
-// µÃµ½ä¯ÀÀÆ÷µ±Ç°ÏÔÊ¾ÇøÓòµÄ´óĞ¡ clientHeight Óë clientWidth
-/* ÓÃ·¨Óë²âÊÔ:
+// å¾—åˆ°æµè§ˆå™¨å½“å‰æ˜¾ç¤ºåŒºåŸŸçš„å¤§å° clientHeight ä¸ clientWidth
+/* ç”¨æ³•ä¸æµ‹è¯•:
 var myScroll = getScroll();
 alert("myScroll.sTop:" + myScroll.sTop);
 alert("myScroll.sLeft:" + myScroll.sLeft);
 */
 scriptHelper.prototype.getClient = function() 
 {
-    //ÅĞ¶ÏÒ³ÃæÊÇ·ñ·ûºÏXHTML±ê×¼
+    //åˆ¤æ–­é¡µé¢æ˜¯å¦ç¬¦åˆXHTMLæ ‡å‡†
     var isXhtml = true;
     if (document.documentElement == null || document.documentElement.clientHeight <= 0) 
     {
@@ -55,19 +55,19 @@ scriptHelper.prototype.getClient = function()
     return {clientHeight: this.clientHeight,clientWidth: this.clientWidth};
 }
 
-// ÏÔÊ¾Í¼²ã,ÔÙ´Îµ÷ÓÃÔòÒş²Ø
-/* ²ÎÊıËµÃ÷:
-sObj : Òªµ¯³öÍ¼²ãµÄÊÂ¼şÔ´
-divId : ÒªÏÔÊ¾µÄÍ¼²ãID
-sObjHeight : ÊÂ¼şÔ´µÄ¸ß¶È,Ä¬ÈÏÎª20.ĞèÒªÊÖ¹¤´«ÈëÊÇÒòÎª¶ÔÓÚÓÉÓÚÊÂ¼şÔ´¶ÔÏó¿ÉÄÜÊÇ¸÷ÖÖHTMLÔªËØ,ÓĞĞ©ÔªËØ¸ß¶ÈµÄ¼ÆËãÎŞ·¨¿çä¯ÀÀÆ÷Í¨ÓÃ.
-moveLeft : ÊÖ¹¤Ïò×óÒÆ¶¯µÄ¾àÀë.²»ÒÆ¶¯ÔòÎª0(Ä¬ÈÏ).
-divObjHeight: µ¯³ö²ãµÄ¸ß¶È.Èç¹û´«Èë´óÓÚ0µÄ´Ë²ÎÊı, Ôòµ±ÊÂ¼şÔ´ÏÂ·½¿Õ¼ä²»×ãÊ±,ÔÚÊÂ¼şÔ´ÉÏ·½µ¯³ö²ã.Èç¹û²»´«´Ë²ÎÊıÔòÒ»Ö±ÔÚÊÂ¼şÔ´ÏÂ·½µ¯³ö.
-ÓÃ·¨Óë²âÊÔ:
-<div><a href="#" onclick="ScriptHelper.showDivCommon(this,'testDiv', 20, 20)">ÊÂ¼şÔ´</a></div>
+// æ˜¾ç¤ºå›¾å±‚,å†æ¬¡è°ƒç”¨åˆ™éšè—
+/* å‚æ•°è¯´æ˜:
+sObj : è¦å¼¹å‡ºå›¾å±‚çš„äº‹ä»¶æº
+divId : è¦æ˜¾ç¤ºçš„å›¾å±‚ID
+sObjHeight : äº‹ä»¶æºçš„é«˜åº¦,é»˜è®¤ä¸º20.éœ€è¦æ‰‹å·¥ä¼ å…¥æ˜¯å› ä¸ºå¯¹äºç”±äºäº‹ä»¶æºå¯¹è±¡å¯èƒ½æ˜¯å„ç§HTMLå…ƒç´ ,æœ‰äº›å…ƒç´ é«˜åº¦çš„è®¡ç®—æ— æ³•è·¨æµè§ˆå™¨é€šç”¨.
+moveLeft : æ‰‹å·¥å‘å·¦ç§»åŠ¨çš„è·ç¦».ä¸ç§»åŠ¨åˆ™ä¸º0(é»˜è®¤).
+divObjHeight: å¼¹å‡ºå±‚çš„é«˜åº¦.å¦‚æœä¼ å…¥å¤§äº0çš„æ­¤å‚æ•°, åˆ™å½“äº‹ä»¶æºä¸‹æ–¹ç©ºé—´ä¸è¶³æ—¶,åœ¨äº‹ä»¶æºä¸Šæ–¹å¼¹å‡ºå±‚.å¦‚æœä¸ä¼ æ­¤å‚æ•°åˆ™ä¸€ç›´åœ¨äº‹ä»¶æºä¸‹æ–¹å¼¹å‡º.
+ç”¨æ³•ä¸æµ‹è¯•:
+<div><a href="#" onclick="ScriptHelper.showDivCommon(this,'testDiv', 20, 20)">äº‹ä»¶æº</a></div>
 */
 scriptHelper.prototype.showDivCommon = function(sObj, divId, sObjHeight, moveLeft, divObjHeight) 
 {
-    //È¡ÏûÃ°ÅİÊÂ¼ş
+    //å–æ¶ˆå†’æ³¡äº‹ä»¶
     if (typeof (window) != 'undefined' && window != null && window.event != null) 
     {
         window.event.cancelBubble = true;
@@ -76,7 +76,7 @@ scriptHelper.prototype.showDivCommon = function(sObj, divId, sObjHeight, moveLef
     {
         ScriptHelper.showDivCommon.caller.arguments[0].cancelBubble = true;
     }
-    //²ÎÊı¼ì²â.Èç¹ûÃ»ÓĞ´«Èë²ÎÊıÔòÉèÖÃÄ¬ÈÏÖµ
+    //å‚æ•°æ£€æµ‹.å¦‚æœæ²¡æœ‰ä¼ å…¥å‚æ•°åˆ™è®¾ç½®é»˜è®¤å€¼
     if (moveLeft == null) 
     {
         moveLeft = 0;
@@ -90,38 +90,38 @@ scriptHelper.prototype.showDivCommon = function(sObj, divId, sObjHeight, moveLef
         divObjHeight = 0;
     }
     
-    var divObj = document.getElementById(divId); //»ñµÃÍ¼²ã¶ÔÏó
-    var sObjOffsetTop = 0; //ÊÂ¼şÔ´µÄ´¹Ö±¾àÀë
-    var sObjOffsetLeft = 0; //ÊÂ¼şÔ´µÄË®Æ½¾àÀë
+    var divObj = document.getElementById(divId); //è·å¾—å›¾å±‚å¯¹è±¡
+    var sObjOffsetTop = 0; //äº‹ä»¶æºçš„å‚ç›´è·ç¦»
+    var sObjOffsetLeft = 0; //äº‹ä»¶æºçš„æ°´å¹³è·ç¦»
     var myClient = this.getClient();
     var myScroll = this.getScroll();
-    var sWidth = sObj.width; //ÊÂ¼şÔ´¶ÔÏóµÄ¿í¶È
-    var sHeight = sObjHeight; //ÊÂ¼şÔ´¶ÔÏóµÄ¸ß¶È
-    var bottomSpace; //¾àÀëµ×²¿µÄ¾àÀë
-    /* »ñÈ¡ÊÂ¼şÔ´¿Ø¼şµÄ¸ß¶ÈºÍ¿í¶È.*/
+    var sWidth = sObj.width; //äº‹ä»¶æºå¯¹è±¡çš„å®½åº¦
+    var sHeight = sObjHeight; //äº‹ä»¶æºå¯¹è±¡çš„é«˜åº¦
+    var bottomSpace; //è·ç¦»åº•éƒ¨çš„è·ç¦»
+    /* è·å–äº‹ä»¶æºæ§ä»¶çš„é«˜åº¦å’Œå®½åº¦.*/
     if (sWidth == null) 
     {
-        sWidth = 100; //ÎŞ·¨»ñÈ¡ÔòÎª100
+        sWidth = 100; //æ— æ³•è·å–åˆ™ä¸º100
     } 
     else 
     {
-        sWidth = sWidth + 1; //Áô³ö1pxµÄ¾àÀë
+        sWidth = sWidth + 1; //ç•™å‡º1pxçš„è·ç¦»
     }
     
     if (divObj.style.display.toLowerCase() != "none") 
     {
-        //Òş²ØÍ¼²ã
+        //éšè—å›¾å±‚
         divObj.style.display = "none";
     } 
     else 
     {
         if (sObj == null) 
         {
-            alert("ÊÂ¼şÔ´¶ÔÏóÎªnull");
+            alert("äº‹ä»¶æºå¯¹è±¡ä¸ºnull");
             return false;
         }
-        /* »ñÈ¡ÊÂ¼şÔ´¶ÔÏóµÄÆ«ÒÆÁ¿ */
-        var tempObj = sObj; //ÓÃÓÚ¼ÆËãÊÂ¼şÔ´×ø±êµÄÁÙÊ±¶ÔÏó
+        /* è·å–äº‹ä»¶æºå¯¹è±¡çš„åç§»é‡ */
+        var tempObj = sObj; //ç”¨äºè®¡ç®—äº‹ä»¶æºåæ ‡çš„ä¸´æ—¶å¯¹è±¡
         while (tempObj && tempObj.tagName.toUpperCase() != "BODY") 
         {
             sObjOffsetTop += tempObj.offsetTop;
@@ -130,10 +130,10 @@ scriptHelper.prototype.showDivCommon = function(sObj, divId, sObjHeight, moveLef
         }
         tempObj = null;
 
-        /* »ñÈ¡¾àÀëµ×²¿µÄ¾àÀë */
+        /* è·å–è·ç¦»åº•éƒ¨çš„è·ç¦» */
         bottomSpace = parseInt(myClient.clientHeight) - (parseInt(sObjOffsetTop) - parseInt(myScroll.scrollTop)) - parseInt(sHeight);
-        /* ÉèÖÃÍ¼²ãÏÔÊ¾Î»ÖÃ */
-        //Èç¹ûÊÂ¼şÔ´ÏÂ·½¿Õ¼ä²»×ãÇÒÉÏ·½¿Ø¼ş×ã¹»ÈİÄÉµ¯³ö²ã,ÔòÔÚÉÏ·½ÏÔÊ¾.·ñÔòÔÚÏÂ·½ÏÔÊ¾
+        /* è®¾ç½®å›¾å±‚æ˜¾ç¤ºä½ç½® */
+        //å¦‚æœäº‹ä»¶æºä¸‹æ–¹ç©ºé—´ä¸è¶³ä¸”ä¸Šæ–¹æ§ä»¶è¶³å¤Ÿå®¹çº³å¼¹å‡ºå±‚,åˆ™åœ¨ä¸Šæ–¹æ˜¾ç¤º.å¦åˆ™åœ¨ä¸‹æ–¹æ˜¾ç¤º
         if (divObjHeight > 0 && bottomSpace < divObjHeight && sObjOffsetTop > divObjHeight) 
         {
             divObj.style.top = (parseInt(sObjOffsetTop) - parseInt(divObjHeight) - 10).toString() + "px";
@@ -147,21 +147,21 @@ scriptHelper.prototype.showDivCommon = function(sObj, divId, sObjHeight, moveLef
     }
 }
 
-// ¹Ø±ÕÍ¼²ã
-/* ²ÎÊıËµÃ÷:
-divId : ÒªÒş²ØµÄÍ¼²ãID
-ÓÃ·¨Óë²âÊÔ:
+// å…³é—­å›¾å±‚
+/* å‚æ•°è¯´æ˜:
+divId : è¦éšè—çš„å›¾å±‚ID
+ç”¨æ³•ä¸æµ‹è¯•:
 ScriptHelper.closeDivCommon('testDiv');
 */
 scriptHelper.prototype.closeDivCommon = function(divId) 
 {
     //
-    var divObj = document.getElementById(divId); //»ñµÃÍ¼²ã¶ÔÏó
+    var divObj = document.getElementById(divId); //è·å¾—å›¾å±‚å¯¹è±¡
     if (divObj != null) 
     {
         divObj.style.display = "none";
     }
 }
-//½¨Á¢scriptHelperÀàµÄÒ»¸öÊµÀı¶ÔÏó.È«¾ÖÊ¹ÓÃ.
+//å»ºç«‹scriptHelperç±»çš„ä¸€ä¸ªå®ä¾‹å¯¹è±¡.å…¨å±€ä½¿ç”¨.
 var ScriptHelper = new scriptHelper();
-/* ==================== ScriptHelper ½áÊø ==================== */
+/* ==================== ScriptHelper ç»“æŸ ==================== */
