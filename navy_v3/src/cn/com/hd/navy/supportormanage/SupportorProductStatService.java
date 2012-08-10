@@ -13,6 +13,7 @@ import cn.com.hd.dto.dict.TDictArea;
 import cn.com.hd.dto.dict.TDictDetail;
 import cn.com.hd.dto.navy.TSupProduct;
 import cn.com.hd.dto.navy.TSupportor;
+import cn.com.hd.dto.navy.TSupportorStat;
 import cn.com.hd.error.Debug;
 import cn.com.hd.service.BaseService;
 import cn.com.hd.service.IService;
@@ -28,22 +29,49 @@ public class SupportorProductStatService extends BaseService implements IService
 	public Response service(Request request) throws Exception {
 		Response resp = new Response();
 		
+		TSupportorStat supStat = new TSupportorStat();
+		super.getQueryData(request.getDto(), supStat);
+		
 		/// 获取输入参数
-		// 产品分类列表
-		List lstProds = resp.getDto().getSelectItems();		// "DICT_LIST"
+		// 产品分类编码
+		String prodCode = supStat.getProdcode();		// "DICT_LIST"
 		
 		// 首先查询所有省/区信息
 		HashMap<String, String> mapArea = provQuery();
 		if(mapArea.size()>0) {
+			HashMap<String, Integer> rs1;		
+			HashMap<String, Integer> rs2;
+			HashMap<String, Integer> rs3;
+			HashMap<String, Integer> rs4;
+			HashMap<String, Double>  rs5;
+			
 			// 各省/区供应商个数统计
-			HashMap<String, Integer> rs1 = supStatPerProvince(mapArea);
+			rs1 = supStatPerProvince(mapArea);
+			supStat.setMapnum(rs1);
 			
 			// 供应商类型统计
 			Integer dictCode = 11;
-			HashMap<String, Integer> rs2 = supStatOfType(dictCode);
+			rs2 = supStatOfType(dictCode);
+			dictCode = 14;
+			rs3 = supStatOfType(dictCode);
+			dictCode = 16;
+			rs4 = supStatOfType(dictCode);
+			supStat.setMaptype(rs2);
+			supStat.setMapeconomy(rs3);
+			supStat.setMappurchase(rs4);
 			
 			// 供应商产能统计
+			if (prodCode!=null) {
+				rs5 = supStatOfProduct(prodCode, mapArea);
+				supStat.setMapcapacity(rs5);
+			}
+			
+			supStat.setMaparea(mapArea);
 		}
+		
+		List list = new ArrayList();
+		list.add(list);
+		resp.getDto().setList("RESULT", list);
 		
 		return resp;
 	}

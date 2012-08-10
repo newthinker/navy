@@ -95,7 +95,7 @@ public class SupSupportorQueryService extends BaseService implements IService {
 			exp = "exists (select 1 from T_SUP_PRODUCT dto2 where dto1.SUP_ID=dto2.SUP_ID";
 			
 			if(dictcode!=null) {
-				exp += " and dto2.PROD_ID=" + dictcode;
+				exp += " and dto2.PROD_ID='" + dictcode + "'";
 			}
 			if(output>0) {
 				exp += " and dto2.AVG_OUTPUT>=" + output;
@@ -119,7 +119,7 @@ public class SupSupportorQueryService extends BaseService implements IService {
 		exp = null;
 		if (capacity>0) {
 			exp = "exists (select 1 from T_SUP_TRANS dto3, T_TRANSPORT dto4 where dto1.SUP_ID=dto3.SUP_ID and dto3.COM_ID=dto4.COM_ID and " + 
-				"dto4.DEADWEIGHT×dto4.COUNT>=" + capacity + ")";
+				"dto4.DEADWEIGHT*dto4.COUNT>=" + capacity + ")";
 		}
 		if(exp!=null) {
 			cons.addExpression(exp);
