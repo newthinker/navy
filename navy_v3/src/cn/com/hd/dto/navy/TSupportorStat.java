@@ -29,6 +29,7 @@ public class TSupportorStat extends BaseDTO {
 	private HashMap<String, Double> mapCapacity;
 	
 	public TSupportorStat() {
+		statType = 0;
 	}
 	
 	public Integer getStattype() {

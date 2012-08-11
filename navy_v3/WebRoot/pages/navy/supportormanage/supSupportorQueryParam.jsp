@@ -250,7 +250,9 @@
 				生产范围:&nbsp;
 			</td>
 			<td align="left">
-				<span id="protypename" style="border:solid 1px #b3c9d2; width:150px" > -请选择产品分类- </span>
+			<!--<span id="protypename" style="border:solid 1px #b3c9d2; width:150px" > -请选择产品分类- </span> -->
+				<input id="STR_QUERY_GOODNAME" name="STR_QUERY_GOODNAME" style="width:150px;text-align:center;" align="center" readonly="readonly"
+					value="<%= queryParam.getString("QUERY_GOODNAME") == null ? "-请选择产品分类-" : queryParam.getString("QUERY_GOODNAME") %>" />
 				<input id="STR_QUERY_PRODTYPE" name="STR_QUERY_PRODTYPE" style="width:150px" type="hidden"
 					value="<%= queryParam.getString("QUERY_PRODTYPE") == null ? "" : queryParam.getString("QUERY_PRODTYPE") %>" />
 				<a id="a_protypediv" class="link_blue_table" href="javascript:void(0)" onclick="showProtypeTree(this);">显示产品编目</a>
@@ -276,7 +278,7 @@
 
 					function setvalue(value1, value2)
 					{
-						document.getElementById("protypename").innerText = value1;
+						document.getElementById("STR_QUERY_GOODNAME").innerText = value1;
 						document.getElementById("STR_QUERY_PRODTYPE").value = value2;
 					}
 				</script>
