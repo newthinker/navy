@@ -8,6 +8,9 @@ public class TSupportorStat extends BaseDTO {
 
 	private static final long serialVersionUID = 1L;
 	
+	// 统计类型，0--初始化，1--供应商个数统计；2-供应商产能统计；3--供应商类型统计
+	private Integer statType;
+	
 	// 产品分类编码
 	private String prodCode;
 	
@@ -28,6 +31,13 @@ public class TSupportorStat extends BaseDTO {
 	public TSupportorStat() {
 	}
 	
+	public Integer getStattype() {
+		return statType;
+	}
+	public void setStattype(Integer statType) {
+		this.statType = statType;
+	}
+
 	public String getProdcode() {
 		return prodCode;
 	}
