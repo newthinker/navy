@@ -53,7 +53,8 @@ public class SupSupportorProdCapStatService extends BaseService implements IServ
 			if (prodCode!=null) {
 				rs1 = supStatOfProduct(prodCode, lstArea);
 				supStat.setMapcapacity(rs1);
-			}			
+			}	
+			supStat.setStattype(2);
 		}
 		
 		resp.getDto().setObject("RESULT", supStat);

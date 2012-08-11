@@ -51,6 +51,7 @@ public class SupSupportorTypeCountStatService extends BaseService implements ISe
 		supStat.setMaptype(rs1);
 		supStat.setMapeconomy(rs2);
 		supStat.setMappurchase(rs3);
+		supStat.setStattype(3);
 		
 		resp.getDto().setObject("RESULT", supStat);
 		

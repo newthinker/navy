@@ -51,7 +51,8 @@ public class SupSupportorCountStatService extends BaseService implements IServic
 			
 			// 各省/区供应商个数统计
 			rs1 = supStatPerProvince(lstArea);
-			supStat.setMapnum(rs1);			
+			supStat.setMapnum(rs1);	
+			supStat.setStattype(1);
 		}
 		
 		resp.getDto().setObject("RESULT", supStat);
