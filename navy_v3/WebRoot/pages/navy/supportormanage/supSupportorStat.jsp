@@ -31,9 +31,9 @@
 		
 		<script type="text/javascript">
 $(function () {
-    var chart1, chart2, chart3, chart4, chart5;
+    var chart;
     $(document).ready(function() {
-        chart1 = new Highcharts.Chart({
+        chart = new Highcharts.Chart({
             chart: {
                 renderTo: 'container',
                 type: 'column'

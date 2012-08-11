@@ -151,8 +151,16 @@
 			<class>cn.com.hd.navy.Supportorormanage.SupSupportorQueryParamService</class>
 		</service>
 		<service>
-			<name>NavyManage.SupportorProductStatService</name>
-			<class>cn.com.hd.navy.Supportorormanage.SupportorProductStatService</class>
+			<name>NavyManage.SupSupportorCountStatService</name>
+			<class>cn.com.hd.navy.Supportorormanage.SupSupportorCountStatService</class>
+		</service>
+		<service>
+			<name>NavyManage.SupSupportorProdCapStatService</name>
+			<class>cn.com.hd.navy.Supportorormanage.SupSupportorProdCapStatService</class>
+		</service>
+		<service>
+			<name>NavyManage.SupSupportorTypeCountStatService</name>
+			<class>cn.com.hd.navy.Supportorormanage.SupSupportorTypeCountStatService</class>
 		</service>
 	</subsystem>
 	
