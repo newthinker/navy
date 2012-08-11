@@ -337,7 +337,7 @@
 			</column>
 		</property>		
 		<property name="bankprove" type="VARCHAR2">
-			<column name="BANK_PROVE" length="50">
+			<column name="BANK_PROVE" length="200">
 				<comment>银行资信证明扫描件</comment>
 			</column>
 		</property>		
@@ -357,7 +357,7 @@
 			</column>
 		</property>
 		<property name="qualityprove" type="VARCHAR2">
-			<column name="QUALITY_PROVE" length="50">
+			<column name="QUALITY_PROVE" length="200">
 				<comment>质量管理认证证书扫描件</comment>
 			</column>
 		</property>			
