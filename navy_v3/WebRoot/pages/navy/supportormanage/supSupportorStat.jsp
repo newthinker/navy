@@ -23,6 +23,12 @@
 		<link href="resources/css/table.css" rel="stylesheet" type="text/css" />
 		<link href="resources/css/index.css" rel="stylesheet" type="text/css" />
 		<style type="text/css">
+.stat_choose {width:500px;height:30px;margin:0 auto;padding:30px 10px 20px;}
+.stat_choose ul {position:relative;margin:0 auto;}
+.stat_choose ul li {position:relative;float:left;margin:0 2px;height:29px;font-size:14px;cursor:pointer;}
+.stat_choose ul li span {z-index:0;color:#307D74;padding:7px 11px;font-family:黑体;}
+.stat_choose ul li.current {z-index:2;font-size:16px;/*font-weight:700;*/cursor:default;}
+.stat_choose ul li.current span {border-bottom:2px solid #00F;color:#77A}
 		</style>
 		
 		<script type="text/javascript" src="resources/javascript/jquery-1.7.1.min.js"></script>
@@ -147,6 +153,51 @@ $(function () {
 							<div id="site">&nbsp;当前位置：供应商信息统计</div>
 						</td>
 					</tr>
+					<tr>
+						<td valign="top" align="center" height="1">
+							<div class="stat_choose">
+								<script type="text/javascript">
+									function changeStat(type) {
+										if (type == 1) {
+											
+										}
+										else if (type == 2) {
+											
+										}
+										else if (type == 3) {
+											
+										}
+										else {
+										}
+									}
+									function setLiCurrent(node) {
+										if (node == 'li_supcount') {
+											$('li#li_supcount').addClass('current');
+											$('li#li_prodcap').removeClass('current');
+											$('li#li_suptype').removeClass('current');
+										}
+										else if (node == 'li_prodcap') {
+											$('li#li_supcount').removeClass('current');
+											$('li#li_prodcap').addClass('current');
+											$('li#li_suptype').removeClass('current');
+										}
+										else if (node == 'li_suptype') {
+											$('li#li_supcount').removeClass('current');
+											$('li#li_prodcap').removeClass('current');
+											$('li#li_suptype').addClass('current');
+										}
+									}
+								</script>
+								<ul>
+									<li id="li_supcount" class="current" onclick="changeStat(1);setLiCurrent(this.id);"><span>供应商区域数量统计</span></li>
+									<li>|</li>
+									<li id="li_prodcap" onclick="changeStat(2);setLiCurrent(this.id);"><span>产品产能统计</span></li>
+									<li>|</li>
+									<li id="li_suptype" onclick="changeStat(3);setLiCurrent(this.id);"><span>供应商类型统计</span></li>
+								</ul>
+							</div>
+						</td>
+					</tr>
 				<!-- 	<tr>
 						<td valign="top" height="1">
 						<jsp:include page="supSupportorQueryParam.jsp?mode=show"></jsp:include>
@@ -162,7 +213,7 @@ $(function () {
 					</tr> -->
 					<tr>
 						<td valign="top" align="center">
-							<div id="container" style="min-width: 400px; width: 800px; height: 400px; margin: 80 auto 20">
+							<div id="container" style="min-width:400px; width:800px; height:400px; margin:0 auto; padding:20px auto 0;">
 							</div>
 						</td>
 					</tr>
