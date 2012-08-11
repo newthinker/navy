@@ -139,7 +139,7 @@ $(function () {
 	</head>
 	
 	<body  style="background:url(resources/images/common/tbl_bg.gif) top left repeat-x; background-color:#ffffff;"
-		onload="init('Navy','NavyManage','SupportorProductStatService','/pages/navy/supportormanage/supSupportorStat.jsp');">
+		onload="init('Navy','NavyManage','SupSupportorCountStatService','/pages/navy/supportormanage/supSupportorStat.jsp');">
 		<form action="system" method="post">
 			<input type="hidden" name="opt" id="opt">
 			<input id="STR_PRODCODE" name="STR_PRODCODE" type="hidden" value="">
@@ -159,13 +159,13 @@ $(function () {
 								<script type="text/javascript">
 									function changeStat(type) {
 										if (type == 1) {
-											
+											submit_form('Navy','NavyManage','SupSupportorCountStatService','/pages/navy/supportormanage/supSupportorStat.jsp');
 										}
 										else if (type == 2) {
-											
+											//submit_form('Navy','NavyManage','SupSupportorProdCapStatService','/pages/navy/supportormanage/supSupportorStat.jsp');
 										}
 										else if (type == 3) {
-											
+											submit_form('Navy','NavyManage','SupSupportorTypeCountStatService','/pages/navy/supportormanage/supSupportorStat.jsp');
 										}
 										else {
 										}
@@ -198,19 +198,6 @@ $(function () {
 							</div>
 						</td>
 					</tr>
-				<!-- 	<tr>
-						<td valign="top" height="1">
-						<jsp:include page="supSupportorQueryParam.jsp?mode=show"></jsp:include>
-						</td>
-					</tr>
-					<tr>
-						<td valign="top" height="25">
-							<div id="btu_new">
-								<img src="resources/images/common/btn_search.gif" alt=" " width="62" height="22"
-									onclick="submit_form('Navy','NavyManage','SupportorProductStatService','/pages/navy/supportormanage/supSupportorStat.jsp');" /> 
-							</div>
-						</td>
-					</tr> -->
 					<tr>
 						<td valign="top" align="center">
 							<div id="container" style="min-width:400px; width:800px; height:400px; margin:0 auto; padding:20px auto 0;">
