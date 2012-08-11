@@ -7,8 +7,12 @@
 <%@ include file="../../common/init.jsp" %>
 <%
 	SimpleDateFormat fmtDate = new SimpleDateFormat("yyyy-MM-dd");
-	TSupportorStat supStat = (TSupportorStat)resp.getDto().getObject("RESULT");
+	TSupportorStat supStat = null;
 	int statType = 0;
+	if (resp.getDto() != null)
+	{
+		supStat = (TSupportorStat)resp.getDto().getObject("RESULT");
+	}
 	if (supStat != null) {
 		statType = supStat.getStattype();
 	}
@@ -54,6 +58,98 @@ $(function () {
             },
             title: {
                 text: '供应商个数统计'
+            },
+        	credits: {
+        		enabled: false
+        	},
+            xAxis: {
+                categories: [
+                    <% 
+                    for (Entry<String, Integer> item : supStat.getMapnum().entrySet())
+                    {%>
+                    '<%=item.getKey()%>',
+                    <%}%>
+                ],
+                labels: {
+                    rotation: -45,
+                    align: 'right',
+                    style: {
+                        fontSize: '13px',
+                        fontFamily: '宋体'
+                    }
+                }
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: '供应商个数 (个)'
+                }
+            },
+            legend: {
+                layout: 'vertical',
+                backgroundColor: '#FFFFFF',
+                align: 'left',
+                verticalAlign: 'top',
+                x: 100,
+                y: 70,
+                floating: true,
+                shadow: true
+            },
+            tooltip: {
+                formatter: function() {
+                    return '<b>'+ this.x +'</b><br/>'+
+                    '供应商个数： '+ this.y;
+                }
+            },
+            plotOptions: {
+                column: {
+                    pointPadding: 0.2,
+                    borderWidth: 0
+                }
+            },
+            series: [{
+                name: '个数',
+                data: [
+                       <% 
+                       for (Entry<String, Integer> item : supStat.getMapnum().entrySet())
+                       {%>
+                       '<%=item.getValue()%>',
+                       <%}%>
+				],
+                dataLabels: {
+                    enabled: true,
+                    rotation: -90,
+                    color: '#FFFFFF',
+                    align: 'right',
+                    x: -3,
+                    y: 10,
+                    formatter: function() {
+                        return this.y;
+                    },
+                    style: {
+                        fontSize: '13px',
+                        fontFamily: 'Verdana, sans-serif'
+                    }
+                }
+            }]
+        });
+    });
+});
+		</script>
+<%	}
+	else if (statType == 2)
+	{%>
+		<script type="text/javascript">
+$(function () {
+    var chart;
+    $(document).ready(function() {
+        chart = new Highcharts.Chart({
+            chart: {
+                renderTo: 'container',
+                type: 'column'
+            },
+            title: {
+                text: '产品产能统计'
             },
         	credits: {
         		enabled: false
