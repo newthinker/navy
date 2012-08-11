@@ -1913,7 +1913,9 @@ namespace DatCollect
 			setXmlElemFile(writer, "STOREHOUSEIMAGE", this.textBox_storehouseImage.Text, tmppath);
 			setXmlElemFile(writer, "LICBUSIMAGE", this.textBox_businessLicId.Text, tmppath);
 			setXmlElemFile(writer, "ORGSTRIMAGE", this.textBox_organizationImage.Text, tmppath);
-			setXmlElemFile(writer, "PROVEFILES", this.textBox_otherProve.Text, tmppath);
+			setXmlElemFile(writer, "BANKPROVE", this.textBox_bankProve.Text, tmppath);
+			setXmlElemFile(writer, "QUALITYPROVE", this.textBox_qualityProve.Text, tmppath);
+			setXmlElemFile(writer, "OTHERPROVE", this.textBox_otherProve.Text, tmppath);
 			setXmlElemFile(writer, "AUDITLAST3Y", this.textBox_designRep2009.Text, tmppath);
 			//setXmlElem(writer, "PURCHASETYPE", this.textBox_fullName.Text);
 			//setXmlElem(writer, "IFTURNOVER", this.textBox_fullName.Text);
