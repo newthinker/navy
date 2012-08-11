@@ -37,19 +37,21 @@ public class SupSupportorCountStatService extends BaseService implements IServic
 		String prodCode = supStat.getProdcode();		// "DICT_LIST"
 		
 		// 首先查询所有省/区信息
-		HashMap<String, String> mapArea = provQuery();
-		if(mapArea.size()>0) {
+		Request req = new Request();
+		req.setResponseSystemName("HDDict");
+		req.setResponseSubsystemName("DictManage");
+		req.setResponseServiceName("AreaQueryService");
+		req.getDto().setString("QUERY_PARENTCODEID", "0");
+		req.getDto().setInt("ROWNUMBER", Integer.MAX_VALUE);
+		Response res = requestService(req);
+		
+		List lstArea = res.getDto().getList("RESULT");
+		if(lstArea.size()>0) {
 			HashMap<String, Integer> rs1;		
-			HashMap<String, Integer> rs2;
-			HashMap<String, Integer> rs3;
-			HashMap<String, Integer> rs4;
-			HashMap<String, Double>  rs5;
 			
 			// 各省/区供应商个数统计
-			rs1 = supStatPerProvince(mapArea);
-			supStat.setMapnum(rs1);
-			
-			supStat.setMaparea(mapArea);
+			rs1 = supStatPerProvince(lstArea);
+			supStat.setMapnum(rs1);			
 		}
 		
 		resp.getDto().setObject("RESULT", supStat);
@@ -58,18 +60,20 @@ public class SupSupportorCountStatService extends BaseService implements IServic
 	}
 	
 	// 各省/区供应商个数统计
-	public HashMap<String, Integer> supStatPerProvince(HashMap<String, String> mapArea) {
+	public HashMap<String, Integer> supStatPerProvince(List lstArea) throws Exception {
 		HashMap<String, Integer> res = null;
 		
-		if(mapArea==null) {
+		if(lstArea==null) {
 			return null;
 		}
 		
 		// 遍历地区map
-		Set<Entry<String, String>> entrySet = mapArea.entrySet(); 
-		for (Entry<String, String> area : entrySet) {
-			String dictCode = area.getKey();
-			String areaName = area.getValue();
+		for (Object item : lstArea) {
+			TDictArea dictArea = new TDictArea();
+			super.getData((DTO)item, dictArea);
+
+			String dictCode = dictArea.getAreacode();
+			String areaName = dictArea.getAreaname();
 			if(dictCode==null || areaName==null) {
 				continue;
 			}
@@ -89,41 +93,10 @@ public class SupSupportorCountStatService extends BaseService implements IServic
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}
-		}		
+			}			
+		}
 		
 		return res;
 	}
 	
-	// 查询全国所有的省/区
-	private HashMap<String, String> provQuery() {
-		HashMap<String, String> res = new HashMap<String, String>();
-
-		TDictArea area = new TDictArea();
-		area.setParentcodeid("0");			
-		
-		SelectResultSet result;
-		try {
-			result = super.queryResultSet(area);
-
-			List list = super.getDTO(result);	
-			// 遍历list，取出所有省数据
-			for (int i=0; i<list.size();i++) {
-				super.getData((DTO) list.get(i), area);
-				
-				String dictCode = area.getAreacode();
-				String areaName = area.getAreaname();
-				
-				if (dictCode!=null && areaName!=null) {
-					res.put(dictCode, areaName);
-				}
-			}
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}		
-		
-		return res;
-	}
-
 }

@@ -37,17 +37,23 @@ public class SupSupportorProdCapStatService extends BaseService implements IServ
 		String prodCode = supStat.getProdcode();		// "DICT_LIST"
 		
 		// 首先查询所有省/区信息
-		HashMap<String, String> mapArea = provQuery();
-		if(mapArea.size()>0) {
-			HashMap<String, Double> rs1;		
+		Request req = new Request();
+		req.setResponseSystemName("HDDict");
+		req.setResponseSubsystemName("DictManage");
+		req.setResponseServiceName("AreaQueryService");
+		req.getDto().setString("QUERY_PARENTCODEID", "0");
+		req.getDto().setInt("ROWNUMBER", Integer.MAX_VALUE);
+		Response res = requestService(req);
+		
+		List lstArea = res.getDto().getList("RESULT");
+		if(lstArea.size()>0) {
+			HashMap<String, Double> rs1;
 			
 			// 供应商产能统计
 			if (prodCode!=null) {
-				rs1 = supStatOfProduct(prodCode, mapArea);
+				rs1 = supStatOfProduct(prodCode, lstArea);
 				supStat.setMapcapacity(rs1);
-			}
-			
-			supStat.setMaparea(mapArea);
+			}			
 		}
 		
 		resp.getDto().setObject("RESULT", supStat);
@@ -56,18 +62,20 @@ public class SupSupportorProdCapStatService extends BaseService implements IServ
 	}
 	
 	// 供应商产品产能统计
-	public HashMap<String, Double> supStatOfProduct(String prodType, HashMap<String, String> mapArea) throws Exception {
+	public HashMap<String, Double> supStatOfProduct(String prodType, List lstArea) throws Exception {
 		HashMap<String, Double> res = null;
 		
-		if (mapArea==null) {
+		if (lstArea==null) {
 			return null;
 		}
 		
 		// 遍历地区map
-		Set<Entry<String, String>> entrySet = mapArea.entrySet(); 
-		for (Entry<String, String> area : entrySet) {
-			String dictCode = area.getKey();
-			String areaName = area.getValue();
+		for (Object item : lstArea) {
+			TDictArea dictArea = new TDictArea();
+			super.getData((DTO)item, dictArea);
+
+			String dictCode = dictArea.getAreacode();
+			String areaName = dictArea.getAreaname();
 			if(dictCode==null || areaName==null) {
 				continue;
 			}
@@ -90,41 +98,10 @@ public class SupSupportorProdCapStatService extends BaseService implements IServ
 				res = new HashMap<String, Double>();
 			}
 			
-			res.put(areaName, sum);
+			res.put(areaName, sum);			
 		}
 		
 		return res;
 	}
 	
-	// 查询全国所有的省/区
-	private HashMap<String, String> provQuery() {
-		HashMap<String, String> res = new HashMap<String, String>();
-
-		TDictArea area = new TDictArea();
-		area.setParentcodeid("0");			
-		
-		SelectResultSet result;
-		try {
-			result = super.queryResultSet(area);
-
-			List list = super.getDTO(result);	
-			// 遍历list，取出所有省数据
-			for (int i=0; i<list.size();i++) {
-				super.getData((DTO) list.get(i), area);
-				
-				String dictCode = area.getAreacode();
-				String areaName = area.getAreaname();
-				
-				if (dictCode!=null && areaName!=null) {
-					res.put(dictCode, areaName);
-				}
-			}
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}		
-		
-		return res;
-	}
-
 }
