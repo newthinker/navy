@@ -1,10 +1,17 @@
 <%@ page language="java" pageEncoding="UTF-8" %>
 <%@ page import="java.util.List"%>
 <%@ page import="java.util.ArrayList"%>
+<%@ page import="java.util.Map.Entry"%>
 <%@ page import="java.text.SimpleDateFormat"%>
+<%@ page import="cn.com.hd.dto.navy.TSupportorStat"%>
 <%@ include file="../../common/init.jsp" %>
 <%
 	SimpleDateFormat fmtDate = new SimpleDateFormat("yyyy-MM-dd");
+	TSupportorStat supStat = (TSupportorStat)resp.getDto().getObject("RESULT");
+	int statType = 0;
+	if (supStat != null) {
+		statType = supStat.getStattype();
+	}
 %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
@@ -19,22 +26,23 @@
 		<meta http-equiv="description" content="This is my page">
 		<meta content="MSHTML 6.00.3790.2666" name="GENERATOR">
 		
-		<title></title>
 		<link href="resources/css/table.css" rel="stylesheet" type="text/css" />
 		<link href="resources/css/index.css" rel="stylesheet" type="text/css" />
 		<style type="text/css">
-.stat_choose {width:500px;height:30px;margin:0 auto;padding:30px 10px 20px;}
-.stat_choose ul {position:relative;margin:0 auto;}
-.stat_choose ul li {position:relative;float:left;margin:0 2px;height:29px;font-size:14px;cursor:pointer;}
-.stat_choose ul li span {z-index:0;color:#307D74;padding:7px 11px;font-family:黑体;}
-.stat_choose ul li.current {z-index:2;font-size:16px;/*font-weight:700;*/cursor:default;}
-.stat_choose ul li.current span {border-bottom:2px solid #00F;color:#77A}
+			.stat_choose {width:500px;height:30px;margin:0 auto;padding:30px 10px 20px;}
+			.stat_choose ul {position:relative;margin:0 auto;}
+			.stat_choose ul li {position:relative;float:left;margin:0 2px;height:29px;font-size:14px;cursor:pointer;}
+			.stat_choose ul li span {z-index:0;color:#307D74;padding:7px 11px;font-family:黑体;}
+			.stat_choose ul li.current {z-index:2;font-size:16px;/*font-weight:700;*/cursor:default;}
+			.stat_choose ul li.current span {border-bottom:2px solid #00F;color:#77A}
 		</style>
 		
 		<script type="text/javascript" src="resources/javascript/jquery-1.7.1.min.js"></script>
 		<script src="resources/javascript/highcharts.js"></script>
 	<!-- <script src="resources/javascript/modules/exporting.js"></script> -->
 		
+<%  if (statType == 1)
+	{%>
 		<script type="text/javascript">
 $(function () {
     var chart;
@@ -52,26 +60,11 @@ $(function () {
         	},
             xAxis: {
                 categories: [
-                    '北京市',
-                    '河北省',
-                    '山东省',
-                    'Seoul',
-                    'Manila',
-                    'Mumbai',
-                    'Sao Paulo',
-                    'Mexico City',
-                    'Dehli',
-                    'Osaka',
-                    'Cairo',
-                    'Kolkata',
-                    'Los Angeles',
-                    'Shanghai',
-                    'Moscow',
-                    'Beijing',
-                    'Buenos Aires',
-                    'Guangzhou',
-                    'Shenzhen',
-                    'Istanbul'
+                    <% 
+                    for (Entry<String, Integer> item : supStat.getMapnum().entrySet())
+                    {%>
+                    '<%=item.getKey()%>',
+                    <%}%>
                 ],
                 labels: {
                     rotation: -45,
@@ -112,9 +105,13 @@ $(function () {
             },
             series: [{
                 name: '个数',
-                data: [34.4, 21.8, 20.1, 20, 19.6, 19.5, 19.1, 18.4, 18,
-                    17.3, 16.8, 15, 14.7, 14.5, 13.3, 12.8, 12.4, 11.8,
-                    11.7, 11.2],
+                data: [
+                       <% 
+                       for (Entry<String, Integer> item : supStat.getMapnum().entrySet())
+                       {%>
+                       '<%=item.getValue()%>',
+                       <%}%>
+				],
                 dataLabels: {
                     enabled: true,
                     rotation: -90,
@@ -135,6 +132,7 @@ $(function () {
     });
 });
 		</script>
+<%	}%>
 		
 	</head>
 	
@@ -170,18 +168,18 @@ $(function () {
 										else {
 										}
 									}
-									function setLiCurrent(node) {
-										if (node == 'li_supcount') {
+									function setLiCurrent(type) {
+										if (type == 1) {
 											$('li#li_supcount').addClass('current');
 											$('li#li_prodcap').removeClass('current');
 											$('li#li_suptype').removeClass('current');
 										}
-										else if (node == 'li_prodcap') {
+										else if (type == 2) {
 											$('li#li_supcount').removeClass('current');
 											$('li#li_prodcap').addClass('current');
 											$('li#li_suptype').removeClass('current');
 										}
-										else if (node == 'li_suptype') {
+										else if (type == 3) {
 											$('li#li_supcount').removeClass('current');
 											$('li#li_prodcap').removeClass('current');
 											$('li#li_suptype').addClass('current');
@@ -189,12 +187,15 @@ $(function () {
 									}
 								</script>
 								<ul>
-									<li id="li_supcount" class="current" onclick="changeStat(1);setLiCurrent(this.id);"><span>供应商区域数量统计</span></li>
+									<li id="li_supcount" onclick="changeStat(1);setLiCurrent(1);"><span>供应商区域数量统计</span></li>
 									<li>|</li>
-									<li id="li_prodcap" onclick="changeStat(2);setLiCurrent(this.id);"><span>产品产能统计</span></li>
+									<li id="li_prodcap" onclick="changeStat(2);setLiCurrent(2);"><span>产品产能统计</span></li>
 									<li>|</li>
-									<li id="li_suptype" onclick="changeStat(3);setLiCurrent(this.id);"><span>供应商类型统计</span></li>
+									<li id="li_suptype" onclick="changeStat(3);setLiCurrent(3);"><span>供应商类型统计</span></li>
 								</ul>
+								<script type="text/javascript">
+									setLiCurrent(<%=statType%>);
+								</script>
 							</div>
 						</td>
 					</tr>
