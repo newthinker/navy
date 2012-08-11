@@ -2,6 +2,7 @@
 <%@ page import="java.util.List"%>
 <%@ page import="java.util.ArrayList"%>
 <%@ page import="java.util.Map.Entry"%>
+<%@ page import="java.util.Iterator"%>
 <%@ page import="java.text.SimpleDateFormat"%>
 <%@ page import="cn.com.hd.dto.navy.TSupportorStat"%>
 <%@ include file="../../common/init.jsp"%>
@@ -196,7 +197,15 @@ $(function () {
     	setLiCurrent(<%=statType%>);
 <%  if (statType == 1)
 	{%>
-	var chart = new Highcharts.Chart({
+		var keys = [];
+		var values = [];
+		<% 
+		for (Entry<String, Integer> item : supStat.getMapnum().entrySet())
+		{%>
+			keys.push('<%=item.getKey()%>');
+			values.push(<%=item.getValue()%>);
+		<%}%>
+		var chart = new Highcharts.Chart({
             chart: {
                 renderTo: 'container',
                 type: 'column'
@@ -208,13 +217,7 @@ $(function () {
         		enabled: false
         	},
             xAxis: {
-                categories: [
-                    <% 
-                    for (Entry<String, Integer> item : supStat.getMapnum().entrySet())
-                    {%>
-                    '<%=item.getKey()%>',
-                    <%}%>
-                ],
+                categories: keys,
                 labels: {
                     rotation: -45,
                     align: 'right',
@@ -254,13 +257,7 @@ $(function () {
             },
             series: [{
                 name: '个数',
-                data: [
-                       <% 
-                       for (Entry<String, Integer> item : supStat.getMapnum().entrySet())
-                       {%>
-                       '<%=item.getValue()%>',
-                       <%}%>
-				],
+                data: values,
                 dataLabels: {
                     enabled: true,
                     rotation: -90,
@@ -281,6 +278,14 @@ $(function () {
 <%	}
 	else if (statType == 2)
 	{%>
+		var keys = [];
+		var values = [];
+		<% 
+		for (Entry<String, Double> item : supStat.getMapcapacity().entrySet())
+		{%>
+			keys.push('<%=item.getKey()%>');
+			values.push(<%=item.getValue()%>);
+		<%}%>
     	var chart = new Highcharts.Chart({
             chart: {
                 renderTo: 'container',
@@ -293,13 +298,7 @@ $(function () {
         		enabled: false
         	},
             xAxis: {
-                categories: [
-                    <% 
-                    for (Entry<String, Double> item : supStat.getMapcapacity().entrySet())
-                    {%>
-                    '<%=item.getKey()%>',
-                    <%}%>
-                ],
+                categories: keys,
                 labels: {
                     rotation: -45,
                     align: 'right',
@@ -339,13 +338,7 @@ $(function () {
             },
             series: [{
                 name: '数目',
-                data: [
-                       <% 
-                       for (Entry<String, Double> item : supStat.getMapcapacity().entrySet())
-                       {%>
-                       '<%=item.getValue()%>',
-                       <%}%>
-				],
+                data: values,
                 dataLabels: {
                     enabled: true,
                     rotation: -90,
@@ -366,6 +359,30 @@ $(function () {
 <%	}
 	else if (statType == 3)
 	{%>
+		var keys1 = [];
+		var values1 = [];
+		<% 
+		for (Entry<String, Integer> item : supStat.getMaptype().entrySet())
+		{%>
+			keys1.push('<%=item.getKey()%>');
+			values1.push(<%=item.getValue()%>);
+		<%}%>
+		var keys2 = [];
+		var values2 = [];
+		<% 
+		for (Entry<String, Integer> item : supStat.getMapeconomy().entrySet())
+		{%>
+			keys2.push('<%=item.getKey()%>');
+			values2.push(<%=item.getValue()%>);
+		<%}%>
+		var keys3 = [];
+		var values3 = [];
+		<% 
+		for (Entry<String, Integer> item : supStat.getMappruchase().entrySet())
+		{%>
+			keys3.push('<%=item.getKey()%>');
+			values3.push(<%=item.getValue()%>);
+		<%}%>
         var chart1 = new Highcharts.Chart({
             chart: {
                 renderTo: 'container',
@@ -378,13 +395,7 @@ $(function () {
         		enabled: false
         	},
             xAxis: {
-                categories: [
-                    <% 
-                    for (Entry<String, Integer> item : supStat.getMaptype().entrySet())
-                    {%>
-                    '<%=item.getKey()%>',
-                    <%}%>
-                ],
+                categories: keys1,
                 labels: {
                     rotation: -45,
                     align: 'right',
@@ -424,13 +435,7 @@ $(function () {
             },
             series: [{
                 name: '个数',
-                data: [
-                       <% 
-                       for (Entry<String, Integer> item : supStat.getMaptype().entrySet())
-                       {%>
-                       '<%=item.getValue()%>',
-                       <%}%>
-				],
+                data: values1,
                 dataLabels: {
                     enabled: true,
                     rotation: -90,
@@ -461,13 +466,7 @@ $(function () {
         		enabled: false
         	},
             xAxis: {
-                categories: [
-                    <% 
-                    for (Entry<String, Integer> item : supStat.getMapeconomy().entrySet())
-                    {%>
-                    '<%=item.getKey()%>',
-                    <%}%>
-                ],
+                categories: keys2,
                 labels: {
                     rotation: -45,
                     align: 'right',
@@ -507,13 +506,7 @@ $(function () {
             },
             series: [{
                 name: '个数',
-                data: [
-                       <% 
-                       for (Entry<String, Integer> item : supStat.getMapeconomy().entrySet())
-                       {%>
-                       '<%=item.getValue()%>',
-                       <%}%>
-				],
+                data: value2,
                 dataLabels: {
                     enabled: true,
                     rotation: -90,
@@ -545,13 +538,7 @@ $(function () {
         		enabled: false
         	},
             xAxis: {
-                categories: [
-                    <% 
-                    for (Entry<String, Integer> item : supStat.getMappruchase().entrySet())
-                    {%>
-                    '<%=item.getKey()%>',
-                    <%}%>
-                ],
+                categories: keys3,
                 labels: {
                     rotation: -45,
                     align: 'right',
@@ -591,13 +578,7 @@ $(function () {
             },
             series: [{
                 name: '个数',
-                data: [
-                       <% 
-                       for (Entry<String, Integer> item : supStat.getMappruchase().entrySet())
-                       {%>
-                       '<%=item.getValue()%>',
-                       <%}%>
-				],
+                data: value3,
                 dataLabels: {
                     enabled: true,
                     rotation: -90,
@@ -654,7 +635,7 @@ $(function () {
 							<input id="STR_QUERY_PRODCODE" name="STR_QUERY_PRODCODE" style="width:150px" type="hidden"
 								value="<%= queryParam.getString("QUERY_PRODCODE") == null ? "" : queryParam.getString("QUERY_PRODCODE") %>" />
 							<a id="a_protypediv" class="link_blue_table" href="javascript:void(0)" onclick="showProtypeTree(this);">显示产品编目</a>
-							<div id="protypediv" align="left" style="position:absolute; display:none; overflow:auto; background-color:#FFFFFF; border:solid 1px #000000; padding:5px; width:250px; height:300px;" >
+							<div id="protypediv" align="left" style="position:absolute; display:none; overflow:auto; z-index:999; background-color:#FFFFFF; border:solid 1px #000000; padding:5px; width:250px; height:300px;" >
 								<div id="protypenotify">请稍等...</div>
 								<div id="protypetree"></div>
 							</div>
@@ -676,7 +657,7 @@ $(function () {
 			
 								function setvalue(value1, value2)
 								{
-									document.getElementById("protypename").innerText = value1;
+									document.getElementById("STR_QUERY_GOODNAME").innerText = value1;
 									document.getElementById("STR_QUERY_PRODCODE").value = value2;
 									submit_form('Navy','NavyManage','SupSupportorProdCapStatService','/pages/navy/supportormanage/supSupportorStat.jsp');
 								}
