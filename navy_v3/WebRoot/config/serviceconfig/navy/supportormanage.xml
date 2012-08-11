@@ -26,4 +26,5 @@
 	
 	<bean id="NavyManage.SupSupportorQueryService" class="cn.com.hd.navy.supportormanage.SupSupportorQueryService" />
 	<bean id="NavyManage.SupSupportorQueryParamService" class="cn.com.hd.navy.supportormanage.SupSupportorQueryParamService" />
+	<bean id="NavyManage.SupportorProductStatService" class="cn.com.hd.navy.supportormanage.SupportorProductStatService" />
 </beans>

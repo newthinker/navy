@@ -150,6 +150,10 @@
 			<name>NavyManage.SupSupportorQueryParamService</name>
 			<class>cn.com.hd.navy.Supportorormanage.SupSupportorQueryParamService</class>
 		</service>
+		<service>
+			<name>NavyManage.SupportorProductStatService</name>
+			<class>cn.com.hd.navy.Supportorormanage.SupportorProductStatService</class>
+		</service>
 	</subsystem>
 	
 	<subsystem name="DictManage">
