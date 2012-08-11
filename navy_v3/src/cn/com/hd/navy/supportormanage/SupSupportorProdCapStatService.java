@@ -85,7 +85,7 @@ public class SupSupportorProdCapStatService extends BaseService implements IServ
 			Conditions cons = new Conditions();
 			cons.addCondition(product);
 			// 组织查询语句
-			String exp = "exists (select 1 from T_PRODUCT dto2 where dto1.SUP_ID=dto2.SUP_ID and dto2.L1_LOC=" + areaName + ")";
+			String exp = "exists (select 1 from T_PRODUCT dto2 where dto1.SUP_ID=dto2.SUP_ID and dto2.L1_LOC='" + areaName + "')";
 			cons.addExpression(exp);
 			
 			SelectResultSet result = super.queryResultSet(cons);

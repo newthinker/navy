@@ -1,7 +1,8 @@
-package cn.com.hd.dict.dictmanage;
+ï»¿package cn.com.hd.dict.dictmanage;
 
 import cn.com.hd.database.SelectResultSet;
 import cn.com.hd.dto.dict.TDictArea;
+import cn.com.hd.dto.dict.TProdCatalog;
 import cn.com.hd.service.BaseService;
 import cn.com.hd.service.IService;
 import cn.com.hd.transfer.Conditions;
@@ -13,13 +14,14 @@ import java.util.List;
 
 public class ProdCatalogService extends BaseService implements IService {
 	public Response service(Request request) throws Exception {
+		Response resp = new Response();
 		TProdCatalog prodcata = new TProdCatalog();
 
 		super.getQueryData(request.getDto(), prodcata);
 
 		String theCode = prodcata.getThecode();
 		String curName = prodcata.getCurname();
-		String afterName = prodcata.getAftername;
+		String afterName = prodcata.getAftername();
 		
 		if (theCode==null) {
 			return null;
@@ -28,16 +30,16 @@ public class ProdCatalogService extends BaseService implements IService {
 			return null;
 		}
 				
-		if (curName==null) {				// ½ÚµãÔö¼Ó
-			// ²éÕÒ×îºóÒ»¸öĞÖµÜ½ÚµãµÄĞÅÏ¢
+		if (curName==null) {				// å¢åŠ èŠ‚ç‚¹
+			// æŸ¥æ‰¾æœ€åä¸€ä¸ªå…„å¼ŸèŠ‚ç‚¹
 			
-			// ²åÈë´ËÌõ¼ÇÂ¼
+			// å¢åŠ èŠ‚ç‚¹è®°å½•
 			
-		} else if(afterName==null) {		// ½ÚµãÉ¾³ı
-			// É¾³ı´Ë¸ö½Úµã¼ÇÂ¼
+		} else if(afterName==null) {		// åˆ é™¤èŠ‚ç‚¹
+			// åˆ é™¤èŠ‚ç‚¹è®°å½•
 			
-		} else if (curName!=null && afterName!=null) {		// ½ÚµãĞŞ¸Ä
-			// Ö±½Ó½øĞĞĞŞ¸Ä
+		} else if (curName!=null && afterName!=null) {		// ä¿®æ”¹èŠ‚ç‚¹
+			// ä¿®æ”¹èŠ‚ç‚¹è®°å½•
 		}
 		
 		return resp;
