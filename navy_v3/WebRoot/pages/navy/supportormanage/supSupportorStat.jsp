@@ -229,6 +229,7 @@ $(function () {
             },
             yAxis: {
                 min: 0,
+                allowDecimals: false,
                 title: {
                     text: '供应商个数 (个)'
                 }
@@ -385,7 +386,7 @@ $(function () {
 		<%}%>
         var chart1 = new Highcharts.Chart({
             chart: {
-                renderTo: 'container',
+                renderTo: 'container1',
                 type: 'column'
             },
             title: {
@@ -407,6 +408,7 @@ $(function () {
             },
             yAxis: {
                 min: 0,
+                allowDecimals: false,
                 title: {
                     text: '供应商个数 (个)'
                 }
@@ -478,6 +480,7 @@ $(function () {
             },
             yAxis: {
                 min: 0,
+                allowDecimals: false,
                 title: {
                     text: '供应商个数 (个)'
                 }
@@ -506,7 +509,7 @@ $(function () {
             },
             series: [{
                 name: '个数',
-                data: value2,
+                data: values2,
                 dataLabels: {
                     enabled: true,
                     rotation: -90,
@@ -550,6 +553,7 @@ $(function () {
             },
             yAxis: {
                 min: 0,
+                allowDecimals: false,
                 title: {
                     text: '供应商个数 (个)'
                 }
@@ -578,7 +582,7 @@ $(function () {
             },
             series: [{
                 name: '个数',
-                data: value3,
+                data: values3,
                 dataLabels: {
                     enabled: true,
                     rotation: -90,
@@ -667,6 +671,7 @@ $(function () {
 				</tr>
 				<tr>
 					<td valign="top" align="center">
+						<div style="overflow:auto; height:500px;">
 						<% if (statType == 1 || statType == 2) { %>
 						<div id="container"
 							style="min-width: 400px; width: 800px; height: 400px; margin: 0 auto; padding: 20px auto 0;">
@@ -682,6 +687,7 @@ $(function () {
 							style="min-width: 400px; width: 400px; height: 400px; margin: 0 auto; padding: 20px auto 0;">
 						</div>
 						<% }%>
+						</div>
 					</td>
 				</tr>
 			</table>
