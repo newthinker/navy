@@ -47,6 +47,14 @@
 		loc = "开户银行";
 	} else if (typeid.equals("13")) {
 		loc = "信用等级";
+	} else if (typeid.equals("14")) {
+		loc = "经济性质";
+	} else if (typeid.equals("15")) {
+		loc = "产品编目";
+	} else if (typeid.equals("17")) {
+		loc = "服务机构类型";
+	} else if (typeid.equals("18")) {
+		loc = "货车类型";
 	}
 	
 	List selectItem = resp.getDto().getSelectItems();

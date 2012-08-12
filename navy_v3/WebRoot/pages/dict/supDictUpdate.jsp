@@ -8,31 +8,29 @@
 	if (dictList != null && dictList.size() > 0) {
 		dto = (DTO) dictList.get(0);
 	}
+
+	DTO queryParam = (DTO)resp.getDto().get("REQUEST_PARAM");
+	if (queryParam == null) {
+		queryParam = new DTO();
+	}
+	String typeid = queryParam.getString("QUERY_TYPEID");
+	if (typeid == null)
+		typeid = request.getParameter("typeid");
+	String fathercode = queryParam.getString("QUERY_FATHERCODE");
+	if (fathercode == null)
+		fathercode = request.getParameter("fathercode");
+	String dictcode = queryParam.getString("QUERY_DICTCODE");
+	if (dictcode == null)
+		dictcode = request.getParameter("dictcode");
+	if (dictcode == null)
+		dictcode = dto.getString("DICTCODE");
 	
-	String typeid = dto.getString("TYPEID");
-	String dictcode = dto.getString("DICTCODE");
+	//String typeid = dto.getString("TYPEID");
+	//String dictcode = dto.getString("DICTCODE");
 	
 	String loc = "";
-	if (typeid.equals("1")) {
-		loc = "计划类别";
-	} else if (typeid.equals("2")) {
-		loc = "采购机构";
-	} else if (typeid.equals("3")) {
-		loc = "需求单位";
-	} else if (typeid.equals("4")) {
-		loc = "专业类别";
-	} else if (typeid.equals("5")) {
-		loc = "币种";
-	} else if (typeid.equals("6")) {
+	if (typeid.equals("6")) {
 		loc = "采购方式";
-	} else if (typeid.equals("7")) {
-		loc = "委托代理公司";
-	} else if (typeid.equals("8")) {
-		loc = "进口类别";
-	} else if (typeid.equals("9")) {
-		loc = "免税目录";
-	} else if (typeid.equals("10")) {
-		loc = "使用情况";
 	} else if (typeid.equals("11")) {
 		loc = "供应商类型";
 	} else if (typeid.equals("12")) {
@@ -130,7 +128,7 @@
 	</head>
 
 	<body style="background:url(resources/images/common/tbl_bg.gif) top left repeat-x; background-color:#fff;"
-		onload="init('HDDict', 'DictManage', 'DictQueryByIDService', '/pages/dictmanage/dictUpdate.jsp');">
+		onload="init('HDDict', 'DictManage', 'DictQueryByIDService', '/pages/dictmanage/supDictUpdate.jsp');">
 		<form action="system" method="post">
 			<jsp:include page="dictQueryParam.jsp"></jsp:include>
 			<input type="hidden" name="opt" id="opt">
@@ -139,6 +137,7 @@
 			<input type="hidden" name="STR_DICTOWNER" id="STR_DICTOWNER" value="<%= dto.showString("DICTOWNER") %>">
 			<input type="hidden" name="STR_EXPINFO1" id="STR_EXPINFOA" value="<%= dto.showString("DICTNAME") %>" />
 			<input id="STR_QUERY_TYPEID" name="STR_QUERY_TYPEID" type="hidden" value="<%= typeid %>">
+			<input id="STR_QUERY_FATHERCODE" name="STR_QUERY_FATHERCODE" type="hidden" value="<%= fathercode %>">
 			<input id="XML_DATA" name="XML_DATA" type="hidden" value="">
 
 			<div id="site">&nbsp;当前位置： <%= loc %>维护 &gt;&gt; <span>修改<%= loc %>信息</span>
@@ -155,7 +154,8 @@
 							名称
 						</th>
 						<td>
-							<%= dto.getString("DICTNAME") == null ? "" : dto.getString("DICTNAME") %>
+							<input type="text" name="STR_DICTNAME" id="STR_DICTNAME" class="searchTbl_input" 
+								value="<%= dto.getString("DICTNAME") == null ? "" : dto.getString("DICTNAME") %>" />
 						</td>
 					</tr>
 					<%
@@ -166,7 +166,17 @@
 							选择需求单位
 						</th>
 						<td>
-							<%= dto.getString("DICTNAME") %>
+							<select name="STR_RELEVANCECODE" id="STR_RELEVANCECODE" style="width:200px">
+								<option value="">-请选择-</option>
+								<%
+									for (int i = 0; i < dept.getList("RESULT").size(); i ++) {
+										DTO deptdto = (DTO)dept.getList("RESULT").get(i);
+								%>
+								<option value="<%= deptdto.getString("DICTCODE") %>"><%= deptdto.getString("DICTNAME") %></option>
+								<%
+									}
+								%>
+							</select>
 						</td>
 					</tr>
 					<% 
@@ -180,7 +190,35 @@
 							选择进口类别
 						</th>
 						<td>
-							<%= dto.getString("DICTNAME") %>
+							<select name="STR_RELEVANCECODE" id="STR_RELEVANCECODE" style="width:200px">
+								<option value="">-请选择-</option>
+								<%
+									for (int i = 0; i < importClass.getList("RESULT").size(); i ++) {
+										DTO deptdto = (DTO)importClass.getList("RESULT").get(i);
+								%>
+								<option value="<%= deptdto.getString("DICTCODE") %>"><%= deptdto.getString("DICTNAME") %></option>
+								<%
+									}
+								%>
+							</select>
+						</td>
+					</tr>
+					<% 
+						}
+					%>
+					<%
+						if (typeid.equals("11")) {
+					%>
+					<tr>
+						<th width="20%">
+							供应商类别
+						</th>
+						<td>
+							<select name="STR_RELEVANCECODE" id="STR_RELEVANCECODE" style="width:200px">
+								<option value="">-请选择-</option>
+								<option value="000000000">国内供应商</option>
+								<option value="000000001">进口供应商</option>
+							</select>
 						</td>
 					</tr>
 					<% 
@@ -191,7 +229,8 @@
 							排序
 						</th>
 						<td>
-							<%= dto.getNumber("DICTORDER") == null ? "" : dto.getNumber("DICTORDER").intValue() %>
+							<input type="text" name="INT_DICTORDER" id="INT_DICTORDER" class="searchTbl_input"
+								value="<%= dto.getNumber("DICTORDER") == null ? "" : dto.getNumber("DICTORDER").intValue() %>" />
 						</td>
 					</tr>
 					<tr>
@@ -199,7 +238,11 @@
 							有效性
 						</th>
 						<td>
-							<%= dto.getString("VALIDATED") == null ? "" : dto.getString("VALIDATED") %>
+							<select name="STR_VALIDATED" id="STR_VALIDATED" class="searchTbl_select" style="width:200px">
+								<option value="" selected>-请选择-</option>
+								<option value="Y">是</option>
+								<option value="N">否</option>
+							</select>
 						</td>
 					</tr>
 					<tr>
@@ -207,22 +250,32 @@
 							说明
 						</th>
 						<td>
-							<textarea name="STR_DICTEXPLAIN" id="STR_DICTEXPLAIN" rows="5" cols="10" readonly><%= dto.getString("DICTEXPLAIN") == null ? "" : dto.getString("DICTEXPLAIN") %></textarea>
+							<textarea name="STR_DICTEXPLAIN" id="STR_DICTEXPLAIN" rows="5" cols="10"><%= dto.getString("DICTEXPLAIN") == null ? "" : dto.getString("DICTEXPLAIN") %></textarea>
 						</td>
 					</tr>
 				</table>
 			</div>
 			<div class="btu">
+				<input type="button" name="save" value="保 存" class="btu_input"
+					onclick="if (checkinput()) submit_form('HDDict', 'DictManage', 'DictUpdateService', '/pages/dict/supDictUpdate.jsp?typeid=<%= typeid %>');" />
+				<input type="button" name="save" value="保存并更新业务库" class="btu_input"
+					onclick="if (confirm('确定要更新业务库吗') && checkinput()) submit_form('Navy', 'NavyManage', 'NavyDictUpdateService', '/pages/dict/supDictUpdate.jsp?typeid=<%= typeid %>');" />
 				<input type="button" name="save" value="返 回" class="btu_input"
-					onclick="submit_form('HDDict', 'DictManage', 'DictQueryService', '/pages/dict/dictQuery.jsp?typeid=<%= typeid %>');" />
+					onclick="submit_form('HDDict', 'DictManage', 'DictQueryService', '/pages/dict/supDictQuery.jsp?typeid=<%= typeid %>');" />
 			</div>
 		</form>
 		<script type="text/javascript">
+			setSelect("STR_VALIDATED", "<%= dto.getString("VALIDATED") == null ? "" : dto.getString("VALIDATED") %>");
+
+			if ("<%= dto.getString("RELEVANCECODE") %>" != "" && "<%= dto.getString("RELEVANCECODE") %>" != "null") {
+				setSelect("STR_RELEVANCECODE", "<%= dto.getString("RELEVANCECODE") == null ? "" : dto.getString("RELEVANCECODE") %>");
+			}
+			
 			<% if (resp != null && resp.getErrorInfo() != null) { %>
 				alert("<%= resp.getErrorInfo() %>");
 			<% } else if (resp.getDto().get("RESULT") != null && (Integer)resp.getDto().get("RESULT") > 0){ %>
 				alert("保存成功！");
-				submit_form('HDDict', 'DictManage', 'DictQueryService', '/pages/dict/dictQuery.jsp?opt=refresh&typeid=<%= typeid %>');
+				submit_form('HDDict', 'DictManage', 'DictQueryService', '/pages/dict/supDictQuery.jsp?opt=refresh&typeid=<%= typeid %>');
 			<% 
 				}
 			%>

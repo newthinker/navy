@@ -8,31 +8,27 @@
 	if (dictList != null && dictList.size() > 0) {
 		dto = (DTO) dictList.get(0);
 	}
+
+	DTO queryParam = (DTO)resp.getDto().get("REQUEST_PARAM");
+	if (queryParam == null) {
+		queryParam = new DTO();
+	}
+	String typeid = queryParam.getString("QUERY_TYPEID");
+	if (typeid == null)
+		typeid = request.getParameter("typeid");
+	String fathercode = queryParam.getString("QUERY_FATHERCODE");
+	if (fathercode == null)
+		fathercode = request.getParameter("fathercode");
+	String dictcode = queryParam.getString("QUERY_DICTCODE");
+	if (dictcode == null)
+		dictcode = request.getParameter("dictcode");
 	
-	String typeid = dto.getString("TYPEID");
-	String dictcode = dto.getString("DICTCODE");
+	//String typeid = dto.getString("TYPEID");
+	//String dictcode = dto.getString("DICTCODE");
 	
 	String loc = "";
-	if (typeid.equals("1")) {
-		loc = "计划类别";
-	} else if (typeid.equals("2")) {
-		loc = "采购机构";
-	} else if (typeid.equals("3")) {
-		loc = "需求单位";
-	} else if (typeid.equals("4")) {
-		loc = "专业类别";
-	} else if (typeid.equals("5")) {
-		loc = "币种";
-	} else if (typeid.equals("6")) {
+	if (typeid.equals("6")) {
 		loc = "采购方式";
-	} else if (typeid.equals("7")) {
-		loc = "委托代理公司";
-	} else if (typeid.equals("8")) {
-		loc = "进口类别";
-	} else if (typeid.equals("9")) {
-		loc = "免税目录";
-	} else if (typeid.equals("10")) {
-		loc = "使用情况";
 	} else if (typeid.equals("11")) {
 		loc = "供应商类型";
 	} else if (typeid.equals("12")) {
@@ -130,7 +126,7 @@
 	</head>
 
 	<body style="background:url(resources/images/common/tbl_bg.gif) top left repeat-x; background-color:#fff;"
-		onload="init('HDDict', 'DictManage', 'DictQueryByIDService', '/pages/dictmanage/dictUpdate.jsp');">
+		onload="init('HDDict', 'DictManage', 'DictQueryByIDService', '/pages/dictmanage/supDictUpdate.jsp');">
 		<form action="system" method="post">
 			<jsp:include page="dictQueryParam.jsp"></jsp:include>
 			<input type="hidden" name="opt" id="opt">
@@ -139,6 +135,7 @@
 			<input type="hidden" name="STR_DICTOWNER" id="STR_DICTOWNER" value="<%= dto.showString("DICTOWNER") %>">
 			<input type="hidden" name="STR_EXPINFO1" id="STR_EXPINFOA" value="<%= dto.showString("DICTNAME") %>" />
 			<input id="STR_QUERY_TYPEID" name="STR_QUERY_TYPEID" type="hidden" value="<%= typeid %>">
+			<input id="STR_QUERY_FATHERCODE" name="STR_QUERY_FATHERCODE" type="hidden" value="<%= fathercode %>">
 			<input id="XML_DATA" name="XML_DATA" type="hidden" value="">
 
 			<div id="site">&nbsp;当前位置： <%= loc %>维护 &gt;&gt; <span>修改<%= loc %>信息</span>
@@ -214,7 +211,7 @@
 			</div>
 			<div class="btu">
 				<input type="button" name="save" value="返 回" class="btu_input"
-					onclick="submit_form('HDDict', 'DictManage', 'DictQueryService', '/pages/dict/dictQuery.jsp?typeid=<%= typeid %>');" />
+					onclick="submit_form('HDDict', 'DictManage', 'DictQueryService', '/pages/dict/supDictQuery.jsp?typeid=<%= typeid %>');" />
 			</div>
 		</form>
 		<script type="text/javascript">
@@ -222,7 +219,7 @@
 				alert("<%= resp.getErrorInfo() %>");
 			<% } else if (resp.getDto().get("RESULT") != null && (Integer)resp.getDto().get("RESULT") > 0){ %>
 				alert("保存成功！");
-				submit_form('HDDict', 'DictManage', 'DictQueryService', '/pages/dict/dictQuery.jsp?opt=refresh&typeid=<%= typeid %>');
+				submit_form('HDDict', 'DictManage', 'DictQueryService', '/pages/dict/supDictQuery.jsp?opt=refresh&typeid=<%= typeid %>');
 			<% 
 				}
 			%>

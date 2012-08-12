@@ -26,10 +26,16 @@ public class DictQueryByIDService extends BaseService implements IService {
 		if (dictdetail.getTypeid() == null) {
 			dictdetail.setTypeid("-1");
 		}
+
+		if (dictdetail.getFathercode() == null) {
+			dictdetail.setFathercode("-1");
+		}
 		
 		Conditions cons = new Conditions();
 		cons.addCondition(new TDictDetail());
-		cons.addExpression("dict_code = '" + dictdetail.getDictcode() + "' and type_id = '" + dictdetail.getTypeid() + "'");
+		cons.addExpression("dict_code = '" + dictdetail.getDictcode()
+				+ "' and father_code = '" + dictdetail.getFathercode()
+				+ "' and type_id = '" + dictdetail.getTypeid() + "'");
 		SelectResultSet result = super.queryResultSet(cons);
 		
 		List list = super.getDTO(result);
