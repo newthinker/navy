@@ -56,6 +56,7 @@ public class SupSupportorCountStatService extends BaseService implements IServic
 		}
 		
 		resp.getDto().setObject("RESULT", supStat);
+		resp.setRequestParam(request.getDto());
 		
 		return resp;
 	}

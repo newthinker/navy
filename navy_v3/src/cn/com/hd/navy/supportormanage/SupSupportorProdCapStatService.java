@@ -58,6 +58,7 @@ public class SupSupportorProdCapStatService extends BaseService implements IServ
 		}
 		
 		resp.getDto().setObject("RESULT", supStat);
+		resp.setRequestParam(request.getDto());
 		
 		return resp;
 	}

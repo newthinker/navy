@@ -54,6 +54,7 @@ public class SupSupportorTypeCountStatService extends BaseService implements ISe
 		supStat.setStattype(3);
 		
 		resp.getDto().setObject("RESULT", supStat);
+		resp.setRequestParam(request.getDto());
 		
 		return resp;
 	}

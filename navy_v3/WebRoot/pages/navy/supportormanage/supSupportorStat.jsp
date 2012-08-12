@@ -38,7 +38,7 @@
 	width: 500px;
 	height: 30px;
 	margin: 0 auto;
-	padding: 30px 10px 20px;
+	padding: 30px 10px 10px;
 }
 
 .stat_choose ul {
@@ -69,6 +69,44 @@
 }
 
 .stat_choose ul li.current span {
+	border-bottom: 2px solid #00F;
+	color: #77A
+}
+
+.suptype_choose {
+	width: 400px;
+	height: 30px;
+	margin: 0 auto;
+}
+
+.suptype_choose ul {
+	position: relative;
+	margin: 0 auto;
+}
+
+.suptype_choose ul li {
+	position: relative;
+	float: left;
+	margin: 0 2px;
+	height: 29px;
+	font-size: 12px;
+	cursor: pointer;
+}
+
+.suptype_choose ul li span {
+	z-index: 0;
+	color: #307D74;
+	padding: 7px 11px;
+	font-family: 黑体;
+}
+
+.suptype_choose ul li.current {
+	z-index: 2;
+	font-size: 14px;
+	cursor: default;
+}
+
+.suptype_choose ul li.current span {
 	border-bottom: 2px solid #00F;
 	color: #77A
 }
@@ -160,15 +198,24 @@
 
 <script type="text/javascript">
 
+var chart;
+
 function changeStat(type) {
+	setLiCurrent(type);
 	if (type == 1) {
+		$('#div_suptypediv').hide();
+		$('#div_protypediv').hide();
+		chart.destroy();
 		submit_form('Navy','NavyManage','SupSupportorCountStatService','/pages/navy/supportormanage/supSupportorStat.jsp');
 	}
 	else if (type == 2) {
+		$('#div_suptypediv').hide();
 		$('#div_protypediv').show();
-		//submit_form('Navy','NavyManage','SupSupportorProdCapStatService','/pages/navy/supportormanage/supSupportorStat.jsp');
 	}
 	else if (type == 3) {
+		$('#div_suptypediv').show();
+		$('#div_protypediv').hide();
+		chart.destroy();
 		submit_form('Navy','NavyManage','SupSupportorTypeCountStatService','/pages/navy/supportormanage/supSupportorStat.jsp');
 	}
 	else {
@@ -192,6 +239,78 @@ function setLiCurrent(type) {
 	}
 }
 
+function createChart(titleText, xCategories, yTitle, isAllowDecimals, tooltipText, sdata) {
+	var chart = new Highcharts.Chart({
+		chart: {
+			renderTo: 'container',
+			type: 'column'
+		},
+		title: {
+			text: titleText
+		},
+		credits: {
+			enabled: false
+		},
+		xAxis: {
+			categories: xCategories,
+			labels: {
+				rotation: -45,
+				align: 'right',
+				style: {
+					fontSize: '13px',
+					fontFamily: '宋体'
+				}
+			}
+		},
+		yAxis: {
+			min: 0,
+			allowDecimals: isAllowDecimals,
+			title: {
+				text: yTitle
+			}
+		},
+		legend: {
+			layout: 'vertical',
+			backgroundColor: '#FFFFFF',
+			align: 'left',
+			verticalAlign: 'top',
+			x: 100,
+			y: 70,
+			floating: true,
+			shadow: true
+		},
+		tooltip: {
+			formatter: function() {
+				return '<b>'+this.x+'</b><br/>'+tooltipText+'： '+this.y;
+			}
+		},
+		plotOptions: {
+			column: {
+				pointPadding: 0.2,
+				borderWidth: 0
+			}
+		},
+		series: [{
+			name: '数目',
+			data: sdata
+		}]
+	});
+	return chart;
+}
+
+<%  if (statType == 3)
+	{%>
+		var keys1 = [];
+		var values1 = [];
+		var keys2 = [];
+		var values2 = [];
+		var keys3 = [];
+		var values3 = [];
+		var mapdata1 = [];
+		var mapdata2 = [];
+		var mapdata3 = [];
+<%	}%>
+
 $(function () {
     $(document).ready(function() {
     	setLiCurrent(<%=statType%>);
@@ -205,7 +324,8 @@ $(function () {
 			keys.push('<%=item.getKey()%>');
 			values.push(<%=item.getValue()%>);
 		<%}%>
-		var chart = new Highcharts.Chart({
+		chart = createChart('供应商个数统计', keys, '供应商个数 (个)', false, '供应商个数', values);
+/*		chart = new Highcharts.Chart({
             chart: {
                 renderTo: 'container',
                 type: 'column'
@@ -275,10 +395,11 @@ $(function () {
                     }
                 }
             }]
-        });
+        }); */
 <%	}
 	else if (statType == 2)
 	{%>
+		$('#div_protypediv').show();
 		var keys = [];
 		var values = [];
 		<% 
@@ -287,7 +408,8 @@ $(function () {
 			keys.push('<%=item.getKey()%>');
 			values.push(<%=item.getValue()%>);
 		<%}%>
-    	var chart = new Highcharts.Chart({
+		chart = createChart('产品产能统计', keys, '产品产能数目', true, '产品产能合计', values);
+/*    	chart = new Highcharts.Chart({
             chart: {
                 renderTo: 'container',
                 type: 'column'
@@ -339,270 +461,64 @@ $(function () {
             },
             series: [{
                 name: '数目',
-                data: values,
-                dataLabels: {
-                    enabled: true,
-                    rotation: -90,
-                    color: '#FFFFFF',
-                    align: 'right',
-                    x: -3,
-                    y: 10,
-                    formatter: function() {
-                        return this.y;
-                    },
-                    style: {
-                        fontSize: '13px',
-                        fontFamily: 'Verdana, sans-serif'
-                    }
-                }
+                data: values
             }]
-        });
+        }); */
 <%	}
 	else if (statType == 3)
 	{%>
-		var keys1 = [];
-		var values1 = [];
+		$('#div_suptypediv').show();
 		<% 
 		for (Entry<String, Integer> item : supStat.getMaptype().entrySet())
 		{%>
 			keys1.push('<%=item.getKey()%>');
 			values1.push(<%=item.getValue()%>);
 		<%}%>
-		var keys2 = [];
-		var values2 = [];
 		<% 
 		for (Entry<String, Integer> item : supStat.getMapeconomy().entrySet())
 		{%>
 			keys2.push('<%=item.getKey()%>');
 			values2.push(<%=item.getValue()%>);
 		<%}%>
-		var keys3 = [];
-		var values3 = [];
 		<% 
 		for (Entry<String, Integer> item : supStat.getMappruchase().entrySet())
 		{%>
 			keys3.push('<%=item.getKey()%>');
 			values3.push(<%=item.getValue()%>);
 		<%}%>
-        var chart1 = new Highcharts.Chart({
-            chart: {
-                renderTo: 'container1',
-                type: 'column'
-            },
-            title: {
-                text: '供应商类型统计'
-            },
-        	credits: {
-        		enabled: false
-        	},
-            xAxis: {
-                categories: keys1,
-                labels: {
-                    rotation: -45,
-                    align: 'right',
-                    style: {
-                        fontSize: '13px',
-                        fontFamily: '宋体'
-                    }
-                }
-            },
-            yAxis: {
-                min: 0,
-                allowDecimals: false,
-                title: {
-                    text: '供应商个数 (个)'
-                }
-            },
-            legend: {
-                layout: 'vertical',
-                backgroundColor: '#FFFFFF',
-                align: 'left',
-                verticalAlign: 'top',
-                x: 100,
-                y: 70,
-                floating: true,
-                shadow: true
-            },
-            tooltip: {
-                formatter: function() {
-                    return '<b>'+ this.x +'</b><br/>'+
-                    '供应商个数： '+ this.y;
-                }
-            },
-            plotOptions: {
-                column: {
-                    pointPadding: 0.2,
-                    borderWidth: 0
-                }
-            },
-            series: [{
-                name: '个数',
-                data: values1,
-                dataLabels: {
-                    enabled: true,
-                    rotation: -90,
-                    color: '#FFFFFF',
-                    align: 'right',
-                    x: -3,
-                    y: 10,
-                    formatter: function() {
-                        return this.y;
-                    },
-                    style: {
-                        fontSize: '13px',
-                        fontFamily: 'Verdana, sans-serif'
-                    }
-                }
-            }]
-        });
-
-        var chart2 = new Highcharts.Chart({
-            chart: {
-                renderTo: 'container2',
-                type: 'column'
-            },
-            title: {
-                text: '供应商类型统计'
-            },
-        	credits: {
-        		enabled: false
-        	},
-            xAxis: {
-                categories: keys2,
-                labels: {
-                    rotation: -45,
-                    align: 'right',
-                    style: {
-                        fontSize: '13px',
-                        fontFamily: '宋体'
-                    }
-                }
-            },
-            yAxis: {
-                min: 0,
-                allowDecimals: false,
-                title: {
-                    text: '供应商个数 (个)'
-                }
-            },
-            legend: {
-                layout: 'vertical',
-                backgroundColor: '#FFFFFF',
-                align: 'left',
-                verticalAlign: 'top',
-                x: 100,
-                y: 70,
-                floating: true,
-                shadow: true
-            },
-            tooltip: {
-                formatter: function() {
-                    return '<b>'+ this.x +'</b><br/>'+
-                    '供应商个数： '+ this.y;
-                }
-            },
-            plotOptions: {
-                column: {
-                    pointPadding: 0.2,
-                    borderWidth: 0
-                }
-            },
-            series: [{
-                name: '个数',
-                data: values2,
-                dataLabels: {
-                    enabled: true,
-                    rotation: -90,
-                    color: '#FFFFFF',
-                    align: 'right',
-                    x: -3,
-                    y: 10,
-                    formatter: function() {
-                        return this.y;
-                    },
-                    style: {
-                        fontSize: '13px',
-                        fontFamily: 'Verdana, sans-serif'
-                    }
-                }
-            }]
-        });
-        
-
-        var chart3 = new Highcharts.Chart({
-            chart: {
-                renderTo: 'container3',
-                type: 'column'
-            },
-            title: {
-                text: '采购方式统计'
-            },
-        	credits: {
-        		enabled: false
-        	},
-            xAxis: {
-                categories: keys3,
-                labels: {
-                    rotation: -45,
-                    align: 'right',
-                    style: {
-                        fontSize: '13px',
-                        fontFamily: '宋体'
-                    }
-                }
-            },
-            yAxis: {
-                min: 0,
-                allowDecimals: false,
-                title: {
-                    text: '供应商个数 (个)'
-                }
-            },
-            legend: {
-                layout: 'vertical',
-                backgroundColor: '#FFFFFF',
-                align: 'left',
-                verticalAlign: 'top',
-                x: 100,
-                y: 70,
-                floating: true,
-                shadow: true
-            },
-            tooltip: {
-                formatter: function() {
-                    return '<b>'+ this.x +'</b><br/>'+
-                    '供应商个数： '+ this.y;
-                }
-            },
-            plotOptions: {
-                column: {
-                    pointPadding: 0.2,
-                    borderWidth: 0
-                }
-            },
-            series: [{
-                name: '个数',
-                data: values3,
-                dataLabels: {
-                    enabled: true,
-                    rotation: -90,
-                    color: '#FFFFFF',
-                    align: 'right',
-                    x: -3,
-                    y: 10,
-                    formatter: function() {
-                        return this.y;
-                    },
-                    style: {
-                        fontSize: '13px',
-                        fontFamily: 'Verdana, sans-serif'
-                    }
-                }
-            }]
-        });
+		
+		chart = createChart('供应商类型统计', keys1, '供应商个数 (个)', false, '供应商个数', values1);
 <%	}%>
     });
 });
+
+<%	if (statType == 3) {%>
+function changeSupType(type) {
+	if (type == 1) {
+		$('li#supli_suptype').addClass('current');
+		$('li#supli_supecon').removeClass('current');
+		$('li#supli_suppur').removeClass('current');
+		chart.destroy();
+		chart = createChart('供应商类型统计', keys1, '供应商个数 (个)', false, '供应商个数', values1);
+	}
+	else if (type == 2) {
+		$('li#supli_suptype').removeClass('current');
+		$('li#supli_supecon').addClass('current');
+		$('li#supli_suppur').removeClass('current');
+		chart.destroy();
+		chart = createChart('供应商经济类型统计', keys2, '供应商个数 (个)', false, '供应商个数', values2);
+	}
+	else if (type == 3) {
+		$('li#supli_suptype').removeClass('current');
+		$('li#supli_supecon').removeClass('current');
+		$('li#supli_suppur').addClass('current');
+		chart.destroy();
+		chart = createChart('供应商采购类型统计', keys3, '供应商个数 (个)', false, '供应商个数', values3);
+	}
+	else {
+	}
+}
+<%	}%>
 		</script>
 
 </head>
@@ -626,15 +542,15 @@ $(function () {
 					<td valign="top" align="center" height="1">
 						<div class="stat_choose">
 							<ul>
-								<li id="li_supcount" onclick="changeStat(1);setLiCurrent(1);"><span>供应商区域数量统计</span></li>
+								<li id="li_supcount" onclick="changeStat(1);"><span>供应商区域数量统计</span></li>
 								<li>|</li>
-								<li id="li_prodcap" onclick="changeStat(2);setLiCurrent(2);"><span>产品产能统计</span></li>
+								<li id="li_prodcap" onclick="changeStat(2);"><span>产品产能统计</span></li>
 								<li>|</li>
-								<li id="li_suptype" onclick="changeStat(3);setLiCurrent(3);"><span>供应商类型统计</span></li>
+								<li id="li_suptype" onclick="changeStat(3);"><span>供应商类型统计</span></li>
 							</ul>
 						</div>
 						<div id="div_protypediv" style="display:none; margin:0 auto; font-size:14px;">
-							<input id="STR_QUERY_GOODNAME" name="STR_QUERY_GOODNAME" style="width:150px" align="center" readonly="readonly"
+							<input id="STR_QUERY_GOODNAME" name="STR_QUERY_GOODNAME" style="width:150px; text-align:center; color:red" readonly="readonly"
 								value="<%= queryParam.getString("QUERY_GOODNAME") == null ? "-请选择产品分类-" : queryParam.getString("QUERY_GOODNAME") %>" />
 							<input id="STR_QUERY_PRODCODE" name="STR_QUERY_PRODCODE" style="width:150px" type="hidden"
 								value="<%= queryParam.getString("QUERY_PRODCODE") == null ? "" : queryParam.getString("QUERY_PRODCODE") %>" />
@@ -667,26 +583,25 @@ $(function () {
 								}
 							</script>
 						</div>
+						<div id="div_suptypediv" style="display:none; margin:0 auto; font-size:14px;">
+							<div class="suptype_choose">
+								<ul>
+									<li id="supli_suptype" class="current" onclick="changeSupType(1);"><span>供应商类型</span></li>
+									<li>|</li>
+									<li id="supli_supecon" onclick="changeSupType(2);"><span>供应商经济类型</span></li>
+									<li>|</li>
+									<li id="supli_suppur" onclick="changeSupType(3);"><span>供应商采购类型</span></li>
+								</ul>
+							</div>
+						</div>
 					</td>
 				</tr>
 				<tr>
 					<td valign="top" align="center">
-						<div style="overflow:auto; height:500px;">
-						<% if (statType == 1 || statType == 2) { %>
+						<div style="overflow:auto; height:500px; padding 10px auto 0">
 						<div id="container"
 							style="min-width: 400px; width: 800px; height: 400px; margin: 0 auto; padding: 20px auto 0;">
 						</div>
-						<% } else if (statType == 3) {%>
-						<div id="container1"
-							style="min-width: 400px; width: 400px; height: 400px; margin: 0 auto; padding: 20px auto 0;">
-						</div>
-						<div id="container2"
-							style="min-width: 400px; width: 400px; height: 400px; margin: 0 auto; padding: 20px auto 0;">
-						</div>
-						<div id="container3"
-							style="min-width: 400px; width: 400px; height: 400px; margin: 0 auto; padding: 20px auto 0;">
-						</div>
-						<% }%>
 						</div>
 					</td>
 				</tr>
