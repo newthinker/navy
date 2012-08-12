@@ -707,7 +707,7 @@ namespace DatCollect
 			}
 			tdi = null;
 			// 采购方式
-			if (_dict.TryGetValue(16, out tdi))
+			if (_dict.TryGetValue(6, out tdi))
 			{
 				foreach (KeyValuePair<string, SDict> item in tdi)
 				{
