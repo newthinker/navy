@@ -62,7 +62,7 @@ public class SupSupportorQueryService extends BaseService implements IService {
 			req.setResponseSystemName("HDDict");
 			req.setResponseSubsystemName("DictManage");
 			req.setResponseServiceName("AreaQueryByIDService");
-			req.getDto().setString("AREACODE", l1Area);	
+			req.getDto().setString("AREACODE", l2Area);	
 			resp = requestService(req);
 			String areaName = resp.getDto().getList("RESULT").get(0).getString("AREANAME");
 			

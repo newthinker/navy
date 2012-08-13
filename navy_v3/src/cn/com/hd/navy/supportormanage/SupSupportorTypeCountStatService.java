@@ -24,10 +24,16 @@ import cn.com.hd.transfer.Request;
 import cn.com.hd.transfer.Response;
 
 public class SupSupportorTypeCountStatService extends BaseService implements IService {
+	
+	private int supType = 11;
+	private int supEconomy = 14;
+	private int supPurchase = 6;
 
 	@SuppressWarnings("unchecked")
 	public Response service(Request request) throws Exception {
 		Response resp = new Response();
+		
+
 		
 		TSupportorStat supStat = new TSupportorStat();
 		super.getQueryData(request.getDto(), supStat);
@@ -42,12 +48,9 @@ public class SupSupportorTypeCountStatService extends BaseService implements ISe
 		HashMap<String, Integer> rs3;
 		
 		// 供应商类型统计
-		Integer dictCode = 11;
-		rs1 = supStatOfType(dictCode);
-		dictCode = 14;
-		rs2 = supStatOfType(dictCode);
-		dictCode = 16;
-		rs3 = supStatOfType(dictCode);
+		rs1 = supStatOfType(supType);
+		rs2 = supStatOfType(supEconomy);
+		rs3 = supStatOfType(supPurchase);
 		supStat.setMaptype(rs1);
 		supStat.setMapeconomy(rs2);
 		supStat.setMappurchase(rs3);
@@ -59,11 +62,11 @@ public class SupSupportorTypeCountStatService extends BaseService implements ISe
 		return resp;
 	}
 		
-	// 供应商统计，type=11，供应商类型；14，经济性质，16，采购方式；
+	// 供应商统计，type=11，供应商类型；14，经济性质，6，采购方式；
 	public HashMap<String, Integer> supStatOfType(Integer type) throws Exception {
 		HashMap<String, Integer> res = null;
 		// 首先查询对应类别种类
-		if (type!=11 && type!=14 && type!=16) {
+		if (type!=supType && type!=supEconomy && type!=supPurchase) {
 			Debug.debugMessage("Invalid type:"+type);	
 			return  null;
 		}
@@ -88,7 +91,7 @@ public class SupSupportorTypeCountStatService extends BaseService implements ISe
 				supportor.setType(dictName);
 			else if (type==14)
 				supportor.setEconomy(dictName);
-			else if (type==16)
+			else if (type==6)
 				supportor.setPurchasetype(dictName);
 			
 			SelectResultSet result = super.queryResultSet(supportor);
