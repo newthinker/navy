@@ -1250,7 +1250,7 @@
 			this.label51.Name = "label51";
 			this.label51.Size = new System.Drawing.Size(101, 24);
 			this.label51.TabIndex = 180;
-			this.label51.Text = "近三年设计报告\r\n        扫描件：";
+			this.label51.Text = "近三年审计报告\r\n        扫描件：";
 			// 
 			// textBox_bankMail
 			// 
