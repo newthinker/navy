@@ -53,7 +53,6 @@
 		<meta http-equiv="description" content="This is my page">
 		<meta content="MSHTML 6.00.3790.2666" name="GENERATOR">
 		
-		<title></title>
 		<link href="resources/css/table.css" rel="stylesheet" type="text/css" />
 		<link href="resources/css/index.css" rel="stylesheet" type="text/css" />
 		<style type="text/css">
@@ -110,7 +109,7 @@
 	
 	<body style="background:url(resources/images/common/tbl_bg.gif) top left repeat-x; background-color:#ffffff;" scroll="yes">
 		<form action="system" method="post">
-			<jsp:include page="supportorQueryParam.jsp"></jsp:include>
+			<jsp:include page="supSupportorQueryParam.jsp"></jsp:include>
 			<input type="hidden" name="opt" id="opt">
 			<input id="str_supid" name="str_supid" type="hidden" value="<%= dto.getString("SUPID") %>">
 			<input id="XML_DATA" name="XML_DATA" type="hidden" value="">
@@ -735,7 +734,7 @@
 				</tr>
 				<tr>
 					<td colspan="3" style="border:1px solid #b9c5c9; border-top:none; background-color:#ffffff;">
-						<iframe src="pages/navy/supportormanage/supportorProdQuery.jsp?supid=<%= dto.showString("SUPID") %>"
+						<iframe src="pages/navy/supmanage/supSupportorProdQuery.jsp?supid=<%= dto.showString("SUPID") %>"
 							frameborder="0" scrolling="no" width="100%" height="310"></iframe>
 					</td>
 				</tr>
@@ -751,7 +750,7 @@
 				</tr>
 				<tr>
 					<td colspan="3" style="border:1px solid #b9c5c9; border-top:none; background-color:#ffffff;">
-						<iframe src="pages/navy/supportormanage/supportorStockQuery.jsp?supid=<%= dto.showString("SUPID") %>"
+						<iframe src="pages/navy/supmanage/supSupportorStockQuery.jsp?supid=<%= dto.showString("SUPID") %>"
 							frameborder="0" scrolling="no" width="100%" height="310"></iframe>
 					</td>
 				</tr>
@@ -767,16 +766,16 @@
 				</tr>
 				<tr>
 					<td colspan="3" style="border:1px solid #b9c5c9; border-top:none; background-color:#ffffff;">
-						<iframe src="pages/navy/supportormanage/supportorSaleOrgQuery.jsp?supid=<%= dto.showString("SUPID") %>"
+						<iframe src="pages/navy/supmanage/supSupportorSaleOrgQuery.jsp?supid=<%= dto.showString("SUPID") %>"
 							frameborder="0" scrolling="no" width="100%" height="310"></iframe>
 					</td>
 				</tr>
 			</table>
 			<div class="btu">
 				<input type="button" name="save" value="保 存" class="btu_input"
-					onclick="if (checkinput()) submit_form('Navy', 'NavyManage', 'SupportorUpdateService', '/pages/navy/supportormanage/supportorUpdate.jsp');" />
+					onclick="if (checkinput()) submit_form('Navy', 'NavyManage', 'SupportorUpdateService', '/pages/navy/supmanage/supSupportorUpdate.jsp');" />
 				<input type="button" name="back" id="button" value="返 回" class="btu_input"
-					onclick="submit_form('Navy', 'NavyManage', 'SupportorQueryService', '/pages/navy/supportormanage/supportorQuery.jsp');" />
+					onclick="submit_form('Navy', 'NavyManage', 'SupSupportorQueryService', '/pages/navy/supmanage/supSupportorQuery.jsp');" />
 			</div>
 		</form>
 		<script type="text/javascript">
@@ -793,7 +792,7 @@
 				alert("<%= resp.getErrorInfo() %>");
 			<% } else if (resp.getDto().get("RESULT") != null && (Integer)resp.getDto().get("RESULT") > 0) { %>
 				alert("保存成功！");
-				submit_form('Navy','NavyManage','SupportorQueryService','/pages/navy/supportormanage/supportorQuery.jsp');
+				submit_form('Navy','NavyManage','SupSupportorQueryService','/pages/navy/supmanage/supSupportorQuery.jsp');
 			<% 
 				}
 			%>

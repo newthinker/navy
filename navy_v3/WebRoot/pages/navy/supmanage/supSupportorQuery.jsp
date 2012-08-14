@@ -156,7 +156,7 @@
 													</td>
 													<td>
 														&nbsp;&nbsp;&nbsp;
-													<!-- <a class="link_blue" href="javascript:window.document.getElementById('str_supid').value='<%= data.getString("SUPID")  %>';submit_form('Navy', 'NavyManage', 'SupportorQueryByIDService', '/pages/navy/supmanage/supportorUpdateIndex.jsp');">修改</a> -->
+														<a class="link_blue" href="javascript:window.document.getElementById('str_supid').value='<%= data.getString("SUPID")  %>';submit_form('Navy', 'NavyManage', 'SupportorQueryByIDService', '/pages/navy/supmanage/supSupportorUpdate.jsp');">修改</a>
 														<a class="link_blue" href="javascript:if (confirm('确定要删除记录吗？')) {window.document.getElementById('str_supid').value='<%= data.getString("SUPID")  %>';submit_form('Navy', 'NavyManage', 'SupportorDeleteService', '/pages/navy/supmanage/supSupportorQuery.jsp?opt=refresh');}">删除</a>
 													</td>
 												</tr>

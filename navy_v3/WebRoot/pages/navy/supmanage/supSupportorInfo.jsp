@@ -569,7 +569,7 @@
 				</tr>
 				<tr>
 					<td colspan="3" style="border:1px solid #b9c5c9; border-top:none; background-color:#ffffff;">
-						<iframe src="pages/navy/supportormanage/supportorProdQueryDetail.jsp?supid=<%= dto.showString("SUPID") %>"
+						<iframe src="pages/navy/supmanage/supSupportorProdQueryDetail.jsp?supid=<%= dto.showString("SUPID") %>"
 							frameborder="0" scrolling="no" width="100%" height="310"></iframe>
 					</td>
 				</tr>
@@ -585,7 +585,7 @@
 				</tr>
 				<tr>
 					<td colspan="3" style="border:1px solid #b9c5c9; border-top:none; background-color:#ffffff;">
-						<iframe src="pages/navy/supportormanage/supportorStockQueryDetail.jsp?supid=<%= dto.showString("SUPID") %>"
+						<iframe src="pages/navy/supmanage/supSupportorStockQueryDetail.jsp?supid=<%= dto.showString("SUPID") %>"
 							frameborder="0" scrolling="no" width="100%" height="310"></iframe>
 					</td>
 				</tr>
@@ -601,7 +601,7 @@
 				</tr>
 				<tr>
 					<td colspan="3" style="border:1px solid #b9c5c9; border-top:none; background-color:#ffffff;">
-						<iframe src="pages/navy/supportormanage/supportorSaleOrgQueryDetail.jsp?supid=<%= dto.showString("SUPID") %>"
+						<iframe src="pages/navy/supmanage/supSupportorSaleOrgQueryDetail.jsp?supid=<%= dto.showString("SUPID") %>"
 							frameborder="0" scrolling="no" width="100%" height="310"></iframe>
 					</td>
 				</tr>
