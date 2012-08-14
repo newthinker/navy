@@ -46,7 +46,7 @@
 	</head>
 	
 	<body  style="background:url(resources/images/common/tbl_bg.gif) top left repeat-x; background-color:#ffffff;"
-		onload="init('Navy','NavyManage','SupSupportorQueryService','/pages/navy/supportormanage/supSupportorQuery.jsp');">
+		onload="init('Navy','NavyManage','SupSupportorQueryService','/pages/navy/supmanage/supSupportorQuery.jsp');">
 		<form action="system" method="post">
 			<input type="hidden" name="opt" id="opt">
 			<input id="str_supid" name="str_supid" type="hidden" value="">
@@ -69,7 +69,7 @@
 						<td valign="top" height="25">
 							<div id="btu_new">
 								<img src="resources/images/common/btn_search.gif" alt=" " width="62" height="22"
-									onclick="submit_form('Navy','NavyManage','SupSupportorQueryService','/pages/navy/supportormanage/supSupportorQuery.jsp');" /> 
+									onclick="submit_form('Navy','NavyManage','SupSupportorQueryService','/pages/navy/supmanage/supSupportorQuery.jsp');" /> 
 							</div>
 						</td>
 					</tr>
@@ -130,7 +130,7 @@
 														<%= i + 1 + pages.getRowNumber() * (pages.getPageIndex() - 1) %>
 													</td>
 													<td width="20%">
-														<a href="javascript:window.document.getElementById('str_supid').value='<%= data.getString("SUPID")  %>';submit_form('Navy', 'NavyManage', 'SupSupportorDetailService', '/pages/navy/supportormanage/SupsupportorDetails.jsp?src=supportor');" class="link_blue_table">
+														<a href="javascript:window.document.getElementById('str_supid').value='<%= data.getString("SUPID")  %>';submit_form('Navy', 'NavyManage', 'SupSupportorQueryService', '/pages/navy/supmanage/supSupportorInfo.jsp');" class="link_blue_table">
 															<%
 																if (data.showString("TYPECODE").equals("A90000000") || 
 																	data.showString("TYPECODE").equals("AA0000000") || 
@@ -156,8 +156,8 @@
 													</td>
 													<td>
 														&nbsp;&nbsp;&nbsp;
-													<!-- <a class="link_blue" href="javascript:window.document.getElementById('str_supid').value='<%= data.getString("SUPID")  %>';submit_form('Navy', 'NavyManage', 'SupportorQueryByIDService', '/pages/navy/supportormanage/supportorUpdateIndex.jsp');">修改</a> -->
-														<a class="link_blue" href="javascript:if (confirm('确定要删除记录吗？')) {window.document.getElementById('str_supid').value='<%= data.getString("SUPID")  %>';submit_form('Navy', 'NavyManage', 'SupportorDeleteService', '/pages/navy/supportormanage/supSupportorQuery.jsp?opt=refresh');}">删除</a>
+													<!-- <a class="link_blue" href="javascript:window.document.getElementById('str_supid').value='<%= data.getString("SUPID")  %>';submit_form('Navy', 'NavyManage', 'SupportorQueryByIDService', '/pages/navy/supmanage/supportorUpdateIndex.jsp');">修改</a> -->
+														<a class="link_blue" href="javascript:if (confirm('确定要删除记录吗？')) {window.document.getElementById('str_supid').value='<%= data.getString("SUPID")  %>';submit_form('Navy', 'NavyManage', 'SupportorDeleteService', '/pages/navy/supmanage/supSupportorQuery.jsp?opt=refresh');}">删除</a>
 													</td>
 												</tr>
 												<%
@@ -174,13 +174,13 @@
 						<td height="30">
 							<div class="linepage1">
 								第<%= pages.getPageIndex() %>页/共<%= pages.getPageCount() == null ? 0 : pages.getPageCount() %>页 共<%= pages.getRowsCount() == null ? 0 : pages.getRowsCount() %>条记录
-								<a href="javascript:firstpage('Navy','NavyManage','SupSupportorQueryService','/pages/navy/supportormanage/supSupportorQuery.jsp')">首页</a>
-								<a href="javascript:prevpage('Navy','NavyManage','SupSupportorQueryService','/pages/navy/supportormanage/supSupportorQuery.jsp')">上一页</a>
-								<a href="javascript:nextpage('Navy','NavyManage','SupSupportorQueryService','/pages/navy/supportormanage/supSupportorQuery.jsp')">下一页</a>
-								<a href="javascript:lastpage('Navy','NavyManage','SupSupportorQueryService','/pages/navy/supportormanage/supSupportorQuery.jsp')">末页</a>
+								<a href="javascript:firstpage('Navy','NavyManage','SupSupportorQueryService','/pages/navy/supmanage/supSupportorQuery.jsp')">首页</a>
+								<a href="javascript:prevpage('Navy','NavyManage','SupSupportorQueryService','/pages/navy/supmanage/supSupportorQuery.jsp')">上一页</a>
+								<a href="javascript:nextpage('Navy','NavyManage','SupSupportorQueryService','/pages/navy/supmanage/supSupportorQuery.jsp')">下一页</a>
+								<a href="javascript:lastpage('Navy','NavyManage','SupSupportorQueryService','/pages/navy/supmanage/supSupportorQuery.jsp')">末页</a>
 								转到 
 								<select id="page" name="page" 
-									onchange="gopage(this.value, 'Navy','NavyManage','SupSupportorQueryService','/pages/navy/supportormanage/supSupportorQuery.jsp')">
+									onchange="gopage(this.value, 'Navy','NavyManage','SupSupportorQueryService','/pages/navy/supmanage/supSupportorQuery.jsp')">
 									<% 
 										for (int i = 0; i < ((pages.getPageCount() == null) ? 0 : pages.getPageCount()); i ++) { 
 									%>

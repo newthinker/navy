@@ -206,7 +206,7 @@ function changeStat(type) {
 		$('#div_suptypediv').hide();
 		$('#div_protypediv').hide();
 		chart.destroy();
-		submit_form('Navy','NavyManage','SupSupportorCountStatService','/pages/navy/supportormanage/supSupportorStat.jsp');
+		submit_form('Navy','NavyManage','SupSupportorCountStatService','/pages/navy/supmanage/supSupportorStat.jsp');
 	}
 	else if (type == 2) {
 		$('#div_suptypediv').hide();
@@ -216,7 +216,7 @@ function changeStat(type) {
 		$('#div_suptypediv').show();
 		$('#div_protypediv').hide();
 		chart.destroy();
-		submit_form('Navy','NavyManage','SupSupportorTypeCountStatService','/pages/navy/supportormanage/supSupportorStat.jsp');
+		submit_form('Navy','NavyManage','SupSupportorTypeCountStatService','/pages/navy/supmanage/supSupportorStat.jsp');
 	}
 	else {
 	}
@@ -525,7 +525,7 @@ function changeSupType(type) {
 
 <body
 	style="background: url(resources/images/common/tbl_bg.gif) top left repeat-x; background-color: #ffffff;"
-	onload="init('Navy','NavyManage','SupSupportorCountStatService','/pages/navy/supportormanage/supSupportorStat.jsp');">
+	onload="init('Navy','NavyManage','SupSupportorCountStatService','/pages/navy/supmanage/supSupportorStat.jsp');">
 	<form action="system" method="post">
 		<input type="hidden" name="opt" id="opt">
 		<input id="XML_DATA" name="XML_DATA" type="hidden" value="">
@@ -579,7 +579,7 @@ function changeSupType(type) {
 								{
 									document.getElementById("STR_QUERY_GOODNAME").innerText = value1;
 									document.getElementById("STR_QUERY_PRODCODE").value = value2;
-									submit_form('Navy','NavyManage','SupSupportorProdCapStatService','/pages/navy/supportormanage/supSupportorStat.jsp');
+									submit_form('Navy','NavyManage','SupSupportorProdCapStatService','/pages/navy/supmanage/supSupportorStat.jsp');
 								}
 							</script>
 						</div>

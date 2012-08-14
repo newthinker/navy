@@ -9,24 +9,23 @@
 		queryParam = new DTO();
 	}
 
-	List dictlist = (List)resp.getDto().getSelectItems();
-
-	if (dictlist == null) {
-		dictlist = new ArrayList();
-
-		for (int i=0; i<7; ++i)
-		{
-			DTO dto = new DTO();
-			dto.setList("RESULT", new ArrayList());
-			dictlist.add(dto);
-		}
-	}
-
-	DTO type = (DTO)dictlist.get(0);
-	DTO bank = (DTO)dictlist.get(1);
-	DTO credit = (DTO)dictlist.get(2);
-	DTO economy = (DTO)dictlist.get(3);
-	DTO l1Name = (DTO)dictlist.get(6);
+//	List dictlist = (List)resp.getDto().getSelectItems();
+//
+//	if (dictlist == null) {
+//		dictlist = new ArrayList();
+//
+//		for (int i=0; i<7; ++i)
+//		{
+//			DTO dto = new DTO();
+//			dto.setList("RESULT", new ArrayList());
+//			dictlist.add(dto);
+//		}
+//	}
+//
+//	DTO type = (DTO)dictlist.get(0);
+//	DTO bank = (DTO)dictlist.get(1);
+//	DTO credit = (DTO)dictlist.get(2);
+//	DTO economy = (DTO)dictlist.get(3);
 
 	String mode = request.getParameter("mode");
 %>
@@ -218,14 +217,6 @@
 			<td align="left" width="21%">
 				<select name="STR_QUERY_L1LOC" id="STR_QUERY_L1LOC" style="width:100px" onchange="change_province(this.value)">
 					<option value="">-请选择-</option>
-					<%
-						for (int i = 0; i < l1Name.getList("RESULT").size(); i ++) {
-							DTO dto = (DTO)l1Name.getList("RESULT").get(i);
-					%>
-					<option value="<%= dto.getString("AREACODE") %>"><%= dto.getString("AREANAME") %></option>
-					<%
-						}
-					%>
 				</select>
 				<select name="STR_QUERY_L2LOC" id="STR_QUERY_L2LOC" style="width:100px">
 					<option value="">-请选择-</option>
@@ -237,11 +228,10 @@
 			<td align="left" width="16%">
 				<select name="STR_QUERY_LICCAPITAL" id="STR_QUERY_LICCAPITAL" style="width:150px">
 					<option value="">-请选择-</option>
-					<option value="1">1万~10万</option>
-					<option value="2">10万~100万</option>
-					<option value="3">100万~1000万</option>
-					<option value="4">1000万~1亿</option>
-					<option value="5">1亿以上</option>
+					<option value="1">50万以下</option>
+					<option value="2">50万~200万</option>
+					<option value="3">200万~500万</option>
+					<option value="5">500万以上</option>
 				</select>
 			</td>
 		</tr>
