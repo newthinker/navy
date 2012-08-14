@@ -111,9 +111,15 @@
 			this.label14 = new System.Windows.Forms.Label();
 			this.label15 = new System.Windows.Forms.Label();
 			this.label17 = new System.Windows.Forms.Label();
+			this.button_bankProve = new System.Windows.Forms.Button();
+			this.button_qualityProve = new System.Windows.Forms.Button();
 			this.button_otherProve = new System.Windows.Forms.Button();
 			this.button_br2009 = new System.Windows.Forms.Button();
+			this.textBox_bankProve = new System.Windows.Forms.TextBox();
+			this.textBox_qualityProve = new System.Windows.Forms.TextBox();
+			this.label92 = new System.Windows.Forms.Label();
 			this.textBox_otherProve = new System.Windows.Forms.TextBox();
+			this.label91 = new System.Windows.Forms.Label();
 			this.textBox_designRep2009 = new System.Windows.Forms.TextBox();
 			this.label90 = new System.Windows.Forms.Label();
 			this.label51 = new System.Windows.Forms.Label();
@@ -256,12 +262,6 @@
 			this.label71 = new System.Windows.Forms.Label();
 			this.label73 = new System.Windows.Forms.Label();
 			this.label74 = new System.Windows.Forms.Label();
-			this.label91 = new System.Windows.Forms.Label();
-			this.textBox_qualityProve = new System.Windows.Forms.TextBox();
-			this.button_qualityProve = new System.Windows.Forms.Button();
-			this.label92 = new System.Windows.Forms.Label();
-			this.textBox_bankProve = new System.Windows.Forms.TextBox();
-			this.button_bankProve = new System.Windows.Forms.Button();
 			this.tabControl_data.SuspendLayout();
 			this.tabPage1.SuspendLayout();
 			this.panel1.SuspendLayout();
@@ -1148,6 +1148,26 @@
 			this.label17.TabIndex = 189;
 			this.label17.Text = "发证机关：";
 			// 
+			// button_bankProve
+			// 
+			this.button_bankProve.Location = new System.Drawing.Point(514, 712);
+			this.button_bankProve.Name = "button_bankProve";
+			this.button_bankProve.Size = new System.Drawing.Size(35, 23);
+			this.button_bankProve.TabIndex = 39;
+			this.button_bankProve.Text = "...";
+			this.button_bankProve.UseVisualStyleBackColor = true;
+			this.button_bankProve.Click += new System.EventHandler(this.button_bankProve_Click);
+			// 
+			// button_qualityProve
+			// 
+			this.button_qualityProve.Location = new System.Drawing.Point(514, 751);
+			this.button_qualityProve.Name = "button_qualityProve";
+			this.button_qualityProve.Size = new System.Drawing.Size(35, 23);
+			this.button_qualityProve.TabIndex = 39;
+			this.button_qualityProve.Text = "...";
+			this.button_qualityProve.UseVisualStyleBackColor = true;
+			this.button_qualityProve.Click += new System.EventHandler(this.button_qualityProve_Click);
+			// 
 			// button_otherProve
 			// 
 			this.button_otherProve.Location = new System.Drawing.Point(514, 788);
@@ -1168,12 +1188,44 @@
 			this.button_br2009.UseVisualStyleBackColor = true;
 			this.button_br2009.Click += new System.EventHandler(this.button_br2009_Click);
 			// 
+			// textBox_bankProve
+			// 
+			this.textBox_bankProve.Location = new System.Drawing.Point(142, 713);
+			this.textBox_bankProve.Name = "textBox_bankProve";
+			this.textBox_bankProve.Size = new System.Drawing.Size(362, 21);
+			this.textBox_bankProve.TabIndex = 38;
+			// 
+			// textBox_qualityProve
+			// 
+			this.textBox_qualityProve.Location = new System.Drawing.Point(142, 752);
+			this.textBox_qualityProve.Name = "textBox_qualityProve";
+			this.textBox_qualityProve.Size = new System.Drawing.Size(362, 21);
+			this.textBox_qualityProve.TabIndex = 38;
+			// 
+			// label92
+			// 
+			this.label92.AutoSize = true;
+			this.label92.Location = new System.Drawing.Point(30, 717);
+			this.label92.Name = "label92";
+			this.label92.Size = new System.Drawing.Size(89, 12);
+			this.label92.TabIndex = 180;
+			this.label92.Text = "银行资信证明：";
+			// 
 			// textBox_otherProve
 			// 
 			this.textBox_otherProve.Location = new System.Drawing.Point(142, 789);
 			this.textBox_otherProve.Name = "textBox_otherProve";
 			this.textBox_otherProve.Size = new System.Drawing.Size(362, 21);
 			this.textBox_otherProve.TabIndex = 38;
+			// 
+			// label91
+			// 
+			this.label91.AutoSize = true;
+			this.label91.Location = new System.Drawing.Point(30, 756);
+			this.label91.Name = "label91";
+			this.label91.Size = new System.Drawing.Size(89, 12);
+			this.label91.TabIndex = 180;
+			this.label91.Text = "质量管理认证：";
 			// 
 			// textBox_designRep2009
 			// 
@@ -2472,58 +2524,6 @@
 			this.label74.TabIndex = 1;
 			this.label74.Text = "企业名称：";
 			// 
-			// label91
-			// 
-			this.label91.AutoSize = true;
-			this.label91.Location = new System.Drawing.Point(30, 756);
-			this.label91.Name = "label91";
-			this.label91.Size = new System.Drawing.Size(89, 12);
-			this.label91.TabIndex = 180;
-			this.label91.Text = "质量管理认证：";
-			// 
-			// textBox_qualityProve
-			// 
-			this.textBox_qualityProve.Location = new System.Drawing.Point(142, 752);
-			this.textBox_qualityProve.Name = "textBox_qualityProve";
-			this.textBox_qualityProve.Size = new System.Drawing.Size(362, 21);
-			this.textBox_qualityProve.TabIndex = 38;
-			// 
-			// button_qualityProve
-			// 
-			this.button_qualityProve.Location = new System.Drawing.Point(514, 751);
-			this.button_qualityProve.Name = "button_qualityProve";
-			this.button_qualityProve.Size = new System.Drawing.Size(35, 23);
-			this.button_qualityProve.TabIndex = 39;
-			this.button_qualityProve.Text = "...";
-			this.button_qualityProve.UseVisualStyleBackColor = true;
-			this.button_qualityProve.Click += new System.EventHandler(this.button_qualityProve_Click);
-			// 
-			// label92
-			// 
-			this.label92.AutoSize = true;
-			this.label92.Location = new System.Drawing.Point(30, 717);
-			this.label92.Name = "label92";
-			this.label92.Size = new System.Drawing.Size(89, 12);
-			this.label92.TabIndex = 180;
-			this.label92.Text = "银行资信证明：";
-			// 
-			// textBox_bankProve
-			// 
-			this.textBox_bankProve.Location = new System.Drawing.Point(142, 713);
-			this.textBox_bankProve.Name = "textBox_bankProve";
-			this.textBox_bankProve.Size = new System.Drawing.Size(362, 21);
-			this.textBox_bankProve.TabIndex = 38;
-			// 
-			// button_bankProve
-			// 
-			this.button_bankProve.Location = new System.Drawing.Point(514, 712);
-			this.button_bankProve.Name = "button_bankProve";
-			this.button_bankProve.Size = new System.Drawing.Size(35, 23);
-			this.button_bankProve.TabIndex = 39;
-			this.button_bankProve.Text = "...";
-			this.button_bankProve.UseVisualStyleBackColor = true;
-			this.button_bankProve.Click += new System.EventHandler(this.button_bankProve_Click);
-			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -2534,7 +2534,7 @@
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MaximizeBox = false;
 			this.Name = "Form1";
-			this.Text = "供应商数据采集";
+			this.Text = "供应商数据信息采集系统";
 			this.tabControl_data.ResumeLayout(false);
 			this.tabPage1.ResumeLayout(false);
 			this.panel1.ResumeLayout(false);

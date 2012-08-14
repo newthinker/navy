@@ -1796,13 +1796,13 @@ namespace DatCollect
 				return;
 			}
 
-			SaveFileDialog saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-			saveFileDialog1.Filter = "dat文件(*.dat)|*.dat";
-			saveFileDialog1.Title = "保存文件";
+			FolderBrowserDialog saveFileDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+			saveFileDialog1.Description = "请选择文件保存路径";
+			saveFileDialog1.ShowNewFolderButton = true;
 			if (saveFileDialog1.ShowDialog() != DialogResult.OK)
 				return;
 
-			string filepath = saveFileDialog1.FileName;
+			string filepath = saveFileDialog1.SelectedPath;
 
 			// 创建一个临时文件夹
 			string tmppath = Path.GetTempPath() + "\\" + Path.GetRandomFileName();
@@ -2071,9 +2071,11 @@ namespace DatCollect
 			writer.Flush();
 			writer.Close();
 
+			// 路径
+			string datfile = filepath + "\\" + this.textBox_fullName.Text + "-" + DateTime.Now.ToString("yyyyMMdd") + ".dat";
 			// 压缩
 			ZipFloClass Zc = new ZipFloClass();
-			Zc.ZipFile(tmppath + "\\", filepath);
+			Zc.ZipFile(tmppath + "\\", datfile);
 
 			DirectoryInfo di = new DirectoryInfo(tmppath);
 			di.Delete(true);
