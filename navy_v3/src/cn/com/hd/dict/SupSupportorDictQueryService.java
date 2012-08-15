@@ -20,7 +20,7 @@ public class SupSupportorDictQueryService extends BaseService implements IServic
 		req.setResponseSystemName("HDDict");
 		req.setResponseSubsystemName("DictManage");
 		req.setResponseServiceName("DictQueryService");
-		req.getDto().setString("QUERY_TYPEID", "11");
+		req.getDto().setString("QUERY_TYPEID", "11"); //供应商类型
 		req.getDto().setString("QUERY_VALIDATED", "Y");
 		req.getDto().setInt("ROWNUMBER", Integer.MAX_VALUE);
 		resp = requestService(req);
@@ -30,7 +30,7 @@ public class SupSupportorDictQueryService extends BaseService implements IServic
 		req.setResponseSystemName("HDDict");
 		req.setResponseSubsystemName("DictManage");
 		req.setResponseServiceName("DictQueryService");
-		req.getDto().setString("QUERY_TYPEID", "12");
+		req.getDto().setString("QUERY_TYPEID", "12"); //开户银行
 		req.getDto().setString("QUERY_VALIDATED", "Y");
 		req.getDto().setInt("ROWNUMBER", Integer.MAX_VALUE);
 		resp = requestService(req);
@@ -40,7 +40,7 @@ public class SupSupportorDictQueryService extends BaseService implements IServic
 		req.setResponseSystemName("HDDict");
 		req.setResponseSubsystemName("DictManage");
 		req.setResponseServiceName("DictQueryService");
-		req.getDto().setString("QUERY_TYPEID", "13");
+		req.getDto().setString("QUERY_TYPEID", "13"); //信用等级
 		req.getDto().setString("QUERY_VALIDATED", "Y");
 		req.getDto().setInt("ROWNUMBER", Integer.MAX_VALUE);
 		resp = requestService(req);
@@ -50,7 +50,7 @@ public class SupSupportorDictQueryService extends BaseService implements IServic
 		req.setResponseSystemName("HDDict");
 		req.setResponseSubsystemName("DictManage");
 		req.setResponseServiceName("DictQueryService");
-		req.getDto().setString("QUERY_TYPEID", "14");
+		req.getDto().setString("QUERY_TYPEID", "14"); //经济性质
 		req.getDto().setString("QUERY_VALIDATED", "Y");
 		req.getDto().setInt("ROWNUMBER", Integer.MAX_VALUE);
 		resp = requestService(req);
@@ -60,7 +60,7 @@ public class SupSupportorDictQueryService extends BaseService implements IServic
 		req.setResponseSystemName("HDDict");
 		req.setResponseSubsystemName("DictManage");
 		req.setResponseServiceName("DictQueryService");
-		req.getDto().setString("QUERY_TYPEID", "17");
+		req.getDto().setString("QUERY_TYPEID", "17"); //服务机构类型
 		req.getDto().setString("QUERY_VALIDATED", "Y");
 		req.getDto().setInt("ROWNUMBER", Integer.MAX_VALUE);
 		resp = requestService(req);
@@ -70,7 +70,7 @@ public class SupSupportorDictQueryService extends BaseService implements IServic
 		req.setResponseSystemName("HDDict");
 		req.setResponseSubsystemName("DictManage");
 		req.setResponseServiceName("DictQueryService");
-		req.getDto().setString("QUERY_TYPEID", "18");
+		req.getDto().setString("QUERY_TYPEID", "18"); //运输车类型
 		req.getDto().setString("QUERY_VALIDATED", "Y");
 		req.getDto().setInt("ROWNUMBER", Integer.MAX_VALUE);
 		resp = requestService(req);
@@ -79,12 +79,13 @@ public class SupSupportorDictQueryService extends BaseService implements IServic
 		req = new Request();
 		req.setResponseSystemName("HDDict");
 		req.setResponseSubsystemName("DictManage");
-		req.setResponseServiceName("AreaQueryService");
-		req.getDto().setString("QUERY_PARENTCODEID", "0");
+		req.setResponseServiceName("DictQueryService");
+		req.getDto().setString("QUERY_TYPEID", "6"); //采购方式
+		req.getDto().setString("QUERY_VALIDATED", "Y");
 		req.getDto().setInt("ROWNUMBER", Integer.MAX_VALUE);
 		resp = requestService(req);
 		dtoList.add(resp.getDto());
-		
+
 		resp = new Response();
 		resp.getDto().setList("RESULT", dtoList);
 		resp.setRequestParam(request.getDto());

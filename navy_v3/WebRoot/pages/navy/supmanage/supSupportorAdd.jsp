@@ -8,20 +8,15 @@
 	
 	if (dictlist == null) {
 		dictlist = new ArrayList();
-		
+		for (int i=0; i<7; i++) {
+			DTO dto = new DTO();
+			dto.setList("RESULT", new ArrayList());
+			dictlist.add(dto);
+		}
+	}
+
+	for (int i=dictlist.size(); i<7; i++) {
 		DTO dto = new DTO();
-		dto.setList("RESULT", new ArrayList());
-		dictlist.add(dto);
-		
-		dto = new DTO();
-		dto.setList("RESULT", new ArrayList());
-		dictlist.add(dto);
-		
-		dto = new DTO();
-		dto.setList("RESULT", new ArrayList());
-		dictlist.add(dto);
-		
-		dto = new DTO();
 		dto.setList("RESULT", new ArrayList());
 		dictlist.add(dto);
 	}
@@ -30,7 +25,10 @@
 	DTO bank = (DTO)dictlist.get(1);
 	DTO credit = (DTO)dictlist.get(2);
 	DTO economy = (DTO)dictlist.get(3);
-
+	DTO saleorgtype = (DTO)dictlist.get(4);
+	DTO trucktype = (DTO)dictlist.get(5);
+	DTO purchasetype = (DTO)dictlist.get(6);
+	
 	List resList = (List)resp.getDto().getList("RESULT");
 	DTO dto = new DTO();
 	if (resList != null && resList.size() > 0) {
@@ -53,7 +51,6 @@
 		<meta http-equiv="description" content="This is my page">
 		<meta content="MSHTML 6.00.3790.2666" name="GENERATOR">
 		
-		<title></title>
 		<link href="resources/css/table.css" rel="stylesheet" type="text/css" />
 		<link href="resources/css/index.css" rel="stylesheet" type="text/css" />
 		<style type="text/css">
@@ -113,10 +110,9 @@
 		</script>
 	</head>
 	
-	<body scroll="yes"
-		style="background:url(resources/images/common/tbl_bg.gif) top left repeat-x; background-color:#ffffff;">
+	<body style="background:url(resources/images/common/tbl_bg.gif) top left repeat-x; background-color:#ffffff;" scroll="yes">
 		<form action="system" method="post">
-			<jsp:include page="supportorQueryParam.jsp"></jsp:include>
+			<jsp:include page="supSupportorQueryParam.jsp"></jsp:include>
 			<input type="hidden" name="opt" id="opt">
 			<input id="str_supid" name="str_supid" type="hidden" value="<%= dto.showString("SUPID") %>">
 			<input id="XML_DATA" name="XML_DATA" type="hidden" value="">
@@ -124,6 +120,11 @@
 			<input id="STR_TYPE" name="STR_TYPE" type="hidden" />
 			<input id="STR_CREDIT" name="STR_CREDIT" type="hidden" />
 			
+			<div id="site">
+				当前位置：
+				供应商信息管理&gt;&gt;
+				<span>供应商信息新增</span>
+			</div>
 			<table width="98%" border="0" cellspacing="0" cellpadding="0" align="center">
 				<tr>
 					<td colspan="3" height="5px">
@@ -237,7 +238,7 @@
 								</th>
 								<td>
 									<select name="STR_ECONOMY" id="STR_ECONOMY" style="width:200px;"
-										onchange="setSelectLabel('STR_TYPE', this)">
+										onchange="setSelectLabel('STR_ECONOMY', this)">
 										<option value="">-请选择-</option>
 										<%
 											for (int i = 0; i < economy.getList("RESULT").size(); i ++) {
@@ -254,7 +255,7 @@
 								</th>
 								<td>
 									<select name="STR_TYPECODE" id="STR_TYPECODE" style="width:200px;"
-										onchange="setSelectLabel('STR_TYPE', this)">
+										onchange="setSelectLabel('STR_TYPECODE', this)">
 										<option value="">-请选择-</option>
 										<%
 											for (int i = 0; i < type.getList("RESULT").size(); i ++) {
@@ -266,6 +267,35 @@
 												}
 											}
 										%>
+									</select>
+									<span style="color:red;">*</span>
+								</td>
+							</tr>
+							<tr>
+								<th>
+									采购方式
+								</th>
+								<td>
+									<select name="STR_PURCHASETYPE" id="STR_PURCHASETYPE" style="width:200px;"
+										onchange="setSelectLabel('STR_PURCHASETYPE', this)">
+										<option value="">-请选择-</option>
+										<%
+											for (int i = 0; i < purchasetype.getList("RESULT").size(); i ++) {
+												DTO purchasetypedto = (DTO)purchasetype.getList("RESULT").get(i);
+										%>
+										<option value="<%= purchasetypedto.getString("DICTCODE") %>"><%= purchasetypedto.getString("DICTNAME") %></option>
+										<%
+											}
+										%>
+									</select>
+								</td>
+								<th>
+									是否成交
+								</th>
+								<td>
+									<select name="STR_IFTURNOVER" id="STR_IFTURNOVER" style="width:200px;">
+										<option value="是" selected>是</option>
+										<option value="否">否</option>
 									</select>
 									<span style="color:red;">*</span>
 								</td>
@@ -683,7 +713,7 @@
 								<th width="20%">
 									登记证号
 								</th>
-								<td width="33%">
+								<td width="30%">
 									<input type="text" name="STR_LOCALTAXNO" id="STR_LOCALTAXNO"
 										class="searchTbl_input" value="<%= dto.getString("LOCALTAXNO") == null ? "" : dto.getString("LOCALTAXNO") %>" />
 								</td>
@@ -742,13 +772,215 @@
 				<tr style="background: url(resources/images/common/tab_cornerbg.gif); background-repeat: repeat-x;">
 					<td width="17"><img src="resources/images/common/tab_cornerleft.gif" width="17" height="27" /></td>
 					<td width="1195">
+						<div class="fen_div_title">仓储信息</div>
+					</td>
+					<td width="17" align="right"><img src="resources/images/common/tab_cornerright.gif" width="17" height="27" /></td>
+				</tr>
+				<tr>
+					<td colspan="3" style="border:1px solid #b9c5c9; border-top:none; background-color:#ffffff;">
+						<table width="0%" border="0" cellpadding="0" cellspacing="0"
+							class="tbl_search2_free">
+							<tr>
+								<th width="20%">
+									仓库总面积
+								</th>
+								<td width="30%">
+									<input type="text" name="STR_STOREHOUSEAREA" id="STR_STOREHOUSEAREA"
+										class="searchTbl_input" value="<%= dto.getString("STOREHOUSEAREA") == null ? "" : dto.getString("STOREHOUSEAREA") %>" />
+								</td>
+								<th width="20%">
+									货场总面积
+								</th>
+								<td width="30%">
+									<input type="text" name="STR_WAREHOUSEAREA" id="STR_WAREHOUSEAREA"
+										class="searchTbl_input" value="<%= dto.getString("WAREHOUSEAREA") == null ? "" : dto.getString("WAREHOUSEAREA") %>" />
+								</td>
+							</tr>
+						<!-- <tr>
+								<th>
+									仓库照片
+								</th>
+								<td>
+									<input type="text" name="STR_STOREHOUSEIMAGE" id="STR_STOREHOUSEIMAGE"
+										class="searchTbl_input" value="<%= dto.getString("CORPMOBILE") == null ? "" : dto.getString("CORPMOBILE") %>" />
+								</td>
+								<th>
+									&nbsp;
+								</th>
+								<td>
+									&nbsp;
+								</td>
+							</tr> -->
+						</table>
+					</td>
+				</tr>
+			</table>
+			<br />
+			<table width="98%" border="0" cellspacing="0" cellpadding="0" align="center">
+				<tr style="background: url(resources/images/common/tab_cornerbg.gif); background-repeat: repeat-x;">
+					<td width="17"><img src="resources/images/common/tab_cornerleft.gif" width="17" height="27" /></td>
+					<td width="1195">
+						<div class="fen_div_title">运输信息</div>
+					</td>
+					<td width="17" align="right"><img src="resources/images/common/tab_cornerright.gif" width="17" height="27" /></td>
+				</tr>
+				<tr>
+					<td colspan="3" style="border:1px solid #b9c5c9; border-top:none; background-color:#ffffff;">
+						<table width="0%" border="0" cellpadding="0" cellspacing="0"
+							class="tbl_search2_free">
+							<tr>
+								<th width="20%">
+									提供运输的企业
+								</th>
+								<td width="30%">
+									<input type="text" name="STR_COMNAME" id="STR_COMNAME"
+										class="searchTbl_input" value="<%= dto.getString("STOREHOUSEAREA") == null ? "" : dto.getString("STOREHOUSEAREA") %>" />
+								</td>
+								<th width="20%">
+									运输车类型
+								</th>
+								<td width="30%">
+									<select name="STR_TRUCKTYPE" id="STR_TRUCKTYPE" style="width:200px"
+										onchange="setSelectLabel('STR_TRUCKTYPE', this)">
+										<option value="">-请选择-</option>
+										<%
+											for (int i = 0; i < trucktype.getList("RESULT").size(); i ++) {
+												DTO trucktypedto = (DTO)trucktype.getList("RESULT").get(i);
+										%>
+										<option value="<%= trucktypedto.getString("DICTCODE") %>"><%= trucktypedto.getString("DICTNAME") %></option>
+										<%
+											}
+										%>
+									</select>
+								</td>
+							</tr>
+							<tr>
+								<th>
+									载重量
+								</th>
+								<td>
+									<input type="text" name="STR_DEADWEIGHT" id="STR_DEADWEIGHT"
+										class="searchTbl_input" value="<%= dto.getString("DEADWEIGHT") == null ? "" : dto.getString("DEADWEIGHT") %>" />
+								</td>
+								<th>
+									高速公路名称
+								</th>
+								<td>
+									<input type="text" name="STR_HIWNAME" id="STR_HIWNAME"
+										class="searchTbl_input" value="<%= dto.getString("HIWNAME") == null ? "" : dto.getString("HIWNAME") %>" />
+								</td>
+							</tr>
+							<tr>
+								<th>
+									高速公路编号
+								</th>
+								<td>
+									<input type="text" name="STR_HIWID" id="STR_HIWID"
+										class="searchTbl_input" value="<%= dto.getString("HIWID") == null ? "" : dto.getString("HIWID") %>" />
+								</td>
+								<th>
+									数量（台）
+								</th>
+								<td>
+									<input type="text" name="STR_COUNT" id="STR_COUNT"
+										class="searchTbl_input" value="<%= dto.getString("COUNT") == null ? "" : dto.getString("COUNT") %>" />
+								</td>
+							</tr>
+							<tr>
+								<th>
+									高速公路入口名称
+								</th>
+								<td>
+									<input type="text" name="STR_HIWIN" id="STR_HIWIN"
+										class="searchTbl_input" value="<%= dto.getString("HIWIN") == null ? "" : dto.getString("HIWIN") %>" />
+								</td>
+								<th>
+									高速公路入口编号
+								</th>
+								<td>
+									<input type="text" name="STR_HIWINID" id="STR_HIWINID"
+										class="searchTbl_input" value="<%= dto.getString("HIWINID") == null ? "" : dto.getString("HIWINID") %>" />
+								</td>
+							</tr>
+							<tr>
+								<th>
+									&nbsp;
+								</th>
+								<td>
+									&nbsp;
+								</td>
+								<th>
+									高速公路入口距离
+								</th>
+								<td>
+									<input type="text" name="STR_HIWDIS" id="STR_HIWDIS"
+										class="searchTbl_input" value="<%= dto.getString("HIWDIS") == null ? "" : dto.getString("HIWDIS") %>" />
+								</td>
+							</tr>
+							<tr>
+								<th>
+									最近铁路货运站
+								</th>
+								<td>
+									<input type="text" name="STR_NEARRAILWAY" id="STR_NEARRAILWAY"
+										class="searchTbl_input" value="<%= dto.getString("NEARRAILWAY") == null ? "" : dto.getString("NEARRAILWAY") %>" />
+								</td>
+								<th>
+									货运站距离
+								</th>
+								<td>
+									<input type="text" name="STR_RWDIS" id="STR_RWDIS"
+										class="searchTbl_input" value="<%= dto.getString("RWDIS") == null ? "" : dto.getString("RWDIS") %>" />
+								</td>
+							</tr>
+							<tr>
+								<th>
+									最近港口
+								</th>
+								<td>
+									<input type="text" name="STR_NEARPORT" id="STR_NEARPORT"
+										class="searchTbl_input" value="<%= dto.getString("NEARPORT") == null ? "" : dto.getString("NEARPORT") %>" />
+								</td>
+								<th>
+									港口距离
+								</th>
+								<td>
+									<input type="text" name="STR_PORTDIS" id="STR_PORTDIS"
+										class="searchTbl_input" value="<%= dto.getString("PORTDIS") == null ? "" : dto.getString("PORTDIS") %>" />
+								</td>
+							</tr>
+							<tr>
+								<th>
+									最近机场
+								</th>
+								<td>
+									<input type="text" name="STR_NEARAIRPORT" id="STR_NEARAIRPORT"
+										class="searchTbl_input" value="<%= dto.getString("NEARAIRPORT") == null ? "" : dto.getString("NEARAIRPORT") %>" />
+								</td>
+								<th>
+									机场距离
+								</th>
+								<td>
+									<input type="text" name="STR_APDIS" id="STR_APDIS"
+										class="searchTbl_input" value="<%= dto.getString("APDIS") == null ? "" : dto.getString("APDIS") %>" />
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+			<br />
+			<table width="98%" border="0" cellspacing="0" cellpadding="0" align="center">
+				<tr style="background: url(resources/images/common/tab_cornerbg.gif); background-repeat: repeat-x;">
+					<td width="17"><img src="resources/images/common/tab_cornerleft.gif" width="17" height="27" /></td>
+					<td width="1195">
 						<div class="fen_div_title">产品信息</div>
 					</td>
 					<td width="17" align="right"><img src="resources/images/common/tab_cornerright.gif" width="17" height="27" /></td>
 				</tr>
 				<tr>
 					<td colspan="3" style="border:1px solid #b9c5c9; border-top:none; background-color:#ffffff;">
-						<iframe src="pages/navy/supportormanage/supportorProdQuery.jsp?supid=<%= dto.showString("SUPID") %>"
+						<iframe src="pages/navy/supmanage/supSupportorProdQuery.jsp?supid=<%= dto.showString("SUPID") %>"
 							frameborder="0" scrolling="no" width="100%" height="310"></iframe>
 					</td>
 				</tr>
@@ -764,7 +996,7 @@
 				</tr>
 				<tr>
 					<td colspan="3" style="border:1px solid #b9c5c9; border-top:none; background-color:#ffffff;">
-						<iframe src="pages/navy/supportormanage/supportorStockQuery.jsp?supid=<%= dto.showString("SUPID") %>"
+						<iframe src="pages/navy/supmanage/supSupportorStockQuery.jsp?supid=<%= dto.showString("SUPID") %>"
 							frameborder="0" scrolling="no" width="100%" height="310"></iframe>
 					</td>
 				</tr>
@@ -780,14 +1012,14 @@
 				</tr>
 				<tr>
 					<td colspan="3" style="border:1px solid #b9c5c9; border-top:none; background-color:#ffffff;">
-						<iframe src="pages/navy/supportormanage/supportorSaleOrgQuery.jsp?supid=<%= dto.showString("SUPID") %>"
+						<iframe src="pages/navy/supmanage/supSupportorSaleOrgQuery.jsp?supid=<%= dto.showString("SUPID") %>"
 							frameborder="0" scrolling="no" width="100%" height="310"></iframe>
 					</td>
 				</tr>
 			</table>
 			<div class="btu">
 				<input type="button" name="save" value="保 存" class="btu_input"
-					onclick="if (checkinput()) submit_form('Navy', 'NavyManage', 'SupportorAddService', '/pages/navy/supportormanage/supportorAdd.jsp');" />
+					onclick="if (checkinput()) submit_form('Navy', 'NavyManage', 'SupportorAddService', '/pages/navy/supmanage/supSupportorAdd.jsp');" />
 				<input type="button" name="back" id="button" value="返 回" class="btu_input"
 					onclick="window.parent.complete();" />
 			</div>
@@ -800,6 +1032,7 @@
 			setSelect("STR_IFSTATETAX", "<%= dto.getString("IFSTATETAX") == null ? "" : dto.getString("IFSTATETAX") %>");
 			setSelect("STR_IFLOCALTAX", "<%= dto.getString("IFLOCALTAX") == null ? "" : dto.getString("IFLOCALTAX") %>");
 			setSelect("STR_SUPTYPE", "<%= dto.getString("SUPTYPE") == null ? "" : dto.getString("SUPTYPE") %>");
+			setSelect("STR_ECONOMY", "<%= dto.getString("ECONOMY") == null ? "" : dto.getString("ECONOMY") %>");
 			
 			<% if (resp != null && resp.getErrorInfo() != null) { %>
 				alert("<%= resp.getErrorInfo() %>");
@@ -812,7 +1045,7 @@
 			
 			if ("<%= sOpt %>" == "null" || "<%= sOpt %>" == "refresh") {
 				document.getElementById("str_supid").value = "-1";
-				submit_form('Navy', 'NavyManage', 'SupportorQueryByIDService', '/pages/navy/supportormanage/supportorAdd.jsp');
+				submit_form('Navy', 'NavyManage', 'SupSupportorQueryByIDService', '/pages/navy/supmanage/supSupportorAdd.jsp');
 			}
 		</script>
 	</body>

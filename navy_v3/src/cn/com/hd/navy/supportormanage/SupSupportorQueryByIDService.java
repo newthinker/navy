@@ -17,7 +17,7 @@ public class SupSupportorQueryByIDService extends BaseService implements IServic
 		Request res = new Request();
 		res.setResponseSystemName("HDDict");
 		res.setResponseSubsystemName("DictManage");
-		res.setResponseServiceName("SupportorDictQueryService");
+		res.setResponseServiceName("SupSupportorDictQueryService");
 		Response response = requestService(res);
 		
 		Response resp = new Response();

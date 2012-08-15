@@ -576,13 +576,13 @@
 									仓库总面积
 								</th>
 								<td width="35%">
-									<%= dto.getString("STOREHOUSEAREA") == null ? "" : dto.getString("STOREHOUSEAREA") %>&nbsp;
+									<%= dto.getNumber("STOREHOUSEAREA") == null ? "" : dto.getNumber("STOREHOUSEAREA") %>&nbsp;
 								</td>
 								<th width="15%">
 									货场总面积
 								</th>
 								<td width="35%">
-									<%= dto.getString("WAREHOUSEAREA") == null ? "" : dto.getString("WAREHOUSEAREA") %>&nbsp;
+									<%= dto.getNumber("WAREHOUSEAREA") == null ? "" : dto.getNumber("WAREHOUSEAREA") %>&nbsp;
 								</td>
 							</tr>
 							<tr>

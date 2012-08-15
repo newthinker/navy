@@ -68,8 +68,10 @@
 					<tr>
 						<td valign="top" height="25">
 							<div id="btu_new">
-								<img src="resources/images/common/btn_search.gif" alt=" " width="62" height="22"
-									onclick="submit_form('Navy','NavyManage','SupSupportorQueryService','/pages/navy/supmanage/supSupportorQuery.jsp');" /> 
+								<img src="resources/images/common/btn_search.gif" alt="查询" width="62" height="22"
+									onclick="submit_form('Navy','NavyManage','SupSupportorQueryService','/pages/navy/supmanage/supSupportorQuery.jsp');" />
+								<img src="resources/images/common/btn_new.gif" alt="新增" width="62" height="22"
+									onclick="window.document.getElementById('str_supid').value='-1';submit_form('Navy', 'NavyManage', 'SupSupportorQueryByIDService', '/pages/navy/supmanage/supSupportorAdd.jsp');" />
 							</div>
 						</td>
 					</tr>
@@ -156,7 +158,7 @@
 													</td>
 													<td>
 														&nbsp;&nbsp;&nbsp;
-														<a class="link_blue" href="javascript:window.document.getElementById('str_supid').value='<%= data.getString("SUPID")  %>';submit_form('Navy', 'NavyManage', 'SupportorQueryByIDService', '/pages/navy/supmanage/supSupportorUpdate.jsp');">修改</a>
+														<a class="link_blue" href="javascript:window.document.getElementById('str_supid').value='<%= data.getString("SUPID")  %>';submit_form('Navy', 'NavyManage', 'SupSupportorQueryByIDService', '/pages/navy/supmanage/supSupportorUpdate.jsp');">修改</a>
 														<a class="link_blue" href="javascript:if (confirm('确定要删除记录吗？')) {window.document.getElementById('str_supid').value='<%= data.getString("SUPID")  %>';submit_form('Navy', 'NavyManage', 'SupportorDeleteService', '/pages/navy/supmanage/supSupportorQuery.jsp?opt=refresh');}">删除</a>
 													</td>
 												</tr>

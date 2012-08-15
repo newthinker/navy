@@ -8,24 +8,15 @@
 	
 	if (dictlist == null) {
 		dictlist = new ArrayList();
-		
-		DTO dto = new DTO();
-		dto.setList("RESULT", new ArrayList());
-		dictlist.add(dto);
-		
-		dto = new DTO();
-		dto.setList("RESULT", new ArrayList());
-		dictlist.add(dto);
-		
-		dto = new DTO();
-		dto.setList("RESULT", new ArrayList());
-		dictlist.add(dto);
-		
-		dto = new DTO();
-		dto.setList("RESULT", new ArrayList());
-		dictlist.add(dto);
+		for (int i=0; i<7; i++) {
+			DTO dto = new DTO();
+			dto.setList("RESULT", new ArrayList());
+			dictlist.add(dto);
+		}
+	}
 
-		dto = new DTO();
+	for (int i=dictlist.size(); i<7; i++) {
+		DTO dto = new DTO();
 		dto.setList("RESULT", new ArrayList());
 		dictlist.add(dto);
 	}
@@ -34,13 +25,9 @@
 	DTO bank = (DTO)dictlist.get(1);
 	DTO credit = (DTO)dictlist.get(2);
 	DTO economy = (DTO)dictlist.get(3);
-	
-	for (int i=dictlist.size(); i<5; i++) {
-		DTO dto = new DTO();
-		dto.setList("RESULT", new ArrayList());
-		dictlist.add(dto);
-	}
-	DTO trucktype = (DTO)dictlist.get(4);
+	DTO saleorgtype = (DTO)dictlist.get(4);
+	DTO trucktype = (DTO)dictlist.get(5);
+	DTO purchasetype = (DTO)dictlist.get(6);
 	
 	List typeList = (List)resp.getDto().getList("RESULT");
 	DTO dto = new DTO();
@@ -246,13 +233,13 @@
 								</th>
 								<td>
 									<select name="STR_ECONOMY" id="STR_ECONOMY" style="width:200px;"
-										onchange="setSelectLabel('STR_TYPE', this)">
+										onchange="setSelectLabel('STR_ECONOMY', this)">
 										<option value="">-请选择-</option>
 										<%
 											for (int i = 0; i < economy.getList("RESULT").size(); i ++) {
 												DTO typedto = (DTO)economy.getList("RESULT").get(i);
 										%>
-										<option value="<%= typedto.getString("DICTNAME") %>"><%= typedto.getString("DICTNAME") %></option>
+										<option value="<%= typedto.getString("DICTCODE") %>"><%= typedto.getString("DICTNAME") %></option>
 										<%
 											}
 										%>
@@ -263,7 +250,7 @@
 								</th>
 								<td>
 									<select name="STR_TYPECODE" id="STR_TYPECODE" style="width:200px;"
-										onchange="setSelectLabel('STR_TYPE', this)">
+										onchange="setSelectLabel('STR_TYPECODE', this)">
 										<option value="">-请选择-</option>
 										<%
 											for (int i = 0; i < type.getList("RESULT").size(); i ++) {
@@ -281,11 +268,52 @@
 							</tr>
 							<tr>
 								<th>
+									采购方式
+								</th>
+								<td>
+									<select name="STR_PURCHASETYPE" id="STR_PURCHASETYPE" style="width:200px;"
+										onchange="setSelectLabel('STR_PURCHASETYPE', this)">
+										<option value="">-请选择-</option>
+										<%
+											for (int i = 0; i < purchasetype.getList("RESULT").size(); i ++) {
+												DTO purchasetypedto = (DTO)purchasetype.getList("RESULT").get(i);
+										%>
+										<option value="<%= purchasetypedto.getString("DICTCODE") %>"><%= purchasetypedto.getString("DICTNAME") %></option>
+										<%
+											}
+										%>
+									</select>
+								</td>
+								<th>
+									是否成交
+								</th>
+								<td>
+									<select name="STR_IFTURNOVER" id="STR_IFTURNOVER" style="width:200px;">
+										<option value="是" selected>是</option>
+										<option value="否">否</option>
+									</select>
+									<span style="color:red;">*</span>
+								</td>
+							</tr>
+							<tr>
+								<th>
 									开户银行
 								</th>
 								<td>
-									<input type="text" name="STR_BANK" id="STR_BANK"
-										class="searchTbl_input" value="<%= dto.getString("BANK") == null ? "" : dto.getString("BANK") %>" />
+									<!--input type="text" name="STR_BANK" id="STR_BANK"
+										class="searchTbl_input" value="<--%= dto.getString("BANK") == null ? "" : dto.getString("BANK") %>" /-->
+									<select name="STR_BANK" id="STR_BANK" style="width:200px;"
+										onchange="setSelectLabel('STR_TYPE', this)">
+										<option value="">-请选择-</option>
+										<%
+											for (int i = 0; i < bank.getList("RESULT").size(); i ++) {
+												DTO typedto = (DTO)bank.getList("RESULT").get(i);
+										%>
+										<option value="<%= typedto.getString("DICTCODE") %>"><%= typedto.getString("DICTNAME") %></option>
+										<%
+											}
+										%>
+									</select>										
 								</td>
 								<th>
 									银行账号
@@ -300,7 +328,7 @@
 									信用等级
 								</th>
 								<td>
-									<select name="STR_CREDITID" id="STR_CREDITID" style="width:200px"
+									<select name="STR_CREDITID" id="STR_CREDITID" style="width:200px;"
 										onchange="setSelectLabel('STR_CREDIT', this)">
 										<option value="">-请选择-</option>
 										<%
@@ -346,7 +374,7 @@
 									是否依法缴纳社会保险
 								</th>
 								<td>
-									<select name="STR_INSURANCE" id="STR_INSURANCE" style="width:200px">
+									<select name="STR_INSURANCE" id="STR_INSURANCE" style="width:200px;">
 										<option value="">-请选择-</option>
 										<option value="是">是</option>
 										<option value="否">否</option>
@@ -356,7 +384,7 @@
 									近三年有无重大违法记录
 								</th>
 								<td>
-									<select name="STR_ILLEGAL" id="STR_ILLEGAL" style="width:200px">
+									<select name="STR_ILLEGAL" id="STR_ILLEGAL" style="width:200px;">
 										<option value="">-请选择-</option>
 										<option value="有">有</option>
 										<option value="无">无</option>
@@ -646,7 +674,7 @@
 									是否依法缴纳税收
 								</th>
 								<td>
-									<select name="STR_IFSTATETAX" id="STR_IFSTATETAX" style="width:200px">
+									<select name="STR_IFSTATETAX" id="STR_IFSTATETAX" style="width:200px;">
 										<option value="">-请选择-</option>
 										<option value="是">是</option>
 										<option value="否">否</option>
@@ -687,7 +715,7 @@
 								<th width="20%">
 									发证机关
 								</th>
-								<td width="33%">
+								<td width="30%">
 									<input type="text" name="STR_LOCALTAXORG" id="STR_LOCALTAXORG"
 										class="searchTbl_input" value="<%= dto.getString("LOCALTAXORG") == null ? "" : dto.getString("LOCALTAXORG") %>" />
 								</td>
@@ -717,7 +745,7 @@
 									是否依法缴纳税收
 								</th>
 								<td>
-									<select name="STR_IFLOCALTAX" id="STR_IFLOCALTAX" style="width:200px">
+									<select name="STR_IFLOCALTAX" id="STR_IFLOCALTAX" style="width:200px;">
 										<option value="">-请选择-</option>
 										<option value="是">是</option>
 										<option value="否">否</option>
@@ -814,7 +842,7 @@
 											for (int i = 0; i < trucktype.getList("RESULT").size(); i ++) {
 												DTO trucktypedto = (DTO)trucktype.getList("RESULT").get(i);
 										%>
-										<option value="<%= trucktypedto.getString("DICTCODE") %>"><%= trucktype.getString("DICTNAME") %></option>
+										<option value="<%= trucktypedto.getString("DICTCODE") %>"><%= trucktypedto.getString("DICTNAME") %></option>
 										<%
 											}
 										%>
