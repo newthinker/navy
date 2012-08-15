@@ -162,6 +162,10 @@
 			<name>NavyManage.SupSupportorTypeCountStatService</name>
 			<class>cn.com.hd.navy.Supportorormanage.SupSupportorTypeCountStatService</class>
 		</service>
+		<service>
+			<name>NavyManage.SupSupportorQueryByIDService</name>
+			<class>cn.com.hd.navy.Supportorormanage.SupSupportorQueryByIDService</class>
+		</service>		
 	</subsystem>
 	
 	<subsystem name="DictManage">

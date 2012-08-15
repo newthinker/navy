@@ -29,4 +29,5 @@
 	<bean id="NavyManage.SupSupportorCountStatService" class="cn.com.hd.navy.supportormanage.SupSupportorCountStatService" />
 	<bean id="NavyManage.SupSupportorProdCapStatService" class="cn.com.hd.navy.supportormanage.SupSupportorProdCapStatService" />
 	<bean id="NavyManage.SupSupportorTypeCountStatService" class="cn.com.hd.navy.supportormanage.SupSupportorTypeCountStatService" />
+	<bean id="NavyManage.SupSupportorQueryByIDService" class="cn.com.hd.navy.supportormanage.SupSupportorQueryByIDService" />
 </beans>

@@ -71,10 +71,20 @@ public class SupSupportorQueryService extends BaseService implements IService {
 		if (capital>0 && capital<6) {
 			supportor.setLiccapital(null);
 			
-			if(capital<5) {
-				cons.addExpression("dto1.LIC_CAPITAL>" + Math.pow(10, capital-1) + " and dto1.LIC_CAPITAL<" + Math.pow(10,capital));
-			} else {
-				cons.addExpression("dto1.LIC_CAPITAL>" + Math.pow(10, 5));
+			if(capital<5 && capital>0) {
+//				cons.addExpression("dto1.LIC_CAPITAL>" + Math.pow(10, capital-1) + " and dto1.LIC_CAPITAL<" + Math.pow(10,capital));
+//			} else {
+//				cons.addExpression("dto1.LIC_CAPITAL>" + Math.pow(10, 5));
+				double delt = 0.000001;
+				if((capital-1)<delt) {
+					cons.addExpression("dto1.LIC_CAPITAL>0 and dto1.LIC_CAPITAL<=50");
+				} else if ((capital-2)<delt) {
+					cons.addExpression("dto1.LIC_CAPITAL>50 and dto1.LIC_CAPITAL<=200");
+				} else if ((capital-3)<delt) {
+					cons.addExpression("dto1.LIC_CAPITAL>200 AND dot1.LIC_CAPITAL<=500");
+				} else if ((capital-4)<delt) {
+					cons.addExpression("dto1.LIC_CAPITAL>500");
+				}
 			}
 		}
 
