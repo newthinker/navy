@@ -24,12 +24,23 @@
 		dto = new DTO();
 		dto.setList("RESULT", new ArrayList());
 		dictlist.add(dto);
+
+		dto = new DTO();
+		dto.setList("RESULT", new ArrayList());
+		dictlist.add(dto);
 	}
 	
 	DTO type = (DTO)dictlist.get(0);
 	DTO bank = (DTO)dictlist.get(1);
 	DTO credit = (DTO)dictlist.get(2);
 	DTO economy = (DTO)dictlist.get(3);
+	
+	for (int i=dictlist.size(); i<5; i++) {
+		DTO dto = new DTO();
+		dto.setList("RESULT", new ArrayList());
+		dictlist.add(dto);
+	}
+	DTO trucktype = (DTO)dictlist.get(4);
 	
 	List typeList = (List)resp.getDto().getList("RESULT");
 	DTO dto = new DTO();
@@ -717,6 +728,208 @@
 								</th>
 								<td>
 									&nbsp;
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+			<br />
+			<table width="98%" border="0" cellspacing="0" cellpadding="0" align="center">
+				<tr style="background: url(resources/images/common/tab_cornerbg.gif); background-repeat: repeat-x;">
+					<td width="17"><img src="resources/images/common/tab_cornerleft.gif" width="17" height="27" /></td>
+					<td width="1195">
+						<div class="fen_div_title">仓储信息</div>
+					</td>
+					<td width="17" align="right"><img src="resources/images/common/tab_cornerright.gif" width="17" height="27" /></td>
+				</tr>
+				<tr>
+					<td colspan="3" style="border:1px solid #b9c5c9; border-top:none; background-color:#ffffff;">
+						<table width="0%" border="0" cellpadding="0" cellspacing="0"
+							class="tbl_search2_free">
+							<tr>
+								<th width="20%">
+									仓库总面积
+								</th>
+								<td width="30%">
+									<input type="text" name="STR_STOREHOUSEAREA" id="STR_STOREHOUSEAREA"
+										class="searchTbl_input" value="<%= dto.getString("STOREHOUSEAREA") == null ? "" : dto.getString("STOREHOUSEAREA") %>" />
+								</td>
+								<th width="20%">
+									货场总面积
+								</th>
+								<td width="30%">
+									<input type="text" name="STR_WAREHOUSEAREA" id="STR_WAREHOUSEAREA"
+										class="searchTbl_input" value="<%= dto.getString("WAREHOUSEAREA") == null ? "" : dto.getString("WAREHOUSEAREA") %>" />
+								</td>
+							</tr>
+						<!-- <tr>
+								<th>
+									仓库照片
+								</th>
+								<td>
+									<input type="text" name="STR_STOREHOUSEIMAGE" id="STR_STOREHOUSEIMAGE"
+										class="searchTbl_input" value="<%= dto.getString("CORPMOBILE") == null ? "" : dto.getString("CORPMOBILE") %>" />
+								</td>
+								<th>
+									&nbsp;
+								</th>
+								<td>
+									&nbsp;
+								</td>
+							</tr> -->
+						</table>
+					</td>
+				</tr>
+			</table>
+			<br />
+			<table width="98%" border="0" cellspacing="0" cellpadding="0" align="center">
+				<tr style="background: url(resources/images/common/tab_cornerbg.gif); background-repeat: repeat-x;">
+					<td width="17"><img src="resources/images/common/tab_cornerleft.gif" width="17" height="27" /></td>
+					<td width="1195">
+						<div class="fen_div_title">运输信息</div>
+					</td>
+					<td width="17" align="right"><img src="resources/images/common/tab_cornerright.gif" width="17" height="27" /></td>
+				</tr>
+				<tr>
+					<td colspan="3" style="border:1px solid #b9c5c9; border-top:none; background-color:#ffffff;">
+						<table width="0%" border="0" cellpadding="0" cellspacing="0"
+							class="tbl_search2_free">
+							<tr>
+								<th width="20%">
+									提供运输的企业
+								</th>
+								<td width="30%">
+									<input type="text" name="STR_COMNAME" id="STR_COMNAME"
+										class="searchTbl_input" value="<%= dto.getString("STOREHOUSEAREA") == null ? "" : dto.getString("STOREHOUSEAREA") %>" />
+								</td>
+								<th width="20%">
+									运输车类型
+								</th>
+								<td width="30%">
+									<select name="STR_TRUCKTYPE" id="STR_TRUCKTYPE" style="width:200px"
+										onchange="setSelectLabel('STR_TRUCKTYPE', this)">
+										<option value="">-请选择-</option>
+										<%
+											for (int i = 0; i < trucktype.getList("RESULT").size(); i ++) {
+												DTO trucktypedto = (DTO)trucktype.getList("RESULT").get(i);
+										%>
+										<option value="<%= trucktypedto.getString("DICTCODE") %>"><%= trucktype.getString("DICTNAME") %></option>
+										<%
+											}
+										%>
+									</select>
+								</td>
+							</tr>
+							<tr>
+								<th>
+									载重量
+								</th>
+								<td>
+									<input type="text" name="STR_DEADWEIGHT" id="STR_DEADWEIGHT"
+										class="searchTbl_input" value="<%= dto.getString("DEADWEIGHT") == null ? "" : dto.getString("DEADWEIGHT") %>" />
+								</td>
+								<th>
+									高速公路名称
+								</th>
+								<td>
+									<input type="text" name="STR_HIWNAME" id="STR_HIWNAME"
+										class="searchTbl_input" value="<%= dto.getString("HIWNAME") == null ? "" : dto.getString("HIWNAME") %>" />
+								</td>
+							</tr>
+							<tr>
+								<th>
+									高速公路编号
+								</th>
+								<td>
+									<input type="text" name="STR_HIWID" id="STR_HIWID"
+										class="searchTbl_input" value="<%= dto.getString("HIWID") == null ? "" : dto.getString("HIWID") %>" />
+								</td>
+								<th>
+									数量（台）
+								</th>
+								<td>
+									<input type="text" name="STR_COUNT" id="STR_COUNT"
+										class="searchTbl_input" value="<%= dto.getString("COUNT") == null ? "" : dto.getString("COUNT") %>" />
+								</td>
+							</tr>
+							<tr>
+								<th>
+									高速公路入口名称
+								</th>
+								<td>
+									<input type="text" name="STR_HIWIN" id="STR_HIWIN"
+										class="searchTbl_input" value="<%= dto.getString("HIWIN") == null ? "" : dto.getString("HIWIN") %>" />
+								</td>
+								<th>
+									高速公路入口编号
+								</th>
+								<td>
+									<input type="text" name="STR_HIWINID" id="STR_HIWINID"
+										class="searchTbl_input" value="<%= dto.getString("HIWINID") == null ? "" : dto.getString("HIWINID") %>" />
+								</td>
+							</tr>
+							<tr>
+								<th>
+									&nbsp;
+								</th>
+								<td>
+									&nbsp;
+								</td>
+								<th>
+									高速公路入口距离
+								</th>
+								<td>
+									<input type="text" name="STR_HIWDIS" id="STR_HIWDIS"
+										class="searchTbl_input" value="<%= dto.getString("HIWDIS") == null ? "" : dto.getString("HIWDIS") %>" />
+								</td>
+							</tr>
+							<tr>
+								<th>
+									最近铁路货运站
+								</th>
+								<td>
+									<input type="text" name="STR_NEARRAILWAY" id="STR_NEARRAILWAY"
+										class="searchTbl_input" value="<%= dto.getString("NEARRAILWAY") == null ? "" : dto.getString("NEARRAILWAY") %>" />
+								</td>
+								<th>
+									货运站距离
+								</th>
+								<td>
+									<input type="text" name="STR_RWDIS" id="STR_RWDIS"
+										class="searchTbl_input" value="<%= dto.getString("RWDIS") == null ? "" : dto.getString("RWDIS") %>" />
+								</td>
+							</tr>
+							<tr>
+								<th>
+									最近港口
+								</th>
+								<td>
+									<input type="text" name="STR_NEARPORT" id="STR_NEARPORT"
+										class="searchTbl_input" value="<%= dto.getString("NEARPORT") == null ? "" : dto.getString("NEARPORT") %>" />
+								</td>
+								<th>
+									港口距离
+								</th>
+								<td>
+									<input type="text" name="STR_PORTDIS" id="STR_PORTDIS"
+										class="searchTbl_input" value="<%= dto.getString("PORTDIS") == null ? "" : dto.getString("PORTDIS") %>" />
+								</td>
+							</tr>
+							<tr>
+								<th>
+									最近机场
+								</th>
+								<td>
+									<input type="text" name="STR_NEARAIRPORT" id="STR_NEARAIRPORT"
+										class="searchTbl_input" value="<%= dto.getString("NEARAIRPORT") == null ? "" : dto.getString("NEARAIRPORT") %>" />
+								</td>
+								<th>
+									机场距离
+								</th>
+								<td>
+									<input type="text" name="STR_APDIS" id="STR_APDIS"
+										class="searchTbl_input" value="<%= dto.getString("APDIS") == null ? "" : dto.getString("APDIS") %>" />
 								</td>
 							</tr>
 						</table>

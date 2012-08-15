@@ -1,7 +1,7 @@
 <%@ page language="java" pageEncoding="UTF-8" %>
 <%@ page import="java.util.List"%>
 <%@ page import="java.util.ArrayList"%>
-<%@page import="java.text.SimpleDateFormat"%>
+<%@ page import="java.text.SimpleDateFormat"%>
 <%@ include file="../../common/init.jsp" %>
 <%
 	List dictlist = (List)resp.getDto().getSelectItems();
@@ -552,6 +552,184 @@
 								</th>
 								<td>
 									&nbsp;
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+			<br />
+			<table width="98%" border="0" cellspacing="0" cellpadding="0" align="center">
+				<tr style="background: url(resources/images/common/tab_cornerbg.gif); background-repeat: repeat-x;">
+					<td width="17"><img src="resources/images/common/tab_cornerleft.gif" width="17" height="27" /></td>
+					<td width="1195">
+						<div class="fen_div_title">仓储信息</div>
+					</td>
+					<td width="17" align="right"><img src="resources/images/common/tab_cornerright.gif" width="17" height="27" /></td>
+				</tr>
+				<tr>
+					<td colspan="3" style="border:1px solid #b9c5c9; border-top:none; background-color:#ffffff;">
+						<table width="0%" border="0" cellpadding="0" cellspacing="0"
+							class="tbl_search2_free">
+							<tr>
+								<th width="15%">
+									仓库总面积
+								</th>
+								<td width="35%">
+									<%= dto.getString("STOREHOUSEAREA") == null ? "" : dto.getString("STOREHOUSEAREA") %>&nbsp;
+								</td>
+								<th width="15%">
+									货场总面积
+								</th>
+								<td width="35%">
+									<%= dto.getString("WAREHOUSEAREA") == null ? "" : dto.getString("WAREHOUSEAREA") %>&nbsp;
+								</td>
+							</tr>
+							<tr>
+								<th>
+									仓库照片
+								</th>
+								<td>
+									<% if (dto.getString("STOREHOUSEIMAGE") == null) { %>
+									&nbsp;
+									<% } else { %>
+									<a href="<%= base + "/" + dto.getString("STOREHOUSEIMAGE") %>" target="_blank">查看</a>&nbsp;
+									<% } %>
+								</td>
+								<th>
+									&nbsp;
+								</th>
+								<td>
+									&nbsp;
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+			<br />
+			<table width="98%" border="0" cellspacing="0" cellpadding="0" align="center">
+				<tr style="background: url(resources/images/common/tab_cornerbg.gif); background-repeat: repeat-x;">
+					<td width="17"><img src="resources/images/common/tab_cornerleft.gif" width="17" height="27" /></td>
+					<td width="1195">
+						<div class="fen_div_title">运输信息</div>
+					</td>
+					<td width="17" align="right"><img src="resources/images/common/tab_cornerright.gif" width="17" height="27" /></td>
+				</tr>
+				<tr>
+					<td colspan="3" style="border:1px solid #b9c5c9; border-top:none; background-color:#ffffff;">
+						<table width="0%" border="0" cellpadding="0" cellspacing="0"
+							class="tbl_search2_free">
+							<tr>
+								<th width="15%">
+									提供运输的企业
+								</th>
+								<td width="35%">
+									<%= dto.getString("COMNAME") == null ? "" : dto.getString("COMNAME") %>&nbsp;
+								</td>
+								<th width="15%">
+									运输车类型
+								</th>
+								<td width="35%">
+									<%= dto.getString("TRUCKTYPE") == null ? "" : dto.getString("TRUCKTYPE") %>&nbsp;
+								</td>
+							</tr>
+							<tr>
+								<th>
+									载重量
+								</th>
+								<td>
+									<%= dto.getString("DEADWEIGHT") == null ? "" : dto.getString("DEADWEIGHT") %>&nbsp;
+								</td>
+								<th>
+									数量（台）
+								</th>
+								<td>
+									<%= dto.getString("COUNT") == null ? "" : dto.getString("COUNT") %>&nbsp;
+								</td>
+							</tr>
+							<tr>
+								<th>
+									高速公路名称
+								</th>
+								<td>
+									<%= dto.getString("HIWNAME") == null ? "" : dto.getString("HIWNAME") %>&nbsp;
+								</td>
+								<th>
+									高速公路编号
+								</th>
+								<td>
+									<%= dto.getString("HIWID") == null ? "" : dto.getString("HIWID") %>&nbsp;
+								</td>
+							</tr>
+							<tr>
+								<th>
+									高速公路入口名称
+								</th>
+								<td>
+									<%= dto.getString("HIWIN") == null ? "" : dto.getString("HIWIN") %>&nbsp;
+								</td>
+								<th>
+									高速公路入口编号
+								</th>
+								<td>
+									<%= dto.getString("HIWINID") == null ? "" : dto.getString("HIWINID") %>&nbsp;
+								</td>
+							</tr>
+							<tr>
+								<th>
+									&nbsp;
+								</th>
+								<td>
+									&nbsp;
+								</td>
+								<th>
+									高速公路入口距离
+								</th>
+								<td>
+									<%= dto.getString("HIWDIS") == null ? "" : dto.getString("HIWDIS") %>&nbsp;
+								</td>
+							</tr>
+							<tr>
+								<th>
+									最近铁路货运站
+								</th>
+								<td>
+									<%= dto.getString("NEARRAILWAY") == null ? "" : dto.getString("NEARRAILWAY") %>&nbsp;
+								</td>
+								<th>
+									货运站距离
+								</th>
+								<td>
+									<%= dto.getString("RWDIS") == null ? "" : dto.getString("RWDIS") %>&nbsp;
+								</td>
+							</tr>
+							<tr>
+								<th>
+									最近港口
+								</th>
+								<td>
+									<%= dto.getString("NEARPORT") == null ? "" : dto.getString("NEARPORT") %>&nbsp;
+								</td>
+								<th>
+									港口距离
+								</th>
+								<td>
+									<%= dto.getString("PORTDIS") == null ? "" : dto.getString("PORTDIS") %>&nbsp;
+								</td>
+							</tr>
+							<tr>
+								<th>
+									最近机场
+								</th>
+								<td>
+									<%= dto.getString("NEARAIRPORT") == null ? "" : dto.getString("NEARAIRPORT") %>&nbsp;
+								</td>
+								<th>
+									机场距离
+								</th>
+								<td>
+									<%= dto.getString("APDIS") == null ? "" : dto.getString("APDIS") %>&nbsp;
 								</td>
 							</tr>
 						</table>
