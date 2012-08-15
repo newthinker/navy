@@ -138,7 +138,7 @@
 									所在地址
 								</th>
 								<td>
-									<%= dto.getString("LOCATION") == null ? "" : dto.getString("LOCATION") %>
+									<%= dto.getString("LOCATION") == null ? "" : dto.getString("LOCATION") %>&nbsp;
 								</td>
 								<th>
 									位置
@@ -156,7 +156,7 @@
 									网址
 								</th>
 								<td>
-									<%= dto.getString("NETADDR") == null ? "" : dto.getString("NETADDR") %>&nbsp;
+									&nbsp;<a target="_blank" class="link_blue" href="<%= (dto.showString("NETADDR").toLowerCase().indexOf("http://") > 0) ? dto.showString("NETADDR") : "http://" + dto.showString("NETADDR") %>"><%= dto.getString("NETADDR") == null ? "" : dto.getString("NETADDR") %></a>&nbsp;
 								</td>
 								<th>
 									组织机构代码
@@ -585,7 +585,7 @@
 									<%= dto.getNumber("WAREHOUSEAREA") == null ? "" : dto.getNumber("WAREHOUSEAREA") %>&nbsp;
 								</td>
 							</tr>
-							<tr>
+						<!--	<tr>
 								<th>
 									仓库照片
 								</th>
@@ -602,7 +602,7 @@
 								<td>
 									&nbsp;
 								</td>
-							</tr>
+							</tr>  -->
 						</table>
 					</td>
 				</tr>
