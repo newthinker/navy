@@ -1,4 +1,4 @@
-﻿package cn.com.hd.navy.supportormanage;
+﻿package cn.com.hd.navy.supmanager;
 
 import java.util.List;
 

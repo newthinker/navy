@@ -79,10 +79,6 @@
 			<name>NavyManage.SupportorQueryService</name>
 			<class>cn.com.hd.navy.Supportorormanage.SupportorQueryService</class>
 		</service>
-		<service>		<!-- 高级查询服务 -->
-			<name>NavyManage.SupSupportorQueryService</name>	
-			<class>cn.com.hd.navy.Supportorormanage.SupSupportorQueryService</class>
-		</service>		
 		<service>
 			<name>NavyManage.SupportorUpdateService</name>
 			<class>cn.com.hd.navy.Supportorormanage.SupportorUpdateService</class>
@@ -140,8 +136,9 @@
 		<service>
 			<name>NavyManage.SupportorSaleOrgSaveOrUpdateService</name>
 			<class>cn.com.hd.navy.Supportorormanage.SupportorSaleOrgSaveOrUpdateService</class>
-		</service>
+		</service>	
 		
+		<!-- supmanager service -->
 		<service>
 			<name>NavyManage.SupSupportorQueryService</name>
 			<class>cn.com.hd.navy.Supportorormanage.SupSupportorQueryService</class>
@@ -165,7 +162,8 @@
 		<service>
 			<name>NavyManage.SupSupportorQueryByIDService</name>
 			<class>cn.com.hd.navy.Supportorormanage.SupSupportorQueryByIDService</class>
-		</service>		
+		</service>
+					
 	</subsystem>
 	
 	<subsystem name="DictManage">

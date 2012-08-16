@@ -138,7 +138,7 @@
 														<%= i + 1 + pages.getRowNumber() * (pages.getPageIndex() - 1) %>
 													</td>
 													<td width="150px">
-														<a href="javascript:window.document.getElementById('str_supid').value='<%= data.getString("SUPID")  %>';submit_form('Navy', 'NavyManage', 'SupSupportorQueryService', '/pages/navy/supmanage/supSupportorInfo.jsp');" class="link_blue_table">
+														<a href="javascript:window.document.getElementById('str_supid').value='<%= data.getString("SUPID")  %>';submit_form('Navy', 'NavyManage', 'SupSupportorQueryByIDService', '/pages/navy/supmanage/supSupportorInfo.jsp');" class="link_blue_table">
 															<%
 																if (data.showString("TYPECODE").equals("A90000000") || 
 																	data.showString("TYPECODE").equals("AA0000000") || 
