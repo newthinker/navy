@@ -1450,27 +1450,27 @@ namespace DatCollect
 					this.textBox_supplierFax.Focus();
 					return false;
 				}
-				if (this.textBox_storehouseArea.Text.Length == 0)
-				{
-					MessageBox.Show("请正确填写仓库面积！");
-					this.tabControl_data.SelectedIndex = 0;
-					this.textBox_storehouseArea.Focus();
-					return false;
-				}
-				if (this.textBox_warehouseArea.Text.Length == 0)
-				{
-					MessageBox.Show("请正确填写货场面积！");
-					this.tabControl_data.SelectedIndex = 0;
-					this.textBox_warehouseArea.Focus();
-					return false;
-				}
-				if (!File.Exists(this.textBox_storehouseImage.Text))
-				{
-					MessageBox.Show("请正确填写仓库照片！");
-					this.tabControl_data.SelectedIndex = 0;
-					this.textBox_storehouseImage.Focus();
-					return false;
-				}
+				//if (this.textBox_storehouseArea.Text.Length == 0)
+				//{
+				//    MessageBox.Show("请正确填写仓库面积！");
+				//    this.tabControl_data.SelectedIndex = 0;
+				//    this.textBox_storehouseArea.Focus();
+				//    return false;
+				//}
+				//if (this.textBox_warehouseArea.Text.Length == 0)
+				//{
+				//    MessageBox.Show("请正确填写货场面积！");
+				//    this.tabControl_data.SelectedIndex = 0;
+				//    this.textBox_warehouseArea.Focus();
+				//    return false;
+				//}
+				//if (!File.Exists(this.textBox_storehouseImage.Text))
+				//{
+				//    MessageBox.Show("请正确填写仓库照片！");
+				//    this.tabControl_data.SelectedIndex = 0;
+				//    this.textBox_storehouseImage.Focus();
+				//    return false;
+				//}
 				if (this.textBox_stockholderName.Text.Length == 0)
 				{
 					MessageBox.Show("请正确填写股东姓名！");
@@ -1963,48 +1963,48 @@ namespace DatCollect
 					this.textBox_transportHighwayDistance.Focus();
 					return false;
 				}
-				if (this.textBox_transportRailwayName.Text.Length == 0)
-				{
-					MessageBox.Show("请正确填写最近铁路货运站名称！");
-					this.tabControl_data.SelectedIndex = 4;
-					this.textBox_transportRailwayName.Focus();
-					return false;
-				}
-				if (this.textBox_transportRailwayDistance.Text.Length == 0)
-				{
-					MessageBox.Show("请正确填写最近铁路货运站距离！");
-					this.tabControl_data.SelectedIndex = 4;
-					this.textBox_transportRailwayDistance.Focus();
-					return false;
-				}
-				if (this.textBox_transportPortName.Text.Length == 0)
-				{
-					MessageBox.Show("请正确填写最近港口名称！");
-					this.tabControl_data.SelectedIndex = 4;
-					this.textBox_transportPortName.Focus();
-					return false;
-				}
-				if (this.textBox_transportPortDistance.Text.Length == 0)
-				{
-					MessageBox.Show("请正确填写最近港口距离！");
-					this.tabControl_data.SelectedIndex = 4;
-					this.textBox_transportPortDistance.Focus();
-					return false;
-				}
-				if (this.textBox_transportAirportName.Text.Length == 0)
-				{
-					MessageBox.Show("请正确填写最近机场名称！");
-					this.tabControl_data.SelectedIndex = 4;
-					this.textBox_transportAirportName.Focus();
-					return false;
-				}
-				if (this.textBox_transportAirportDistance.Text.Length == 0)
-				{
-					MessageBox.Show("请正确填写最近机场距离！");
-					this.tabControl_data.SelectedIndex = 4;
-					this.textBox_transportAirportDistance.Focus();
-					return false;
-				}
+				//if (this.textBox_transportRailwayName.Text.Length == 0)
+				//{
+				//    MessageBox.Show("请正确填写最近铁路货运站名称！");
+				//    this.tabControl_data.SelectedIndex = 4;
+				//    this.textBox_transportRailwayName.Focus();
+				//    return false;
+				//}
+				//if (this.textBox_transportRailwayDistance.Text.Length == 0)
+				//{
+				//    MessageBox.Show("请正确填写最近铁路货运站距离！");
+				//    this.tabControl_data.SelectedIndex = 4;
+				//    this.textBox_transportRailwayDistance.Focus();
+				//    return false;
+				//}
+				//if (this.textBox_transportPortName.Text.Length == 0)
+				//{
+				//    MessageBox.Show("请正确填写最近港口名称！");
+				//    this.tabControl_data.SelectedIndex = 4;
+				//    this.textBox_transportPortName.Focus();
+				//    return false;
+				//}
+				//if (this.textBox_transportPortDistance.Text.Length == 0)
+				//{
+				//    MessageBox.Show("请正确填写最近港口距离！");
+				//    this.tabControl_data.SelectedIndex = 4;
+				//    this.textBox_transportPortDistance.Focus();
+				//    return false;
+				//}
+				//if (this.textBox_transportAirportName.Text.Length == 0)
+				//{
+				//    MessageBox.Show("请正确填写最近机场名称！");
+				//    this.tabControl_data.SelectedIndex = 4;
+				//    this.textBox_transportAirportName.Focus();
+				//    return false;
+				//}
+				//if (this.textBox_transportAirportDistance.Text.Length == 0)
+				//{
+				//    MessageBox.Show("请正确填写最近机场距离！");
+				//    this.tabControl_data.SelectedIndex = 4;
+				//    this.textBox_transportAirportDistance.Focus();
+				//    return false;
+				//}
 			}
 			catch (System.Exception ex)
 			{

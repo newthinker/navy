@@ -45,22 +45,17 @@
 			this.label63 = new System.Windows.Forms.Label();
 			this.dateTimePicker_stockholderStockDate = new System.Windows.Forms.DateTimePicker();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
-			this.button_storehouseImage = new System.Windows.Forms.Button();
 			this.textBox_latitude = new System.Windows.Forms.TextBox();
 			this.textBox_longitude = new System.Windows.Forms.TextBox();
-			this.textBox_warehouseArea = new System.Windows.Forms.TextBox();
 			this.textBox_supplierMobile = new System.Windows.Forms.TextBox();
 			this.textBox_mobile = new System.Windows.Forms.TextBox();
 			this.label38 = new System.Windows.Forms.Label();
 			this.textBox_supplierFax = new System.Windows.Forms.TextBox();
-			this.textBox_storehouseImage = new System.Windows.Forms.TextBox();
 			this.textBox_supplierTelephone = new System.Windows.Forms.TextBox();
 			this.textBox_telephone = new System.Windows.Forms.TextBox();
 			this.label37 = new System.Windows.Forms.Label();
 			this.label44 = new System.Windows.Forms.Label();
-			this.label86 = new System.Windows.Forms.Label();
 			this.label42 = new System.Windows.Forms.Label();
-			this.label85 = new System.Windows.Forms.Label();
 			this.label41 = new System.Windows.Forms.Label();
 			this.label25 = new System.Windows.Forms.Label();
 			this.label26 = new System.Windows.Forms.Label();
@@ -72,14 +67,12 @@
 			this.comboBox_supplierType = new System.Windows.Forms.ComboBox();
 			this.comboBox_economyNature = new System.Windows.Forms.ComboBox();
 			this.comboBox_provice = new System.Windows.Forms.ComboBox();
-			this.textBox_storehouseArea = new System.Windows.Forms.TextBox();
 			this.textBox_supplierContact = new System.Windows.Forms.TextBox();
 			this.textBox_website = new System.Windows.Forms.TextBox();
 			this.textBox_adress = new System.Windows.Forms.TextBox();
 			this.label89 = new System.Windows.Forms.Label();
 			this.label39 = new System.Windows.Forms.Label();
 			this.label12 = new System.Windows.Forms.Label();
-			this.label84 = new System.Windows.Forms.Label();
 			this.label88 = new System.Windows.Forms.Label();
 			this.label40 = new System.Windows.Forms.Label();
 			this.label10 = new System.Windows.Forms.Label();
@@ -262,6 +255,14 @@
 			this.label71 = new System.Windows.Forms.Label();
 			this.label73 = new System.Windows.Forms.Label();
 			this.label74 = new System.Windows.Forms.Label();
+			this.groupBox10 = new System.Windows.Forms.GroupBox();
+			this.button_storehouseImage = new System.Windows.Forms.Button();
+			this.textBox_warehouseArea = new System.Windows.Forms.TextBox();
+			this.textBox_storehouseImage = new System.Windows.Forms.TextBox();
+			this.label86 = new System.Windows.Forms.Label();
+			this.label85 = new System.Windows.Forms.Label();
+			this.textBox_storehouseArea = new System.Windows.Forms.TextBox();
+			this.label84 = new System.Windows.Forms.Label();
 			this.tabControl_data.SuspendLayout();
 			this.tabPage1.SuspendLayout();
 			this.panel1.SuspendLayout();
@@ -283,6 +284,7 @@
 			this.groupBox8.SuspendLayout();
 			this.groupBox7.SuspendLayout();
 			this.groupBox6.SuspendLayout();
+			this.groupBox10.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// tabControl_data
@@ -303,6 +305,7 @@
 			// 
 			this.tabPage1.AutoScroll = true;
 			this.tabPage1.BackColor = System.Drawing.Color.Transparent;
+			this.tabPage1.Controls.Add(this.groupBox10);
 			this.tabPage1.Controls.Add(this.panel1);
 			this.tabPage1.Controls.Add(this.groupBox_stockholder);
 			this.tabPage1.Controls.Add(this.groupBox1);
@@ -440,22 +443,17 @@
 			// groupBox1
 			// 
 			this.groupBox1.BackColor = System.Drawing.Color.Transparent;
-			this.groupBox1.Controls.Add(this.button_storehouseImage);
 			this.groupBox1.Controls.Add(this.textBox_latitude);
 			this.groupBox1.Controls.Add(this.textBox_longitude);
-			this.groupBox1.Controls.Add(this.textBox_warehouseArea);
 			this.groupBox1.Controls.Add(this.textBox_supplierMobile);
 			this.groupBox1.Controls.Add(this.textBox_mobile);
 			this.groupBox1.Controls.Add(this.label38);
 			this.groupBox1.Controls.Add(this.textBox_supplierFax);
-			this.groupBox1.Controls.Add(this.textBox_storehouseImage);
 			this.groupBox1.Controls.Add(this.textBox_supplierTelephone);
 			this.groupBox1.Controls.Add(this.textBox_telephone);
 			this.groupBox1.Controls.Add(this.label37);
 			this.groupBox1.Controls.Add(this.label44);
-			this.groupBox1.Controls.Add(this.label86);
 			this.groupBox1.Controls.Add(this.label42);
-			this.groupBox1.Controls.Add(this.label85);
 			this.groupBox1.Controls.Add(this.label41);
 			this.groupBox1.Controls.Add(this.label25);
 			this.groupBox1.Controls.Add(this.label26);
@@ -467,14 +465,12 @@
 			this.groupBox1.Controls.Add(this.comboBox_supplierType);
 			this.groupBox1.Controls.Add(this.comboBox_economyNature);
 			this.groupBox1.Controls.Add(this.comboBox_provice);
-			this.groupBox1.Controls.Add(this.textBox_storehouseArea);
 			this.groupBox1.Controls.Add(this.textBox_supplierContact);
 			this.groupBox1.Controls.Add(this.textBox_website);
 			this.groupBox1.Controls.Add(this.textBox_adress);
 			this.groupBox1.Controls.Add(this.label89);
 			this.groupBox1.Controls.Add(this.label39);
 			this.groupBox1.Controls.Add(this.label12);
-			this.groupBox1.Controls.Add(this.label84);
 			this.groupBox1.Controls.Add(this.label88);
 			this.groupBox1.Controls.Add(this.label40);
 			this.groupBox1.Controls.Add(this.label10);
@@ -490,20 +486,10 @@
 			this.groupBox1.Controls.Add(this.label1);
 			this.groupBox1.Location = new System.Drawing.Point(6, 6);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(720, 490);
+			this.groupBox1.Size = new System.Drawing.Size(720, 405);
 			this.groupBox1.TabIndex = 0;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "基本信息";
-			// 
-			// button_storehouseImage
-			// 
-			this.button_storehouseImage.Location = new System.Drawing.Point(324, 450);
-			this.button_storehouseImage.Name = "button_storehouseImage";
-			this.button_storehouseImage.Size = new System.Drawing.Size(39, 23);
-			this.button_storehouseImage.TabIndex = 24;
-			this.button_storehouseImage.Text = "...";
-			this.button_storehouseImage.UseVisualStyleBackColor = true;
-			this.button_storehouseImage.Click += new System.EventHandler(this.button_storehouseImage_Click);
 			// 
 			// textBox_latitude
 			// 
@@ -518,13 +504,6 @@
 			this.textBox_longitude.Name = "textBox_longitude";
 			this.textBox_longitude.Size = new System.Drawing.Size(175, 21);
 			this.textBox_longitude.TabIndex = 9;
-			// 
-			// textBox_warehouseArea
-			// 
-			this.textBox_warehouseArea.Location = new System.Drawing.Point(514, 412);
-			this.textBox_warehouseArea.Name = "textBox_warehouseArea";
-			this.textBox_warehouseArea.Size = new System.Drawing.Size(175, 21);
-			this.textBox_warehouseArea.TabIndex = 22;
 			// 
 			// textBox_supplierMobile
 			// 
@@ -555,13 +534,6 @@
 			this.textBox_supplierFax.Name = "textBox_supplierFax";
 			this.textBox_supplierFax.Size = new System.Drawing.Size(175, 21);
 			this.textBox_supplierFax.TabIndex = 20;
-			// 
-			// textBox_storehouseImage
-			// 
-			this.textBox_storehouseImage.Location = new System.Drawing.Point(142, 451);
-			this.textBox_storehouseImage.Name = "textBox_storehouseImage";
-			this.textBox_storehouseImage.Size = new System.Drawing.Size(175, 21);
-			this.textBox_storehouseImage.TabIndex = 23;
 			// 
 			// textBox_supplierTelephone
 			// 
@@ -595,15 +567,6 @@
 			this.label44.TabIndex = 0;
 			this.label44.Text = "传真电话：";
 			// 
-			// label86
-			// 
-			this.label86.AutoSize = true;
-			this.label86.Location = new System.Drawing.Point(30, 455);
-			this.label86.Name = "label86";
-			this.label86.Size = new System.Drawing.Size(65, 12);
-			this.label86.TabIndex = 0;
-			this.label86.Text = "仓库照片：";
-			// 
 			// label42
 			// 
 			this.label42.AutoSize = true;
@@ -612,15 +575,6 @@
 			this.label42.Size = new System.Drawing.Size(65, 12);
 			this.label42.TabIndex = 0;
 			this.label42.Text = "固定电话：";
-			// 
-			// label85
-			// 
-			this.label85.AutoSize = true;
-			this.label85.Location = new System.Drawing.Point(404, 416);
-			this.label85.Name = "label85";
-			this.label85.Size = new System.Drawing.Size(77, 12);
-			this.label85.TabIndex = 0;
-			this.label85.Text = "货场总面积：";
 			// 
 			// label41
 			// 
@@ -725,13 +679,6 @@
 			this.comboBox_provice.TabIndex = 2;
 			this.comboBox_provice.SelectedIndexChanged += new System.EventHandler(this.comboBox_provice_SelectedIndexChanged);
 			// 
-			// textBox_storehouseArea
-			// 
-			this.textBox_storehouseArea.Location = new System.Drawing.Point(142, 412);
-			this.textBox_storehouseArea.Name = "textBox_storehouseArea";
-			this.textBox_storehouseArea.Size = new System.Drawing.Size(175, 21);
-			this.textBox_storehouseArea.TabIndex = 21;
-			// 
 			// textBox_supplierContact
 			// 
 			this.textBox_supplierContact.Location = new System.Drawing.Point(142, 330);
@@ -779,15 +726,6 @@
 			this.label12.Size = new System.Drawing.Size(65, 12);
 			this.label12.TabIndex = 0;
 			this.label12.Text = "经济性质：";
-			// 
-			// label84
-			// 
-			this.label84.AutoSize = true;
-			this.label84.Location = new System.Drawing.Point(30, 416);
-			this.label84.Name = "label84";
-			this.label84.Size = new System.Drawing.Size(77, 12);
-			this.label84.TabIndex = 0;
-			this.label84.Text = "仓库总面积：";
 			// 
 			// label88
 			// 
@@ -2524,6 +2462,79 @@
 			this.label74.TabIndex = 1;
 			this.label74.Text = "企业名称：";
 			// 
+			// groupBox10
+			// 
+			this.groupBox10.Controls.Add(this.button_storehouseImage);
+			this.groupBox10.Controls.Add(this.textBox_warehouseArea);
+			this.groupBox10.Controls.Add(this.textBox_storehouseImage);
+			this.groupBox10.Controls.Add(this.label86);
+			this.groupBox10.Controls.Add(this.label85);
+			this.groupBox10.Controls.Add(this.textBox_storehouseArea);
+			this.groupBox10.Controls.Add(this.label84);
+			this.groupBox10.Location = new System.Drawing.Point(7, 418);
+			this.groupBox10.Name = "groupBox10";
+			this.groupBox10.Size = new System.Drawing.Size(719, 86);
+			this.groupBox10.TabIndex = 5;
+			this.groupBox10.TabStop = false;
+			this.groupBox10.Text = "仓储信息";
+			// 
+			// button_storehouseImage
+			// 
+			this.button_storehouseImage.Location = new System.Drawing.Point(324, 57);
+			this.button_storehouseImage.Name = "button_storehouseImage";
+			this.button_storehouseImage.Size = new System.Drawing.Size(39, 23);
+			this.button_storehouseImage.TabIndex = 31;
+			this.button_storehouseImage.Text = "...";
+			this.button_storehouseImage.UseVisualStyleBackColor = true;
+			// 
+			// textBox_warehouseArea
+			// 
+			this.textBox_warehouseArea.Location = new System.Drawing.Point(514, 19);
+			this.textBox_warehouseArea.Name = "textBox_warehouseArea";
+			this.textBox_warehouseArea.Size = new System.Drawing.Size(175, 21);
+			this.textBox_warehouseArea.TabIndex = 29;
+			// 
+			// textBox_storehouseImage
+			// 
+			this.textBox_storehouseImage.Location = new System.Drawing.Point(142, 58);
+			this.textBox_storehouseImage.Name = "textBox_storehouseImage";
+			this.textBox_storehouseImage.Size = new System.Drawing.Size(175, 21);
+			this.textBox_storehouseImage.TabIndex = 30;
+			// 
+			// label86
+			// 
+			this.label86.AutoSize = true;
+			this.label86.Location = new System.Drawing.Point(30, 62);
+			this.label86.Name = "label86";
+			this.label86.Size = new System.Drawing.Size(65, 12);
+			this.label86.TabIndex = 27;
+			this.label86.Text = "仓库照片：";
+			// 
+			// label85
+			// 
+			this.label85.AutoSize = true;
+			this.label85.Location = new System.Drawing.Point(404, 23);
+			this.label85.Name = "label85";
+			this.label85.Size = new System.Drawing.Size(77, 12);
+			this.label85.TabIndex = 26;
+			this.label85.Text = "货场总面积：";
+			// 
+			// textBox_storehouseArea
+			// 
+			this.textBox_storehouseArea.Location = new System.Drawing.Point(142, 19);
+			this.textBox_storehouseArea.Name = "textBox_storehouseArea";
+			this.textBox_storehouseArea.Size = new System.Drawing.Size(175, 21);
+			this.textBox_storehouseArea.TabIndex = 28;
+			// 
+			// label84
+			// 
+			this.label84.AutoSize = true;
+			this.label84.Location = new System.Drawing.Point(30, 23);
+			this.label84.Name = "label84";
+			this.label84.Size = new System.Drawing.Size(77, 12);
+			this.label84.TabIndex = 25;
+			this.label84.Text = "仓库总面积：";
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -2566,6 +2577,8 @@
 			this.groupBox7.PerformLayout();
 			this.groupBox6.ResumeLayout(false);
 			this.groupBox6.PerformLayout();
+			this.groupBox10.ResumeLayout(false);
+			this.groupBox10.PerformLayout();
 			this.ResumeLayout(false);
 
 		}
@@ -2711,13 +2724,6 @@
 		private System.Windows.Forms.Panel panel5;
 		private System.Windows.Forms.Button button_addStockholder;
 		private System.Windows.Forms.DateTimePicker dateTimePicker_stockholderStockDate;
-		private System.Windows.Forms.TextBox textBox_warehouseArea;
-		private System.Windows.Forms.TextBox textBox_storehouseImage;
-		private System.Windows.Forms.Label label86;
-		private System.Windows.Forms.Label label85;
-		private System.Windows.Forms.TextBox textBox_storehouseArea;
-		private System.Windows.Forms.Label label84;
-		private System.Windows.Forms.Button button_storehouseImage;
 		private System.Windows.Forms.GroupBox groupBox2;
 		private System.Windows.Forms.Button button_organizationImage;
 		private System.Windows.Forms.Button button_businessLicId;
@@ -2805,6 +2811,14 @@
 		private System.Windows.Forms.TextBox textBox_qualityProve;
 		private System.Windows.Forms.Label label92;
 		private System.Windows.Forms.Label label91;
+		private System.Windows.Forms.GroupBox groupBox10;
+		private System.Windows.Forms.Button button_storehouseImage;
+		private System.Windows.Forms.TextBox textBox_warehouseArea;
+		private System.Windows.Forms.TextBox textBox_storehouseImage;
+		private System.Windows.Forms.Label label86;
+		private System.Windows.Forms.Label label85;
+		private System.Windows.Forms.TextBox textBox_storehouseArea;
+		private System.Windows.Forms.Label label84;
 	}
 }
 
