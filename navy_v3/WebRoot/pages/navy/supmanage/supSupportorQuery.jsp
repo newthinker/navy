@@ -54,19 +54,19 @@
 		
 			<center>
 				<table width="100%" height="100%" border="0" cellpadding="0"
-					cellspacing="0">
+					cellspacing="0" style="table-layout:fixed;">
 					<tr>
-						<td valign="top" height="1">
+						<td valign="top" height="31px">
 							<div id="site">&nbsp;当前位置：供应商信息查询</div>
 						</td>
 					</tr>
 					<tr>
-						<td valign="top" height="1">
+						<td valign="top" height="140px">
 							<jsp:include page="supSupportorQueryParam.jsp?mode=show"></jsp:include>
 						</td>
 					</tr>
 					<tr>
-						<td valign="top" height="25">
+						<td valign="top" height="35px">
 							<div id="btu_new">
 								<img src="resources/images/common/btn_search.gif" alt="查询" width="62" height="22"
 									onclick="submit_form('Navy','NavyManage','SupSupportorQueryService','/pages/navy/supmanage/supSupportorQuery.jsp');" />
@@ -77,6 +77,7 @@
 					</tr>
 					<tr>
 						<td valign="top">
+							<div style="overflow-x:scroll; width:100%; height:100%">
 							<table border="0" cellpadding="0" cellspacing="0"
 								height="100%" width="100%">
 								<tr>
@@ -84,29 +85,35 @@
 										<table border="0" cellpadding="0" cellspacing="0"
 											height="100%" width="100%">
 											<tr>
-												<td width="5%">
-													<div class="title" style="width:100%">序号</div>
-												</td>
-												<td width="20%">
-													<div class="title" style="width:100%">供应商名称</div>
-												</td>
-												<td width="15%">
-													<div class="title" style="width:100%">供应商类型</div>
-												</td>
-												<td width="25%">
-													<div class="title" style="width:100%">注册地址</div>
-												</td>
-												<td width="15%">
-													<div class="title" style="width:100%">网址</div>
-												</td>
-												<td width="10%">
-													<div class="title" style="width:100%">是否协议供应商</div>
+												<td>
+													<div class="title" style="width:50px">序号</div>
 												</td>
 												<td>
-													<div class="title" style="width:100%">操作</div>
+													<div class="title" style="width:150px">供应商名称</div>
 												</td>
-												<td width="16">
-													<div class="title" style="width:100%">&nbsp;</div>
+												<td>
+													<div class="title" style="width:150px">供应商类型</div>
+												</td>
+												<td>
+													<div class="title" style="width:250px">注册地址</div>
+												</td>
+												<td>
+													<div class="title" style="width:200px">经济性质</div>
+												</td>
+												<td>
+													<div class="title" style="width:100px">法定代表人</div>
+												</td>
+												<td>
+													<div class="title" style="width:100px">注册基本金</div>
+												</td>
+												<td>
+													<div class="title" style="width:100px">采购方式</div>
+												</td>
+												<td>
+													<div class="title" style="width:100px">操作</div>
+												</td>
+												<td>
+													<div class="title" style="width:16px">&nbsp;</div>
 												</td>
 											</tr>
 										</table>
@@ -114,8 +121,7 @@
 								</tr>
 								<tr>
 									<td valign="top" height="100%">
-										<div
-											style="overflow: scroll; overflow-x: hidden; width: 100%; height: 100%">
+										<div style="overflow:auto; width:100%; height:100%">
 											<table border="0" cellpadding="0" cellspacing="0"
 												width="100%" class="tbl">
 												<%
@@ -128,10 +134,10 @@
 														DTO data = (DTO)typeList.get(i);
 												%>
 												<tr>
-													<td width="5%">
+													<td width="50px">
 														<%= i + 1 + pages.getRowNumber() * (pages.getPageIndex() - 1) %>
 													</td>
-													<td width="20%">
+													<td width="150px">
 														<a href="javascript:window.document.getElementById('str_supid').value='<%= data.getString("SUPID")  %>';submit_form('Navy', 'NavyManage', 'SupSupportorQueryService', '/pages/navy/supmanage/supSupportorInfo.jsp');" class="link_blue_table">
 															<%
 																if (data.showString("TYPECODE").equals("A90000000") || 
@@ -144,19 +150,25 @@
 															%>
 														</a>
 													</td>
-													<td width="15%">
+													<td width="150px">
 														<%= data.getString("TYPE") == null ? "&nbsp;" : data.getString("TYPE") %>
 													</td>
-													<td width="25%">
-														&nbsp;&nbsp;<%= data.getString("ADDRESS") == null ? "&nbsp;" : data.getString("ADDRESS") %>
+													<td width="250px">
+														<%= data.getString("ADDRESS") == null ? "&nbsp;" : data.getString("ADDRESS") %>&nbsp;&nbsp;
 													</td>
-													<td width="15%">
-														&nbsp;&nbsp;&nbsp;<a target="_blank" class="link_blue" href="<%= (data.showString("NETADDR").toLowerCase().indexOf("http://") > 0) ? data.showString("NETADDR") : "http://" + data.showString("NETADDR") %>"><%= data.getString("NETADDR") == null ? "" : data.getString("NETADDR") %></a>&nbsp;
+													<td width="200px">
+														<%= data.getString("ECONOMY") == null ? "&nbsp;" : data.getString("ECONOMY") %>&nbsp;&nbsp;
 													</td>
-													<td width="10%">
-														&nbsp;&nbsp;&nbsp;<%= data.getString("SUPTYPE") == null ? "&nbsp;" : data.getString("SUPTYPE") %>
+													<td width="100px">
+														<%= data.getString("CORPORATION") == null ? "&nbsp;" : data.getString("CORPORATION") %>&nbsp;&nbsp;
 													</td>
-													<td>
+													<td width="100px">
+														<%= data.getString("LICCAPITAL") == null ? "&nbsp;" : data.getString("LICCAPITAL") %>&nbsp;&nbsp;
+													</td>
+													<td width="100px">
+														<%= data.getString("PURCHASETYPE") == null ? "&nbsp;" : data.getString("PURCHASETYPE") %>&nbsp;&nbsp;
+													</td>
+													<td width="100px">
 														&nbsp;&nbsp;&nbsp;
 														<a class="link_blue" href="javascript:window.document.getElementById('str_supid').value='<%= data.getString("SUPID")  %>';submit_form('Navy', 'NavyManage', 'SupSupportorQueryByIDService', '/pages/navy/supmanage/supSupportorUpdate.jsp');">修改</a>
 														<a class="link_blue" href="javascript:if (confirm('确定要删除记录吗？')) {window.document.getElementById('str_supid').value='<%= data.getString("SUPID")  %>';submit_form('Navy', 'NavyManage', 'SupportorDeleteService', '/pages/navy/supmanage/supSupportorQuery.jsp?opt=refresh');}">删除</a>
@@ -170,10 +182,11 @@
 									</td>
 								</tr>
 							</table>
+							</div>
 						</td>
 					</tr>
 					<tr>
-						<td height="30">
+						<td height="30px">
 							<div class="linepage1">
 								第<%= pages.getPageIndex() %>页/共<%= pages.getPageCount() == null ? 0 : pages.getPageCount() %>页 共<%= pages.getRowsCount() == null ? 0 : pages.getRowsCount() %>条记录
 								<a href="javascript:firstpage('Navy','NavyManage','SupSupportorQueryService','/pages/navy/supmanage/supSupportorQuery.jsp')">首页</a>

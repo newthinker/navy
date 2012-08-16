@@ -237,6 +237,32 @@
 		</tr>
 		<tr>
 			<td align="right">
+				组织机构代码:&nbsp;
+			</td>
+			<td align="left">
+				<input id="STR_QUERY_ORGANIZECODE" name="STR_QUERY_ORGANIZECODE" style="width:150px"
+					value="<%= queryParam.getString("QUERY_ORGANIZECODE") == null ? "" : queryParam.getString("QUERY_ORGANIZECODE") %>" />
+			</td>
+			<td align="right">
+				注册地址:&nbsp;
+			</td>
+			<td align="left">
+				<input id="STR_QUERY_ADDRESS" name="STR_QUERY_ADDRESS" style="width:150px"
+					value="<%= queryParam.getString("QUERY_ADDRESS") == null ? "" : queryParam.getString("QUERY_ADDRESS") %>" />
+			</td>
+			<td align="right">
+				是否协议供应商:&nbsp;
+			</td>
+			<td align="left">
+				<select name="STR_QUERY_SUPTYPE" id="STR_QUERY_SUPTYPE" style="width:150px">
+					<option value="">-请选择-</option>
+					<option value="是">是</option>
+					<option value="否">否</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td align="right">
 				生产范围:&nbsp;
 			</td>
 			<td align="left">

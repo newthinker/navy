@@ -7,6 +7,17 @@
 		<base href="<%= base %>" target="_self" />
 		<title>海军战略储备物资信息管理系统</title>
 		<link href="resources/css/login.css" rel="stylesheet" type="text/css" />
+		<style type="text/css">
+			#content {
+				width:1000px;
+				height:600px;
+				position:absolute;
+				top:50%;
+				margin-top:-300px;
+				left:50%;
+				margin-left:-500px;
+			}
+		</style>
 		<script language='javascript'>
 			function checkinput() {
 				var obj = document.getElementById("STR_LOGINNAME");
@@ -30,7 +41,7 @@
 	</head>
 	
 	<body background="#f2f3f3">
-		<center>
+		<div id="content" align="center">
 			<form action="login" method="post">
 				<input type="hidden" name="opt" id="opt" />
 				<input id="XML_DATA" name="XML_DATA" type="hidden" value="" />
@@ -56,7 +67,7 @@
 				
 				</div>
 			</form>
-		</center>
+		</div>
 		<script language='javascript'>
 			<% if (resp != null && resp.getErrorInfo() != null) { %>
 				alert("<%= resp.getErrorInfo() %>");

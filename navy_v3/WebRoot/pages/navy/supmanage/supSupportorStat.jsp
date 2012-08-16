@@ -157,7 +157,7 @@
 					var xmlcode1 = xmldata1.selectSingleNode("STR_DICTCODE");
 					if (xmlname1 && xmlcode1)
 					{
-						var item1 = new treeItem(xmlname1.text, "javascript:setvalue('" + xmlname1.text + "', '" + xmlcode1.text + "');", "_self");
+						var item1 = new treeItem(xmlname1.text, "javascript:void(0);", "_self");
 						item1.setup(document.getElementById("protypetree"));
 						
 						var xmldata2 = xmldata1.selectSingleNode("CHILDREN/Row");
@@ -167,7 +167,7 @@
 							var xmlcode2 = xmldata2.selectSingleNode("STR_DICTCODE");
 							if (xmlname2 && xmlcode2)
 							{
-								var item2 = new treeItem(xmlname2.text, "javascript:setvalue('" + xmlname2.text + "', '" + xmlcode2.text + "');", "_self");
+								var item2 = new treeItem(xmlname2.text, "javascript:void(0);", "_self");
 								item1.add(item2);
 
 								var xmldata3 = xmldata2.selectSingleNode("CHILDREN/Row");
@@ -272,10 +272,10 @@ function createChart(titleText, xCategories, yTitle, isAllowDecimals, tooltipTex
 		legend: {
 			layout: 'vertical',
 			backgroundColor: '#FFFFFF',
-			align: 'left',
+			align: 'right',
 			verticalAlign: 'top',
-			x: 100,
-			y: 70,
+			x: -10,
+			y: 20,
 			floating: true,
 			shadow: true
 		},
@@ -579,6 +579,8 @@ function changeSupType(type) {
 								{
 									document.getElementById("STR_QUERY_GOODNAME").innerText = value1;
 									document.getElementById("STR_QUERY_PRODCODE").value = value2;
+									showProtypeTree(document.getElementById("a_protypediv"));
+									chart.destroy();
 									submit_form('Navy','NavyManage','SupSupportorProdCapStatService','/pages/navy/supmanage/supSupportorStat.jsp');
 								}
 							</script>

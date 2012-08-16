@@ -1,9 +1,20 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-		<meta http-equiv="content-type" content="text/html;charset=gb2312"></meta>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<link href="../resources/css/table.css" rel="stylesheet" type="text/css" />
 		<link href="../resources/css/index.css" rel="stylesheet" type="text/css" />
+		<style type="text/css">
+			#warn {
+				width:440px;
+				height:180px;
+				position:absolute;
+				top:50%;
+				margin-top:-90px;
+				left:50%;
+				margin-left:-220px;
+			}
+		</style>
 	</head>
 
 	<body>
@@ -11,18 +22,27 @@
 			<div id="warn">
 				<table width="100%" border="0" cellspacing="0" cellpadding="0">
 					<tr>
-						<td height="110" id="warn_text">
-							´ËÏµÍ³ÄÚ²¿Êı¾İÊô»úÃÜĞÅÏ¢£¬
+						<td height="110px" id="warn_text">
+							æ­¤ç³»ç»Ÿå†…éƒ¨æ•°æ®å±æœºå¯†ä¿¡æ¯ï¼Œ
 							<br />
-							Î´¾­Ğí¿ÉÑÏ½ûË½×ÔĞŞ¸Ä¡¢¸´ÖÆ¡¢ÏÂÔØ¡¢É¾³ı¡£
+							æœªç»è®¸å¯ä¸¥ç¦ç§è‡ªä¿®æ”¹ã€å¤åˆ¶ã€ä¸‹è½½ã€åˆ é™¤ã€‚
 						</td>
 					</tr>
 					<tr>
-						<td align="center">
-							<input type="button" name="yes" id="yes" value="½Ó ÊÜ"
-								class="warnning_btn" onclick="window.location='index.jsp';" />
-							<input type="button" name="no" id="no" value="²»½ÓÊÜ"
-								class="warnning_btn" onclick="window.location='logout.jsp';" />
+						<td height="40px" align="center">
+							è¿˜æœ‰<span id="djs">3</span>ç§’è¿›å…¥ç³»ç»Ÿï¼
+							<script language='javascript'>
+								var t = 4;
+								function djs() {
+									--t;
+									document.getElementById("djs").innerText = t;
+									if (t == 0) {
+										window.location='index.jsp';
+									}
+									setTimeout("djs()", 1000);
+								}
+								djs();
+							</script>
 						</td>
 					</tr>
 				</table>
