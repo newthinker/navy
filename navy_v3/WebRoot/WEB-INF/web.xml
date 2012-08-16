@@ -17,6 +17,7 @@
 			/config/serviceconfig/log/log.xml,
 			/config/serviceconfig/navy/importmanage.xml,
 			/config/serviceconfig/navy/supportormanage.xml,
+			/config/serviceconfig/navy/supmanage.xml,
 			/config/serviceconfig/dict/dictmanage.xml,
 			/config/serviceconfig/priv/privmanage.xml
 		</param-value>
