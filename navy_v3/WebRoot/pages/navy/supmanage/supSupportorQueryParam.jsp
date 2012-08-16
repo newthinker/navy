@@ -316,7 +316,8 @@
 		</tr>
 	</table>
 	<script type="text/javascript">
-		//setSelect("STR_QUERY_SUPTYPE", "<%= queryParam.getString("QUERY_SUPTYPE") == null ? "" : queryParam.getString("QUERY_SUPTYPE") %>");
+		setSelect("STR_QUERY_SUPTYPE", "<%= queryParam.getString("QUERY_SUPTYPE") == null ? "" : queryParam.getString("QUERY_SUPTYPE") %>");
+		setSelect("STR_QUERY_LICCAPITAL", "<%= queryParam.getString("QUERY_LICCAPITAL") == null ? "" : queryParam.getString("QUERY_LICCAPITAL") %>");
 
 	</script>
 </div>

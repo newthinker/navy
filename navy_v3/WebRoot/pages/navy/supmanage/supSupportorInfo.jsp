@@ -26,10 +26,30 @@
 	DTO bank = (DTO)dictlist.get(1);
 	DTO credit = (DTO)dictlist.get(2);
 	
+	DTO supportor = null;
+	DTO transport = null;
+	DTO highway = null;
 	List typeList = (List)resp.getDto().getList("RESULT");
-	DTO dto = new DTO();
-	if (typeList != null && typeList.size() > 0) {
-		dto = (DTO) typeList.get(0);
+	if (typeList != null) {
+		if (typeList.size() > 0) {
+			supportor = (DTO) typeList.get(0);
+		}
+		if (typeList.size() > 1) {
+			transport = (DTO) typeList.get(1);
+		}
+		if (typeList.size() > 2) {
+			highway = (DTO) typeList.get(2);
+		}
+	}
+	
+	if (supportor == null) {
+		supportor = new DTO();
+	}
+	if (transport == null) {
+		transport = new DTO();
+	}
+	if (highway == null) {
+		highway = new DTO();
 	}
 	
 	SimpleDateFormat fmtDate = new SimpleDateFormat("yyyy-MM-dd");
@@ -64,7 +84,7 @@
 		<form action="system" method="post">
 			<jsp:include page="supSupportorQueryParam.jsp"></jsp:include>
 			<input type="hidden" name="opt" id="opt">
-			<input id="str_supid" name="str_supid" type="hidden" value="<%= dto.getString("SUPID") %>">
+			<input id="str_supid" name="str_supid" type="hidden" value="<%= supportor.getString("SUPID") %>">
 			<input id="XML_DATA" name="XML_DATA" type="hidden" value="">
 			
 			<input id="STR_TYPE" name="STR_TYPE" type="hidden" />
@@ -96,13 +116,13 @@
 									供应商名称
 								</th>
 								<td width="35%">
-									<%= dto.getString("SUPNAME") == null ? "" : dto.getString("SUPNAME") %>&nbsp;
+									<%= supportor.getString("SUPNAME") == null ? "" : supportor.getString("SUPNAME") %>&nbsp;
 								</td>
 								<th width="15%">
 									供应商英文名称
 								</th>
 								<td width="35%">
-									<%= dto.getString("SUPENNAME") == null ? "" : dto.getString("SUPENNAME") %>&nbsp;
+									<%= supportor.getString("SUPENNAME") == null ? "" : supportor.getString("SUPENNAME") %>&nbsp;
 								</td>
 							</tr>
 							<tr>
@@ -110,13 +130,13 @@
 									成立时间
 								</th>
 								<td>
-									<%= dto.getDate("CREATEDATE") == null ? "" : fmtDate.format(dto.getDate("CREATEDATE")) %>&nbsp;
+									<%= supportor.getDate("CREATEDATE") == null ? "" : fmtDate.format(supportor.getDate("CREATEDATE")) %>&nbsp;
 								</td>
 								<th>
 									公司简称
 								</th>
 								<td>
-									<%= dto.getString("ABBREVIATION") == null ? "" : dto.getString("ABBREVIATION") %>&nbsp;
+									<%= supportor.getString("ABBREVIATION") == null ? "" : supportor.getString("ABBREVIATION") %>&nbsp;
 								</td>
 							</tr>
 							<tr>
@@ -124,13 +144,13 @@
 									注册地址
 								</th>
 								<td>
-									<%= dto.getString("ADDRESS") == null ? "" : dto.getString("ADDRESS") %>&nbsp;
+									<%= supportor.getString("ADDRESS") == null ? "" : supportor.getString("ADDRESS") %>&nbsp;
 								</td>
 								<th>
 									邮政编码
 								</th>
 								<td>
-									<%= dto.getString("POSTCODE") == null ? "" : dto.getString("POSTCODE") %>&nbsp;
+									<%= supportor.getString("POSTCODE") == null ? "" : supportor.getString("POSTCODE") %>&nbsp;
 								</td>
 							</tr>
 							<tr>
@@ -138,17 +158,17 @@
 									所在地址
 								</th>
 								<td>
-									<%= dto.getString("LOCATION") == null ? "" : dto.getString("LOCATION") %>&nbsp;
+									<%= supportor.getString("LOCATION") == null ? "" : supportor.getString("LOCATION") %>&nbsp;
 								</td>
 								<th>
 									位置
 								</th>
 								<td>
 									经度：
-									<%= dto.showString("LONGITUDE") %>
+									<%= supportor.showString("LONGITUDE") %>
 									&nbsp;
 									纬度：
-									<%= dto.showString("LATITUDE") %>
+									<%= supportor.showString("LATITUDE") %>
 								</td>
 							</tr>
 							<tr>
@@ -156,13 +176,13 @@
 									网址
 								</th>
 								<td>
-									&nbsp;<a target="_blank" class="link_blue" href="<%= (dto.showString("NETADDR").toLowerCase().indexOf("http://") > 0) ? dto.showString("NETADDR") : "http://" + dto.showString("NETADDR") %>"><%= dto.getString("NETADDR") == null ? "" : dto.getString("NETADDR") %></a>&nbsp;
+									&nbsp;<a target="_blank" class="link_blue" href="<%= (supportor.showString("NETADDR").toLowerCase().indexOf("http://") > 0) ? supportor.showString("NETADDR") : "http://" + supportor.showString("NETADDR") %>"><%= supportor.getString("NETADDR") == null ? "" : supportor.getString("NETADDR") %></a>&nbsp;
 								</td>
 								<th>
 									组织机构代码
 								</th>
 								<td>
-									<%= dto.getString("ORGANIZECODE") == null ? "" : dto.getString("ORGANIZECODE") %>&nbsp;
+									<%= supportor.getString("ORGANIZECODE") == null ? "" : supportor.getString("ORGANIZECODE") %>&nbsp;
 								</td>
 							</tr>
 							<tr>
@@ -170,13 +190,13 @@
 									经济性质
 								</th>
 								<td>
-									<%= dto.getString("ECONOMY") == null ? "" : dto.getString("ECONOMY") %>&nbsp;
+									<%= supportor.getString("ECONOMY") == null ? "" : supportor.getString("ECONOMY") %>&nbsp;
 								</td>
 								<th>
 									供应商类型
 								</th>
 								<td>
-									<%= dto.showString("TYPE", "&nbsp;") %>
+									<%= supportor.showString("TYPE", "&nbsp;") %>
 								</td>
 							</tr>
 							<tr>
@@ -184,13 +204,13 @@
 									开户银行
 								</th>
 								<td>
-									<%= dto.getString("BANK") == null ? "" : dto.getString("BANK") %>&nbsp;
+									<%= supportor.getString("BANK") == null ? "" : supportor.getString("BANK") %>&nbsp;
 								</td>
 								<th>
 									银行账号
 								</th>
 								<td>
-									<%= dto.getString("ACCOUNT") == null ? "" : dto.getString("ACCOUNT") %>&nbsp;
+									<%= supportor.getString("ACCOUNT") == null ? "" : supportor.getString("ACCOUNT") %>&nbsp;
 								</td>
 							</tr>
 							<tr>
@@ -198,13 +218,13 @@
 									信用等级
 								</th>
 								<td>
-									<%= dto.getString("CREDIT") == null ? "" : dto.getString("CREDIT") %>&nbsp;
+									<%= supportor.getString("CREDIT") == null ? "" : supportor.getString("CREDIT") %>&nbsp;
 								</td>
 								<th>
 									信用等级评定机构
 								</th>
 								<td>
-									<%= dto.getString("CREDITORG") == null ? "" : dto.getString("CREDITORG") %>&nbsp;
+									<%= supportor.getString("CREDITORG") == null ? "" : supportor.getString("CREDITORG") %>&nbsp;
 								</td>
 							</tr>
 							<tr>
@@ -212,13 +232,13 @@
 									评定时间
 								</th>
 								<td>
-									<%= dto.getDate("CREDITDATE") == null ? "" : fmtDate.format(dto.getDate("CREDITDATE")) %>&nbsp;
+									<%= supportor.getDate("CREDITDATE") == null ? "" : fmtDate.format(supportor.getDate("CREDITDATE")) %>&nbsp;
 								</td>
 								<th>
 									类型
 								</th>
 								<td>
-									<%= dto.getString("SUPTYPE") == null ? "" : dto.getString("SUPTYPE") %>&nbsp;
+									<%= supportor.getString("SUPTYPE") == null ? "" : supportor.getString("SUPTYPE") %>&nbsp;
 								</td>
 							</tr>
 							<tr>
@@ -226,13 +246,13 @@
 									是否依法缴纳社会保险
 								</th>
 								<td>
-									<%= dto.getString("INSURANCE") == null ? "" : dto.getString("INSURANCE") %>&nbsp;
+									<%= supportor.getString("INSURANCE") == null ? "" : supportor.getString("INSURANCE") %>&nbsp;
 								</td>
 								<th>
 									近三年有无重大违法记录
 								</th>
 								<td>
-									<%= dto.getString("ILLEGAL") == null ? "" : dto.getString("ILLEGAL") %>&nbsp;
+									<%= supportor.getString("ILLEGAL") == null ? "" : supportor.getString("ILLEGAL") %>&nbsp;
 								</td>
 							</tr>
 							<tr>
@@ -240,7 +260,7 @@
 									供应商简介
 								</th>
 								<td colspan="3">
-									<textarea readonly="readonly" name="STR_SUMMARY" id="STR_SUMMARY" rows="5" cols="10"><%= dto.getString("SUMMARY") == null ? "" : dto.getString("SUMMARY") %></textarea>
+									<textarea readonly="readonly" name="STR_SUMMARY" id="STR_SUMMARY" rows="5" cols="10"><%= supportor.getString("SUMMARY") == null ? "" : supportor.getString("SUMMARY") %></textarea>
 								</td>
 							</tr>
 						</table>
@@ -265,13 +285,13 @@
 									法定代表人
 								</th>
 								<td width="35%">
-									<%= dto.getString("CORPORATION") == null ? "" : dto.getString("CORPORATION") %>&nbsp;
+									<%= supportor.getString("CORPORATION") == null ? "" : supportor.getString("CORPORATION") %>&nbsp;
 								</td>
 								<th width="15%">
 									固定电话
 								</th>
 								<td width="35%">
-									<%= dto.getString("CORPPHONE") == null ? "" : dto.getString("CORPPHONE") %>&nbsp;
+									<%= supportor.getString("CORPPHONE") == null ? "" : supportor.getString("CORPPHONE") %>&nbsp;
 								</td>
 							</tr>
 							<tr>
@@ -279,7 +299,7 @@
 									手机
 								</th>
 								<td>
-									<%= dto.getString("CORPMOBILE") == null ? "" : dto.getString("CORPMOBILE") %>&nbsp;
+									<%= supportor.getString("CORPMOBILE") == null ? "" : supportor.getString("CORPMOBILE") %>&nbsp;
 								</td>
 								<th>
 									&nbsp;
@@ -310,13 +330,13 @@
 									注册登记联系人
 								</th>
 								<td width="35%">
-									<%= dto.getString("CONTACT") == null ? "" : dto.getString("CONTACT") %>&nbsp;
+									<%= supportor.getString("CONTACT") == null ? "" : supportor.getString("CONTACT") %>&nbsp;
 								</td>
 								<th width="15%">
 									固定电话
 								</th>
 								<td width="35%">
-									<%= dto.getString("CONTACTPHONE") == null ? "" : dto.getString("CONTACTPHONE") %>&nbsp;
+									<%= supportor.getString("CONTACTPHONE") == null ? "" : supportor.getString("CONTACTPHONE") %>&nbsp;
 								</td>
 							</tr>
 							<tr>
@@ -324,13 +344,13 @@
 									手机
 								</th>
 								<td>
-									<%= dto.getString("CONTACTMOBILE") == null ? "" : dto.getString("CONTACTMOBILE") %>&nbsp;
+									<%= supportor.getString("CONTACTMOBILE") == null ? "" : supportor.getString("CONTACTMOBILE") %>&nbsp;
 								</td>
 								<th>
 									传真
 								</th>
 								<td>
-									<%= dto.getString("CONTACTFAX") == null ? "" : dto.getString("CONTACTFAX") %>&nbsp;
+									<%= supportor.getString("CONTACTFAX") == null ? "" : supportor.getString("CONTACTFAX") %>&nbsp;
 								</td>
 							</tr>
 							<tr>
@@ -338,7 +358,7 @@
 									电子邮箱
 								</th>
 								<td>
-									<%= dto.getString("CONTACTEMAIL") == null ? "" : dto.getString("CONTACTEMAIL") %>&nbsp;
+									<%= supportor.getString("CONTACTEMAIL") == null ? "" : supportor.getString("CONTACTEMAIL") %>&nbsp;
 								</td>
 								<th>
 									&nbsp;
@@ -369,13 +389,13 @@
 									注册号
 								</th>
 								<td width="35%">
-									<%= dto.getString("LICNO") == null ? "" : dto.getString("LICNO") %>&nbsp;
+									<%= supportor.getString("LICNO") == null ? "" : supportor.getString("LICNO") %>&nbsp;
 								</td>
 								<th width="15%">
 									发证机关
 								</th>
 								<td width="35%">
-									<%= dto.getString("LICORG") == null ? "" : dto.getString("LICORG") %>&nbsp;
+									<%= supportor.getString("LICORG") == null ? "" : supportor.getString("LICORG") %>&nbsp;
 								</td>
 							</tr>
 							<tr>
@@ -383,13 +403,13 @@
 									注册资本金
 								</th>
 								<td>
-									<%= dto.getNumber("LICCAPITAL") == null ? "" : dto.getNumber("LICCAPITAL").doubleValue() %>&nbsp;&nbsp;万元
+									<%= supportor.getNumber("LICCAPITAL") == null ? "" : supportor.getNumber("LICCAPITAL").doubleValue() %>&nbsp;&nbsp;万元
 								</td>
 								<th>
 									注册所在地
 								</th>
 								<td>
-									<%= dto.getString("LICADDR") == null ? "" : dto.getString("LICADDR") %>&nbsp;
+									<%= supportor.getString("LICADDR") == null ? "" : supportor.getString("LICADDR") %>&nbsp;
 								</td>
 							</tr>
 							<tr>
@@ -397,13 +417,13 @@
 									有效期开始时间
 								</th>
 								<td>
-									<%= dto.getDate("LICVALSTART") == null ? "" : fmtDate.format(dto.getDate("LICVALSTART")) %>&nbsp;
+									<%= supportor.getDate("LICVALSTART") == null ? "" : fmtDate.format(supportor.getDate("LICVALSTART")) %>&nbsp;
 								</td>
 								<th>
 									有效期结束时间
 								</th>
 								<td>
-									<%= dto.getDate("LICVALEND") == null ? "" : fmtDate.format(dto.getDate("LICVALEND")) %>&nbsp;
+									<%= supportor.getDate("LICVALEND") == null ? "" : fmtDate.format(supportor.getDate("LICVALEND")) %>&nbsp;
 								</td>
 							</tr>
 							<tr>
@@ -411,7 +431,7 @@
 									最近年检时间
 								</th>
 								<td>
-									<%= dto.getDate("EXADATE") == null ? "" : fmtDate.format(dto.getDate("EXADATE")) %>&nbsp;
+									<%= supportor.getDate("EXADATE") == null ? "" : fmtDate.format(supportor.getDate("EXADATE")) %>&nbsp;
 								</td>
 								<th>
 									&nbsp;
@@ -425,7 +445,7 @@
 									主要经营范围
 								</th>
 								<td colspan="3">
-									<textarea readonly="readonly" name="STR_LICMAINOPT" id="STR_LICMAINOPT" rows="5" cols="10"><%= dto.getString("LICMAINOPT") == null ? "" : dto.getString("LICMAINOPT") %></textarea>
+									<textarea readonly="readonly" name="STR_LICMAINOPT" id="STR_LICMAINOPT" rows="5" cols="10"><%= supportor.getString("LICMAINOPT") == null ? "" : supportor.getString("LICMAINOPT") %></textarea>
 								</td>
 							</tr>
 							<tr>
@@ -433,7 +453,7 @@
 									兼营经营范围
 								</th>
 								<td colspan="3">
-									<textarea readonly="readonly" name="STR_LICOTHEROPT" id="STR_LICOTHEROPT" rows="5" cols="10"><%= dto.getString("LICOTHEROPT") == null ? "" : dto.getString("LICOTHEROPT") %></textarea>
+									<textarea readonly="readonly" name="STR_LICOTHEROPT" id="STR_LICOTHEROPT" rows="5" cols="10"><%= supportor.getString("LICOTHEROPT") == null ? "" : supportor.getString("LICOTHEROPT") %></textarea>
 								</td>
 							</tr>
 						</table>
@@ -458,13 +478,13 @@
 									登记证号
 								</th>
 								<td width="35%">
-									<%= dto.getString("STATETAXNO") == null ? "" : dto.getString("STATETAXNO") %>&nbsp;
+									<%= supportor.getString("STATETAXNO") == null ? "" : supportor.getString("STATETAXNO") %>&nbsp;
 								</td>
 								<th width="15%">
 									发证机关
 								</th>
 								<td width="35%">
-									<%= dto.getString("STATETAXORG") == null ? "" : dto.getString("STATETAXORG") %>&nbsp;
+									<%= supportor.getString("STATETAXORG") == null ? "" : supportor.getString("STATETAXORG") %>&nbsp;
 								</td>
 							</tr>
 							<tr>
@@ -472,13 +492,13 @@
 									有效期开始时间
 								</th>
 								<td>
-									<%= dto.getDate("STATETAXVALSTART") == null ? "" : fmtDate.format(dto.getDate("STATETAXVALSTART")) %>&nbsp;
+									<%= supportor.getDate("STATETAXVALSTART") == null ? "" : fmtDate.format(supportor.getDate("STATETAXVALSTART")) %>&nbsp;
 								</td>
 								<th>
 									有效期结束时间
 								</th>
 								<td>
-									<%= dto.getDate("STATETAXVALEND") == null ? "" : fmtDate.format(dto.getDate("STATETAXVALEND")) %>&nbsp;
+									<%= supportor.getDate("STATETAXVALEND") == null ? "" : fmtDate.format(supportor.getDate("STATETAXVALEND")) %>&nbsp;
 								</td>
 							</tr>
 							<tr>
@@ -486,7 +506,7 @@
 									是否依法缴纳税收
 								</th>
 								<td>
-									<%= dto.getString("IFSTATETAX") == null ? "" : dto.getString("IFSTATETAX") %>&nbsp;
+									<%= supportor.getString("IFSTATETAX") == null ? "" : supportor.getString("IFSTATETAX") %>&nbsp;
 								</td>
 								<th>
 									&nbsp;
@@ -517,13 +537,13 @@
 									登记证号
 								</th>
 								<td width="35%">
-									<%= dto.getString("LOCALTAXNO") == null ? "" : dto.getString("LOCALTAXNO") %>&nbsp;
+									<%= supportor.getString("LOCALTAXNO") == null ? "" : supportor.getString("LOCALTAXNO") %>&nbsp;
 								</td>
 								<th width="15%">
 									发证机关
 								</th>
 								<td width="35%">
-									<%= dto.getString("LOCALTAXORG") == null ? "" : dto.getString("LOCALTAXORG") %>&nbsp;
+									<%= supportor.getString("LOCALTAXORG") == null ? "" : supportor.getString("LOCALTAXORG") %>&nbsp;
 								</td>
 							</tr>
 							<tr>
@@ -531,13 +551,13 @@
 									有效期开始时间
 								</th>
 								<td>
-									<%= dto.getDate("LOCALTAXVALSTART") == null ? "" : fmtDate.format(dto.getDate("LOCALTAXVALSTART")) %>&nbsp;
+									<%= supportor.getDate("LOCALTAXVALSTART") == null ? "" : fmtDate.format(supportor.getDate("LOCALTAXVALSTART")) %>&nbsp;
 								</td>
 								<th>
 									有效期结束时间
 								</th>
 								<td>
-									<%= dto.getDate("LOCALTAXVALEND") == null ? "" : fmtDate.format(dto.getDate("LOCALTAXVALEND")) %>&nbsp;
+									<%= supportor.getDate("LOCALTAXVALEND") == null ? "" : fmtDate.format(supportor.getDate("LOCALTAXVALEND")) %>&nbsp;
 								</td>
 							</tr>
 							<tr>
@@ -545,7 +565,7 @@
 									是否依法缴纳税收
 								</th>
 								<td>
-									<%= dto.getString("IFLOCALTAX") == null ? "" : dto.getString("IFLOCALTAX") %>&nbsp;
+									<%= supportor.getString("IFLOCALTAX") == null ? "" : supportor.getString("IFLOCALTAX") %>&nbsp;
 								</td>
 								<th>
 									&nbsp;
@@ -576,13 +596,13 @@
 									仓库总面积
 								</th>
 								<td width="35%">
-									<%= dto.getNumber("STOREHOUSEAREA") == null ? "" : dto.getNumber("STOREHOUSEAREA") %>&nbsp;
+									<%= supportor.getNumber("STOREHOUSEAREA") == null ? "" : supportor.getNumber("STOREHOUSEAREA") %>&nbsp;
 								</td>
 								<th width="15%">
 									货场总面积
 								</th>
 								<td width="35%">
-									<%= dto.getNumber("WAREHOUSEAREA") == null ? "" : dto.getNumber("WAREHOUSEAREA") %>&nbsp;
+									<%= supportor.getNumber("WAREHOUSEAREA") == null ? "" : supportor.getNumber("WAREHOUSEAREA") %>&nbsp;
 								</td>
 							</tr>
 						<!--	<tr>
@@ -590,10 +610,10 @@
 									仓库照片
 								</th>
 								<td>
-									<% if (dto.getString("STOREHOUSEIMAGE") == null) { %>
+									<% if (supportor.getString("STOREHOUSEIMAGE") == null) { %>
 									&nbsp;
 									<% } else { %>
-									<a href="<%= base + "/" + dto.getString("STOREHOUSEIMAGE") %>" target="_blank">查看</a>&nbsp;
+									<a href="<%= base + "/" + supportor.getString("STOREHOUSEIMAGE") %>" target="_blank">查看</a>&nbsp;
 									<% } %>
 								</td>
 								<th>
@@ -625,13 +645,13 @@
 									提供运输的企业
 								</th>
 								<td width="35%">
-									<%= dto.getString("COMNAME") == null ? "" : dto.getString("COMNAME") %>&nbsp;
+									<%= transport.getString("COMNAME") == null ? "" : transport.getString("COMNAME") %>&nbsp;
 								</td>
 								<th width="15%">
 									运输车类型
 								</th>
 								<td width="35%">
-									<%= dto.getString("TRUCKTYPE") == null ? "" : dto.getString("TRUCKTYPE") %>&nbsp;
+									<%= transport.getString("TRUCKTYPE") == null ? "" : transport.getString("TRUCKTYPE") %>&nbsp;
 								</td>
 							</tr>
 							<tr>
@@ -639,13 +659,13 @@
 									载重量
 								</th>
 								<td>
-									<%= dto.getString("DEADWEIGHT") == null ? "" : dto.getString("DEADWEIGHT") %>&nbsp;
+									<%= transport.getDouble("DEADWEIGHT") == null ? "" : transport.getDouble("DEADWEIGHT") %>&nbsp;
 								</td>
 								<th>
 									数量（台）
 								</th>
 								<td>
-									<%= dto.getString("COUNT") == null ? "" : dto.getString("COUNT") %>&nbsp;
+									<%= transport.getInt("COUNT") == null ? "" : transport.getInt("COUNT") %>&nbsp;
 								</td>
 							</tr>
 							<tr>
@@ -653,13 +673,13 @@
 									高速公路名称
 								</th>
 								<td>
-									<%= dto.getString("HIWNAME") == null ? "" : dto.getString("HIWNAME") %>&nbsp;
+									<%= highway.getString("HIWNAME") == null ? "" : highway.getString("HIWNAME") %>&nbsp;
 								</td>
 								<th>
 									高速公路编号
 								</th>
 								<td>
-									<%= dto.getString("HIWID") == null ? "" : dto.getString("HIWID") %>&nbsp;
+									<%= highway.getString("HIWID") == null ? "" : highway.getString("HIWID") %>&nbsp;
 								</td>
 							</tr>
 							<tr>
@@ -667,13 +687,13 @@
 									高速公路入口名称
 								</th>
 								<td>
-									<%= dto.getString("HIWIN") == null ? "" : dto.getString("HIWIN") %>&nbsp;
+									<%= highway.getString("HIWIN") == null ? "" : highway.getString("HIWIN") %>&nbsp;
 								</td>
 								<th>
 									高速公路入口编号
 								</th>
 								<td>
-									<%= dto.getString("HIWINID") == null ? "" : dto.getString("HIWINID") %>&nbsp;
+									<%= highway.getString("HIWINID") == null ? "" : highway.getString("HIWINID") %>&nbsp;
 								</td>
 							</tr>
 							<tr>
@@ -687,7 +707,7 @@
 									高速公路入口距离
 								</th>
 								<td>
-									<%= dto.getString("HIWDIS") == null ? "" : dto.getString("HIWDIS") %>&nbsp;
+									<%= highway.getDouble("HIWDIS") == null ? "" : highway.getDouble("HIWDIS") %>&nbsp;
 								</td>
 							</tr>
 							<tr>
@@ -695,13 +715,13 @@
 									最近铁路货运站
 								</th>
 								<td>
-									<%= dto.getString("NEARRAILWAY") == null ? "" : dto.getString("NEARRAILWAY") %>&nbsp;
+									<%= transport.getString("NEARRAILWAY") == null ? "" : transport.getString("NEARRAILWAY") %>&nbsp;
 								</td>
 								<th>
 									货运站距离
 								</th>
 								<td>
-									<%= dto.getString("RWDIS") == null ? "" : dto.getString("RWDIS") %>&nbsp;
+									<%= transport.getDouble("RWDIS") == null ? "" : transport.getDouble("RWDIS") %>&nbsp;
 								</td>
 							</tr>
 							<tr>
@@ -709,13 +729,13 @@
 									最近港口
 								</th>
 								<td>
-									<%= dto.getString("NEARPORT") == null ? "" : dto.getString("NEARPORT") %>&nbsp;
+									<%= transport.getString("NEARPORT") == null ? "" : transport.getString("NEARPORT") %>&nbsp;
 								</td>
 								<th>
 									港口距离
 								</th>
 								<td>
-									<%= dto.getString("PORTDIS") == null ? "" : dto.getString("PORTDIS") %>&nbsp;
+									<%= transport.getDouble("PORTDIS") == null ? "" : transport.getDouble("PORTDIS") %>&nbsp;
 								</td>
 							</tr>
 							<tr>
@@ -723,13 +743,13 @@
 									最近机场
 								</th>
 								<td>
-									<%= dto.getString("NEARAIRPORT") == null ? "" : dto.getString("NEARAIRPORT") %>&nbsp;
+									<%= transport.getString("NEARAIRPORT") == null ? "" : transport.getString("NEARAIRPORT") %>&nbsp;
 								</td>
 								<th>
 									机场距离
 								</th>
 								<td>
-									<%= dto.getString("APDIS") == null ? "" : dto.getString("APDIS") %>&nbsp;
+									<%= transport.getDouble("APDIS") == null ? "" : transport.getDouble("APDIS") %>&nbsp;
 								</td>
 							</tr>
 						</table>
@@ -747,7 +767,7 @@
 				</tr>
 				<tr>
 					<td colspan="3" style="border:1px solid #b9c5c9; border-top:none; background-color:#ffffff;">
-						<iframe src="pages/navy/supmanage/supSupportorProdQueryDetail.jsp?supid=<%= dto.showString("SUPID") %>"
+						<iframe src="pages/navy/supmanage/supSupportorProdQueryDetail.jsp?supid=<%= supportor.showString("SUPID") %>"
 							frameborder="0" scrolling="no" width="100%" height="310"></iframe>
 					</td>
 				</tr>
@@ -763,7 +783,7 @@
 				</tr>
 				<tr>
 					<td colspan="3" style="border:1px solid #b9c5c9; border-top:none; background-color:#ffffff;">
-						<iframe src="pages/navy/supmanage/supSupportorStockQueryDetail.jsp?supid=<%= dto.showString("SUPID") %>"
+						<iframe src="pages/navy/supmanage/supSupportorStockQueryDetail.jsp?supid=<%= supportor.showString("SUPID") %>"
 							frameborder="0" scrolling="no" width="100%" height="310"></iframe>
 					</td>
 				</tr>
@@ -779,7 +799,7 @@
 				</tr>
 				<tr>
 					<td colspan="3" style="border:1px solid #b9c5c9; border-top:none; background-color:#ffffff;">
-						<iframe src="pages/navy/supmanage/supSupportorSaleOrgQueryDetail.jsp?supid=<%= dto.showString("SUPID") %>"
+						<iframe src="pages/navy/supmanage/supSupportorSaleOrgQueryDetail.jsp?supid=<%= supportor.showString("SUPID") %>"
 							frameborder="0" scrolling="no" width="100%" height="310"></iframe>
 					</td>
 				</tr>
