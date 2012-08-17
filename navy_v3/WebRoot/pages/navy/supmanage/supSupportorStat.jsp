@@ -130,7 +130,7 @@
 		}
 		return request;
 	}
-	function set_producttype()
+	function set_producttype(code, item)
 	{
 		var requestTest = "<?xml version='1.0' encoding='UTF-8'?><Request>" +
 		"<header>" +
@@ -139,7 +139,7 @@
 			"<responseService>ProductTypeQueryService</responseService>" +
 			"<dispatcherUrl></dispatcherUrl>" +
 		"</header>" +
-		"<DTO></DTO></Request>";
+		"<DTO><STR_FATHERCODE>" + code + "</STR_FATHERCODE></DTO></Request>";
 	
 		var request = getRequest();
 		var url = '<%=request.getContextPath()%>/systemxhr?opt=&XML_DATA='+escape(requestTest);
@@ -148,8 +148,6 @@
 		{
 			if (request.readyState==4 && request.status==200)
 			{
-				//console.log(request.responseText);
-				//alert("waiting for creating tree...");
 				var xmldata1 = request.responseXML.selectSingleNode("Response/DTO/DICT_LIST/Row/LIS_RESULT/Row");
 				while (xmldata1)
 				{
@@ -157,42 +155,39 @@
 					var xmlcode1 = xmldata1.selectSingleNode("STR_DICTCODE");
 					if (xmlname1 && xmlcode1)
 					{
-						var item1 = new treeItem(xmlname1.text, "javascript:void(0);", "_self");
-						item1.setup(document.getElementById("protypetree"));
-						
-						var xmldata2 = xmldata1.selectSingleNode("CHILDREN/Row");
-						while (xmldata2)
-						{
-							var xmlname2 = xmldata2.selectSingleNode("STR_DICTNAME");
-							var xmlcode2 = xmldata2.selectSingleNode("STR_DICTCODE");
-							if (xmlname2 && xmlcode2)
-							{
-								var item2 = new treeItem(xmlname2.text, "javascript:void(0);", "_self");
-								item1.add(item2);
-
-								var xmldata3 = xmldata2.selectSingleNode("CHILDREN/Row");
-								while (xmldata3)
-								{
-									var xmlname3 = xmldata3.selectSingleNode("STR_DICTNAME");
-									var xmlcode3 = xmldata3.selectSingleNode("STR_DICTCODE");
-									if (xmlname3 && xmlcode3)
-									{
-										var item3 = new treeItem(xmlname3.text, "javascript:setvalue('" + xmlname3.text + "', '" + xmlcode3.text + "');", "_self");
-										item2.add(item3);
-									}
-									xmldata3 = xmldata3.nextSibling;
-								}
-							}
-							xmldata2 = xmldata2.nextSibling;
-						}
+						var item1 = new treeItem(xmlname1.text, 
+								"javascript:setvalue('" + xmlname1.text + "', '" + xmlcode1.text + "');", 
+								"_self",null,null,xmlcode1.text);
+						item.add(item1);
 					}
 					xmldata1 = xmldata1.nextSibling;
 				}
-
-				document.getElementById("protypenotify").style.display = "none";
+				item.expand();
 			}
 		};
 		request.send(null);
+	}
+
+	function setvalue(value1, value2)
+	{
+		var selItem = Global.selectedItem;
+		if (selItem) {
+			if (selItem.level < 3) {
+				if (selItem.childNodes.length > 0) {
+					selItem.expand();
+				}
+				else {
+					set_producttype(value2, selItem);
+				}
+			}
+			else {
+				document.getElementById("STR_QUERY_GOODNAME").innerText = value1;
+				document.getElementById("STR_QUERY_PRODCODE").value = value2;
+				showProtypeTree(document.getElementById("a_protypediv"));
+				chart.destroy();
+				submit_form('Navy','NavyManage','SupSupportorProdCapStatService','/pages/navy/supmanage/supSupportorStat.jsp');
+			}
+		}
 	}
 </script>
 
@@ -556,7 +551,6 @@ function changeSupType(type) {
 								value="<%= queryParam.getString("QUERY_PRODCODE") == null ? "" : queryParam.getString("QUERY_PRODCODE") %>" />
 							<a id="a_protypediv" class="link_blue_table" href="javascript:void(0)" onclick="showProtypeTree(this);">显示产品编目</a>
 							<div id="protypediv" align="left" style="position:absolute; display:none; overflow:auto; z-index:999; background-color:#FFFFFF; border:solid 1px #000000; padding:5px; width:250px; height:300px;" >
-								<div id="protypenotify">请稍等...</div>
 								<div id="protypetree"></div>
 							</div>
 							<script type="text/javascript">
@@ -566,22 +560,15 @@ function changeSupType(type) {
 									ScriptHelper.showDivCommon(obj,'protypediv');
 									if (protypetreeInit == 0)
 									{
-										set_producttype();
+										var item1 = new treeItem("产品编目", "javascript:setvalue('产品编目', -1);", "_self",null,null,-1);
+										item1.setup(document.getElementById("protypetree"));
+										//set_producttype();
 										protypetreeInit = 1;
 									}
 									if (document.getElementById("a_protypediv").innerText == "显示产品编目")
 										document.getElementById("a_protypediv").innerText = "隐藏产品编目";
 									else
 										document.getElementById("a_protypediv").innerText = "显示产品编目";
-								}
-			
-								function setvalue(value1, value2)
-								{
-									document.getElementById("STR_QUERY_GOODNAME").innerText = value1;
-									document.getElementById("STR_QUERY_PRODCODE").value = value2;
-									showProtypeTree(document.getElementById("a_protypediv"));
-									chart.destroy();
-									submit_form('Navy','NavyManage','SupSupportorProdCapStatService','/pages/navy/supmanage/supSupportorStat.jsp');
 								}
 							</script>
 						</div>

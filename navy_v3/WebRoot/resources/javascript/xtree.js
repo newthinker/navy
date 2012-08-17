@@ -31,7 +31,7 @@ function preLoadImage(){
 	}
 };preLoadImage();
 
-function treeItem(text,action,target,title,Icon)
+function treeItem(text,action,target,title,Icon,data)
 {
 	this.id=Global.getId();
 	this.level=0;
@@ -51,6 +51,7 @@ function treeItem(text,action,target,title,Icon)
 	this.JsItem=null;
 	this.container=document.createElement("div");
 	this.icon=Icon;
+	this.data=data;
 	Global.all[Global.all.length]=this;
 }
 

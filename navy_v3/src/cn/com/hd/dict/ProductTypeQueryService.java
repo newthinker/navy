@@ -22,72 +22,29 @@ public class ProductTypeQueryService extends BaseService implements IService {
 
 	@SuppressWarnings("unchecked")
 	public Response service(Request request) throws Exception {
-		Conditions cons = new Conditions();
-		cons.addCondition(new TDictDetail());
-		cons.addExpression("type_id = '15' order by dict_code asc");
-		SelectResultSet result = super.queryResultSet(cons);
-		List listtmp = super.getDTO(result);
-		HashMap<String, List> mapDict = new HashMap<String, List>();
-		for (Object item : listtmp) {
-			DTO itemdto = (DTO)item;
-			TDictDetail dictdetail = new TDictDetail();
-			super.getData(itemdto, dictdetail);
-			List listDict = mapDict.get(dictdetail.getFathercode());
-			if (listDict == null)
-			{
-				listDict = new ArrayList();
-				listDict.add(dictdetail);
-				mapDict.put(dictdetail.getFathercode(), listDict);
-			}
-			else
-			{
-				listDict.add(dictdetail);
-			}
-		}
-
-		List dictlist = new ArrayList();
-		List listl1 = mapDict.get("-1");
-		if (listl1 != null)
-		{
-			for (int i=0; i<listl1.size(); i++)
-			{
-				TDictDetail td1 = (TDictDetail)listl1.get(i);
-				TProductType tp1 = new TProductType();
-				tp1.setDictname(td1.getDictname());
-				tp1.setDictcode(td1.getDictcode());
-				tp1.setFathercode(td1.getFathercode());
-
-				List listl2 = mapDict.get(tp1.getDictcode());
-				if (listl2 != null)
-				{
-					for (int j=0; j<listl2.size(); j++)
-					{
-						TDictDetail td2 = (TDictDetail)listl2.get(j);
-						TProductType tp2 = new TProductType();
-						tp2.setDictname(td2.getDictname());
-						tp2.setDictcode(td2.getDictcode());
-						tp2.setFathercode(td2.getFathercode());
-
-						List listl3 = mapDict.get(tp2.getDictcode());
-						if (listl3 != null)
-						{
-							for (int k=0; k<listl3.size(); k++)
-							{
-								TDictDetail td3 = (TDictDetail)listl3.get(k);
-								TProductType tp3 = new TProductType();
-								tp3.setDictname(td3.getDictname());
-								tp3.setDictcode(td3.getDictcode());
-								tp3.setFathercode(td3.getFathercode());
-								tp2.setChildren(super.getDTO(tp3));
-							}
-						}
-						tp1.setChildren(super.getDTO(tp2));
-					}
-				}
-				dictlist.add(super.getDTO(tp1));
-			}
+		TDictDetail dictdetail = new TDictDetail();
+		super.getData(request.getDto(), dictdetail);
+		dictdetail.setTypeid("15");
+		if (dictdetail.getFathercode() == null) {
+			dictdetail.setFathercode("-1");
 		}
 		
+		Conditions cons = new Conditions();
+		cons.addCondition(new TDictDetail());
+		cons.addExpression("type_id = '" + dictdetail.getTypeid()
+				+ "' and father_code = '" + dictdetail.getFathercode() + "'");
+		SelectResultSet result = super.queryResultSet(cons);
+		List listtmp = super.getDTO(result);
+
+		List dictlist = new ArrayList();
+		for (Object item : listtmp) {
+			DTO itemdto = (DTO)item;
+			TProductType tp1 = new TProductType();
+			tp1.setDictname(itemdto.getString("DICTNAME"));
+			tp1.setDictcode(itemdto.getString("DICTCODE"));
+			dictlist.add(super.getDTO(tp1));
+		}
+
 		DTO dictDTO = new DTO();
 		dictDTO.setList("RESULT", dictlist);
 		

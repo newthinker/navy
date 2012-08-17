@@ -21,9 +21,9 @@ public class TProductType extends BaseDTO {
 	/* property */
 	private String dictname;
 	
-	private String fathercode;
-	
-	private List children;
+//	private String fathercode;
+//	
+//	private List children;
 
 	/** default constructor */
 	public TProductType() {
@@ -45,32 +45,32 @@ public class TProductType extends BaseDTO {
 		this.dictname = value;
 	}
 
-	public String getFathercode() {
-		return fathercode;
-	}
-
-	public void setFathercode(String value) {
-		this.fathercode = value;
-	}
-
-	public List getChildren() {
-		return children;
-	}
-
-	public void setChildren(DTO value) {
-		if (this.children == null)
-		{
-			this.children = new ArrayList();
-			this.children.add(value);
-		}
-		else
-		{
-			this.children.add(value);
-		}
-	}
-
-	public void setChildren(List value) {
-		this.children = value;
-	}
+//	public String getFathercode() {
+//		return fathercode;
+//	}
+//
+//	public void setFathercode(String value) {
+//		this.fathercode = value;
+//	}
+//
+//	public List getChildren() {
+//		return children;
+//	}
+//
+//	public void setChildren(DTO value) {
+//		if (this.children == null)
+//		{
+//			this.children = new ArrayList();
+//			this.children.add(value);
+//		}
+//		else
+//		{
+//			this.children.add(value);
+//		}
+//	}
+//
+//	public void setChildren(List value) {
+//		this.children = value;
+//	}
 	
 }
