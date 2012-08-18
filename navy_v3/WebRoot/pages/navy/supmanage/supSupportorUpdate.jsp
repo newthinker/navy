@@ -112,8 +112,13 @@
 			<input id="str_supid" name="str_supid" type="hidden" value="<%= dto.getString("SUPID") %>">
 			<input id="XML_DATA" name="XML_DATA" type="hidden" value="">
 			
-			<input id="STR_TYPE" name="STR_TYPE" type="hidden" />
-			<input id="STR_CREDIT" name="STR_CREDIT" type="hidden" />
+			<input id="STR_ECONOMY" name="STR_ECONOMY" type="hidden" value="<%= dto.getString("ECONOMY") == null ? "" : dto.getString("ECONOMY") %>" />
+			<input id="STR_TYPE" name="STR_TYPE" type="hidden" value="<%= dto.getString("TYPE") == null ? "" : dto.getString("TYPE") %>" />
+			<input id="STR_PURCHASETYPE" name="STR_PURCHASETYPE" type="hidden" value="<%= dto.getString("PURCHASETYPE") == null ? "" : dto.getString("PURCHASETYPE") %>" />
+			<input id="STR_BANK" name="STR_BANK" type="hidden" value="<%= dto.getString("BANK") == null ? "" : dto.getString("BANK") %>" />
+			<input id="STR_CREDIT" name="STR_CREDIT" type="hidden" value="<%= dto.getString("CREDIT") == null ? "" : dto.getString("CREDIT") %>" />
+			
+			<input id="STR_TRUCKTYPE" name="STR_TRUCKTYPE" type="hidden" value="<%= dto.getString("TRUCKTYPE") == null ? "" : dto.getString("TRUCKTYPE") %>" />
 			
 			<div id="site">
 				当前位置：
@@ -232,7 +237,7 @@
 									经济性质
 								</th>
 								<td>
-									<select name="STR_ECONOMY" id="STR_ECONOMY" style="width:200px;"
+									<select name="STR_ECONOMYID" id="STR_ECONOMYID" style="width:200px;"
 										onchange="setSelectLabel('STR_ECONOMY', this)">
 										<option value="">-请选择-</option>
 										<%
@@ -250,7 +255,7 @@
 								</th>
 								<td>
 									<select name="STR_TYPECODE" id="STR_TYPECODE" style="width:200px;"
-										onchange="setSelectLabel('STR_TYPECODE', this)">
+										onchange="setSelectLabel('STR_TYPE', this)">
 										<option value="">-请选择-</option>
 										<%
 											for (int i = 0; i < type.getList("RESULT").size(); i ++) {
@@ -271,7 +276,7 @@
 									采购方式
 								</th>
 								<td>
-									<select name="STR_PURCHASETYPE" id="STR_PURCHASETYPE" style="width:200px;"
+									<select name="STR_PURCHASETYPEID" id="STR_PURCHASETYPEID" style="width:200px;"
 										onchange="setSelectLabel('STR_PURCHASETYPE', this)">
 										<option value="">-请选择-</option>
 										<%
@@ -300,10 +305,8 @@
 									开户银行
 								</th>
 								<td>
-									<!--input type="text" name="STR_BANK" id="STR_BANK"
-										class="searchTbl_input" value="<--%= dto.getString("BANK") == null ? "" : dto.getString("BANK") %>" /-->
-									<select name="STR_BANK" id="STR_BANK" style="width:200px;"
-										onchange="setSelectLabel('STR_TYPE', this)">
+									<select name="STR_BANKID" id="STR_BANKID" style="width:200px;"
+										onchange="setSelectLabel('STR_BANK', this)">
 										<option value="">-请选择-</option>
 										<%
 											for (int i = 0; i < bank.getList("RESULT").size(); i ++) {
@@ -835,7 +838,7 @@
 									运输车类型
 								</th>
 								<td width="30%">
-									<select name="STR_TRUCKTYPE" id="STR_TRUCKTYPE" style="width:200px"
+									<select name="STR_TRUCKTYPEID" id="STR_TRUCKTYPEID" style="width:200px"
 										onchange="setSelectLabel('STR_TRUCKTYPE', this)">
 										<option value="">-请选择-</option>
 										<%
@@ -1014,20 +1017,23 @@
 			</table>
 			<div class="btu">
 				<input type="button" name="save" value="保 存" class="btu_input"
-					onclick="if (checkinput()) submit_form('Navy', 'NavyManage', 'SupportorUpdateService', '/pages/navy/supmanage/supSupportorUpdate.jsp');" />
+					onclick="if (checkinput()) submit_form('Navy', 'NavyManage', 'SupSupportorUpdateService', '/pages/navy/supmanage/supSupportorUpdate.jsp');" />
 				<input type="button" name="back" id="button" value="返 回" class="btu_input"
 					onclick="submit_form('Navy', 'NavyManage', 'SupSupportorQueryService', '/pages/navy/supmanage/supSupportorQuery.jsp');" />
 			</div>
 		</form>
 		<script type="text/javascript">
+			setSelect("STR_ECONOMYID", "<%= dto.getString("ECONOMYID") == null ? "" : dto.getString("ECONOMYID") %>");
 			setSelect("STR_TYPECODE", "<%= dto.getString("TYPECODE") == null ? "" : dto.getString("TYPECODE") %>");
+			setSelect("STR_PURCHASETYPEID", "<%= dto.getString("PURCHASETYPEID") == null ? "" : dto.getString("PURCHASETYPEID") %>");
+			setSelect("STR_IFTURNOVER", "<%= dto.getString("IFTURNOVER") == null ? "" : dto.getString("IFTURNOVER") %>");
+			setSelect("STR_BANKID", "<%= dto.getString("BANKID") == null ? "" : dto.getString("BANKID") %>");
 			setSelect("STR_CREDITID", "<%= dto.getString("CREDITID") == null ? "" : dto.getString("CREDITID") %>");
+			setSelect("STR_SUPTYPE", "<%= dto.getString("SUPTYPE") == null ? "" : dto.getString("SUPTYPE") %>");
 			setSelect("STR_INSURANCE", "<%= dto.getString("INSURANCE") == null ? "" : dto.getString("INSURANCE") %>");
 			setSelect("STR_ILLEGAL", "<%= dto.getString("ILLEGAL") == null ? "" : dto.getString("ILLEGAL") %>");
 			setSelect("STR_IFSTATETAX", "<%= dto.getString("IFSTATETAX") == null ? "" : dto.getString("IFSTATETAX") %>");
 			setSelect("STR_IFLOCALTAX", "<%= dto.getString("IFLOCALTAX") == null ? "" : dto.getString("IFLOCALTAX") %>");
-			setSelect("STR_SUPTYPE", "<%= dto.getString("SUPTYPE") == null ? "" : dto.getString("SUPTYPE") %>");
-			setSelect("STR_ECONOMY", "<%= dto.getString("ECONOMY") == null ? "" : dto.getString("ECONOMY") %>");
 			
 			<% if (resp != null && resp.getErrorInfo() != null) { %>
 				alert("<%= resp.getErrorInfo() %>");
