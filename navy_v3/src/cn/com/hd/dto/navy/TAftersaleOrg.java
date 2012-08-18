@@ -18,6 +18,7 @@ public class TAftersaleOrg extends BaseDTO {
 	private String location;
 	private String director;
 	private String phone;
+	private String orgtypeid;
 
 	public String getOrgid() {
 		return orgid;
@@ -73,6 +74,14 @@ public class TAftersaleOrg extends BaseDTO {
 
 	public void setPhone(String phone) {
 		this.phone = phone;
+	}
+
+	public String getOrgtypeid() {
+		return orgtypeid;
+	}
+
+	public void setOrgtypeid(String orgtypeid) {
+		this.orgtypeid = orgtypeid;
 	}
 
 }

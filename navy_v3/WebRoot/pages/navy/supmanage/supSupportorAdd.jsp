@@ -99,9 +99,29 @@
 				if (!check_input(obj, false, 0, null, null, "注册地址")) {
 					return false;
 				}
+
+				obj = document.getElementById("STR_POSTCODE");
+				if (!check_input(obj, true, 1, 100000, 999999, "邮编")) {
+					return false;
+				}
 				
 				obj = document.getElementById("STR_LOCATION");
 				if (!check_input(obj, false, 0, null, null, "所在地址")) {
+					return false;
+				}
+
+				obj = document.getElementById("STR_LONGITUDE");
+				if (!check_input(obj, true, 2, -180, 180, "经度")) {
+					return false;
+				}
+
+				obj = document.getElementById("STR_LATITUDE");
+				if (!check_input(obj, true, 2, -90, 90, "纬度")) {
+					return false;
+				}
+
+				obj = document.getElementById("STR_ACCOUNT");
+				if (!check_input(obj, true, 1, null, null, "银行帐号")) {
 					return false;
 				}
 				
@@ -124,7 +144,47 @@
 				if (!check_input(obj, true, 0, 1, 2000, "兼营经营范围")) {
 					return false;
 				}
-				
+
+				obj = document.getElementById("STR_STOREHOUSEAREA");
+				if (!check_input(obj, true, 2, null, null, "仓库总面积")) {
+					return false;
+				}
+
+				obj = document.getElementById("STR_WAREHOUSEAREA");
+				if (!check_input(obj, true, 2, null, null, "货场总面积")) {
+					return false;
+				}
+
+				obj = document.getElementById("STR_DEADWEIGHT");
+				if (!check_input(obj, true, 2, null, null, "载重量")) {
+					return false;
+				}
+
+				obj = document.getElementById("STR_COUNT");
+				if (!check_input(obj, true, 1, null, null, "运输车数量")) {
+					return false;
+				}
+
+				obj = document.getElementById("STR_HIWDIS");
+				if (!check_input(obj, true, 2, null, null, "高速公路入口距离")) {
+					return false;
+				}
+
+				obj = document.getElementById("STR_RWDIS");
+				if (!check_input(obj, true, 2, null, null, "货运站距离")) {
+					return false;
+				}
+
+				obj = document.getElementById("STR_PORTDIS");
+				if (!check_input(obj, true, 2, null, null, "港口距离")) {
+					return false;
+				}
+
+				obj = document.getElementById("STR_APDIS");
+				if (!check_input(obj, true, 2, null, null, "机场距离")) {
+					return false;
+				}
+
 				return true;
 			}
 		</script>
@@ -1044,7 +1104,7 @@
 				<input type="button" name="save" value="保 存" class="btu_input"
 					onclick="if (checkinput()) submit_form('Navy', 'NavyManage', 'SupSupportorAddService', '/pages/navy/supmanage/supSupportorAdd.jsp');" />
 				<input type="button" name="back" id="button" value="返 回" class="btu_input"
-					onclick="window.parent.complete();" />
+					onclick="submit_form('Navy', 'NavyManage', 'SupSupportorQueryService', '/pages/navy/supmanage/supSupportorQuery.jsp');" />
 			</div>
 		</form>
 		<script type="text/javascript">
@@ -1065,7 +1125,7 @@
 				alert("<%= resp.getErrorInfo() %>");
 			<% } else if (resp.getDto().get("RESULT") != null && (Integer)resp.getDto().get("RESULT") > 0) { %>
 				alert("保存成功！");
-				window.parent.complete();
+				submit_form('Navy','NavyManage','SupSupportorQueryService','/pages/navy/supmanage/supSupportorQuery.jsp');
 			<% 
 				}
 			%>

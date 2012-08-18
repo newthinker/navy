@@ -1,7 +1,19 @@
 <%@ page language="java" pageEncoding="UTF-8" %>
 <%@ page import="java.util.List"%>
+<%@ page import="java.util.ArrayList"%>
 <%@ include file="../../common/init.jsp" %>
 <%
+	List dictlist = (List)resp.getDto().getSelectItems();
+	if (dictlist == null) {
+		dictlist = new ArrayList();
+		for (int i=0; i<7; i++) {
+			DTO dto = new DTO();
+			dto.setList("RESULT", new ArrayList());
+			dictlist.add(dto);
+		}
+	}
+	DTO type = (DTO)dictlist.get(0);
+
 	List resList = (List)resp.getDto().getList("RESULT");
 	DTO dto = new DTO();
 	if (resList != null && resList.size() > 0) {
@@ -111,8 +123,20 @@
 									类别
 								</th>
 								<td>
-									<input type="text" name="STR_ORGTYPE" id="STR_ORGTYPE"
-										class="searchTbl_input" value="<%= dto.showString("ORGTYPE") %>" />
+									<select name="STR_ORGTYPEID" id="STR_ORGTYPEID" style="width:200px;"
+										onchange="setSelectLabel('STR_ORGTYPE', this)">
+										<option value="">-请选择-</option>
+										<%
+											for (int i = 0; i < type.getList("RESULT").size(); i ++) {
+												DTO typedto = (DTO)type.getList("RESULT").get(i);
+										%>
+										<option value="<%= typedto.getString("DICTCODE") %>"><%= typedto.getString("DICTNAME") %></option>
+										<%
+											}
+										%>
+									</select>
+									<input id="STR_ORGTYPE" name="STR_ORGTYPE" type="hidden"
+										value="<%= dto.showString("ORGTYPE") %>" />
 									<span style="color:red;">*</span>
 								</td>
 							</tr>
@@ -158,6 +182,8 @@
 			</div>
 		</form>
 		<script type="text/javascript">
+			setSelect("STR_ORGTYPEID", "<%= dto.getString("ORGTYPEID") == null ? "" : dto.getString("ORGTYPEID") %>");
+
 			<% if (resp != null && resp.getErrorInfo() != null) { %>
 				alert("<%= resp.getErrorInfo() %>");
 			<% } else if (resp.getDto().get("RESULT") != null && (Integer)resp.getDto().get("RESULT") > 0) { %>

@@ -22,6 +22,11 @@
                 <comment>类别</comment>
             </column>
         </property>
+        <property name="orgtypeid" type="VARCHAR2">
+            <column name="ORG_TYPE_ID" length="36">
+                <comment>类别编号</comment>
+            </column>
+        </property>
         <property name="location" type="VARCHAR2">
             <column name="LOCATION" length="500">
                 <comment>所在市县</comment>

@@ -97,7 +97,7 @@ public class SupSupportorAddService extends BaseService implements IService {
 		super.getData(request.getDto(), trans);
 		cons = new Conditions();
 		cons.addCondition(trans);
-		cons.addExpression("COM_NAME='" + trans.getComname() + "' AND COM_ID!=" + trans.getComid() + "'");
+		cons.addExpression("COM_NAME='" + trans.getComname() + "' AND COM_ID!='" + trans.getComid() + "'");
 		if(queryResultSet(cons).getRowCount()>0) {
 			Request res = new Request();
 			res.setResponseSystemName("HDDict");

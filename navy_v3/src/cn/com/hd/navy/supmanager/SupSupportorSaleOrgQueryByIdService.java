@@ -1,5 +1,6 @@
 ﻿package cn.com.hd.navy.supmanager;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import cn.com.hd.database.SelectResultSet;
@@ -32,7 +33,19 @@ public class SupSupportorSaleOrgQueryByIdService extends BaseService implements 
 		} else {
 			response.getDto().setList("RESULT", (DTO) retList.get(0));
 		}
-		
+
+		Request req = new Request();
+		req.setResponseSystemName("HDDict");
+		req.setResponseSubsystemName("DictManage");
+		req.setResponseServiceName("DictQueryService");
+		req.getDto().setString("QUERY_TYPEID", "17"); //服务机构类型
+		req.getDto().setString("QUERY_VALIDATED", "Y");
+		req.getDto().setInt("ROWNUMBER", Integer.MAX_VALUE);
+		Response resp = requestService(req);
+		List<DTO> dtoList = new ArrayList<DTO>();
+		dtoList.add(resp.getDto());
+		response.getDto().setSelectItems(dtoList);
+
 		return response;
 	}
 
