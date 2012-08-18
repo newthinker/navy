@@ -43,7 +43,7 @@
 	</head>
 	
 	<body style="background:url(resources/images/common/tbl_bg.gif) top left repeat-x; background-color:#ffffff;">
-		<form action="upload?size=50&url=/pages/navy/importmanage/Supimport.jsp" method="post" enctype="multipart/form-data">
+		<form action="upload?size=50&url=/pages/navy/supmanage/supImport.jsp" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="opt" id="opt">
 			<input id="XML_DATA" name="XML_DATA" type="hidden" value="">
 			
@@ -69,7 +69,7 @@
 			</div>
 			<div class="btu">
 				<input type="button" name="save" value="导 入" class="btu_input"
-					onclick="if (checkInput()) submit_form('Navy', 'NavyManage', 'SupImportService', '/pages/navy/importmanage/Supimport.jsp');" />
+					onclick="if (checkInput()) submit_form('Navy', 'NavyManage', 'SupImportService', '/pages/navy/supmanage/supImport.jsp');" />
 			</div>
 		</form>
 		<script type="text/javascript">
