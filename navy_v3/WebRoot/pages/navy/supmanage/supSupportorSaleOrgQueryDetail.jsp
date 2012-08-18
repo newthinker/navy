@@ -146,7 +146,7 @@
 		<script type="text/javascript">
 			if ("<%= sOpt %>" == "null" || "<%= sOpt %>" == "refresh") {
 				document.getElementById("str_supid").value = "<%= supid %>";
-				submit_form('Navy', 'NavyManage', 'SupportorSaleOrgQueryService', '/pages/navy/supmanage/supSupportorSaleOrgQueryDetail.jsp?supid=<%= supid %>');
+				submit_form('Navy', 'NavyManage', 'SupSupportorSaleOrgQueryService', '/pages/navy/supmanage/supSupportorSaleOrgQueryDetail.jsp?supid=<%= supid %>');
 			}
 		</script>
 	</body>

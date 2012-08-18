@@ -152,7 +152,7 @@
 			</table>
 			<div class="btu">
 				<input type="button" name="save" value="保 存" class="btu_input"
-					onclick="if (checkinput()) submit_form('Navy', 'NavyManage', 'SupportorSaleOrgSaveOrUpdateService', '/pages/navy/supmanage/supSupportorSaleOrgSaveOrUpdate.jsp?supid=<%= supid %>&orgid=<%= orgid %>');" />
+					onclick="if (checkinput()) submit_form('Navy', 'NavyManage', 'SupSupportorSaleOrgSaveOrUpdateService', '/pages/navy/supmanage/supSupportorSaleOrgSaveOrUpdate.jsp?supid=<%= supid %>&orgid=<%= orgid %>');" />
 				<input type="button" name="back" id="button" value="关 闭" class="btu_input"
 					onclick="window.close();" />
 			</div>
@@ -162,7 +162,7 @@
 				alert("<%= resp.getErrorInfo() %>");
 			<% } else if (resp.getDto().get("RESULT") != null && (Integer)resp.getDto().get("RESULT") > 0) { %>
 				alert("保存成功！");
-				window.dialogArguments.submit_form('Navy', 'NavyManage', 'SupportorSaleOrgQueryService', '/pages/navy/supmanage/supSupportorSaleOrgQuery.jsp?supid=<%= supid %>');
+				window.dialogArguments.submit_form('Navy', 'NavyManage', 'SupSupportorSaleOrgQueryService', '/pages/navy/supmanage/supSupportorSaleOrgQuery.jsp?supid=<%= supid %>');
 				window.close();
 			<% 
 				}
@@ -170,7 +170,7 @@
 			
 			if ("<%= sOpt %>" == "null" || "<%= sOpt %>" == "refresh") {
 				document.getElementById("str_orgid").value = "<%= orgid %>";
-				submit_form('Navy', 'NavyManage', 'SupportorSaleOrgQueryByIdService', '/pages/navy/supmanage/supSupportorSaleOrgSaveOrUpdate.jsp?supid=<%= supid %>&orgid=<%= orgid %>');
+				submit_form('Navy', 'NavyManage', 'SupSupportorSaleOrgQueryByIdService', '/pages/navy/supmanage/supSupportorSaleOrgSaveOrUpdate.jsp?supid=<%= supid %>&orgid=<%= orgid %>');
 			}
 		</script>
 	</body>

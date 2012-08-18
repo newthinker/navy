@@ -139,7 +139,7 @@
 			</table>
 			<div class="btu">
 				<input type="button" name="save" value="保 存" class="btu_input"
-					onclick="if (checkinput()) submit_form('Navy', 'NavyManage', 'SupportorStockSaveOrUpdateService', '/pages/navy/supmanage/supSupportorStockSaveOrUpdate.jsp?supid=<%= supid %>&stockid=<%= stockid %>');" />
+					onclick="if (checkinput()) submit_form('Navy', 'NavyManage', 'SupSupportorStockSaveOrUpdateService', '/pages/navy/supmanage/supSupportorStockSaveOrUpdate.jsp?supid=<%= supid %>&stockid=<%= stockid %>');" />
 				<input type="button" name="back" id="button" value="关 闭" class="btu_input"
 					onclick="window.close();" />
 			</div>
@@ -149,7 +149,7 @@
 				alert("<%= resp.getErrorInfo() %>");
 			<% } else if (resp.getDto().get("RESULT") != null && (Integer)resp.getDto().get("RESULT") > 0) { %>
 				alert("保存成功！");
-				window.dialogArguments.submit_form('Navy', 'NavyManage', 'SupportorStockQueryService', '/pages/navy/supmanage/supSupportorStockQuery.jsp?supid=<%= supid %>');
+				window.dialogArguments.submit_form('Navy', 'NavyManage', 'SupSupportorStockQueryService', '/pages/navy/supmanage/supSupportorStockQuery.jsp?supid=<%= supid %>');
 				window.close();
 			<% 
 				}
@@ -157,7 +157,7 @@
 			
 			if ("<%= sOpt %>" == "null" || "<%= sOpt %>" == "refresh") {
 				document.getElementById("str_stockholderid").value = "<%= stockid %>";
-				submit_form('Navy', 'NavyManage', 'SupportorStockQueryByIdService', '/pages/navy/supmanage/supSupportorStockSaveOrUpdate.jsp?supid=<%= supid %>&stockid=<%= stockid %>');
+				submit_form('Navy', 'NavyManage', 'SupSupportorStockQueryByIdService', '/pages/navy/supmanage/supSupportorStockSaveOrUpdate.jsp?supid=<%= supid %>&stockid=<%= stockid %>');
 			}
 		</script>
 	</body>

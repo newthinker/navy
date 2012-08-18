@@ -60,7 +60,7 @@
 				if (confirm('确定要删除记录吗？')) {
 					var url = '/pages/navy/supmanage/supSupportorStockQuery.jsp?opt=refresh&supid=<%= supid %>';
 					window.document.getElementById('str_stockholderid').value = stockid;
-					submit_form('Navy', 'NavyManage', 'SupportorStockDeleteService', url);
+					submit_form('Navy', 'NavyManage', 'SupSupportorStockDeleteService', url);
 				}
 			}
 			
@@ -177,7 +177,7 @@
 		<script type="text/javascript">
 			if ("<%= sOpt %>" == "null" || "<%= sOpt %>" == "refresh") {
 				document.getElementById("str_supid").value = "<%= supid %>";
-				submit_form('Navy', 'NavyManage', 'SupportorStockQueryService', '/pages/navy/supmanage/supSupportorStockQuery.jsp?supid=<%= supid %>');
+				submit_form('Navy', 'NavyManage', 'SupSupportorStockQueryService', '/pages/navy/supmanage/supSupportorStockQuery.jsp?supid=<%= supid %>');
 			}
 		</script>
 	</body>

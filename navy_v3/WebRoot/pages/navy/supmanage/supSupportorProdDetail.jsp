@@ -149,7 +149,7 @@
 		<script type="text/javascript">
 			if ("<%= sOpt %>" == "null" || "<%= sOpt %>" == "refresh") {
 				document.getElementById("str_prodid").value = "<%= prodid %>";
-				submit_form('Navy', 'NavyManage', 'SupportorProdQueryByIdService', '/pages/navy/supmanage/supSupportorProdDetail.jsp?supid=<%= supid %>&prodid=<%= prodid %>');
+				submit_form('Navy', 'NavyManage', 'SupSupportorProdQueryByIdService', '/pages/navy/supmanage/supSupportorProdDetail.jsp?supid=<%= supid %>&prodid=<%= prodid %>');
 			}
 		</script>
 	</body>

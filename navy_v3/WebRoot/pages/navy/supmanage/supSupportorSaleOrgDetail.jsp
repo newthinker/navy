@@ -115,7 +115,7 @@
 		<script type="text/javascript">
 			if ("<%= sOpt %>" == "null" || "<%= sOpt %>" == "refresh") {
 				document.getElementById("str_orgid").value = "<%= orgid %>";
-				submit_form('Navy', 'NavyManage', 'SupportorSaleOrgQueryByIdService', '/pages/navy/supmanage/supSupportorSaleOrgDetail.jsp?supid=<%= supid %>&orgid=<%= orgid %>');
+				submit_form('Navy', 'NavyManage', 'SupSupportorSaleOrgQueryByIdService', '/pages/navy/supmanage/supSupportorSaleOrgDetail.jsp?supid=<%= supid %>&orgid=<%= orgid %>');
 			}
 		</script>
 	</body>

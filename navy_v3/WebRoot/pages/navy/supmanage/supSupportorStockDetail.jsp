@@ -112,7 +112,7 @@
 		<script type="text/javascript">
 			if ("<%= sOpt %>" == "null" || "<%= sOpt %>" == "refresh") {
 				document.getElementById("str_stockholderid").value = "<%= stockid %>";
-				submit_form('Navy', 'NavyManage', 'SupportorStockQueryByIdService', '/pages/navy/supmanage/supSupportorStockDetail.jsp?supid=<%= supid %>&stockid=<%= stockid %>');
+				submit_form('Navy', 'NavyManage', 'SupSupportorStockQueryByIdService', '/pages/navy/supmanage/supSupportorStockDetail.jsp?supid=<%= supid %>&stockid=<%= stockid %>');
 			}
 		</script>
 	</body>
