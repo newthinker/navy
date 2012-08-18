@@ -10,6 +10,8 @@
 	<bean id="NavyManage.SupSupportorProdCapStatService" class="cn.com.hd.navy.supmanager.SupSupportorProdCapStatService" />
 	<bean id="NavyManage.SupSupportorTypeCountStatService" class="cn.com.hd.navy.supmanager.SupSupportorTypeCountStatService" />
 	<bean id="NavyManage.SupSupportorUpdateService" class="cn.com.hd.navy.supmanager.SupSupportorUpdateService" />
+	<bean id="NavyManage.SupImportService" class="cn.com.hd.navy.supmanager.SupImportService "/>		<!-- 供应商导入 -->
+	<bean id="NavyManage.SupExportService" class="cn.com.hd.navy.supmanager.SupExportService "/>
 
 	<bean id="NavyManage.SupSupportorProdDeleteService" class="cn.com.hd.navy.supmanager.SupSupportorProdDeleteService" />
 	<bean id="NavyManage.SupSupportorProdQueryByIdService" class="cn.com.hd.navy.supmanager.SupSupportorProdQueryByIdService" />

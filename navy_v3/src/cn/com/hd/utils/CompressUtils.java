@@ -28,6 +28,8 @@ public class CompressUtils {
 				while ((len = fis.read(buf)) != -1) {
 					zos.write(buf, 0, len);
 				}
+				
+				fis.close();
 			}
 		} catch (Exception ex) {
 			throw ex;
@@ -35,6 +37,7 @@ public class CompressUtils {
 			if (zos != null) {
 				zos.close();
 			}
+			
 		}
 	}
 	

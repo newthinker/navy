@@ -5,10 +5,6 @@
 			<name>NavyManage.ImportService</name>
 			<class>cn.com.hd.navy.importmanage.ImportService</class>
 		</service>
-		<service>	<!-- 新版导入服务 -->
-			<name>NavyManage.SupImportService</name>
-			<class>cn.com.hd.navy.importmanage.SupImportService</class>
-		</service>
 		<service>
 			<name>NavyManage.ExportService</name>
 			<class>cn.com.hd.navy.importmanage.ExportService</class>
@@ -218,7 +214,15 @@
 		<service>
 			<name>NavyManage.SupSupportorStockSaveOrUpdateService</name>
 			<class>cn.com.hd.navy.supmanage.SupSupportorStockSaveOrUpdateService</class>
-		</service>								
+		</service>
+		<service>	
+			<name>NavyManage.SupImportService</name>
+			<class>cn.com.hd.navy.supmanager.SupImportService</class>
+		</service>
+		<service>	
+			<name>NavyManage.SupExportService</name>
+			<class>cn.com.hd.navy.supmanager.SupExportService</class>
+		</service>							
 	</subsystem>
 	
 	<subsystem name="DictManage">
