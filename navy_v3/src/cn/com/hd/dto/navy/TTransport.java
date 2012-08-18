@@ -22,7 +22,11 @@ public class TTransport extends BaseDTO {
 	private String nearport;
 	private Double portdis;
 	private String nearairport;
-	private Double apdis;		
+	private Double apdis;
+	
+	public TTransport() {
+		comname = "";
+	}
 
 	public String getComid() {
 		return comid;

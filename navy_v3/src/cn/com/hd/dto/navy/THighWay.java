@@ -17,6 +17,11 @@ public class THighWay extends BaseDTO {
 	private String hiwin;
 	private String hiwinid;
 	private Double hiwdis;
+	
+	public THighWay() {
+		comid = "";
+		hiwname = "";
+	}
 
 	public String getComid() {
 		return comid;

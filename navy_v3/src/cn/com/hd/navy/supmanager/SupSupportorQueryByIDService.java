@@ -67,28 +67,34 @@ public class SupSupportorQueryByIDService extends BaseService implements IServic
 			
 			rs = queryResultSet(cons);
 			List retList = getDTO(rs);
-			for (Object item : retList) {
-				trans = new TTransport();
-				super.getData((DTO)item, trans);
-				
-//				DTO dto = (DTO) list.get(0);
-//				dto.setString("COMID", trans.getComid());
-//				dto.setString("COMNAME", trans.getComname());
-//				dto.setString("TRUCKTYPE", trans.getTrucktype());
-//				dto.setDouble("DEADWEIGHT", trans.getDeadweight());
-//				dto.setInt("COUNT", trans.getCount());
-//				dto.setString("NEARRAILWAY", trans.getNearrailway());
-//				dto.setDouble("RWDIS", trans.getRwdis());
-//				dto.setString("NEARPORT", trans.getNearport());
-//				dto.setDouble("PORTDIS", trans.getPortdis());
-//				dto.setString("NEARAIRPORT", trans.getNearairport());
-//				dto.setDouble("APDIS", trans.getApdis());
-//				
-//				list.clear();
-//				list.add(dto);
-				
-				list.add(getDTO(trans));
+			if (retList.size() < 1) {
+				list.add(new DTO());
 			}
+			else {
+				list.add(retList.get(0));
+			}
+//			for (Object item : retList) {
+//				trans = new TTransport();
+//				super.getData((DTO)item, trans);
+//				
+////				DTO dto = (DTO) list.get(0);
+////				dto.setString("COMID", trans.getComid());
+////				dto.setString("COMNAME", trans.getComname());
+////				dto.setString("TRUCKTYPE", trans.getTrucktype());
+////				dto.setDouble("DEADWEIGHT", trans.getDeadweight());
+////				dto.setInt("COUNT", trans.getCount());
+////				dto.setString("NEARRAILWAY", trans.getNearrailway());
+////				dto.setDouble("RWDIS", trans.getRwdis());
+////				dto.setString("NEARPORT", trans.getNearport());
+////				dto.setDouble("PORTDIS", trans.getPortdis());
+////				dto.setString("NEARAIRPORT", trans.getNearairport());
+////				dto.setDouble("APDIS", trans.getApdis());
+////				
+////				list.clear();
+////				list.add(dto);
+//				
+//				list.add(getDTO(trans));
+//			}
 			
 			THighWay hiw = new THighWay();
 			hiw.setComid(comid);
@@ -97,21 +103,27 @@ public class SupSupportorQueryByIDService extends BaseService implements IServic
 			
 			rs = queryResultSet(cons);
 			retList = getDTO(rs);
-			for (Object item : retList) {
-				hiw = new THighWay();
-				super.getData((DTO)item, hiw);
-				
-//				DTO dto = (DTO) list.get(0);
-//				dto.setString("HIWID", hiw.getHiwid());
-//				dto.setString("HIWNAME", hiw.getHiwname());
-//				dto.setString("HIWIN", hiw.getHiwin());
-//				dto.setString("HIWIN_ID", hiw.getHiwinid());
-//				dto.setDouble("HIWDIS", hiw.getHiwdis());
-//				
-//				list.clear();
-//				list.add(dto);
-				list.add(getDTO(hiw));
+			if (retList.size() < 1) {
+				list.add(new DTO());
 			}
+			else {
+				list.add(retList.get(0));
+			}
+//			for (Object item : retList) {
+//				hiw = new THighWay();
+//				super.getData((DTO)item, hiw);
+//				
+////				DTO dto = (DTO) list.get(0);
+////				dto.setString("HIWID", hiw.getHiwid());
+////				dto.setString("HIWNAME", hiw.getHiwname());
+////				dto.setString("HIWIN", hiw.getHiwin());
+////				dto.setString("HIWIN_ID", hiw.getHiwinid());
+////				dto.setDouble("HIWDIS", hiw.getHiwdis());
+////				
+////				list.clear();
+////				list.add(dto);
+//				list.add(getDTO(hiw));
+//			}
 		}
 		
 		resp.getDto().setSelectItems(response.getDto().getList("RESULT"));

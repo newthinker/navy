@@ -86,7 +86,7 @@ public class SupSupportorUpdateService extends BaseService implements IService {
 			supTrans.setComid(UUID.randomUUID().toString());
 			super.save(supTrans);		
 		} else {
-			super.update(supTrans);
+//			super.update(supTrans);
 		}
 		
 		TTransport trans = new TTransport();
@@ -109,13 +109,19 @@ public class SupSupportorUpdateService extends BaseService implements IService {
 			
 			return response;			
 		}
-		super.update(trans);
+		//super.update(trans);
+		if(trans.getComid()==null || trans.getComid().equals("")) {
+			trans.setComid(supTrans.getComid());
+			super.save(trans);		
+		} else {
+			super.update(trans);
+		}
 		
 		THighWay hiw = new THighWay();
 		super.getData(request.getDto(), hiw);
 		cons = new Conditions();
 		cons.addCondition(hiw);
-		cons.addExpression("COM_ID='" + supTrans.getComid() + "' AND HIW_ID='" + hiw.getHiwid() + "'");
+		cons.addExpression("COM_ID='" + supTrans.getComid() + "'");
 		if(queryResultSet(cons).getRowCount()==0) {
 			hiw.setComid(supTrans.getComid());
 			super.save(hiw);

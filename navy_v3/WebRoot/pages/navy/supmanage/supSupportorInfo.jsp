@@ -431,7 +431,7 @@
 									最近年检时间
 								</th>
 								<td>
-									<%= supportor.getDate("EXADATE") == null ? "" : fmtDate.format(supportor.getDate("EXADATE")) %>&nbsp;
+									<%= supportor.getDate("LICEXADATE") == null ? "" : fmtDate.format(supportor.getDate("LICEXADATE")) %>&nbsp;
 								</td>
 								<th>
 									&nbsp;
@@ -659,13 +659,13 @@
 									载重量
 								</th>
 								<td>
-									<%= transport.getDouble("DEADWEIGHT") == null ? "" : transport.getDouble("DEADWEIGHT") %>&nbsp;
+									<%= transport.getNumber("DEADWEIGHT") == null ? "" : transport.getNumber("DEADWEIGHT") %>&nbsp;
 								</td>
 								<th>
 									数量（台）
 								</th>
 								<td>
-									<%= transport.getInt("COUNT") == null ? "" : transport.getInt("COUNT") %>&nbsp;
+									<%= transport.getNumber("COUNT") == null ? "" : transport.getNumber("COUNT") %>&nbsp;
 								</td>
 							</tr>
 							<tr>
@@ -707,7 +707,7 @@
 									高速公路入口距离
 								</th>
 								<td>
-									<%= highway.getDouble("HIWDIS") == null ? "" : highway.getDouble("HIWDIS") %>&nbsp;
+									<%= highway.getNumber("HIWDIS") == null ? "" : highway.getNumber("HIWDIS") %>&nbsp;
 								</td>
 							</tr>
 							<tr>
@@ -721,7 +721,7 @@
 									货运站距离
 								</th>
 								<td>
-									<%= transport.getDouble("RWDIS") == null ? "" : transport.getDouble("RWDIS") %>&nbsp;
+									<%= transport.getNumber("RWDIS") == null ? "" : transport.getNumber("RWDIS") %>&nbsp;
 								</td>
 							</tr>
 							<tr>
@@ -735,7 +735,7 @@
 									港口距离
 								</th>
 								<td>
-									<%= transport.getDouble("PORTDIS") == null ? "" : transport.getDouble("PORTDIS") %>&nbsp;
+									<%= transport.getNumber("PORTDIS") == null ? "" : transport.getNumber("PORTDIS") %>&nbsp;
 								</td>
 							</tr>
 							<tr>
@@ -749,7 +749,7 @@
 									机场距离
 								</th>
 								<td>
-									<%= transport.getDouble("APDIS") == null ? "" : transport.getDouble("APDIS") %>&nbsp;
+									<%= transport.getNumber("APDIS") == null ? "" : transport.getNumber("APDIS") %>&nbsp;
 								</td>
 							</tr>
 						</table>

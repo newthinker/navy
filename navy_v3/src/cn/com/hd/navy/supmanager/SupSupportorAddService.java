@@ -97,7 +97,7 @@ public class SupSupportorAddService extends BaseService implements IService {
 		super.getData(request.getDto(), trans);
 		cons = new Conditions();
 		cons.addCondition(trans);
-		cons.addExpression("COM_NAME='" + trans.getComname() + "' AND COM_ID!='" + trans.getComid() + "'");
+		cons.addExpression("COM_NAME='" + trans.getComname() + "' AND COM_ID!='" + supTrans.getComid() + "'");
 		if(queryResultSet(cons).getRowCount()>0) {
 			Request res = new Request();
 			res.setResponseSystemName("HDDict");
@@ -120,7 +120,7 @@ public class SupSupportorAddService extends BaseService implements IService {
 		super.getData(request.getDto(), hiw);
 		cons = new Conditions();
 		cons.addCondition(hiw);
-		cons.addExpression("COM_ID='" + hiw.getComid() + "' AND HIW_ID='" + hiw.getHiwid() + "'");
+		cons.addExpression("COM_ID='" + supTrans.getComid() + "'");
 		if(queryResultSet(cons).getRowCount()==0) {
 			hiw.setComid(supTrans.getComid());
 			super.save(hiw);

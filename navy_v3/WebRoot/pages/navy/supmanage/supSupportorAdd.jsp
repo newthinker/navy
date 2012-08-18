@@ -195,6 +195,8 @@
 			<jsp:include page="supSupportorQueryParam.jsp"></jsp:include>
 			<input type="hidden" name="opt" id="opt">
 			<input id="str_supid" name="str_supid" type="hidden" value="<%= supportor.showString("SUPID") %>">
+			<input id="str_comid" name="str_comid" type="hidden" value="<%= transport.showString("COMID") %>">
+			<input id="str_hiwid" name="str_hiwid" type="hidden" value="<%= highway.showString("HIWID") %>">
 			<input id="XML_DATA" name="XML_DATA" type="hidden" value="">
 			
 			<input id="STR_ECONOMY" name="STR_ECONOMY" type="hidden" />
@@ -452,8 +454,8 @@
 								</th>
 								<td>
 									<select name="STR_SUPTYPE" id="STR_SUPTYPE" style="width:200px;">
-										<option value="是">是</option>
-										<option value="否" selected>否</option>
+										<option value="是" selected>是</option>
+										<option value="否">否</option>
 									</select>
 								</td>
 							</tr>
@@ -943,14 +945,14 @@
 								</th>
 								<td>
 									<input type="text" name="STR_DEADWEIGHT" id="STR_DEADWEIGHT"
-										class="searchTbl_input" value="<%= transport.getDouble("DEADWEIGHT") == null ? "" : transport.getDouble("DEADWEIGHT") %>" />
+										class="searchTbl_input" value="<%= transport.getNumber("DEADWEIGHT") == null ? "" : transport.getNumber("DEADWEIGHT") %>" />
 								</td>
 								<th>
 									数量（台）
 								</th>
 								<td>
 									<input type="text" name="STR_COUNT" id="STR_COUNT"
-										class="searchTbl_input" value="<%= transport.getInt("COUNT") == null ? "" : transport.getInt("COUNT") %>" />
+										class="searchTbl_input" value="<%= transport.getNumber("COUNT") == null ? "" : transport.getNumber("COUNT") %>" />
 								</td>
 							</tr>
 							<tr>
@@ -997,7 +999,7 @@
 								</th>
 								<td>
 									<input type="text" name="STR_HIWDIS" id="STR_HIWDIS"
-										class="searchTbl_input" value="<%= highway.getDouble("HIWDIS") == null ? "" : highway.getDouble("HIWDIS") %>" />
+										class="searchTbl_input" value="<%= highway.getNumber("HIWDIS") == null ? "" : highway.getNumber("HIWDIS") %>" />
 								</td>
 							</tr>
 							<tr>
@@ -1013,7 +1015,7 @@
 								</th>
 								<td>
 									<input type="text" name="STR_RWDIS" id="STR_RWDIS"
-										class="searchTbl_input" value="<%= transport.getDouble("RWDIS") == null ? "" : transport.getDouble("RWDIS") %>" />
+										class="searchTbl_input" value="<%= transport.getNumber("RWDIS") == null ? "" : transport.getNumber("RWDIS") %>" />
 								</td>
 							</tr>
 							<tr>
@@ -1029,7 +1031,7 @@
 								</th>
 								<td>
 									<input type="text" name="STR_PORTDIS" id="STR_PORTDIS"
-										class="searchTbl_input" value="<%= transport.getDouble("PORTDIS") == null ? "" : transport.getDouble("PORTDIS") %>" />
+										class="searchTbl_input" value="<%= transport.getNumber("PORTDIS") == null ? "" : transport.getNumber("PORTDIS") %>" />
 								</td>
 							</tr>
 							<tr>
@@ -1045,7 +1047,7 @@
 								</th>
 								<td>
 									<input type="text" name="STR_APDIS" id="STR_APDIS"
-										class="searchTbl_input" value="<%= transport.getDouble("APDIS") == null ? "" : transport.getDouble("APDIS") %>" />
+										class="searchTbl_input" value="<%= transport.getNumber("APDIS") == null ? "" : transport.getNumber("APDIS") %>" />
 								</td>
 							</tr>
 						</table>
