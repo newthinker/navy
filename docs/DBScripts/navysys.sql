@@ -540,6 +540,7 @@ create table T_AFTERSALE_ORG (
   ORG_ID      VARCHAR2(36)  not null,
   SUP_ID      VARCHAR2(36),
   ORG_NAME    VARCHAR2(200),
+  ORG_TYPE_ID VARCHAR2(36),		-- 服务机构类型编号
   ORG_TYPE    VARCHAR2(100),
   LOCATION    VARCHAR2(500),
   DIRECTOR    VARCHAR2(100),
@@ -554,6 +555,8 @@ comment on column T_AFTERSALE_ORG.SUP_ID is
   '供应商ID';
 comment on column T_AFTERSALE_ORG.ORG_NAME is
   '售后机构名称';
+comment on column T_AFTERSALE_ORG.ORG_TYPE_ID is
+  '售后机构类别编号';
 comment on column T_AFTERSALE_ORG.ORG_TYPE is
   '售后机构类别';
 comment on column T_AFTERSALE_ORG.LOCATION is
