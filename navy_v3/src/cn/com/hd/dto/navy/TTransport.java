@@ -13,6 +13,7 @@ public class TTransport extends BaseDTO {
 
 	private String comid;
 	private String comname;
+	private String trucktypeid;
 	private String trucktype;
 	private Double deadweight;
 	private Integer count;
@@ -39,6 +40,14 @@ public class TTransport extends BaseDTO {
 		this.comname = comname;
 	}
 
+	public String getTrucktypeid() {
+		return trucktypeid;
+	}
+
+	public void setTrucktypeid(String trucktypeid) {
+		this.trucktypeid = trucktypeid;
+	}	
+	
 	public String getTrucktype() {
 		return trucktype;
 	}

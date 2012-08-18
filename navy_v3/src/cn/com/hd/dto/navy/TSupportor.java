@@ -26,6 +26,7 @@ public class TSupportor extends BaseDTO {
 	private String postcode;
 	private String netaddr;
 	private String organizecode;
+	private String economyid;
 	private String economy;
 	private String typecode;
 	private String type;
@@ -92,6 +93,7 @@ public class TSupportor extends BaseDTO {
 	private String orgstrimage;				// 组织结构代码证扫描件
 	private String bankprove;				// 银行资信证明扫描件
 	private String otherprove;				// 其他资质证明文件
+	private String purchasetypeid;			// 采购方式编号
 	private String purchasetype;			// 采购方式
 	private String ifturnover;				// 是否成交
 	private String qualityprove;			// 质量管理认证证书扫描件
@@ -168,6 +170,14 @@ public class TSupportor extends BaseDTO {
 		this.organizecode = organizecode;
 	}
 
+	public String getEconomyid() {
+		return economyid;
+	}
+
+	public void setEconomyid(String economyid) {
+		this.economyid = economyid;
+	}
+	
 	public String getEconomy() {
 		return economy;
 	}
@@ -687,6 +697,15 @@ public class TSupportor extends BaseDTO {
 	public void setOtherProve(String otherprove) {
 		this.otherprove = otherprove;
 	}
+
+	public String getPurchasetypeid () {
+		return purchasetypeid;
+	}
+	
+	public void setPurchasetypeid ( String purchasetypeid ) {
+		this.purchasetypeid = purchasetypeid;
+	}
+	
 	
 	public String getPurchasetype () {
 		return purchasetype;

@@ -48,6 +48,11 @@
             	<comment>组织机构代码</comment>
             </column>
         </property>
+        <property name="economyid" type="VARCHAR2">
+            <column name="ECONOMY_ID" length="36">
+            	<comment>经济性质编号</comment>
+            </column>
+        </property>        
         <property name="economy" type="VARCHAR2">
             <column name="ECONOMY" length="200">
             	<comment>经济性质</comment>
@@ -345,7 +350,12 @@
 			<column name="OTHER_PROVE" length="200">
 				<comment>其它资质证明压缩包文件(</comment>
 			</column>
-		</property>			
+		</property>		
+		<property name="purchasetypeid" type="VARCHAR2">
+			<column name="PURCHASE_TYPE_ID" length="36">
+				<comment>采购方式编号</comment>
+			</column>
+		</property>		
 		<property name="purchasetype" type="VARCHAR2">
 			<column name="PURCHASE_TYPE" length="100">
 				<comment>采购方式</comment>
