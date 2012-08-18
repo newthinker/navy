@@ -784,14 +784,14 @@
 								</th>
 								<td width="30%">
 									<input type="text" name="STR_STOREHOUSEAREA" id="STR_STOREHOUSEAREA"
-										class="searchTbl_input" value="<%= dto.getString("STOREHOUSEAREA") == null ? "" : dto.getString("STOREHOUSEAREA") %>" />
+										class="searchTbl_input" value="<%= dto.getNumber("STOREHOUSEAREA") == null ? "" : dto.getNumber("STOREHOUSEAREA") %>" />
 								</td>
 								<th width="20%">
 									货场总面积
 								</th>
 								<td width="30%">
 									<input type="text" name="STR_WAREHOUSEAREA" id="STR_WAREHOUSEAREA"
-										class="searchTbl_input" value="<%= dto.getString("WAREHOUSEAREA") == null ? "" : dto.getString("WAREHOUSEAREA") %>" />
+										class="searchTbl_input" value="<%= dto.getNumber("WAREHOUSEAREA") == null ? "" : dto.getNumber("WAREHOUSEAREA") %>" />
 								</td>
 							</tr>
 						<!-- <tr>
@@ -858,8 +858,17 @@
 								</th>
 								<td>
 									<input type="text" name="STR_DEADWEIGHT" id="STR_DEADWEIGHT"
-										class="searchTbl_input" value="<%= dto.getString("DEADWEIGHT") == null ? "" : dto.getString("DEADWEIGHT") %>" />
+										class="searchTbl_input" value="<%= dto.getDouble("DEADWEIGHT") == null ? "" : dto.getDouble("DEADWEIGHT") %>" />
 								</td>
+								<th>
+									数量（台）
+								</th>
+								<td>
+									<input type="text" name="STR_COUNT" id="STR_COUNT"
+										class="searchTbl_input" value="<%= dto.getInt("COUNT") == null ? "" : dto.getInt("COUNT") %>" />
+								</td>
+							</tr>
+							<tr>
 								<th>
 									高速公路名称
 								</th>
@@ -867,21 +876,12 @@
 									<input type="text" name="STR_HIWNAME" id="STR_HIWNAME"
 										class="searchTbl_input" value="<%= dto.getString("HIWNAME") == null ? "" : dto.getString("HIWNAME") %>" />
 								</td>
-							</tr>
-							<tr>
 								<th>
 									高速公路编号
 								</th>
 								<td>
 									<input type="text" name="STR_HIWID" id="STR_HIWID"
 										class="searchTbl_input" value="<%= dto.getString("HIWID") == null ? "" : dto.getString("HIWID") %>" />
-								</td>
-								<th>
-									数量（台）
-								</th>
-								<td>
-									<input type="text" name="STR_COUNT" id="STR_COUNT"
-										class="searchTbl_input" value="<%= dto.getString("COUNT") == null ? "" : dto.getString("COUNT") %>" />
 								</td>
 							</tr>
 							<tr>
@@ -912,7 +912,7 @@
 								</th>
 								<td>
 									<input type="text" name="STR_HIWDIS" id="STR_HIWDIS"
-										class="searchTbl_input" value="<%= dto.getString("HIWDIS") == null ? "" : dto.getString("HIWDIS") %>" />
+										class="searchTbl_input" value="<%= dto.getDouble("HIWDIS") == null ? "" : dto.getDouble("HIWDIS") %>" />
 								</td>
 							</tr>
 							<tr>
@@ -928,7 +928,7 @@
 								</th>
 								<td>
 									<input type="text" name="STR_RWDIS" id="STR_RWDIS"
-										class="searchTbl_input" value="<%= dto.getString("RWDIS") == null ? "" : dto.getString("RWDIS") %>" />
+										class="searchTbl_input" value="<%= dto.getDouble("RWDIS") == null ? "" : dto.getDouble("RWDIS") %>" />
 								</td>
 							</tr>
 							<tr>
@@ -944,7 +944,7 @@
 								</th>
 								<td>
 									<input type="text" name="STR_PORTDIS" id="STR_PORTDIS"
-										class="searchTbl_input" value="<%= dto.getString("PORTDIS") == null ? "" : dto.getString("PORTDIS") %>" />
+										class="searchTbl_input" value="<%= dto.getDouble("PORTDIS") == null ? "" : dto.getDouble("PORTDIS") %>" />
 								</td>
 							</tr>
 							<tr>
@@ -960,7 +960,7 @@
 								</th>
 								<td>
 									<input type="text" name="STR_APDIS" id="STR_APDIS"
-										class="searchTbl_input" value="<%= dto.getString("APDIS") == null ? "" : dto.getString("APDIS") %>" />
+										class="searchTbl_input" value="<%= dto.getDouble("APDIS") == null ? "" : dto.getDouble("APDIS") %>" />
 								</td>
 							</tr>
 						</table>

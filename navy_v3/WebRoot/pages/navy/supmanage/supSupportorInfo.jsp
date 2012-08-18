@@ -610,11 +610,11 @@
 									仓库照片
 								</th>
 								<td>
-									<% if (supportor.getString("STOREHOUSEIMAGE") == null) { %>
+									<--% if (supportor.getString("STOREHOUSEIMAGE") == null) { %>
 									&nbsp;
-									<% } else { %>
-									<a href="<%= base + "/" + supportor.getString("STOREHOUSEIMAGE") %>" target="_blank">查看</a>&nbsp;
-									<% } %>
+									<--% } else { %>
+									<a href="<--%= base + "/" + supportor.getString("STOREHOUSEIMAGE") %>" target="_blank">查看</a>&nbsp;
+									<--% } %>
 								</td>
 								<th>
 									&nbsp;
