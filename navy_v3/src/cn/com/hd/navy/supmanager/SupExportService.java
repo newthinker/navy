@@ -148,6 +148,7 @@ public class SupExportService extends BaseService implements IService {
 		
 		String folder = UUID.randomUUID().toString();
 		String base = SystemParam.getParam("AbsolutePath");
+		String folderPath = base + "temp/export/" + folder;
 		String targetPath = base + "temp/export/" + folder + "/resources/";
 		String finalPath = base + "temp/export/" + folder + "/sups/";
 		File f = new File(targetPath);
@@ -338,22 +339,35 @@ public class SupExportService extends BaseService implements IService {
 			// 进行压缩
 			CompressUtils.compressZip(supPath, suptarget);
 			File file = new File(supPath);
-			for (int j = 0; j < file.listFiles().length; j ++) {
-				file.listFiles()[j].deleteOnExit();
+			String[] lf = file.list();
+			for (int j = 0; j < lf.length; j ++) {
+				FileUtils.delete(file.getAbsolutePath() + "\\" + lf[j]);
 			}
+			file.delete();
 		}
 		File file = new File(targetPath);
-		for (int j = 0; j < file.listFiles().length; j ++) {
-			file.listFiles()[j].deleteOnExit();
+		String[] lf = file.list();
+		for (int j = 0; j < lf.length; j ++) {
+			FileUtils.delete(file.getAbsolutePath() + "\\" + lf[j]);
 		}
+		file.delete();
 		
 //		targetPath = base + "temp/export/" + folder + "/";
 		String target = base + "temp/export/" + "SUPS" + new SimpleDateFormat("yyyy-MM-dd").format(new Date()) + ".zip";		
 		CompressUtils.compressZip(finalPath, target);
 		file = new File(finalPath);
-		for (int j = 0; j < file.listFiles().length; j ++) {
-			file.listFiles()[j].deleteOnExit();
+		lf = file.list();
+		for (int j = 0; j < lf.length; j ++) {
+			FileUtils.delete(file.getAbsolutePath() + "\\" + lf[j]);
 		}
+		file.delete();
+
+		file = new File(folderPath);
+		lf = file.list();
+		for (int j = 0; j < lf.length; j ++) {
+			FileUtils.delete(file.getAbsolutePath() + "\\" + lf[j]);
+		}
+		file.delete();
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 				
 		response.setDto(request.getDto());
