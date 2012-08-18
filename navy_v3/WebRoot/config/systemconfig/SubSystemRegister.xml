@@ -140,30 +140,85 @@
 		
 		<!-- supmanager service -->
 		<service>
-			<name>NavyManage.SupSupportorQueryService</name>
-			<class>cn.com.hd.navy.Supportorormanage.SupSupportorQueryService</class>
-		</service>
-		<service>
-			<name>NavyManage.SupSupportorQueryParamService</name>
-			<class>cn.com.hd.navy.Supportorormanage.SupSupportorQueryParamService</class>
-		</service>
-		<service>
-			<name>NavyManage.SupSupportorCountStatService</name>
-			<class>cn.com.hd.navy.Supportorormanage.SupSupportorCountStatService</class>
-		</service>
-		<service>
-			<name>NavyManage.SupSupportorProdCapStatService</name>
-			<class>cn.com.hd.navy.Supportorormanage.SupSupportorProdCapStatService</class>
-		</service>
-		<service>
-			<name>NavyManage.SupSupportorTypeCountStatService</name>
-			<class>cn.com.hd.navy.Supportorormanage.SupSupportorTypeCountStatService</class>
+			<name>NavyManage.SupSupportorAddService</name>
+			<class>cn.com.hd.navy.supmanage.SupSupportorAddService</class>
 		</service>
 		<service>
 			<name>NavyManage.SupSupportorQueryByIDService</name>
-			<class>cn.com.hd.navy.Supportorormanage.SupSupportorQueryByIDService</class>
+			<class>cn.com.hd.navy.supmanage.SupSupportorQueryByIDService</class>
+		</service>				
+		<service>
+			<name>NavyManage.SupSupportorQueryParamService</name>
+			<class>cn.com.hd.navy.supmanage.SupSupportorQueryParamService</class>
+		</service>						
+		<service>
+			<name>NavyManage.SupSupportorQueryService</name>
+			<class>cn.com.hd.navy.supmanage.SupSupportorQueryService</class>
 		</service>
-					
+		<service>
+			<name>NavyManage.SupSupportorCountStatService</name>
+			<class>cn.com.hd.navy.supmanage.SupSupportorCountStatService</class>
+		</service>
+		<service>
+			<name>NavyManage.SupSupportorUpdateService</name>
+			<class>cn.com.hd.navy.supmanage.SupSupportorUpdateService</class>
+		</service>		
+		<service>
+			<name>NavyManage.SupSupportorProdCapStatService</name>
+			<class>cn.com.hd.navy.supmanage.SupSupportorProdCapStatService</class>
+		</service>
+		<service>
+			<name>NavyManage.SupSupportorTypeCountStatService</name>
+			<class>cn.com.hd.navy.supmanage.SupSupportorTypeCountStatService</class>
+		</service>
+		<service>
+			<name>NavyManage.SupSupportorProdDeleteService</name>
+			<class>cn.com.hd.navy.supmanage.SupSupportorProdDeleteService</class>
+		</service>	
+		<service>
+			<name>NavyManage.SupSupportorProdQueryByIdService</name>
+			<class>cn.com.hd.navy.supmanage.SupSupportorProdQueryByIdService</class>
+		</service>			
+		<service>
+			<name>NavyManage.SupSupportorProdQueryService</name>
+			<class>cn.com.hd.navy.supmanage.SupSupportorProdQueryService</class>
+		</service>
+		<service>
+			<name>NavyManage.SupSupportorProdSaveOrUpdateService</name>
+			<class>cn.com.hd.navy.supmanage.SupSupportorProdSaveOrUpdateService</class>
+		</service>	
+		<service>
+			<name>NavyManage.SupSupportorSaleOrgDeleteService</name>
+			<class>cn.com.hd.navy.supmanage.SupSupportorSaleOrgDeleteService</class>
+		</service>		
+		<service>
+			<name>NavyManage.SupSupportorSaleOrgQueryByIdService</name>
+			<class>cn.com.hd.navy.supmanage.SupSupportorSaleOrgQueryByIdService</class>
+		</service>	
+		<service>
+			<name>NavyManage.SupSupportorSaleOrgQueryService</name>
+			<class>cn.com.hd.navy.supmanage.SupSupportorSaleOrgQueryService</class>
+		</service>
+		<service>
+			<name>NavyManage.SupSupportorSaleOrgSaveOrUpdateService</name>
+			<class>cn.com.hd.navy.supmanage.SupSupportorSaleOrgSaveOrUpdateService</class>
+		</service>
+		<service>
+			<name>NavyManage.SupSupportorStockDeleteService</name>
+			<class>cn.com.hd.navy.supmanage.SupSupportorStockDeleteService</class>
+		</service>
+		<service>
+			<name>NavyManage.SupSupportorStockQueryByIdService</name>
+			<class>cn.com.hd.navy.supmanage.SupSupportorStockQueryByIdService</class>
+		</service>
+		<service>
+			<name>NavyManage.SupSupportorStockQueryService</name>
+			<class>cn.com.hd.navy.supmanage.SupSupportorStockQueryService</class>
+		</service>
+		<service>
+			<name>NavyManage.SupSupportorStockSaveOrUpdateService</name>
+			<class>cn.com.hd.navy.supmanage.SupSupportorStockSaveOrUpdateService</class>
+		</service>								
 	</subsystem>
 	
 	<subsystem name="DictManage">
