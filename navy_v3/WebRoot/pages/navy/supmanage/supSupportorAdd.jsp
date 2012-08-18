@@ -28,11 +28,31 @@
 	DTO saleorgtype = (DTO)dictlist.get(4);
 	DTO trucktype = (DTO)dictlist.get(5);
 	DTO purchasetype = (DTO)dictlist.get(6);
+
+	DTO supportor = null;
+	DTO transport = null;
+	DTO highway = null;
+	List typeList = (List)resp.getDto().getList("RESULT");
+	if (typeList != null) {
+		if (typeList.size() > 0) {
+			supportor = (DTO) typeList.get(0);
+		}
+		if (typeList.size() > 1) {
+			transport = (DTO) typeList.get(1);
+		}
+		if (typeList.size() > 2) {
+			highway = (DTO) typeList.get(2);
+		}
+	}
 	
-	List resList = (List)resp.getDto().getList("RESULT");
-	DTO dto = new DTO();
-	if (resList != null && resList.size() > 0) {
-		dto = (DTO) resList.get(0);
+	if (supportor == null) {
+		supportor = new DTO();
+	}
+	if (transport == null) {
+		transport = new DTO();
+	}
+	if (highway == null) {
+		highway = new DTO();
 	}
 	
 	SimpleDateFormat fmtDate = new SimpleDateFormat("yyyy-MM-dd");
@@ -114,7 +134,7 @@
 		<form action="system" method="post">
 			<jsp:include page="supSupportorQueryParam.jsp"></jsp:include>
 			<input type="hidden" name="opt" id="opt">
-			<input id="str_supid" name="str_supid" type="hidden" value="<%= dto.showString("SUPID") %>">
+			<input id="str_supid" name="str_supid" type="hidden" value="<%= supportor.showString("SUPID") %>">
 			<input id="XML_DATA" name="XML_DATA" type="hidden" value="">
 			
 			<input id="STR_ECONOMY" name="STR_ECONOMY" type="hidden" />
@@ -152,7 +172,7 @@
 								</th>
 								<td width="30%">
 									<input type="text" name="STR_SUPNAME" id="STR_SUPNAME"
-										class="searchTbl_input" value="<%= dto.getString("SUPNAME") == null ? "" : dto.getString("SUPNAME") %>" />
+										class="searchTbl_input" value="<%= supportor.getString("SUPNAME") == null ? "" : supportor.getString("SUPNAME") %>" />
 									<span style="color:red;">*</span>
 								</td>
 								<th width="20%">
@@ -160,7 +180,7 @@
 								</th>
 								<td width="30%">
 									<input type="text" name="STR_SUPENNAME" id="STR_SUPENNAME"
-										class="searchTbl_input" value="<%= dto.getString("SUPENNAME") == null ? "" : dto.getString("SUPENNAME") %>" />
+										class="searchTbl_input" value="<%= supportor.getString("SUPENNAME") == null ? "" : supportor.getString("SUPENNAME") %>" />
 								</td>
 							</tr>
 							<tr>
@@ -171,7 +191,7 @@
 									<input name="DAT_CREATEDATE" id="DAT_CREATEDATE" style="cursor:hand;"
 										onfocus="WdatePicker({dateFmt:'yyyy-MM-dd',qsEnabled:true,quickSel:['2000-1-10','2000-2-20']})"
 										type="text" style="width:200px;" readonly="readonly" class="Wdate"
-										value="<%= dto.getDate("CREATEDATE") == null ? "" : fmtDate.format(dto.getDate("CREATEDATE")) %>" />
+										value="<%= supportor.getDate("CREATEDATE") == null ? "" : fmtDate.format(supportor.getDate("CREATEDATE")) %>" />
 		        					<span style="color:red;">*</span>
 								</td>
 								<th>
@@ -179,7 +199,7 @@
 								</th>
 								<td>
 									<input type="text" name="STR_ABBREVIATION" id="STR_ABBREVIATION"
-										class="searchTbl_input" value="<%= dto.getString("ABBREVIATION") == null ? "" : dto.getString("ABBREVIATION") %>" />
+										class="searchTbl_input" value="<%= supportor.getString("ABBREVIATION") == null ? "" : supportor.getString("ABBREVIATION") %>" />
 								</td>
 							</tr>
 							<tr>
@@ -188,7 +208,7 @@
 								</th>
 								<td>
 									<input type="text" name="STR_ADDRESS" id="STR_ADDRESS"
-										class="searchTbl_input" value="<%= dto.getString("ADDRESS") == null ? "" : dto.getString("ADDRESS") %>" />
+										class="searchTbl_input" value="<%= supportor.getString("ADDRESS") == null ? "" : supportor.getString("ADDRESS") %>" />
 									<span style="color:red;">*</span>
 								</td>
 								<th>
@@ -196,7 +216,7 @@
 								</th>
 								<td>
 									<input type="text" name="STR_POSTCODE" id="STR_POSTCODE"
-										class="searchTbl_input" value="<%= dto.getString("POSTCODE") == null ? "" : dto.getString("POSTCODE") %>" />
+										class="searchTbl_input" value="<%= supportor.getString("POSTCODE") == null ? "" : supportor.getString("POSTCODE") %>" />
 								</td>
 							</tr>
 							<tr>
@@ -205,7 +225,7 @@
 								</th>
 								<td>
 									<input type="text" name="STR_LOCATION" id="STR_LOCATION"
-										class="searchTbl_input" value="<%= dto.getString("LOCATION") == null ? "" : dto.getString("LOCATION") %>" />
+										class="searchTbl_input" value="<%= supportor.getString("LOCATION") == null ? "" : supportor.getString("LOCATION") %>" />
 									<span style="color:red;">*</span>
 								</td>
 								<th>
@@ -214,11 +234,11 @@
 								<td>
 									经度：
 									<input type="text" name="STR_LONGITUDE" id="STR_LONGITUDE" style="width:55px"
-										class="searchTbl_input" value="<%= dto.showString("LONGITUDE") %>" />
+										class="searchTbl_input" value="<%= supportor.showString("LONGITUDE") %>" />
 									&nbsp;
 									纬度：
 									<input type="text" name="STR_LATITUDE" id="STR_LATITUDE" style="width:55px"
-										class="searchTbl_input" value="<%= dto.showString("LATITUDE") %>" />
+										class="searchTbl_input" value="<%= supportor.showString("LATITUDE") %>" />
 								</td>
 							</tr>
 							<tr>
@@ -227,14 +247,14 @@
 								</th>
 								<td>
 									<input type="text" name="STR_NETADDR" id="STR_NETADDR"
-										class="searchTbl_input" value="<%= dto.getString("NETADDR") == null ? "" : dto.getString("NETADDR") %>" />
+										class="searchTbl_input" value="<%= supportor.getString("NETADDR") == null ? "" : supportor.getString("NETADDR") %>" />
 								</td>
 								<th>
 									组织机构代码
 								</th>
 								<td>
 									<input type="text" name="STR_ORGANIZECODE" id="STR_ORGANIZECODE"
-										class="searchTbl_input" value="<%= dto.getString("ORGANIZECODE") == null ? "" : dto.getString("ORGANIZECODE") %>" />
+										class="searchTbl_input" value="<%= supportor.getString("ORGANIZECODE") == null ? "" : supportor.getString("ORGANIZECODE") %>" />
 								</td>
 							</tr>
 							<tr>
@@ -328,7 +348,7 @@
 								</th>
 								<td>
 									<input type="text" name="STR_ACCOUNT" id="STR_ACCOUNT"
-										class="searchTbl_input" value="<%= dto.getString("ACCOUNT") == null ? "" : dto.getString("ACCOUNT") %>" />
+										class="searchTbl_input" value="<%= supportor.getString("ACCOUNT") == null ? "" : supportor.getString("ACCOUNT") %>" />
 								</td>
 							</tr>
 							<tr>
@@ -354,7 +374,7 @@
 								</th>
 								<td>
 									<input type="text" name="STR_CREDITORG" id="STR_CREDITORG"
-										class="searchTbl_input" value="<%= dto.getString("CREDITORG") == null ? "" : dto.getString("CREDITORG") %>" />
+										class="searchTbl_input" value="<%= supportor.getString("CREDITORG") == null ? "" : supportor.getString("CREDITORG") %>" />
 								</td>
 							</tr>
 							<tr>
@@ -365,7 +385,7 @@
 									<input name="DAT_CREDITDATE" id="DAT_CREDITDATE" style="cursor:hand;"
 										onfocus="WdatePicker({dateFmt:'yyyy-MM-dd',qsEnabled:true,quickSel:['2000-1-10','2000-2-20']})"
 										type="text" style="width:200px;" readonly="readonly" class="Wdate"
-										value="<%= dto.getDate("CREDITDATE") == null ? "" : fmtDate.format(dto.getDate("CREDITDATE")) %>" />
+										value="<%= supportor.getDate("CREDITDATE") == null ? "" : fmtDate.format(supportor.getDate("CREDITDATE")) %>" />
 								</td>
 								<th>
 									是否协议供应商
@@ -404,7 +424,7 @@
 									供应商简介
 								</th>
 								<td colspan="3">
-									<textarea name="STR_SUMMARY" id="STR_SUMMARY" rows="5" cols="10"><%= dto.getString("SUMMARY") == null ? "" : dto.getString("SUMMARY") %></textarea>
+									<textarea name="STR_SUMMARY" id="STR_SUMMARY" rows="5" cols="10"><%= supportor.getString("SUMMARY") == null ? "" : supportor.getString("SUMMARY") %></textarea>
 									<br />(可填写2000个英文字符或1000个中文字符)
 								</td>
 							</tr>
@@ -431,14 +451,14 @@
 								</th>
 								<td width="30%">
 									<input type="text" name="STR_CORPORATION" id="STR_CORPORATION"
-										class="searchTbl_input" value="<%= dto.getString("CORPORATION") == null ? "" : dto.getString("CORPORATION") %>" />
+										class="searchTbl_input" value="<%= supportor.getString("CORPORATION") == null ? "" : supportor.getString("CORPORATION") %>" />
 								</td>
 								<th width="20%">
 									固定电话
 								</th>
 								<td width="30%">
 									<input type="text" name="STR_CORPPHONE" id="STR_CORPPHONE"
-										class="searchTbl_input" value="<%= dto.getString("CORPPHONE") == null ? "" : dto.getString("CORPPHONE") %>" />
+										class="searchTbl_input" value="<%= supportor.getString("CORPPHONE") == null ? "" : supportor.getString("CORPPHONE") %>" />
 								</td>
 							</tr>
 							<tr>
@@ -447,7 +467,7 @@
 								</th>
 								<td>
 									<input type="text" name="STR_CORPMOBILE" id="STR_CORPMOBILE"
-										class="searchTbl_input" value="<%= dto.getString("CORPMOBILE") == null ? "" : dto.getString("CORPMOBILE") %>" />
+										class="searchTbl_input" value="<%= supportor.getString("CORPMOBILE") == null ? "" : supportor.getString("CORPMOBILE") %>" />
 								</td>
 								<th>
 									&nbsp;
@@ -479,14 +499,14 @@
 								</th>
 								<td width="30%">
 									<input type="text" name="STR_CONTACT" id="STR_CONTACT"
-										class="searchTbl_input" value="<%= dto.getString("CONTACT") == null ? "" : dto.getString("CONTACT") %>" />
+										class="searchTbl_input" value="<%= supportor.getString("CONTACT") == null ? "" : supportor.getString("CONTACT") %>" />
 								</td>
 								<th width="20%">
 									固定电话
 								</th>
 								<td width="30%">
 									<input type="text" name="STR_CONTACTPHONE" id="STR_CONTACTPHONE"
-										class="searchTbl_input" value="<%= dto.getString("CONTACTPHONE") == null ? "" : dto.getString("CONTACTPHONE") %>" />
+										class="searchTbl_input" value="<%= supportor.getString("CONTACTPHONE") == null ? "" : supportor.getString("CONTACTPHONE") %>" />
 								</td>
 							</tr>
 							<tr>
@@ -495,14 +515,14 @@
 								</th>
 								<td>
 									<input type="text" name="STR_CONTACTMOBILE" id="STR_CONTACTMOBILE"
-										class="searchTbl_input" value="<%= dto.getString("CONTACTMOBILE") == null ? "" : dto.getString("CONTACTMOBILE") %>" />
+										class="searchTbl_input" value="<%= supportor.getString("CONTACTMOBILE") == null ? "" : supportor.getString("CONTACTMOBILE") %>" />
 								</td>
 								<th>
 									传真
 								</th>
 								<td>
 									<input type="text" name="STR_CONTACTFAX" id="STR_CONTACTFAX"
-										class="searchTbl_input" value="<%= dto.getString("CONTACTFAX") == null ? "" : dto.getString("CONTACTFAX") %>" />
+										class="searchTbl_input" value="<%= supportor.getString("CONTACTFAX") == null ? "" : supportor.getString("CONTACTFAX") %>" />
 								</td>
 							</tr>
 							<tr>
@@ -511,7 +531,7 @@
 								</th>
 								<td>
 									<input type="text" name="STR_CONTACTEMAIL" id="STR_CONTACTEMAIL"
-										class="searchTbl_input" value="<%= dto.getString("CONTACTEMAIL") == null ? "" : dto.getString("CONTACTEMAIL") %>" />
+										class="searchTbl_input" value="<%= supportor.getString("CONTACTEMAIL") == null ? "" : supportor.getString("CONTACTEMAIL") %>" />
 								</td>
 								<th>
 									&nbsp;
@@ -543,14 +563,14 @@
 								</th>
 								<td width="30%">
 									<input type="text" name="STR_LICNO" id="STR_LICNO"
-										class="searchTbl_input" value="<%= dto.getString("LICNO") == null ? "" : dto.getString("LICNO") %>" />
+										class="searchTbl_input" value="<%= supportor.getString("LICNO") == null ? "" : supportor.getString("LICNO") %>" />
 								</td>
 								<th width="20%">
 									发证机关
 								</th>
 								<td width="30%">
 									<input type="text" name="STR_LICORG" id="STR_LICORG"
-										class="searchTbl_input" value="<%= dto.getString("LICORG") == null ? "" : dto.getString("LICORG") %>" />
+										class="searchTbl_input" value="<%= supportor.getString("LICORG") == null ? "" : supportor.getString("LICORG") %>" />
 								</td>
 							</tr>
 							<tr>
@@ -559,14 +579,14 @@
 								</th>
 								<td>
 									<input type="text" name="DOU_LICCAPITAL" id="DOU_LICCAPITAL"
-										class="searchTbl_input" value="<%= dto.getNumber("LICCAPITAL") == null ? dto.showDouble("LICCAPITAL") : dto.getNumber("LICCAPITAL").doubleValue() %>" />&nbsp;万元
+										class="searchTbl_input" value="<%= supportor.getNumber("LICCAPITAL") == null ? supportor.showDouble("LICCAPITAL") : supportor.getNumber("LICCAPITAL").doubleValue() %>" />&nbsp;万元
 								</td>
 								<th>
 									注册所在地
 								</th>
 								<td>
 									<input type="text" name="STR_LICADDR" id="STR_LICADDR"
-										class="searchTbl_input" value="<%= dto.getString("LICADDR") == null ? "" : dto.getString("LICADDR") %>" />
+										class="searchTbl_input" value="<%= supportor.getString("LICADDR") == null ? "" : supportor.getString("LICADDR") %>" />
 								</td>
 							</tr>
 							<tr>
@@ -577,7 +597,7 @@
 									<input name="DAT_LICVALSTART" id="DAT_LICVALSTART" style="cursor:hand;"
 										onfocus="WdatePicker({dateFmt:'yyyy-MM-dd',qsEnabled:true,quickSel:['2000-1-10','2000-2-20']})"
 										type="text" style="width:200px;" readonly="readonly" class="Wdate"
-										value="<%= dto.getDate("LICVALSTART") == null ? "" : fmtDate.format(dto.getDate("LICVALSTART")) %>" />
+										value="<%= supportor.getDate("LICVALSTART") == null ? "" : fmtDate.format(supportor.getDate("LICVALSTART")) %>" />
 								</td>
 								<th>
 									有效期结束时间
@@ -586,7 +606,7 @@
 									<input name="DAT_LICVALEND" id="DAT_LICVALEND" style="cursor:hand;"
 										onfocus="WdatePicker({dateFmt:'yyyy-MM-dd',qsEnabled:true,quickSel:['2000-1-10','2000-2-20']})"
 										type="text" style="width:200px;" readonly="readonly" class="Wdate"
-										value="<%= dto.getDate("LICVALEND") == null ? "" : fmtDate.format(dto.getDate("LICVALEND")) %>" />
+										value="<%= supportor.getDate("LICVALEND") == null ? "" : fmtDate.format(supportor.getDate("LICVALEND")) %>" />
 								</td>
 							</tr>
 							<tr>
@@ -597,7 +617,7 @@
 									<input name="DAT_LICEXADATE" id="DAT_LICEXADATE" style="cursor:hand;"
 										onfocus="WdatePicker({dateFmt:'yyyy-MM-dd',qsEnabled:true,quickSel:['2000-1-10','2000-2-20']})"
 										type="text" style="width:200px;" readonly="readonly" class="Wdate"
-										value="<%= dto.getDate("LICEXADATE") == null ? "" : fmtDate.format(dto.getDate("LICEXADATE")) %>" />
+										value="<%= supportor.getDate("LICEXADATE") == null ? "" : fmtDate.format(supportor.getDate("LICEXADATE")) %>" />
 								</td>
 								<th>
 									&nbsp;
@@ -611,7 +631,7 @@
 									主要经营范围
 								</th>
 								<td colspan="3">
-									<textarea name="STR_LICMAINOPT" id="STR_LICMAINOPT" rows="5" cols="10"><%= dto.getString("LICMAINOPT") == null ? "" : dto.getString("LICMAINOPT") %></textarea>
+									<textarea name="STR_LICMAINOPT" id="STR_LICMAINOPT" rows="5" cols="10"><%= supportor.getString("LICMAINOPT") == null ? "" : supportor.getString("LICMAINOPT") %></textarea>
 									<br />(可填写2000个英文字符或1000个中文字符)
 								</td>
 							</tr>
@@ -620,7 +640,7 @@
 									兼营经营范围
 								</th>
 								<td colspan="3">
-									<textarea name="STR_LICOTHEROPT" id="STR_LICOTHEROPT" rows="5" cols="10"><%= dto.getString("LICOTHEROPT") == null ? "" : dto.getString("LICOTHEROPT") %></textarea>
+									<textarea name="STR_LICOTHEROPT" id="STR_LICOTHEROPT" rows="5" cols="10"><%= supportor.getString("LICOTHEROPT") == null ? "" : supportor.getString("LICOTHEROPT") %></textarea>
 									<br />(可填写2000个英文字符或1000个中文字符)
 								</td>
 							</tr>
@@ -647,14 +667,14 @@
 								</th>
 								<td width="30%">
 									<input type="text" name="STR_STATETAXNO" id="STR_STATETAXNO"
-										class="searchTbl_input" value="<%= dto.getString("STATETAXNO") == null ? "" : dto.getString("STATETAXNO") %>" />
+										class="searchTbl_input" value="<%= supportor.getString("STATETAXNO") == null ? "" : supportor.getString("STATETAXNO") %>" />
 								</td>
 								<th width="20%">
 									发证机关
 								</th>
 								<td width="30%">
 									<input type="text" name="STR_STATETAXORG" id="STR_STATETAXORG"
-										class="searchTbl_input" value="<%= dto.getString("STATETAXORG") == null ? "" : dto.getString("STATETAXORG") %>" />
+										class="searchTbl_input" value="<%= supportor.getString("STATETAXORG") == null ? "" : supportor.getString("STATETAXORG") %>" />
 								</td>
 							</tr>
 							<tr>
@@ -665,7 +685,7 @@
 									<input name="DAT_STATETAXVALSTART" id="DAT_STATETAXVALSTART" style="cursor:hand;"
 										onfocus="WdatePicker({dateFmt:'yyyy-MM-dd',qsEnabled:true,quickSel:['2000-1-10','2000-2-20']})"
 										type="text" style="width:200px;" readonly="readonly" class="Wdate"
-										value="<%= dto.getDate("STATETAXVALSTART") == null ? "" : fmtDate.format(dto.getDate("STATETAXVALSTART")) %>" />
+										value="<%= supportor.getDate("STATETAXVALSTART") == null ? "" : fmtDate.format(supportor.getDate("STATETAXVALSTART")) %>" />
 								</td>
 								<th>
 									有效期结束时间
@@ -674,7 +694,7 @@
 									<input name="DAT_STATETAXVALEND" id="DAT_STATETAXVALEND" style="cursor:hand;"
 										onfocus="WdatePicker({dateFmt:'yyyy-MM-dd',qsEnabled:true,quickSel:['2000-1-10','2000-2-20']})"
 										type="text" style="width:200px;" readonly="readonly" class="Wdate"
-										value="<%= dto.getDate("STATETAXVALEND") == null ? "" : fmtDate.format(dto.getDate("STATETAXVALEND")) %>" />
+										value="<%= supportor.getDate("STATETAXVALEND") == null ? "" : fmtDate.format(supportor.getDate("STATETAXVALEND")) %>" />
 								</td>
 							</tr>
 							<tr>
@@ -718,14 +738,14 @@
 								</th>
 								<td width="30%">
 									<input type="text" name="STR_LOCALTAXNO" id="STR_LOCALTAXNO"
-										class="searchTbl_input" value="<%= dto.getString("LOCALTAXNO") == null ? "" : dto.getString("LOCALTAXNO") %>" />
+										class="searchTbl_input" value="<%= supportor.getString("LOCALTAXNO") == null ? "" : supportor.getString("LOCALTAXNO") %>" />
 								</td>
 								<th width="20%">
 									发证机关
 								</th>
 								<td width="30%">
 									<input type="text" name="STR_LOCALTAXORG" id="STR_LOCALTAXORG"
-										class="searchTbl_input" value="<%= dto.getString("LOCALTAXORG") == null ? "" : dto.getString("LOCALTAXORG") %>" />
+										class="searchTbl_input" value="<%= supportor.getString("LOCALTAXORG") == null ? "" : supportor.getString("LOCALTAXORG") %>" />
 								</td>
 							</tr>
 							<tr>
@@ -736,7 +756,7 @@
 									<input name="DAT_LOCALTAXVALSTART" id="DAT_LOCALTAXVALSTART" style="cursor:hand;"
 										onfocus="WdatePicker({dateFmt:'yyyy-MM-dd',qsEnabled:true,quickSel:['2000-1-10','2000-2-20']})"
 										type="text" style="width:200px;" readonly="readonly" class="Wdate"
-										value="<%= dto.getDate("LOCALTAXVALSTART") == null ? "" : fmtDate.format(dto.getDate("LOCALTAXVALSTART")) %>" />
+										value="<%= supportor.getDate("LOCALTAXVALSTART") == null ? "" : fmtDate.format(supportor.getDate("LOCALTAXVALSTART")) %>" />
 								</td>
 								<th>
 									有效期结束时间
@@ -745,7 +765,7 @@
 									<input name="DAT_LOCALTAXVALEND" id="DAT_LOCALTAXVALEND" style="cursor:hand;"
 										onfocus="WdatePicker({dateFmt:'yyyy-MM-dd',qsEnabled:true,quickSel:['2000-1-10','2000-2-20']})"
 										type="text" style="width:200px;" readonly="readonly" class="Wdate"
-										value="<%= dto.getDate("LOCALTAXVALEND") == null ? "" : fmtDate.format(dto.getDate("LOCALTAXVALEND")) %>" />
+										value="<%= supportor.getDate("LOCALTAXVALEND") == null ? "" : fmtDate.format(supportor.getDate("LOCALTAXVALEND")) %>" />
 								</td>
 							</tr>
 							<tr>
@@ -789,14 +809,14 @@
 								</th>
 								<td width="30%">
 									<input type="text" name="STR_STOREHOUSEAREA" id="STR_STOREHOUSEAREA"
-										class="searchTbl_input" value="<%= dto.getString("STOREHOUSEAREA") == null ? "" : dto.getString("STOREHOUSEAREA") %>" />
+										class="searchTbl_input" value="<%= supportor.getNumber("STOREHOUSEAREA") == null ? "" : supportor.getNumber("STOREHOUSEAREA") %>" />
 								</td>
 								<th width="20%">
 									货场总面积
 								</th>
 								<td width="30%">
 									<input type="text" name="STR_WAREHOUSEAREA" id="STR_WAREHOUSEAREA"
-										class="searchTbl_input" value="<%= dto.getString("WAREHOUSEAREA") == null ? "" : dto.getString("WAREHOUSEAREA") %>" />
+										class="searchTbl_input" value="<%= supportor.getNumber("WAREHOUSEAREA") == null ? "" : supportor.getNumber("WAREHOUSEAREA") %>" />
 								</td>
 							</tr>
 						<!-- <tr>
@@ -805,7 +825,7 @@
 								</th>
 								<td>
 									<input type="text" name="STR_STOREHOUSEIMAGE" id="STR_STOREHOUSEIMAGE"
-										class="searchTbl_input" value="<%= dto.getString("CORPMOBILE") == null ? "" : dto.getString("CORPMOBILE") %>" />
+										class="searchTbl_input" value="<%= supportor.getString("CORPMOBILE") == null ? "" : supportor.getString("CORPMOBILE") %>" />
 								</td>
 								<th>
 									&nbsp;
@@ -837,7 +857,7 @@
 								</th>
 								<td width="30%">
 									<input type="text" name="STR_COMNAME" id="STR_COMNAME"
-										class="searchTbl_input" value="<%= dto.getString("STOREHOUSEAREA") == null ? "" : dto.getString("STOREHOUSEAREA") %>" />
+										class="searchTbl_input" value="<%= transport.getString("COMNAME") == null ? "" : transport.getString("COMNAME") %>" />
 								</td>
 								<th width="20%">
 									运输车类型
@@ -863,30 +883,30 @@
 								</th>
 								<td>
 									<input type="text" name="STR_DEADWEIGHT" id="STR_DEADWEIGHT"
-										class="searchTbl_input" value="<%= dto.getString("DEADWEIGHT") == null ? "" : dto.getString("DEADWEIGHT") %>" />
-								</td>
-								<th>
-									高速公路名称
-								</th>
-								<td>
-									<input type="text" name="STR_HIWNAME" id="STR_HIWNAME"
-										class="searchTbl_input" value="<%= dto.getString("HIWNAME") == null ? "" : dto.getString("HIWNAME") %>" />
-								</td>
-							</tr>
-							<tr>
-								<th>
-									高速公路编号
-								</th>
-								<td>
-									<input type="text" name="STR_HIWID" id="STR_HIWID"
-										class="searchTbl_input" value="<%= dto.getString("HIWID") == null ? "" : dto.getString("HIWID") %>" />
+										class="searchTbl_input" value="<%= transport.getDouble("DEADWEIGHT") == null ? "" : transport.getDouble("DEADWEIGHT") %>" />
 								</td>
 								<th>
 									数量（台）
 								</th>
 								<td>
 									<input type="text" name="STR_COUNT" id="STR_COUNT"
-										class="searchTbl_input" value="<%= dto.getString("COUNT") == null ? "" : dto.getString("COUNT") %>" />
+										class="searchTbl_input" value="<%= transport.getInt("COUNT") == null ? "" : transport.getInt("COUNT") %>" />
+								</td>
+							</tr>
+							<tr>
+								<th>
+									高速公路名称
+								</th>
+								<td>
+									<input type="text" name="STR_HIWNAME" id="STR_HIWNAME"
+										class="searchTbl_input" value="<%= highway.getString("HIWNAME") == null ? "" : highway.getString("HIWNAME") %>" />
+								</td>
+								<th>
+									高速公路编号
+								</th>
+								<td>
+									<input type="text" name="STR_HIWID" id="STR_HIWID"
+										class="searchTbl_input" value="<%= highway.getString("HIWID") == null ? "" : highway.getString("HIWID") %>" />
 								</td>
 							</tr>
 							<tr>
@@ -895,14 +915,14 @@
 								</th>
 								<td>
 									<input type="text" name="STR_HIWIN" id="STR_HIWIN"
-										class="searchTbl_input" value="<%= dto.getString("HIWIN") == null ? "" : dto.getString("HIWIN") %>" />
+										class="searchTbl_input" value="<%= highway.getString("HIWIN") == null ? "" : highway.getString("HIWIN") %>" />
 								</td>
 								<th>
 									高速公路入口编号
 								</th>
 								<td>
 									<input type="text" name="STR_HIWINID" id="STR_HIWINID"
-										class="searchTbl_input" value="<%= dto.getString("HIWINID") == null ? "" : dto.getString("HIWINID") %>" />
+										class="searchTbl_input" value="<%= highway.getString("HIWINID") == null ? "" : highway.getString("HIWINID") %>" />
 								</td>
 							</tr>
 							<tr>
@@ -917,7 +937,7 @@
 								</th>
 								<td>
 									<input type="text" name="STR_HIWDIS" id="STR_HIWDIS"
-										class="searchTbl_input" value="<%= dto.getString("HIWDIS") == null ? "" : dto.getString("HIWDIS") %>" />
+										class="searchTbl_input" value="<%= highway.getDouble("HIWDIS") == null ? "" : highway.getDouble("HIWDIS") %>" />
 								</td>
 							</tr>
 							<tr>
@@ -926,14 +946,14 @@
 								</th>
 								<td>
 									<input type="text" name="STR_NEARRAILWAY" id="STR_NEARRAILWAY"
-										class="searchTbl_input" value="<%= dto.getString("NEARRAILWAY") == null ? "" : dto.getString("NEARRAILWAY") %>" />
+										class="searchTbl_input" value="<%= transport.getString("NEARRAILWAY") == null ? "" : transport.getString("NEARRAILWAY") %>" />
 								</td>
 								<th>
 									货运站距离
 								</th>
 								<td>
 									<input type="text" name="STR_RWDIS" id="STR_RWDIS"
-										class="searchTbl_input" value="<%= dto.getString("RWDIS") == null ? "" : dto.getString("RWDIS") %>" />
+										class="searchTbl_input" value="<%= transport.getDouble("RWDIS") == null ? "" : transport.getDouble("RWDIS") %>" />
 								</td>
 							</tr>
 							<tr>
@@ -942,14 +962,14 @@
 								</th>
 								<td>
 									<input type="text" name="STR_NEARPORT" id="STR_NEARPORT"
-										class="searchTbl_input" value="<%= dto.getString("NEARPORT") == null ? "" : dto.getString("NEARPORT") %>" />
+										class="searchTbl_input" value="<%= transport.getString("NEARPORT") == null ? "" : transport.getString("NEARPORT") %>" />
 								</td>
 								<th>
 									港口距离
 								</th>
 								<td>
 									<input type="text" name="STR_PORTDIS" id="STR_PORTDIS"
-										class="searchTbl_input" value="<%= dto.getString("PORTDIS") == null ? "" : dto.getString("PORTDIS") %>" />
+										class="searchTbl_input" value="<%= transport.getDouble("PORTDIS") == null ? "" : transport.getDouble("PORTDIS") %>" />
 								</td>
 							</tr>
 							<tr>
@@ -958,14 +978,14 @@
 								</th>
 								<td>
 									<input type="text" name="STR_NEARAIRPORT" id="STR_NEARAIRPORT"
-										class="searchTbl_input" value="<%= dto.getString("NEARAIRPORT") == null ? "" : dto.getString("NEARAIRPORT") %>" />
+										class="searchTbl_input" value="<%= transport.getString("NEARAIRPORT") == null ? "" : transport.getString("NEARAIRPORT") %>" />
 								</td>
 								<th>
 									机场距离
 								</th>
 								<td>
 									<input type="text" name="STR_APDIS" id="STR_APDIS"
-										class="searchTbl_input" value="<%= dto.getString("APDIS") == null ? "" : dto.getString("APDIS") %>" />
+										class="searchTbl_input" value="<%= transport.getDouble("APDIS") == null ? "" : transport.getDouble("APDIS") %>" />
 								</td>
 							</tr>
 						</table>
@@ -983,7 +1003,7 @@
 				</tr>
 				<tr>
 					<td colspan="3" style="border:1px solid #b9c5c9; border-top:none; background-color:#ffffff;">
-						<iframe src="pages/navy/supmanage/supSupportorProdQuery.jsp?supid=<%= dto.showString("SUPID") %>"
+						<iframe src="pages/navy/supmanage/supSupportorProdQuery.jsp?supid=<%= supportor.showString("SUPID") %>"
 							frameborder="0" scrolling="no" width="100%" height="310"></iframe>
 					</td>
 				</tr>
@@ -999,7 +1019,7 @@
 				</tr>
 				<tr>
 					<td colspan="3" style="border:1px solid #b9c5c9; border-top:none; background-color:#ffffff;">
-						<iframe src="pages/navy/supmanage/supSupportorStockQuery.jsp?supid=<%= dto.showString("SUPID") %>"
+						<iframe src="pages/navy/supmanage/supSupportorStockQuery.jsp?supid=<%= supportor.showString("SUPID") %>"
 							frameborder="0" scrolling="no" width="100%" height="310"></iframe>
 					</td>
 				</tr>
@@ -1015,7 +1035,7 @@
 				</tr>
 				<tr>
 					<td colspan="3" style="border:1px solid #b9c5c9; border-top:none; background-color:#ffffff;">
-						<iframe src="pages/navy/supmanage/supSupportorSaleOrgQuery.jsp?supid=<%= dto.showString("SUPID") %>"
+						<iframe src="pages/navy/supmanage/supSupportorSaleOrgQuery.jsp?supid=<%= supportor.showString("SUPID") %>"
 							frameborder="0" scrolling="no" width="100%" height="310"></iframe>
 					</td>
 				</tr>
@@ -1028,17 +1048,18 @@
 			</div>
 		</form>
 		<script type="text/javascript">
-			setSelect("STR_ECONOMYID", "<%= dto.getString("ECONOMYID") == null ? "" : dto.getString("ECONOMYID") %>");
-			setSelect("STR_TYPECODE", "<%= dto.getString("TYPECODE") == null ? "" : dto.getString("TYPECODE") %>");
-			setSelect("STR_PURCHASETYPEID", "<%= dto.getString("PURCHASETYPEID") == null ? "" : dto.getString("PURCHASETYPEID") %>");
-			setSelect("STR_IFTURNOVER", "<%= dto.getString("IFTURNOVER") == null ? "" : dto.getString("IFTURNOVER") %>");
-			setSelect("STR_BANKID", "<%= dto.getString("BANKID") == null ? "" : dto.getString("BANKID") %>");
-			setSelect("STR_CREDITID", "<%= dto.getString("CREDITID") == null ? "" : dto.getString("CREDITID") %>");
-			setSelect("STR_SUPTYPE", "<%= dto.getString("SUPTYPE") == null ? "" : dto.getString("SUPTYPE") %>");
-			setSelect("STR_INSURANCE", "<%= dto.getString("INSURANCE") == null ? "" : dto.getString("INSURANCE") %>");
-			setSelect("STR_ILLEGAL", "<%= dto.getString("ILLEGAL") == null ? "" : dto.getString("ILLEGAL") %>");
-			setSelect("STR_IFSTATETAX", "<%= dto.getString("IFSTATETAX") == null ? "" : dto.getString("IFSTATETAX") %>");
-			setSelect("STR_IFLOCALTAX", "<%= dto.getString("IFLOCALTAX") == null ? "" : dto.getString("IFLOCALTAX") %>");
+			setSelect("STR_ECONOMYID", "<%= supportor.getString("ECONOMYID") == null ? "" : supportor.getString("ECONOMYID") %>");
+			setSelect("STR_TYPECODE", "<%= supportor.getString("TYPECODE") == null ? "" : supportor.getString("TYPECODE") %>");
+			setSelect("STR_PURCHASETYPEID", "<%= supportor.getString("PURCHASETYPEID") == null ? "" : supportor.getString("PURCHASETYPEID") %>");
+			setSelect("STR_IFTURNOVER", "<%= supportor.getString("IFTURNOVER") == null ? "" : supportor.getString("IFTURNOVER") %>");
+			setSelect("STR_BANKID", "<%= supportor.getString("BANKID") == null ? "" : supportor.getString("BANKID") %>");
+			setSelect("STR_CREDITID", "<%= supportor.getString("CREDITID") == null ? "" : supportor.getString("CREDITID") %>");
+			setSelect("STR_SUPTYPE", "<%= supportor.getString("SUPTYPE") == null ? "" : supportor.getString("SUPTYPE") %>");
+			setSelect("STR_INSURANCE", "<%= supportor.getString("INSURANCE") == null ? "" : supportor.getString("INSURANCE") %>");
+			setSelect("STR_ILLEGAL", "<%= supportor.getString("ILLEGAL") == null ? "" : supportor.getString("ILLEGAL") %>");
+			setSelect("STR_IFSTATETAX", "<%= supportor.getString("IFSTATETAX") == null ? "" : supportor.getString("IFSTATETAX") %>");
+			setSelect("STR_IFLOCALTAX", "<%= supportor.getString("IFLOCALTAX") == null ? "" : supportor.getString("IFLOCALTAX") %>");
+			setSelect("STR_TRUCKTYPEID", "<%= transport.getString("TRUCKTYPEID") == null ? "" : transport.getString("TRUCKTYPEID") %>");
 			
 			<% if (resp != null && resp.getErrorInfo() != null) { %>
 				alert("<%= resp.getErrorInfo() %>");
