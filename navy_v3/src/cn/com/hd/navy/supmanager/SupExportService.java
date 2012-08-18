@@ -338,15 +338,14 @@ public class SupExportService extends BaseService implements IService {
 			// 进行压缩
 			CompressUtils.compressZip(supPath, suptarget);
 			File file = new File(supPath);
-			String[] lf = file.list();
-			for (int j = 0; j < lf.length; j ++) {
-				cn.com.hd.utils.FileUtils.delete(lf[j]);
+			for (int j = 0; j < file.listFiles().length; j ++) {
+				file.listFiles()[j].deleteOnExit();
 			}
 		}
 		File file = new File(targetPath);
 		for (int j = 0; j < file.listFiles().length; j ++) {
 			file.listFiles()[j].deleteOnExit();
-		}		
+		}
 		
 //		targetPath = base + "temp/export/" + folder + "/";
 		String target = base + "temp/export/" + "SUPS" + new SimpleDateFormat("yyyy-MM-dd").format(new Date()) + ".zip";		
@@ -354,7 +353,7 @@ public class SupExportService extends BaseService implements IService {
 		file = new File(finalPath);
 		for (int j = 0; j < file.listFiles().length; j ++) {
 			file.listFiles()[j].deleteOnExit();
-		}		
+		}
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 				
 		response.setDto(request.getDto());

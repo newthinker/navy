@@ -4,6 +4,12 @@
 <%@ page import="java.text.SimpleDateFormat"%>
 <%@ include file="../../common/init.jsp" %>
 <%
+	String downloadurl = "";
+	if (resp.getDto().get("DOWNLOAD") != null) {
+		String download = (String)resp.getDto().get("DOWNLOAD");
+		String downloadFilename = (String)resp.getDto().get("DOWNLOAD_FILENAME");
+		downloadurl = "download?download=" + download + "&filename=" + downloadFilename;
+	}
 	SimpleDateFormat fmtDate = new SimpleDateFormat("yyyy-MM-dd");
 %>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -31,7 +37,7 @@
 				if (resp != null && resp.getErrorInfo() != null) { %>
 					alert("<%= resp.getErrorInfo() %>");
 			<% 
-				} else if (resp.getDto().get("RESULT") != null && (Integer)resp.getDto().get("RESULT") > 0){ %>
+				} else if (resp.getDto().get("RESULT") != null && (Integer)resp.getDto().get("RESULT") == 1){ %>
 					alert("删除成功！");
 			<% 
 				}
@@ -217,6 +223,6 @@
 			setSelect("page", "<%= pages.getPageIndex() %>");
 
 		</script>
-		<iframe id="download" src="" width="0" height="0" frameborder="0"></iframe>
+		<iframe id="download" src="<%= downloadurl %>" width="0" height="0" frameborder="0"></iframe>
 	</body>
 </html>
