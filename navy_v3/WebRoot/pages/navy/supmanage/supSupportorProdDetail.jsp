@@ -101,7 +101,7 @@
 									2008-2010年平均年产量
 								</th>
 								<td>
-									<%= dto.showString("AVGOUTPUT", "&nbsp;") %>
+									<%= dto.showNumber("AVGOUTPUT", "&nbsp;") %>
 								</td>
 							</tr>
 							<tr>
@@ -109,7 +109,7 @@
 									2008-2010年最大年产量
 								</th>
 								<td>
-									<%= dto.showString("MAXOUTPUT", "&nbsp;") %>
+									<%= dto.showNumber("MAXOUTPUT", "&nbsp;") %>
 								</td>
 							</tr>
 							<tr>
@@ -117,7 +117,7 @@
 									单批最大产量
 								</th>
 								<td>
-									<%= dto.showString("SINGLEMAXOUTPUT", "&nbsp;") %>
+									<%= dto.showNumber("SINGLEMAXOUTPUT", "&nbsp;") %>
 								</td>
 							</tr>
 							<tr>

@@ -107,10 +107,10 @@
 													<%= i + 1 + pages.getRowNumber() * (pages.getPageIndex() - 1) %>
 												</td>
 												<td width="25%">
-													<a href="javascript:showDetail('<%= data.showString("PRODID") %>');" class="link_blue_table"><%= data.showString("GOODNAME") %></a>
+													<%= data.showString("GOODNAME") %>
 												</td>
 												<td width="20%">
-													<%= data.showString("PRODNAME", "&nbsp;") %>
+													<a href="javascript:showDetail('<%= data.showString("PRODID") %>');" class="link_blue_table"><%= data.showString("PRODNAME") %></a>
 												</td>
 												<td width="20%">
 													<%= data.showString("MEASURUNIT", "&nbsp;") %>

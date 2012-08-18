@@ -95,8 +95,8 @@ scriptHelper.prototype.showDivCommon = function(sObj, divId, sObjHeight, moveLef
     var sObjOffsetLeft = 0; //事件源的水平距离
     var myClient = this.getClient();
     var myScroll = this.getScroll();
-    var sWidth = sObj.width; //事件源对象的宽度
-    var sHeight = sObjHeight; //事件源对象的高度
+    var sWidth = sObj.offsetWidth; //事件源对象的宽度
+    var sHeight = sObj.offsetHeight; //事件源对象的高度
     var bottomSpace; //距离底部的距离
     /* 获取事件源控件的高度和宽度.*/
     if (sWidth == null) 
@@ -106,6 +106,14 @@ scriptHelper.prototype.showDivCommon = function(sObj, divId, sObjHeight, moveLef
     else 
     {
         sWidth = sWidth + 1; //留出1px的距离
+    }
+    if (sHeight == null) 
+    {
+        sHeight = sObjHeight;
+    }
+    else
+    {
+        sHeight = sHeight + 1; //留出1px的距离
     }
     
     if (divObj.style.display.toLowerCase() != "none") 
@@ -142,6 +150,12 @@ scriptHelper.prototype.showDivCommon = function(sObj, divId, sObjHeight, moveLef
         {
             divObj.style.top = (parseInt(sObjOffsetTop) + parseInt(sHeight)).toString() + "px";
         }
+		
+		/* 获取距离右边的距离 */
+		var rightSpace = parseInt(myClient.clientWidth) - parseInt(sObjOffsetLeft);
+		if (divObj.offsetWidth > rightSpace) {
+			sObjOffsetLeft -= divObj.offsetWidth - rightSpace;
+		}
         divObj.style.left = (parseInt(sObjOffsetLeft) - parseInt(moveLeft)).toString() + "px";
         divObj.style.display = "block";
     }

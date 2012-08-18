@@ -72,6 +72,8 @@
 									onclick="submit_form('Navy','NavyManage','SupSupportorQueryService','/pages/navy/supmanage/supSupportorQuery.jsp');" />
 								<img src="resources/images/common/btn_new.gif" alt="新增" width="62" height="22"
 									onclick="window.document.getElementById('str_supid').value='-1';submit_form('Navy', 'NavyManage', 'SupSupportorQueryByIDService', '/pages/navy/supmanage/supSupportorAdd.jsp');" />
+								<img src="resources/images/common/btn_export.gif" alt="导出" width="62" height="22"
+									onclick="submit_form('Navy', 'NavyManage', 'SupExportService', '/pages/navy/supmanage/supSupportorQuery.jsp');" />
 							</div>
 						</td>
 					</tr>

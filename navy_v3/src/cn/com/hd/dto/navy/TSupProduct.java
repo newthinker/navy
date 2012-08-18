@@ -15,7 +15,6 @@ public class TSupProduct extends BaseDTO {
 	private String prodid;
 	private String supid;
 	private String goodname;
-	private String prodtype;
 	private String prodname;
 	private String measurunit;
 	private String prodno;
@@ -25,6 +24,7 @@ public class TSupProduct extends BaseDTO {
 	private String singlemaxdate;
 	private String remark;
 	private String prodimage;		// 产品照片编号
+	private String prodtype;
 
 	public String getProdid() {
 		return prodid;
