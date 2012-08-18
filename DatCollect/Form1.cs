@@ -2066,6 +2066,20 @@ namespace DatCollect
 			setXmlElem(writer, "POSTCODE", this.textBox_postid.Text);
 			setXmlElem(writer, "NETADDR", this.textBox_website.Text);
 			setXmlElem(writer, "ORGANIZECODE", this.textBox_organizationId.Text);
+			try
+			{
+				foreach (KeyValuePair<string, SDict> item in _dict[14])
+				{
+					if (this.comboBox_economyNature.Text == item.Value.name)
+					{
+						setXmlElem(writer, "ECONOMYID", item.Value.code);
+					}
+				}
+			}
+			catch
+			{
+				setXmlElem(writer, "ECONOMYID", "");
+			}
 			setXmlElem(writer, "ECONOMY", this.comboBox_economyNature.Text);
 			try
 			{
@@ -2082,6 +2096,20 @@ namespace DatCollect
 				setXmlElem(writer, "TYPECODE", "");
 			}
 			setXmlElem(writer, "TYPE", this.comboBox_supplierType.Text);
+			try
+			{
+				foreach (KeyValuePair<string, SDict> item in _dict[6])
+				{
+					if (this.comboBox_purchaseType.Text == item.Value.name)
+					{
+						setXmlElem(writer, "PURCHASETYPEID", item.Value.code);
+					}
+				}
+			}
+			catch
+			{
+				setXmlElem(writer, "PURCHASETYPEID", "");
+			}
 			setXmlElem(writer, "PURCHASETYPE", this.comboBox_purchaseType.Text);
 			setXmlElem(writer, "IFTURNOVER", this.comboBox_purchaseSuccese.Text);
 			try
@@ -2100,7 +2128,20 @@ namespace DatCollect
 			}
 			setXmlElem(writer, "BANK", this.comboBox_bank.Text);
 			setXmlElem(writer, "ACCOUNT", this.textBox_bankId.Text);
-			//setXmlElem(writer, "CREDITID", this.textBox_fullName.Text);
+			try
+			{
+				foreach (KeyValuePair<string, SDict> item in _dict[13])
+				{
+					if (this.comboBox_creditLevel.Text == item.Value.name)
+					{
+						setXmlElem(writer, "CREDITID", item.Value.code);
+					}
+				}
+			}
+			catch
+			{
+				setXmlElem(writer, "CREDITID", "");
+			}
 			setXmlElem(writer, "CREDIT", this.comboBox_creditLevel.Text);
 			setXmlElem(writer, "CREDITORG", this.textBox_creditOrg.Text);
 			setXmlElem(writer, "CREDITDATE", this.dateTimePicker_creditDate.Text);
@@ -2243,6 +2284,20 @@ namespace DatCollect
 			{
 				writer.WriteStartElement("ROW");
 				setXmlElem(writer, "ORGNAME", this.textBox_aftersalesName.Text);
+				try
+				{
+					foreach (KeyValuePair<string, SDict> item in _dict[17])
+					{
+						if (this.comboBox_aftersalesType.Text == item.Value.name)
+						{
+							setXmlElem(writer, "ORGTYPEID", item.Value.code);
+						}
+					}
+				}
+				catch
+				{
+					setXmlElem(writer, "ORGTYPEID", "");
+				}
 				setXmlElem(writer, "ORGTYPE", this.comboBox_aftersalesType.Text);
 				setXmlElem(writer, "LOCATION", this.comboBox_aftersalesProvice.Text + "," + this.comboBox_aftersalesCity.Text);
 				setXmlElem(writer, "DIRECTOR", this.textBox_aftersalesContext.Text);
@@ -2253,6 +2308,20 @@ namespace DatCollect
 			{
 				writer.WriteStartElement("ROW");
 				setXmlElem(writer, "ORGNAME", asc.textBoxAftersalesName.Text);
+				try
+				{
+					foreach (KeyValuePair<string, SDict> item in _dict[17])
+					{
+						if (asc.comboBoxAftersalesType.Text == item.Value.name)
+						{
+							setXmlElem(writer, "ORGTYPEID", item.Value.code);
+						}
+					}
+				}
+				catch
+				{
+					setXmlElem(writer, "ORGTYPEID", "");
+				}
 				setXmlElem(writer, "ORGTYPE", asc.comboBoxAftersalesType.Text);
 				setXmlElem(writer, "LOCATION", asc.comboBoxAftersalesProvice.Text + "," + asc.comboBoxAftersalesCity.Text);
 				setXmlElem(writer, "DIRECTOR", asc.textBoxAftersalesContext.Text);
@@ -2300,6 +2369,20 @@ namespace DatCollect
 			writer.WriteStartElement("DTO");
 			writer.WriteStartElement("ROW");
 			setXmlElem(writer, "COMNAME", this.textBox_transportName.Text);
+			try
+			{
+				foreach (KeyValuePair<string, SDict> item in _dict[18])
+				{
+					if (this.comboBox_transportType.Text == item.Value.name)
+					{
+						setXmlElem(writer, "TRUCKTYPEID", item.Value.code);
+					}
+				}
+			}
+			catch
+			{
+				setXmlElem(writer, "TRUCKTYPEID", "");
+			}
 			setXmlElem(writer, "TRUCKTYPE", this.comboBox_transportType.Text);
 			setXmlElem(writer, "DEADWEIGHT", this.textBox_transportDeadweight.Text);
 			setXmlElem(writer, "COUNT", this.textBox_transportNum.Text);
