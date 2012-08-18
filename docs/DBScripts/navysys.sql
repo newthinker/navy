@@ -158,6 +158,7 @@ create table T_SUPPORTOR  (
    POSTCODE             VARCHAR2(20),
    NET_ADDR             VARCHAR2(255),
    ORGANIZE_CODE        VARCHAR2(100),
+   ECOMOMY_ID			VARCHAR2(36),		-- 经济类型编号
    ECONOMY              VARCHAR2(200),
    TYPE_CODE            VARCHAR2(36),
    TYPE                 VARCHAR2(100),
@@ -198,35 +199,36 @@ create table T_SUPPORTOR  (
    IF_STATE_TAX         VARCHAR2(20),
    IF_LOCAL_TAX         VARCHAR2(20),
    ----------------------------------------------------------------------
-   SUP_TYPE_CODE    VARCHAR2(10),
-   SUP_TYPE        VARCHAR2(200),
-   SUMMARY        VARCHAR2(2000),
-   IMAGE        VARCHAR2(36),
-   LOCATION        VARCHAR2(1000),
-   LONGITUDE      VARCHAR2(50),
-   LATITUDE        VARCHAR2(50),
-   PRODUCTS_CLASS    VARCHAR2(1000),
-   MANUFACTURER_CONTACT  VARCHAR2(100),
-   MANUFACTURER_FAX    VARCHAR2(100),
-   MANUFACTURER_EMAIL  VARCHAR2(200),
-   MANUFACTURER_ADDRESS  VARCHAR2(1000),
+   SUP_TYPE_CODE    	VARCHAR2(10),
+   SUP_TYPE        		VARCHAR2(200),
+   SUMMARY        		VARCHAR2(2000),
+   IMAGE        		VARCHAR2(36),
+   LOCATION        		VARCHAR2(1000),
+   LONGITUDE      		VARCHAR2(50),
+   LATITUDE        		VARCHAR2(50),
+   PRODUCTS_CLASS    	VARCHAR2(1000),
+   MANUFACTURER_CONTACT VARCHAR2(100),
+   MANUFACTURER_FAX    	VARCHAR2(100),
+   MANUFACTURER_EMAIL  	VARCHAR2(200),
+   MANUFACTURER_ADDRESS VARCHAR2(1000),
    MANUFACTURER_PERFORMANCE  VARCHAR2(2000),
-   MANUFACTURER_SUMMARY  VARCHAR2(2000),
-   MANUFACTURER      VARCHAR2(200),
+   MANUFACTURER_SUMMARY VARCHAR2(2000),
+   MANUFACTURER      	VARCHAR2(200),
    ----------------------------------------------------------------------
-   L1_LOC        VARCHAR2(30),    -- 供应商所在省/地区
-   L2_LOC        VARCHAR2(30),    -- 供应商所在市
-   STOREHOUSE_AREA    DECIMAL(8, 2),    -- 仓库总面积
-   WAREHOUSE_AREA    DECIMAL(8, 2),    -- 货场总面积
-   STOREHOUSE_IMAGE    VARCHAR2(50),    -- 仓库照片
-   AUDIT_LAST3Y      VARCHAR2(200),    -- 近三年审计报告压缩文件(RAR或ZIP格式)
-   LIC_BUS_IMAGE    VARCHAR2(50),    -- 营业执照扫描件
-   ORG_STR_IMAGE    VARCHAR2(50),    -- 组织结构代码证扫描件
-   BANK_PROVE      VARCHAR2(200),    -- 银行资信证明文件扫描件
-   OTHER_PROVE      VARCHAR2(200),    -- 其它资质证明文件(RAR或ZIP格式)
-   PURCHASE_TYPE    VARCHAR2(100),    -- 采购方式
-   IF_TURNOVER      VARCHAR2(20),    -- 是否成交
-   QUALITY_PROVE    VARCHAR2(200),    -- 质量管理认证证书扫描件
+   L1_LOC        		VARCHAR2(30),    -- 供应商所在省/地区
+   L2_LOC        		VARCHAR2(30),    -- 供应商所在市
+   STOREHOUSE_AREA    	DECIMAL(8, 2), -- 仓库总面积
+   WAREHOUSE_AREA    	DECIMAL(8, 2),  -- 货场总面积
+   STOREHOUSE_IMAGE    	VARCHAR2(50), -- 仓库照片
+   AUDIT_LAST3Y      	VARCHAR2(200),  -- 近三年审计报告压缩文件(RAR或ZIP格式)
+   LIC_BUS_IMAGE    	VARCHAR2(50),    -- 营业执照扫描件
+   ORG_STR_IMAGE    	VARCHAR2(50),    -- 组织结构代码证扫描件
+   BANK_PROVE      		VARCHAR2(200),    -- 银行资信证明文件扫描件
+   OTHER_PROVE      	VARCHAR2(200),   -- 其它资质证明文件(RAR或ZIP格式)
+   PURCHASE_TYPE_ID		VARCHAR2(36),	 -- 采购类型编号
+   PURCHASE_TYPE    	VARCHAR2(100),   -- 采购方式
+   IF_TURNOVER      	VARCHAR2(20),    -- 是否成交
+   QUALITY_PROVE    	VARCHAR2(200),   -- 质量管理认证证书扫描件
    constraint PK_T_SUPPORTOR primary key (SUP_ID)
 );
 comment on table T_SUPPORTOR is
@@ -398,17 +400,18 @@ comment on column T_SUP_PRODUCT.PROD_IMAGE is
   '产品照片编号';    
 
 create table T_TRANSPORT (
-  COM_ID        VARCHAR2(36)  not null,
-  COM_NAME      VARCHAR2(64),
-  TRUCK_TYPE      VARCHAR2(3),
-  DEADWEIGHT      DECIMAL(10,2),
-  COUNT        INTEGER,  
-  NEAR_RAILWAY    VARCHAR2(32),
-  RW_DIS        DECIMAL(10,2),
-  NEAR_PORT      VARCHAR2(32),
-  PORT_DIS      DECIMAL(10,2),
-  NEAR_AIRPORT    VARCHAR2(32),
-  AP_DIS        DECIMAL(10,2),
+  COM_ID        	VARCHAR2(36)  not null,
+  COM_NAME      	VARCHAR2(64),
+  TRUCK_TYPE_ID		VARCHAR2(36),		-- 货车类型编号
+  TRUCK_TYPE      	VARCHAR2(3),
+  DEADWEIGHT      	DECIMAL(10,2),
+  COUNT        		INTEGER,  
+  NEAR_RAILWAY    	VARCHAR2(32),
+  RW_DIS        	DECIMAL(10,2),
+  NEAR_PORT      	VARCHAR2(32),
+  PORT_DIS      	DECIMAL(10,2),
+  NEAR_AIRPORT    	VARCHAR2(32),
+  AP_DIS        	DECIMAL(10,2),
   constraint PK_T_TRANSPORT primary key (COM_ID)
 );
 comment on table T_TRANSPORT is
