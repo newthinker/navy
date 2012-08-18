@@ -347,11 +347,15 @@ public class SupImportService extends BaseService implements IService {
 				String src = targetPath + imgName;
 				
 				String desc = SystemParam.getParam("AbsolutePath");
-				if ( img.getImagepath()!=null ) {
-					desc = SystemParam.getParam("AbsolutePath") + img.getImagepath();
-				} else {
-					desc = SystemParam.getParam("AbsolutePath") + "ImgDir" + java.io.File.separator + imgName;
-				}
+//				if ( img.getImagepath()!=null ) {
+//					desc = SystemParam.getParam("AbsolutePath") + img.getImagepath();
+//				} else {
+//					desc = SystemParam.getParam("AbsolutePath") + "ImgDir" + java.io.File.separator + imgName;
+//				}
+				imgName = img.getImageid() + "." + imgType;
+				img.setImagename(imgName);
+				
+				desc = SystemParam.getParam("AbsolutePath") + "ImgDir" + java.io.File.separator + imgName;
 				
 				try {
 					FileUtils.copy(src, desc);

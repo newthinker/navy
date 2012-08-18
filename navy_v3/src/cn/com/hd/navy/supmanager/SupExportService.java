@@ -169,7 +169,7 @@ public class SupExportService extends BaseService implements IService {
 			}
 			
 			// 创建供应商文件夹
-			String suptarget = finalPath + supid + new SimpleDateFormat("yyyy-MM-dd").format(new Date()) + ".zip";
+			String suptarget = finalPath + supid + new SimpleDateFormat("yyyy-MM-dd").format(new Date()) + ".dat";
 			String supPath = targetPath + supid + "/";
 			File supFile = new File(supPath);
 			supFile.mkdir();
@@ -353,7 +353,7 @@ public class SupExportService extends BaseService implements IService {
 		file.delete();
 		
 //		targetPath = base + "temp/export/" + folder + "/";
-		String target = base + "temp/export/" + "SUPS" + new SimpleDateFormat("yyyy-MM-dd").format(new Date()) + ".zip";		
+		String target = base + "temp/export/" + new SimpleDateFormat("yyyy-MM-dd").format(new Date()) + "_" + folder + ".dat";		
 		CompressUtils.compressZip(finalPath, target);
 		file = new File(finalPath);
 		lf = file.list();
@@ -374,7 +374,7 @@ public class SupExportService extends BaseService implements IService {
 		response.setResult(2);
 		
 		response.getDto().put("DOWNLOAD", StringUtils.encrypt(target));
-		response.getDto().put("DOWNLOAD_FILENAME", StringUtils.encrypt("SUPS" + new SimpleDateFormat("yyyy-MM-dd").format(new Date()) + ".zip"));
+		response.getDto().put("DOWNLOAD_FILENAME", StringUtils.encrypt(new SimpleDateFormat("yyyy-MM-dd").format(new Date()) + "_" + folder + ".dat"));
 		
 		return response;
 	}
@@ -399,36 +399,41 @@ public class SupExportService extends BaseService implements IService {
 				
 				imgfile = img.getImagename();
 				if(imgfile==null) {
-					imgfile = UUID.randomUUID().toString();
-				}
-				
-				java.sql.Blob blob = img.getImage();
-				if(blob==null) {
 					return null;
 				}
-				InputStream ins = blob.getBinaryStream();
 				
-				File file = new File(dstdir+imgfile);
-				if(!file.exists()) {
-					file.createNewFile();
-				}
+				String base = SystemParam.getParam("AbsolutePath");
+				String src = base + "ImgDir" + File.separator + imgfile;
+				String desc = dstdir + imgfile;
+				FileUtils.copy(src, desc);
 				
-				FileOutputStream os = new FileOutputStream(file);
-				int len;
-				byte buf[] = new byte[1024];
-				while ((len=ins.read(buf))>0) {
-					os.write(buf, 0, len);
-				}
-				os.flush();
-				os.close();
-				
-				ins.close();
+//				java.sql.Blob blob = img.getImage();
+//				if(blob==null) {
+//					return null;
+//				}
+//				InputStream ins = blob.getBinaryStream();
+//				
+//				File file = new File(dstdir+imgfile);
+//				if(!file.exists()) {
+//					file.createNewFile();
+//				}
+//				
+//				FileOutputStream os = new FileOutputStream(file);
+//				int len;
+//				byte buf[] = new byte[1024];
+//				while ((len=ins.read(buf))>0) {
+//					os.write(buf, 0, len);
+//				}
+//				os.flush();
+//				os.close();
+//				
+//				ins.close();
 							
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		return imgfile;
 	}
 }
