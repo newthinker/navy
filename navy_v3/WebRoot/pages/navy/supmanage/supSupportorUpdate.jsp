@@ -312,11 +312,10 @@
 										class="searchTbl_input" value="<%= supportor.getString("NETADDR") == null ? "" : supportor.getString("NETADDR") %>" />
 								</td>
 								<th>
-									组织机构代码
+									&nbsp;
 								</th>
 								<td>
-									<input type="text" name="STR_ORGANIZECODE" id="STR_ORGANIZECODE"
-										class="searchTbl_input" value="<%= supportor.getString("ORGANIZECODE") == null ? "" : supportor.getString("ORGANIZECODE") %>" />
+									&nbsp;
 								</td>
 							</tr>
 							<tr>
@@ -483,6 +482,21 @@
 							</tr>
 							<tr>
 								<th>
+									组织机构代码
+								</th>
+								<td>
+									<input type="text" name="STR_ORGANIZECODE" id="STR_ORGANIZECODE"
+										class="searchTbl_input" value="<%= supportor.getString("ORGANIZECODE") == null ? "" : supportor.getString("ORGANIZECODE") %>" />
+								</td>
+								<th>
+									&nbsp;
+								</th>
+								<td>
+									&nbsp;
+								</td>
+							</tr>
+							<tr>
+								<th>
 									供应商简介
 								</th>
 								<td colspan="3">
@@ -628,20 +642,19 @@
 										class="searchTbl_input" value="<%= supportor.getString("LICNO") == null ? "" : supportor.getString("LICNO") %>" />
 								</td>
 								<th width="20%">
-									发证机关
+									&nbsp;
 								</th>
 								<td width="30%">
-									<input type="text" name="STR_LICORG" id="STR_LICORG"
-										class="searchTbl_input" value="<%= supportor.getString("LICORG") == null ? "" : supportor.getString("LICORG") %>" />
+									&nbsp;
 								</td>
 							</tr>
 							<tr>
 								<th>
-									注册资本金
+									发证机关
 								</th>
 								<td>
-									<input type="text" name="DOU_LICCAPITAL" id="DOU_LICCAPITAL"
-										class="searchTbl_input" value="<%= supportor.getNumber("LICCAPITAL") == null ? supportor.showDouble("LICCAPITAL") : supportor.getNumber("LICCAPITAL").doubleValue() %>" />&nbsp;万元
+									<input type="text" name="STR_LICORG" id="STR_LICORG"
+										class="searchTbl_input" value="<%= supportor.getString("LICORG") == null ? "" : supportor.getString("LICORG") %>" />
 								</td>
 								<th>
 									注册所在地
@@ -673,6 +686,13 @@
 							</tr>
 							<tr>
 								<th>
+									注册资本金
+								</th>
+								<td>
+									<input type="text" name="DOU_LICCAPITAL" id="DOU_LICCAPITAL"
+										class="searchTbl_input" value="<%= supportor.getNumber("LICCAPITAL") == null ? supportor.showDouble("LICCAPITAL") : supportor.getNumber("LICCAPITAL").doubleValue() %>" />&nbsp;万元
+								</td>
+								<th>
 									最近年检时间
 								</th>
 								<td>
@@ -680,12 +700,6 @@
 										onfocus="WdatePicker({dateFmt:'yyyy-MM-dd',qsEnabled:true,quickSel:['2000-1-10','2000-2-20']})"
 										type="text" style="width:200px;" readonly="readonly" class="Wdate"
 										value="<%= supportor.getDate("LICEXADATE") == null ? "" : fmtDate.format(supportor.getDate("LICEXADATE")) %>" />
-								</td>
-								<th>
-									&nbsp;
-								</th>
-								<td>
-									&nbsp;
 								</td>
 							</tr>
 							<tr>
