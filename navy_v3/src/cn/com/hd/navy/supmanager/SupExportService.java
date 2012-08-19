@@ -157,6 +157,8 @@ public class SupExportService extends BaseService implements IService {
 		f.mkdir();
 		
 		// 查询供应商并导出查询结果
+		int count = 0;			// 计数供应商个数
+		String suptarget = null;
 		SelectResultSet resultset = super.queryResultSet(cons);
 		List supList = getDTO(resultset);
 		for (int i=0; i<supList.size(); i++) {
@@ -169,7 +171,7 @@ public class SupExportService extends BaseService implements IService {
 			}
 			
 			// 创建供应商文件夹
-			String suptarget = finalPath + supid + new SimpleDateFormat("yyyy-MM-dd").format(new Date()) + ".dat";
+			suptarget = finalPath + supid + new SimpleDateFormat("yyyy-MM-dd").format(new Date()) + ".dat";
 			String supPath = targetPath + supid + "/";
 			File supFile = new File(supPath);
 			supFile.mkdir();
@@ -344,6 +346,8 @@ public class SupExportService extends BaseService implements IService {
 				FileUtils.delete(file.getAbsolutePath() + "\\" + lf[j]);
 			}
 			file.delete();
+			
+			count++;
 		}
 		File file = new File(targetPath);
 		String[] lf = file.list();
@@ -352,9 +356,18 @@ public class SupExportService extends BaseService implements IService {
 		}
 		file.delete();
 		
-//		targetPath = base + "temp/export/" + folder + "/";
-		String target = base + "temp/export/" + new SimpleDateFormat("yyyy-MM-dd").format(new Date()) + "_" + folder + ".dat";		
-		CompressUtils.compressZip(finalPath, target);
+		String target = base + "temp/export/" + new SimpleDateFormat("yyyy-MM-dd").format(new Date()) + "_" + folder + ".dat";;
+		if(count>1) {
+			CompressUtils.compressZip(finalPath, target);
+		} else if (count==1) {
+			if (suptarget==null) {
+				System.out.println("");
+				return null;
+			}
+			
+			FileUtils.copy(suptarget, target);
+		}
+		
 		file = new File(finalPath);
 		lf = file.list();
 		for (int j = 0; j < lf.length; j ++) {
@@ -374,7 +387,12 @@ public class SupExportService extends BaseService implements IService {
 		response.setResult(2);
 		
 		response.getDto().put("DOWNLOAD", StringUtils.encrypt(target));
-		response.getDto().put("DOWNLOAD_FILENAME", StringUtils.encrypt(new SimpleDateFormat("yyyy-MM-dd").format(new Date()) + "_" + folder + ".dat"));
+		if(count>1)
+			response.getDto().put("DOWNLOAD_FILENAME", StringUtils.encrypt(new SimpleDateFormat("yyyy-MM-dd").format(new Date()) + "_" + folder + ".zip"));
+		else if (count==1) 
+			response.getDto().put("DOWNLOAD_FILENAME", StringUtils.encrypt(new SimpleDateFormat("yyyy-MM-dd").format(new Date()) + "_" + folder + ".dat"));
+		else 
+			return null;
 		
 		return response;
 	}
