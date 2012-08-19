@@ -130,6 +130,19 @@
 							</tr>
 							<tr>
 								<th>
+									产品照片
+								</th>
+								<td>
+									<% if (dto.getString("PRODIMAGE") == null
+										|| dto.getString("PRODIMAGE").equals("")) { %>
+									&nbsp;
+									<% } else { %>
+									<a href="pages/navy/supmanage/supImages.jsp?imageid=<%= dto.getString("PRODIMAGE") %>" class="link_blue_table" target="_blank">查看图片</a>&nbsp;
+									<% } %>
+								</td>
+							</tr>
+							<tr>
+								<th>
 									备注
 								</th>
 								<td>

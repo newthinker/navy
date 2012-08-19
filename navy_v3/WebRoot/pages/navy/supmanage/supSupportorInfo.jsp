@@ -179,10 +179,10 @@
 									&nbsp;<a target="_blank" class="link_blue" href="<%= (supportor.showString("NETADDR").toLowerCase().indexOf("http://") > 0) ? supportor.showString("NETADDR") : "http://" + supportor.showString("NETADDR") %>"><%= supportor.getString("NETADDR") == null ? "" : supportor.getString("NETADDR") %></a>&nbsp;
 								</td>
 								<th>
-									组织机构代码
+									&nbsp;
 								</th>
 								<td>
-									<%= supportor.getString("ORGANIZECODE") == null ? "" : supportor.getString("ORGANIZECODE") %>&nbsp;
+									&nbsp;
 								</td>
 							</tr>
 							<tr>
@@ -253,6 +253,73 @@
 								</th>
 								<td>
 									<%= supportor.getString("ILLEGAL") == null ? "" : supportor.getString("ILLEGAL") %>&nbsp;
+								</td>
+							</tr>
+							<tr>
+								<th>
+									组织机构代码
+								</th>
+								<td>
+									<%= supportor.getString("ORGANIZECODE") == null ? "" : supportor.getString("ORGANIZECODE") %>&nbsp;
+								</td>
+								<th>
+									组织机构代码证
+								</th>
+								<td>
+									<% if (supportor.getString("ORGSTRIMAGE") == null
+										|| supportor.getString("ORGSTRIMAGE").equals("")) { %>
+									&nbsp;
+									<% } else { %>
+									<a href="pages/navy/supmanage/supImages.jsp?imageid=<%= supportor.getString("ORGSTRIMAGE") %>" class="link_blue_table" target="_blank">查看扫描件</a>&nbsp;
+									<% } %>
+								</td>
+							</tr>
+							<tr>
+								<th>
+									银行资信证明
+								</th>
+								<td>
+									<% if (supportor.getString("BANKPROVE") == null
+										|| supportor.getString("BANKPROVE").equals("")) { %>
+									&nbsp;
+									<% } else { %>
+									<a href="pages/navy/supmanage/supImages.jsp?imageid=<%= supportor.getString("BANKPROVE") %>" class="link_blue_table" target="_blank">查看扫描件</a>&nbsp;
+									<% } %>
+								</td>
+								<th>
+									质量管理认证
+								</th>
+								<td>
+									<% if (supportor.getString("QUALITYPROVE") == null
+										|| supportor.getString("QUALITYPROVE").equals("")) { %>
+									&nbsp;
+									<% } else { %>
+									<a href="pages/navy/supmanage/supImages.jsp?imageid=<%= supportor.getString("QUALITYPROVE") %>" class="link_blue_table" target="_blank">查看扫描件</a>&nbsp;
+									<% } %>
+								</td>
+							</tr>
+							<tr>
+								<th>
+									其它资信证明扫描件打包
+								</th>
+								<td>
+									<% if (supportor.getString("OTHERPROVE") == null
+										|| supportor.getString("OTHERPROVE").equals("")) { %>
+									&nbsp;
+									<% } else { %>
+									<a href="pages/navy/supmanage/supImages.jsp?imageid=<%= supportor.getString("OTHERPROVE") %>" class="link_blue_table" target="_blank">下载</a>&nbsp;
+									<% } %>
+								</td>
+								<th>
+									近三年审计报告扫描件打包
+								</th>
+								<td>
+									<% if (supportor.getString("AUDITLAST3Y") == null
+										|| supportor.getString("AUDITLAST3Y").equals("")) { %>
+									&nbsp;
+									<% } else { %>
+									<a href="pages/navy/supmanage/supImages.jsp?imageid=<%= supportor.getString("AUDITLAST3Y") %>" class="link_blue_table" target="_blank">下载</a>&nbsp;
+									<% } %>
 								</td>
 							</tr>
 							<tr>
@@ -391,19 +458,24 @@
 								<td width="35%">
 									<%= supportor.getString("LICNO") == null ? "" : supportor.getString("LICNO") %>&nbsp;
 								</td>
+								<th>
+									营业执照或事业法人证
+								</th>
+								<td>
+									<% if (supportor.getString("LICBUSIMAGE") == null
+										|| supportor.getString("LICBUSIMAGE").equals("")) { %>
+									&nbsp;
+									<% } else { %>
+									<a href="pages/navy/supmanage/supImages.jsp?imageid=<%= supportor.getString("LICBUSIMAGE") %>" class="link_blue_table" target="_blank">查看扫描片</a>&nbsp;
+									<% } %>
+								</td>
+							</tr>
+							<tr>
 								<th width="15%">
 									发证机关
 								</th>
 								<td width="35%">
 									<%= supportor.getString("LICORG") == null ? "" : supportor.getString("LICORG") %>&nbsp;
-								</td>
-							</tr>
-							<tr>
-								<th>
-									注册资本金
-								</th>
-								<td>
-									<%= supportor.getNumber("LICCAPITAL") == null ? "" : supportor.getNumber("LICCAPITAL").doubleValue() %>&nbsp;&nbsp;万元
 								</td>
 								<th>
 									注册所在地
@@ -428,16 +500,16 @@
 							</tr>
 							<tr>
 								<th>
+									注册资本金
+								</th>
+								<td>
+									<%= supportor.getNumber("LICCAPITAL") == null ? "" : supportor.getNumber("LICCAPITAL").doubleValue() %>&nbsp;&nbsp;万元
+								</td>
+								<th>
 									最近年检时间
 								</th>
 								<td>
 									<%= supportor.getDate("LICEXADATE") == null ? "" : fmtDate.format(supportor.getDate("LICEXADATE")) %>&nbsp;
-								</td>
-								<th>
-									&nbsp;
-								</th>
-								<td>
-									&nbsp;
 								</td>
 							</tr>
 							<tr>
@@ -605,16 +677,17 @@
 									<%= supportor.getNumber("WAREHOUSEAREA") == null ? "" : supportor.getNumber("WAREHOUSEAREA") %>&nbsp;
 								</td>
 							</tr>
-						<!--	<tr>
+							<tr>
 								<th>
 									仓库照片
 								</th>
 								<td>
-									<--% if (supportor.getString("STOREHOUSEIMAGE") == null) { %>
+									<% if (supportor.getString("STOREHOUSEIMAGE") == null
+										|| supportor.getString("STOREHOUSEIMAGE").equals("")) { %>
 									&nbsp;
-									<--% } else { %>
-									<a href="<--%= base + "/" + supportor.getString("STOREHOUSEIMAGE") %>" target="_blank">查看</a>&nbsp;
-									<--% } %>
+									<% } else { %>
+									<a href="pages/navy/supmanage/supImages.jsp?imageid=<%= supportor.getString("STOREHOUSEIMAGE") %>" class="link_blue_table" target="_blank">查看图片</a>&nbsp;
+									<% } %>
 								</td>
 								<th>
 									&nbsp;
@@ -622,7 +695,7 @@
 								<td>
 									&nbsp;
 								</td>
-							</tr>  -->
+							</tr>
 						</table>
 					</td>
 				</tr>

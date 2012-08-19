@@ -46,8 +46,8 @@
 				var url = "pages/navy/supmanage/supSupportorProdDetail.jsp?supid=<%= supid %>&prodid=" + prodid;
 				
 				var left = (screen.width - 650) /2;
-				var top = (screen.height - 450) /2;
-				var param = "dialogLeft=" + top + "px;dialogLeft=" + left + "px;dialogWidth:600px;dialogHeight:450px;resizable:no;scroll:0;help:0;status:0";
+				var top = (screen.height - 480) /2;
+				var param = "dialogTop=" + top + "px;dialogLeft=" + left + "px;dialogWidth:600px;dialogHeight:480px;resizable:no;scroll:0;help:0;status:0";
 				window.showModalDialog(url, window, param);
 			}
 		</script>

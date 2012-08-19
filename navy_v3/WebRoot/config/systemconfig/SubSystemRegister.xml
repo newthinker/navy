@@ -222,7 +222,12 @@
 		<service>	
 			<name>NavyManage.SupExportService</name>
 			<class>cn.com.hd.navy.supmanager.SupExportService</class>
-		</service>							
+		</service>
+		
+		<service>	
+			<name>NavyManage.SupImageQueryService</name>
+			<class>cn.com.hd.navy.supmanager.SupImageQueryService</class>
+		</service>
 	</subsystem>
 	
 	<subsystem name="DictManage">

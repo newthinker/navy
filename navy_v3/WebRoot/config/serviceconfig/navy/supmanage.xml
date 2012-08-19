@@ -27,4 +27,6 @@
 	<bean id="NavyManage.SupSupportorStockQueryByIdService" class="cn.com.hd.navy.supmanager.SupSupportorStockQueryByIdService" />
 	<bean id="NavyManage.SupSupportorStockQueryService" class="cn.com.hd.navy.supmanager.SupSupportorStockQueryService" />
 	<bean id="NavyManage.SupSupportorStockSaveOrUpdateService" class="cn.com.hd.navy.supmanager.SupSupportorStockSaveOrUpdateService" />		
+
+	<bean id="NavyManage.SupImageQueryService" class="cn.com.hd.navy.supmanager.SupImageQueryService" />
 </beans>	
