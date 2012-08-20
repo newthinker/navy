@@ -1,31 +1,42 @@
 <html>
 	<head>
-		<meta http-equiv="content-type" content="text/html;charset=gb2312">
+		<meta http-equiv="content-type" content="text/html;charset=utf-8">
 		<title></title>
 		<link href="../resources/css/index.css" rel="stylesheet" type="text/css">
 		<style type="text/css">
 			a.link_blue:link {
 				color: #4459fc;
 				font-size:15px;
-				text-decoration: underline;
+				margin: 10px;
 			}
-			
-			a.link_blue:visited {
-				color: #4459fc;
-				font-size:15px;
-				text-decoration: underline;
-			}
-			
 			a.link_blue:active {
 				color: #4459fc;
-				font-size:15px;
+				font-size:16px;
+				text-decoration: underline;
+			}
+			a.link_blue:hover {
+				color: #000;
+				font-size:16px;
 				text-decoration: underline;
 			}
 			
-			a.link_blue:hover {
-				color: #4459fc;
-				font-size:15px;
-				text-decoration: underline;
+			.welcomeLinkTxt {
+				margin-top:220px;
+			}
+			.s-box {
+				padding: 10px 15px 0 20px;
+			}
+			.s-item {
+				background:url(../resources/images/common/right1.gif) no-repeat left;
+				width: 150px;
+				height: 30px;
+				line-height: 30px;
+				display: block;
+				float: left;
+				overflow: hidden;
+				font-size: 14px;
+				padding-left: 17px;
+				text-align: left;
 			}
 		</style>
 	</head>
@@ -33,15 +44,20 @@
 		<div id="welcome">
 			<div class="welcomeLink">
 				<div class="welcomeLinkTxt" style="position: absolute; z-index: 1">
-					&middot;
-					<a href="navy/importmanage/importQuery.jsp?type=110000000" target="ifrm" class="link_blue">国内战备储备</a> 
-					&middot;
-					<a href="navy/importmanage/importQuery.jsp?type=120000000" target="ifrm" class="link_blue">正常进口</a>
-					<br>
-					&middot;
-					<a href="navy/importmanage/importQuery.jsp?type=130000000" target="ifrm" class="link_blue">进口战备储备</a> 
-					&middot;
-					<a href="navy/importmanage/importQuery.jsp?type=160000000" target="ifrm" class="link_blue">应急采购</a>
+					<ul class="s-box">
+						<li class="s-item">
+					<a href="navy/importmanage/importQuery.jsp?type=110000000" target="ifrm" class="link_blue">鍥藉唴鎴樺鍌ㄥ</a> 
+						</li>
+						<li class="s-item">
+					<a href="navy/importmanage/importQuery.jsp?type=120000000" target="ifrm" class="link_blue">姝ｅ父杩涘彛</a>
+						</li>
+						<li class="s-item">
+					<a href="navy/importmanage/importQuery.jsp?type=130000000" target="ifrm" class="link_blue">杩涘彛鎴樺鍌ㄥ</a> 
+						</li>
+						<li class="s-item">
+					<a href="navy/importmanage/importQuery.jsp?type=160000000" target="ifrm" class="link_blue">搴旀�ラ噰璐�</a>
+						</li>
+					</ul>
 				</div>
 			</div>
 		</div>
