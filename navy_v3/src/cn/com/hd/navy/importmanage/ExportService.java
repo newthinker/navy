@@ -110,14 +110,16 @@ public class ExportService extends BaseService implements IService {
 			++supcount;
 			if (supcount == 1000) {
 				supids = supids.replaceFirst(",", "");
-				suplist.add(supids);
+				if(!supids.equals(""))
+					suplist.add(supids);
 				supids = "";
 				supcount = 0;
 			}
 		}
 		if (supcount > 0) {
 			supids = supids.replaceFirst(",", "");
-			suplist.add(supids);
+			if(!supids.equals(""))
+				suplist.add(supids);
 			supids = "";
 			supcount = 0;
 		}
@@ -160,7 +162,7 @@ public class ExportService extends BaseService implements IService {
 		for (Object obj : suplist) {
 			Conditions cons = new Conditions();
 			cons.addCondition(new TSupProduct());
-			cons.addExpression("SUP_ID IN (" + supids + ")");
+			cons.addExpression("SUP_ID IN (" + (String)obj + ")");
 			SelectResultSet rs = queryResultSet(cons);
 			List tmplist = getDTO(rs);
 			list.addAll(tmplist);
@@ -185,7 +187,7 @@ public class ExportService extends BaseService implements IService {
 		for (Object obj : suplist) {
 			Conditions cons = new Conditions();
 			cons.addCondition(new TStockholder());
-			cons.addExpression("SUP_ID IN (" + supids + ")");
+			cons.addExpression("SUP_ID IN (" + (String)obj + ")");
 			SelectResultSet rs = queryResultSet(cons);
 			List tmplist = getDTO(rs);
 			list.addAll(tmplist);
@@ -210,7 +212,7 @@ public class ExportService extends BaseService implements IService {
 		for (Object obj : suplist) {
 			Conditions cons = new Conditions();
 			cons.addCondition(new TAftersaleOrg());
-			cons.addExpression("SUP_ID IN (" + supids + ")");
+			cons.addExpression("SUP_ID IN (" + (String)obj + ")");
 			SelectResultSet rs = queryResultSet(cons);
 			List tmplist = getDTO(rs);
 			list.addAll(tmplist);

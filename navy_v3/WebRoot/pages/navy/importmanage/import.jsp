@@ -43,7 +43,7 @@
 	</head>
 	
 	<body style="background:url(resources/images/common/tbl_bg.gif) top left repeat-x; background-color:#ffffff;">
-		<form action="upload?size=50&url=/pages/navy/importmanage/import.jsp" method="post" enctype="multipart/form-data">
+		<form action="upload?size=100&url=/pages/navy/importmanage/import.jsp" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="opt" id="opt">
 			<input id="XML_DATA" name="XML_DATA" type="hidden" value="">
 			
