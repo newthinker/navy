@@ -2,6 +2,7 @@
 
 import java.io.File;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -44,6 +45,8 @@ public class ExportService extends BaseService implements IService {
 		List impList = getDTO(imprs);
 		
 		String supids = "";
+		int supcount = 0;
+		List suplist = new ArrayList<String>();
         
         StringBuffer impXml = new StringBuffer();
         impXml.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?><DTO>");
@@ -104,17 +107,33 @@ public class ExportService extends BaseService implements IService {
 			impXml.append("</ROW>");
 			
 			supids += ",'" + imp.getSupportorid() + "'";
+			++supcount;
+			if (supcount == 1000) {
+				supids = supids.replaceFirst(",", "");
+				suplist.add(supids);
+				supids = "";
+				supcount = 0;
+			}
+		}
+		if (supcount > 0) {
+			supids = supids.replaceFirst(",", "");
+			suplist.add(supids);
+			supids = "";
+			supcount = 0;
 		}
 		
 		impXml.append("</DTO>");
 		
 		//导出供应商信息
-		supids = supids.replaceFirst(",", "");
-		Conditions cons = new Conditions();
-		cons.addCondition(new TSupportor());
-		cons.addExpression("SUP_ID IN (" + supids + ")");
-		SelectResultSet rs = queryResultSet(cons);
-		List list = getDTO(rs);
+		List list = new ArrayList();
+		for (Object obj : suplist) {
+			Conditions cons = new Conditions();
+			cons.addCondition(new TSupportor());
+			cons.addExpression("SUP_ID IN (" + (String)obj + ")");
+			SelectResultSet rs = queryResultSet(cons);
+			List tmplist = getDTO(rs);
+			list.addAll(tmplist);
+		}
 		
 		StringBuffer supXml = new StringBuffer();
 		supXml.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?><DTO>");
@@ -136,12 +155,16 @@ public class ExportService extends BaseService implements IService {
 		//导出供应商产品信息
 		StringBuffer prodXml = new StringBuffer();
 		prodXml.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?><DTO>");
-		
-		cons = new Conditions();
-		cons.addCondition(new TSupProduct());
-		cons.addExpression("SUP_ID IN (" + supids + ")");
-		rs = queryResultSet(cons);
-		list = getDTO(rs);
+
+		list.clear();
+		for (Object obj : suplist) {
+			Conditions cons = new Conditions();
+			cons.addCondition(new TSupProduct());
+			cons.addExpression("SUP_ID IN (" + supids + ")");
+			SelectResultSet rs = queryResultSet(cons);
+			List tmplist = getDTO(rs);
+			list.addAll(tmplist);
+		}
 		for (int i = 0; i < list.size(); i ++) {
 			DTO dto = (DTO) list.get(i);
 			TSupProduct prod = new TSupProduct();
@@ -157,12 +180,16 @@ public class ExportService extends BaseService implements IService {
 		//导出供应商股东信息
 		StringBuffer stockXml = new StringBuffer();
 		stockXml.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?><DTO>");
-		
-		cons = new Conditions();
-		cons.addCondition(new TStockholder());
-		cons.addExpression("SUP_ID IN (" + supids + ")");
-		rs = queryResultSet(cons);
-		list = getDTO(rs);
+
+		list.clear();
+		for (Object obj : suplist) {
+			Conditions cons = new Conditions();
+			cons.addCondition(new TStockholder());
+			cons.addExpression("SUP_ID IN (" + supids + ")");
+			SelectResultSet rs = queryResultSet(cons);
+			List tmplist = getDTO(rs);
+			list.addAll(tmplist);
+		}
 		for (int i = 0; i < list.size(); i ++) {
 			DTO dto = (DTO) list.get(i);
 			TStockholder stock = new TStockholder();
@@ -178,12 +205,16 @@ public class ExportService extends BaseService implements IService {
 		//导出供应商售后服务信息
 		StringBuffer orgXml = new StringBuffer();
 		orgXml.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?><DTO>");
-		
-		cons = new Conditions();
-		cons.addCondition(new TAftersaleOrg());
-		cons.addExpression("SUP_ID IN (" + supids + ")");
-		rs = queryResultSet(cons);
-		list = getDTO(rs);
+
+		list.clear();
+		for (Object obj : suplist) {
+			Conditions cons = new Conditions();
+			cons.addCondition(new TAftersaleOrg());
+			cons.addExpression("SUP_ID IN (" + supids + ")");
+			SelectResultSet rs = queryResultSet(cons);
+			List tmplist = getDTO(rs);
+			list.addAll(tmplist);
+		}
 		for (int i = 0; i < list.size(); i ++) {
 			DTO dto = (DTO) list.get(i);
 			TAftersaleOrg org = new TAftersaleOrg();

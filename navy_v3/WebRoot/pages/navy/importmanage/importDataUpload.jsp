@@ -1,4 +1,4 @@
-<%@ page language="java" pageEncoding="GB2312" %>
+<%@ page language="java" pageEncoding="UTF-8" %>
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
 <%@ include file="../../common/init.jsp" %>
@@ -20,7 +20,7 @@
 	<head>
 		<base href="<%= base %>" target="_self">
 
-		<title>ÉÏ´«É¨Ãè¼ş</title>
+		<title>ä¸Šä¼ æ‰«æä»¶</title>
 
 		<meta http-equiv="pragma" content="no-cache">
 		<meta http-equiv="cache-control" content="no-cache">
@@ -42,7 +42,7 @@
 					if (upload.value != "") {
 						var ext = upload.value.substring(upload.value.indexOf(".") + 1, upload.value.length);
 						if (ext.toLowerCase() != "jpg" && ext.toLowerCase() != "png" && ext.toLowerCase() != "gif") {
-							alert("É¨Ãè¼ş¸ñÊ½Îªjpg¡¢png¡¢gif");
+							alert("æ‰«æä»¶æ ¼å¼ä¸ºjpgã€pngã€gif");
 							return false;
 						}
 					}
@@ -85,7 +85,7 @@
 										<tr style="background: url(resources/images/common/tab_cornerbg.gif); background-repeat: repeat-x;">
 											<td width="17"><img src="resources/images/common/tab_cornerleft.gif" width="17" height="27" /></td>
 											<td width="1195">
-												<div class="fen_div_title">ÉÏ´«¸½¼ş</div>
+												<div class="fen_div_title">ä¸Šä¼ é™„ä»¶</div>
 											</td>
 											<td width="17" align="right"><img src="resources/images/common/tab_cornerright.gif" width="17" height="27" /></td>
 										</tr>
@@ -95,12 +95,12 @@
 													class="tbl_search2_free" style="width:96%">
 													<tr>
 														<td colspan="2">
-															×¢Òâ£ºÎÄ¼ş¸ñÊ½£ºÍ¼Æ¬£¨gif¡¢jpg¡¢png£© ÎÄ¼ş´óĞ¡<1M
+															æ³¨æ„ï¼šæ–‡ä»¶æ ¼å¼ï¼šå›¾ç‰‡ï¼ˆgifã€jpgã€pngï¼‰ æ–‡ä»¶å¤§å°<1M
 														</td>
 													</tr>
 													<tr>
 														<th width="20%" align="right">
-															Ñ¡ÔñÎÄ¼ş
+															é€‰æ‹©æ–‡ä»¶
 														</th>
 														<td>
 															<table width="100%" border="0" cellpadding="0" cellspacing="0">
@@ -127,9 +127,9 @@
 							<tr>
 								<td valign="top" height="1">
 									<div class="btu">
-										<input type="button" name="save" value="ÉÏ ´«" class="btu_input"
+										<input type="button" name="save" value="ä¸Š ä¼ " class="btu_input"
 											onclick="if (checkInput()) submit_form('Navy', 'NavyManage', 'ImportUploadService', '/pages/navy/importmanage/importDataUpload.jsp?importid=<%= importid %>&typeid=<%= typeid %>&type=<%= type %>');" />
-										<input type="button" name="back" id="button" value="¹Ø ±Õ" class="btu_input"
+										<input type="button" name="back" id="button" value="å…³ é—­" class="btu_input"
 											onclick="window.close();" />
 									</div>
 								</td>
@@ -144,7 +144,7 @@
 										<tr height="1" style="background: url(resources/images/common/tab_cornerbg.gif); background-repeat: repeat-x;">
 											<td width="17" valign="top"><img src="resources/images/common/tab_cornerleft.gif" width="17" height="27" /></td>
 											<td width="1195" valign="top">
-												<div class="fen_div_title">ÒÑÉÏ´«¸½¼ş</div>
+												<div class="fen_div_title">å·²ä¸Šä¼ é™„ä»¶</div>
 											</td>
 											<td width="17" align="right" valign="top"><img src="resources/images/common/tab_cornerright.gif" width="17" height="27" /></td>
 										</tr>
@@ -158,13 +158,13 @@
 																height="100%" width="100%">
 																<tr>
 																	<td width="19%" align="center">
-																		<div class="title" style="width:100%">ĞòºÅ</div>
+																		<div class="title" style="width:100%">åºå·</div>
 																	</td>
 																	<td align="center">
-																		<div class="title" style="width:100%">ÎÄ¼şÃû</div>
+																		<div class="title" style="width:100%">æ–‡ä»¶å</div>
 																	</td>
 																	<td width="20%" align="center">
-																		<div class="title" style="width:100%">²Ù×÷</div>
+																		<div class="title" style="width:100%">æ“ä½œ</div>
 																	</td>
 																</tr>
 															</table>
@@ -187,7 +187,7 @@
 																			<a href="<%= data.getString("IMAGEPATH") %>" target="_blank" class="link_blue"><%= data.getString("IMAGENAME") == null ? "" : data.getString("IMAGENAME") %></a>
 																		</td>
 																		<td width="15%">
-																			<a class="link_blue" href="javascript:if (confirm('È·¶¨ÒªÉ¾³ı¼ÇÂ¼Âğ£¿')) {window.document.getElementById('str_imageid').value='<%= data.getString("IMAGEID")  %>';submit_form('Navy', 'NavyManage', 'ImportImageDeleteService', '/pages/navy/importmanage/importDataUpload.jsp?opt=refresh&importid=<%= importid%>&typeid=<%= typeid %>&type=<%= type %>');}">É¾³ı</a>
+																			<a class="link_blue" href="javascript:if (confirm('ç¡®å®šè¦åˆ é™¤è®°å½•å—ï¼Ÿ')) {window.document.getElementById('str_imageid').value='<%= data.getString("IMAGEID")  %>';submit_form('Navy', 'NavyManage', 'ImportImageDeleteService', '/pages/navy/importmanage/importDataUpload.jsp?opt=refresh&importid=<%= importid%>&typeid=<%= typeid %>&type=<%= type %>');}">åˆ é™¤</a>
 																		</td>
 																	</tr>
 																	<%
@@ -203,11 +203,11 @@
 										<tr>
 											<td height="30" colspan="3">
 												<div class="linepage1">
-													µÚ<%= pages.getPageIndex() %>Ò³/¹²<%= pages.getPageCount() == null ? 0 : pages.getPageCount() %>Ò³ ¹²<%= pages.getRowsCount() == null ? 0 : pages.getRowsCount() %>Ìõ¼ÇÂ¼
-													<a href="javascript:firstpage('Navy','NavyManage','ImportImageQueryService','/pages/navy/importmanage/importDataUpload.jsp?opt=1&importid=<%= importid %>&typeid=<%= typeid %>&type=<%= type %>')">Ê×Ò³</a>
-													<a href="javascript:prevpage('Navy','NavyManage','ImportImageQueryService','/pages/navy/importmanage/importDataUpload.jsp?opt=1&importid=<%= importid %>&typeid=<%= typeid %>&type=<%= type %>')">ÉÏÒ»Ò³</a>
-													<a href="javascript:nextpage('Navy','NavyManage','ImportImageQueryService','/pages/navy/importmanage/importDataUpload.jsp?opt=1&importid=<%= importid %>&typeid=<%= typeid %>&type=<%= type %>')">ÏÂÒ»Ò³</a>
-													<a href="javascript:lastpage('Navy','NavyManage','ImportImageQueryService','/pages/navy/importmanage/importDataUpload.jsp?opt=1&importid=<%= importid %>&typeid=<%= typeid %>&type=<%= type %>')">Ä©Ò³</a>
+													ç¬¬<%= pages.getPageIndex() %>é¡µ/å…±<%= pages.getPageCount() == null ? 0 : pages.getPageCount() %>é¡µ å…±<%= pages.getRowsCount() == null ? 0 : pages.getRowsCount() %>æ¡è®°å½•
+													<a href="javascript:firstpage('Navy','NavyManage','ImportImageQueryService','/pages/navy/importmanage/importDataUpload.jsp?opt=1&importid=<%= importid %>&typeid=<%= typeid %>&type=<%= type %>')">é¦–é¡µ</a>
+													<a href="javascript:prevpage('Navy','NavyManage','ImportImageQueryService','/pages/navy/importmanage/importDataUpload.jsp?opt=1&importid=<%= importid %>&typeid=<%= typeid %>&type=<%= type %>')">ä¸Šä¸€é¡µ</a>
+													<a href="javascript:nextpage('Navy','NavyManage','ImportImageQueryService','/pages/navy/importmanage/importDataUpload.jsp?opt=1&importid=<%= importid %>&typeid=<%= typeid %>&type=<%= type %>')">ä¸‹ä¸€é¡µ</a>
+													<a href="javascript:lastpage('Navy','NavyManage','ImportImageQueryService','/pages/navy/importmanage/importDataUpload.jsp?opt=1&importid=<%= importid %>&typeid=<%= typeid %>&type=<%= type %>')">æœ«é¡µ</a>
 												</div>
 											</td>
 										</tr>
@@ -233,9 +233,9 @@
 			<% if (resp != null && resp.getErrorInfo() != null) { %>
 				alert("<%= resp.getErrorInfo() %>");
 			<% } else if (resp.getDto().get("RESULT") != null && (Integer)resp.getDto().get("RESULT") == 1) { %>
-				alert("ÉÏ´«³É¹¦£¡");
+				alert("ä¸Šä¼ æˆåŠŸï¼");
 			<% } else if (resp.getDto().get("RESULT") != null && (Integer)resp.getDto().get("RESULT") == 2) { %>
-				alert("É¾³ı³É¹¦£¡");
+				alert("åˆ é™¤æˆåŠŸï¼");
 			<% 
 				}
 			%>
