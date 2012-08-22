@@ -217,13 +217,13 @@ create table T_SUPPORTOR  (
    ----------------------------------------------------------------------
    L1_LOC        		VARCHAR2(30),    -- 供应商所在省/地区
    L2_LOC        		VARCHAR2(30),    -- 供应商所在市
-   STOREHOUSE_AREA    	DECIMAL(8, 2), -- 仓库总面积
-   WAREHOUSE_AREA    	DECIMAL(8, 2),  -- 货场总面积
-   STOREHOUSE_IMAGE    	VARCHAR2(50), -- 仓库照片
-   AUDIT_LAST3Y      	VARCHAR2(200),  -- 近三年审计报告压缩文件(RAR或ZIP格式)
+   STOREHOUSE_AREA    	DECIMAL(8, 2), 	 -- 仓库总面积
+   WAREHOUSE_AREA    	DECIMAL(8, 2),   -- 货场总面积
+   STOREHOUSE_IMAGE    	VARCHAR2(50),    -- 仓库照片
+   AUDIT_LAST3Y      	VARCHAR2(200),   -- 近三年审计报告压缩文件(RAR或ZIP格式)
    LIC_BUS_IMAGE    	VARCHAR2(50),    -- 营业执照扫描件
    ORG_STR_IMAGE    	VARCHAR2(50),    -- 组织结构代码证扫描件
-   BANK_PROVE      		VARCHAR2(200),    -- 银行资信证明文件扫描件
+   BANK_PROVE      		VARCHAR2(200),   -- 银行资信证明文件扫描件
    OTHER_PROVE      	VARCHAR2(200),   -- 其它资质证明文件(RAR或ZIP格式)
    PURCHASE_TYPE_ID		VARCHAR2(36),	 -- 采购类型编号
    PURCHASE_TYPE    	VARCHAR2(100),   -- 采购方式
