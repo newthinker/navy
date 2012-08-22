@@ -29,6 +29,7 @@ public class ProductTypeQueryService extends BaseService implements IService {
 			dictdetail.setFathercode("-1");
 		}
 		
+		// 操蛋的编码
 		Conditions cons = new Conditions();
 		cons.addCondition(new TDictDetail());
 		cons.addExpression("type_id = '" + dictdetail.getTypeid()

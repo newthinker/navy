@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import cn.com.hd.database.DBOperator;
+import cn.com.hd.error.Debug;
 import cn.com.hd.error.ErrorProcessor;
 import cn.com.hd.manager.SystemServiceManager;
 import cn.com.hd.transfer.LoginInfo;
@@ -77,6 +78,7 @@ public class SystemXhrServiceServlet extends HttpServlet {
 		}
 		
 		request.setCharacterEncoding(encoding);
+		response.setCharacterEncoding(encoding);
 		
 		String xml = request.getParameter("XML_DATA");
 		Request req = null;
@@ -96,6 +98,7 @@ public class SystemXhrServiceServlet extends HttpServlet {
 			
 			req = DataXMLParser.buildRequest(xml);
 			
+			// 操蛋的编码
 			req.getDto().put("SESSION", request.getSession());
 			req.getDto().put("LOGININFO", new LoginInfo(request));
 			Response resp = SystemServiceManager.service(req, dbOperatorList);
@@ -140,7 +143,11 @@ public class SystemXhrServiceServlet extends HttpServlet {
 				request.getSession().setAttribute(sKeyDeptname, deptname);
 			}
 			
+
+			Debug.debugMessage("result: " + resp.toXMLString());
+			
 			if (req != null && req.getIsremote() != null && req.getIsremote().equalsIgnoreCase("true")) {
+				response.setContentType("text/xml; charset=utf-8");
 				OutputStream os = response.getOutputStream(); 
 				os.write(resp.toXMLString().getBytes());
 				
