@@ -143,9 +143,6 @@ public class SystemXhrServiceServlet extends HttpServlet {
 				request.getSession().setAttribute(sKeyDeptname, deptname);
 			}
 			
-
-			Debug.debugMessage("result: " + resp.toXMLString());
-			
 			if (req != null && req.getIsremote() != null && req.getIsremote().equalsIgnoreCase("true")) {
 				response.setContentType("text/xml; charset=utf-8");
 				OutputStream os = response.getOutputStream(); 
