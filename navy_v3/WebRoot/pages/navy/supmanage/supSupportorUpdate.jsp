@@ -156,7 +156,7 @@
 				}
 
 				obj = document.getElementById("STR_DEADWEIGHT");
-				if (!check_input(obj, true, 2, null, null, "载重量")) {
+				if (!check_input(obj, true, 2, null, null, "单车载重量")) {
 					return false;
 				}
 
@@ -936,7 +936,7 @@
 										class="searchTbl_input" value="<%= transport.getString("COMNAME") == null ? "" : transport.getString("COMNAME") %>" />
 								</td>
 								<th width="20%">
-									运输车类型
+									主要运输车类型
 								</th>
 								<td width="30%">
 									<select name="STR_TRUCKTYPEID" id="STR_TRUCKTYPEID" style="width:200px"
@@ -955,7 +955,7 @@
 							</tr>
 							<tr>
 								<th>
-									载重量
+									单车载重量
 								</th>
 								<td>
 									<input type="text" name="STR_DEADWEIGHT" id="STR_DEADWEIGHT"

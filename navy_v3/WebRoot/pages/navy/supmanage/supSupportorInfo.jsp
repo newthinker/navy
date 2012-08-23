@@ -300,7 +300,7 @@
 							</tr>
 							<tr>
 								<th>
-									其它资信证明扫描件打包
+									特定资质证书
 								</th>
 								<td>
 									<% if (supportor.getString("OTHERPROVE") == null
@@ -721,7 +721,7 @@
 									<%= transport.getString("COMNAME") == null ? "" : transport.getString("COMNAME") %>&nbsp;
 								</td>
 								<th width="15%">
-									运输车类型
+									主要运输车类型
 								</th>
 								<td width="35%">
 									<%= transport.getString("TRUCKTYPE") == null ? "" : transport.getString("TRUCKTYPE") %>&nbsp;
@@ -729,7 +729,7 @@
 							</tr>
 							<tr>
 								<th>
-									载重量
+									单车载重量
 								</th>
 								<td>
 									<%= transport.getNumber("DEADWEIGHT") == null ? "" : transport.getNumber("DEADWEIGHT") %>&nbsp;
