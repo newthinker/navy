@@ -263,6 +263,7 @@
 			this.label85 = new System.Windows.Forms.Label();
 			this.textBox_storehouseArea = new System.Windows.Forms.TextBox();
 			this.label84 = new System.Windows.Forms.Label();
+			this.checkBox1 = new System.Windows.Forms.CheckBox();
 			this.tabControl_data.SuspendLayout();
 			this.tabPage1.SuspendLayout();
 			this.panel1.SuspendLayout();
@@ -305,7 +306,6 @@
 			// 
 			this.tabPage1.AutoScroll = true;
 			this.tabPage1.BackColor = System.Drawing.Color.Transparent;
-			this.tabPage1.Controls.Add(this.groupBox10);
 			this.tabPage1.Controls.Add(this.panel1);
 			this.tabPage1.Controls.Add(this.groupBox_stockholder);
 			this.tabPage1.Controls.Add(this.groupBox1);
@@ -321,7 +321,7 @@
 			// 
 			this.panel1.Controls.Add(this.button_next1);
 			this.panel1.Controls.Add(this.button_cancel1);
-			this.panel1.Location = new System.Drawing.Point(242, 652);
+			this.panel1.Location = new System.Drawing.Point(242, 563);
 			this.panel1.Name = "panel1";
 			this.panel1.Size = new System.Drawing.Size(250, 50);
 			this.panel1.TabIndex = 4;
@@ -357,7 +357,7 @@
 			this.groupBox_stockholder.Controls.Add(this.textBox_stockholderName);
 			this.groupBox_stockholder.Controls.Add(this.label63);
 			this.groupBox_stockholder.Controls.Add(this.dateTimePicker_stockholderStockDate);
-			this.groupBox_stockholder.Location = new System.Drawing.Point(7, 510);
+			this.groupBox_stockholder.Location = new System.Drawing.Point(7, 421);
 			this.groupBox_stockholder.Name = "groupBox_stockholder";
 			this.groupBox_stockholder.Size = new System.Drawing.Size(719, 138);
 			this.groupBox_stockholder.TabIndex = 1;
@@ -743,7 +743,7 @@
 			this.label40.Name = "label40";
 			this.label40.Size = new System.Drawing.Size(101, 24);
 			this.label40.TabIndex = 0;
-			this.label40.Text = "供应商注册等级\r\n联系（经办）人：";
+			this.label40.Text = "供应商注册登记\r\n联系（经办）人：";
 			// 
 			// label10
 			// 
@@ -976,7 +976,7 @@
 			// 
 			// button_organizationImage
 			// 
-			this.button_organizationImage.Location = new System.Drawing.Point(323, 347);
+			this.button_organizationImage.Location = new System.Drawing.Point(661, 348);
 			this.button_organizationImage.Name = "button_organizationImage";
 			this.button_organizationImage.Size = new System.Drawing.Size(39, 23);
 			this.button_organizationImage.TabIndex = 21;
@@ -1062,11 +1062,11 @@
 			// label14
 			// 
 			this.label14.AutoSize = true;
-			this.label14.Location = new System.Drawing.Point(30, 30);
+			this.label14.Location = new System.Drawing.Point(30, 36);
 			this.label14.Name = "label14";
-			this.label14.Size = new System.Drawing.Size(77, 24);
+			this.label14.Size = new System.Drawing.Size(65, 12);
 			this.label14.TabIndex = 191;
-			this.label14.Text = "营业执照或\r\n事业法人证：";
+			this.label14.Text = "营业执照：";
 			// 
 			// label15
 			// 
@@ -1177,18 +1177,18 @@
 			this.label90.AutoSize = true;
 			this.label90.Location = new System.Drawing.Point(30, 793);
 			this.label90.Name = "label90";
-			this.label90.Size = new System.Drawing.Size(77, 12);
+			this.label90.Size = new System.Drawing.Size(89, 12);
 			this.label90.TabIndex = 180;
-			this.label90.Text = "资信证明包：";
+			this.label90.Text = "特定资质证书：";
 			// 
 			// label51
 			// 
 			this.label51.AutoSize = true;
-			this.label51.Location = new System.Drawing.Point(30, 826);
+			this.label51.Location = new System.Drawing.Point(30, 832);
 			this.label51.Name = "label51";
-			this.label51.Size = new System.Drawing.Size(101, 24);
+			this.label51.Size = new System.Drawing.Size(101, 12);
 			this.label51.TabIndex = 180;
-			this.label51.Text = "近三年审计报告\r\n        扫描件：";
+			this.label51.Text = "近三年审计报告：";
 			// 
 			// textBox_bankMail
 			// 
@@ -1281,7 +1281,6 @@
 			// 
 			// comboBox_bank
 			// 
-			this.comboBox_bank.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.comboBox_bank.FormattingEnabled = true;
 			this.comboBox_bank.Location = new System.Drawing.Point(142, 506);
 			this.comboBox_bank.Name = "comboBox_bank";
@@ -1590,16 +1589,16 @@
 			// 
 			// textBox_organizationId
 			// 
-			this.textBox_organizationId.Location = new System.Drawing.Point(514, 348);
+			this.textBox_organizationId.Location = new System.Drawing.Point(142, 348);
 			this.textBox_organizationId.Name = "textBox_organizationId";
 			this.textBox_organizationId.Size = new System.Drawing.Size(175, 21);
 			this.textBox_organizationId.TabIndex = 22;
 			// 
 			// textBox_organizationImage
 			// 
-			this.textBox_organizationImage.Location = new System.Drawing.Point(142, 348);
+			this.textBox_organizationImage.Location = new System.Drawing.Point(514, 349);
 			this.textBox_organizationImage.Name = "textBox_organizationImage";
-			this.textBox_organizationImage.Size = new System.Drawing.Size(175, 21);
+			this.textBox_organizationImage.Size = new System.Drawing.Size(141, 21);
 			this.textBox_organizationImage.TabIndex = 20;
 			// 
 			// label30
@@ -1650,7 +1649,7 @@
 			// label87
 			// 
 			this.label87.AutoSize = true;
-			this.label87.Location = new System.Drawing.Point(402, 352);
+			this.label87.Location = new System.Drawing.Point(30, 352);
 			this.label87.Name = "label87";
 			this.label87.Size = new System.Drawing.Size(89, 12);
 			this.label87.TabIndex = 124;
@@ -1668,11 +1667,11 @@
 			// label4
 			// 
 			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(30, 346);
+			this.label4.Location = new System.Drawing.Point(404, 353);
 			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(101, 24);
+			this.label4.Size = new System.Drawing.Size(101, 12);
 			this.label4.TabIndex = 124;
-			this.label4.Text = "组织结构代码证\r\n        扫描件：";
+			this.label4.Text = "组织机构代码证：";
 			// 
 			// label20
 			// 
@@ -1856,20 +1855,20 @@
 			// label56
 			// 
 			this.label56.AutoSize = true;
-			this.label56.Location = new System.Drawing.Point(399, 100);
+			this.label56.Location = new System.Drawing.Point(399, 106);
 			this.label56.Name = "label56";
-			this.label56.Size = new System.Drawing.Size(77, 24);
+			this.label56.Size = new System.Drawing.Size(113, 12);
 			this.label56.TabIndex = 1;
-			this.label56.Text = "2009-2011年\r\n最大年产量：";
+			this.label56.Text = "近三年最大年产量：";
 			// 
 			// label53
 			// 
 			this.label53.AutoSize = true;
-			this.label53.Location = new System.Drawing.Point(25, 100);
+			this.label53.Location = new System.Drawing.Point(25, 106);
 			this.label53.Name = "label53";
-			this.label53.Size = new System.Drawing.Size(71, 24);
+			this.label53.Size = new System.Drawing.Size(101, 12);
 			this.label53.TabIndex = 1;
-			this.label53.Text = "2009-2011年\r\n年均产量：";
+			this.label53.Text = "近三年年均产量：";
 			// 
 			// label58
 			// 
@@ -1914,7 +1913,7 @@
 			this.label54.Name = "label54";
 			this.label54.Size = new System.Drawing.Size(101, 12);
 			this.label54.TabIndex = 1;
-			this.label54.Text = "产品系统或型号：";
+			this.label54.Text = "产品规格或型号：";
 			// 
 			// label62
 			// 
@@ -2094,11 +2093,11 @@
 			// label66
 			// 
 			this.label66.AutoSize = true;
-			this.label66.Location = new System.Drawing.Point(25, 26);
+			this.label66.Location = new System.Drawing.Point(25, 32);
 			this.label66.Name = "label66";
-			this.label66.Size = new System.Drawing.Size(101, 24);
+			this.label66.Size = new System.Drawing.Size(89, 12);
 			this.label66.TabIndex = 1;
-			this.label66.Text = "分支或服务机构\r\n          名称：";
+			this.label66.Text = "服务机构名称：";
 			// 
 			// tabPage5
 			// 
@@ -2116,7 +2115,7 @@
 			// 
 			this.panel5.Controls.Add(this.button_finish);
 			this.panel5.Controls.Add(this.button_cancel5);
-			this.panel5.Location = new System.Drawing.Point(251, 462);
+			this.panel5.Location = new System.Drawing.Point(251, 570);
 			this.panel5.Name = "panel5";
 			this.panel5.Size = new System.Drawing.Size(250, 50);
 			this.panel5.TabIndex = 1;
@@ -2143,6 +2142,8 @@
 			// 
 			// groupBox5
 			// 
+			this.groupBox5.Controls.Add(this.checkBox1);
+			this.groupBox5.Controls.Add(this.groupBox10);
 			this.groupBox5.Controls.Add(this.groupBox9);
 			this.groupBox5.Controls.Add(this.groupBox8);
 			this.groupBox5.Controls.Add(this.groupBox7);
@@ -2157,10 +2158,10 @@
 			this.groupBox5.Controls.Add(this.label74);
 			this.groupBox5.Location = new System.Drawing.Point(21, 16);
 			this.groupBox5.Name = "groupBox5";
-			this.groupBox5.Size = new System.Drawing.Size(710, 441);
+			this.groupBox5.Size = new System.Drawing.Size(710, 544);
 			this.groupBox5.TabIndex = 0;
 			this.groupBox5.TabStop = false;
-			this.groupBox5.Text = "能够提供运输的服务企业";
+			this.groupBox5.Text = "                         ";
 			// 
 			// groupBox9
 			// 
@@ -2168,7 +2169,7 @@
 			this.groupBox9.Controls.Add(this.textBox_transportAirportDistance);
 			this.groupBox9.Controls.Add(this.label81);
 			this.groupBox9.Controls.Add(this.textBox_transportAirportName);
-			this.groupBox9.Location = new System.Drawing.Point(27, 375);
+			this.groupBox9.Location = new System.Drawing.Point(27, 473);
 			this.groupBox9.Name = "groupBox9";
 			this.groupBox9.Size = new System.Drawing.Size(659, 58);
 			this.groupBox9.TabIndex = 7;
@@ -2186,7 +2187,7 @@
 			// 
 			// textBox_transportAirportDistance
 			// 
-			this.textBox_transportAirportDistance.Location = new System.Drawing.Point(470, 26);
+			this.textBox_transportAirportDistance.Location = new System.Drawing.Point(482, 26);
 			this.textBox_transportAirportDistance.Name = "textBox_transportAirportDistance";
 			this.textBox_transportAirportDistance.Size = new System.Drawing.Size(150, 21);
 			this.textBox_transportAirportDistance.TabIndex = 1;
@@ -2194,7 +2195,7 @@
 			// label81
 			// 
 			this.label81.AutoSize = true;
-			this.label81.Location = new System.Drawing.Point(387, 29);
+			this.label81.Location = new System.Drawing.Point(398, 29);
 			this.label81.Name = "label81";
 			this.label81.Size = new System.Drawing.Size(77, 12);
 			this.label81.TabIndex = 1;
@@ -2213,7 +2214,7 @@
 			this.groupBox8.Controls.Add(this.textBox_transportPortDistance);
 			this.groupBox8.Controls.Add(this.label77);
 			this.groupBox8.Controls.Add(this.textBox_transportPortName);
-			this.groupBox8.Location = new System.Drawing.Point(27, 305);
+			this.groupBox8.Location = new System.Drawing.Point(27, 403);
 			this.groupBox8.Name = "groupBox8";
 			this.groupBox8.Size = new System.Drawing.Size(659, 58);
 			this.groupBox8.TabIndex = 6;
@@ -2231,7 +2232,7 @@
 			// 
 			// textBox_transportPortDistance
 			// 
-			this.textBox_transportPortDistance.Location = new System.Drawing.Point(470, 26);
+			this.textBox_transportPortDistance.Location = new System.Drawing.Point(482, 26);
 			this.textBox_transportPortDistance.Name = "textBox_transportPortDistance";
 			this.textBox_transportPortDistance.Size = new System.Drawing.Size(150, 21);
 			this.textBox_transportPortDistance.TabIndex = 1;
@@ -2239,7 +2240,7 @@
 			// label77
 			// 
 			this.label77.AutoSize = true;
-			this.label77.Location = new System.Drawing.Point(387, 29);
+			this.label77.Location = new System.Drawing.Point(398, 29);
 			this.label77.Name = "label77";
 			this.label77.Size = new System.Drawing.Size(77, 12);
 			this.label77.TabIndex = 1;
@@ -2258,7 +2259,7 @@
 			this.groupBox7.Controls.Add(this.textBox_transportRailwayDistance);
 			this.groupBox7.Controls.Add(this.label80);
 			this.groupBox7.Controls.Add(this.textBox_transportRailwayName);
-			this.groupBox7.Location = new System.Drawing.Point(27, 236);
+			this.groupBox7.Location = new System.Drawing.Point(27, 334);
 			this.groupBox7.Name = "groupBox7";
 			this.groupBox7.Size = new System.Drawing.Size(659, 58);
 			this.groupBox7.TabIndex = 5;
@@ -2276,7 +2277,7 @@
 			// 
 			// textBox_transportRailwayDistance
 			// 
-			this.textBox_transportRailwayDistance.Location = new System.Drawing.Point(470, 26);
+			this.textBox_transportRailwayDistance.Location = new System.Drawing.Point(482, 26);
 			this.textBox_transportRailwayDistance.Name = "textBox_transportRailwayDistance";
 			this.textBox_transportRailwayDistance.Size = new System.Drawing.Size(150, 21);
 			this.textBox_transportRailwayDistance.TabIndex = 1;
@@ -2284,7 +2285,7 @@
 			// label80
 			// 
 			this.label80.AutoSize = true;
-			this.label80.Location = new System.Drawing.Point(387, 29);
+			this.label80.Location = new System.Drawing.Point(398, 29);
 			this.label80.Name = "label80";
 			this.label80.Size = new System.Drawing.Size(77, 12);
 			this.label80.TabIndex = 1;
@@ -2318,7 +2319,7 @@
 			this.groupBox6.Controls.Add(this.textBox_transportHighwayEnterName);
 			this.groupBox6.Controls.Add(this.textBox_transportHighwayID);
 			this.groupBox6.Controls.Add(this.textBox_transportHighwayName);
-			this.groupBox6.Location = new System.Drawing.Point(27, 95);
+			this.groupBox6.Location = new System.Drawing.Point(27, 193);
 			this.groupBox6.Name = "groupBox6";
 			this.groupBox6.Size = new System.Drawing.Size(659, 129);
 			this.groupBox6.TabIndex = 4;
@@ -2337,7 +2338,7 @@
 			// label70
 			// 
 			this.label70.AutoSize = true;
-			this.label70.Location = new System.Drawing.Point(387, 64);
+			this.label70.Location = new System.Drawing.Point(410, 64);
 			this.label70.Name = "label70";
 			this.label70.Size = new System.Drawing.Size(65, 12);
 			this.label70.TabIndex = 1;
@@ -2355,7 +2356,7 @@
 			// label68
 			// 
 			this.label68.AutoSize = true;
-			this.label68.Location = new System.Drawing.Point(387, 29);
+			this.label68.Location = new System.Drawing.Point(434, 29);
 			this.label68.Name = "label68";
 			this.label68.Size = new System.Drawing.Size(41, 12);
 			this.label68.TabIndex = 1;
@@ -2363,14 +2364,14 @@
 			// 
 			// textBox_transportHighwayDistance
 			// 
-			this.textBox_transportHighwayDistance.Location = new System.Drawing.Point(470, 97);
+			this.textBox_transportHighwayDistance.Location = new System.Drawing.Point(482, 97);
 			this.textBox_transportHighwayDistance.Name = "textBox_transportHighwayDistance";
 			this.textBox_transportHighwayDistance.Size = new System.Drawing.Size(150, 21);
 			this.textBox_transportHighwayDistance.TabIndex = 4;
 			// 
 			// textBox_transportHighwayEnterID
 			// 
-			this.textBox_transportHighwayEnterID.Location = new System.Drawing.Point(470, 61);
+			this.textBox_transportHighwayEnterID.Location = new System.Drawing.Point(482, 61);
 			this.textBox_transportHighwayEnterID.Name = "textBox_transportHighwayEnterID";
 			this.textBox_transportHighwayEnterID.Size = new System.Drawing.Size(150, 21);
 			this.textBox_transportHighwayEnterID.TabIndex = 3;
@@ -2378,11 +2379,11 @@
 			// label69
 			// 
 			this.label69.AutoSize = true;
-			this.label69.Location = new System.Drawing.Point(387, 100);
+			this.label69.Location = new System.Drawing.Point(338, 100);
 			this.label69.Name = "label69";
-			this.label69.Size = new System.Drawing.Size(77, 12);
+			this.label69.Size = new System.Drawing.Size(137, 12);
 			this.label69.TabIndex = 1;
-			this.label69.Text = "距离(公里)：";
+			this.label69.Text = "企业到入口距离(公里)：";
 			// 
 			// textBox_transportHighwayEnterName
 			// 
@@ -2393,7 +2394,7 @@
 			// 
 			// textBox_transportHighwayID
 			// 
-			this.textBox_transportHighwayID.Location = new System.Drawing.Point(470, 26);
+			this.textBox_transportHighwayID.Location = new System.Drawing.Point(482, 26);
 			this.textBox_transportHighwayID.Name = "textBox_transportHighwayID";
 			this.textBox_transportHighwayID.Size = new System.Drawing.Size(150, 21);
 			this.textBox_transportHighwayID.TabIndex = 1;
@@ -2429,7 +2430,7 @@
 			// label75
 			// 
 			this.label75.AutoSize = true;
-			this.label75.Location = new System.Drawing.Point(414, 65);
+			this.label75.Location = new System.Drawing.Point(437, 65);
 			this.label75.Name = "label75";
 			this.label75.Size = new System.Drawing.Size(65, 12);
 			this.label75.TabIndex = 1;
@@ -2440,18 +2441,18 @@
 			this.label71.AutoSize = true;
 			this.label71.Location = new System.Drawing.Point(25, 65);
 			this.label71.Name = "label71";
-			this.label71.Size = new System.Drawing.Size(53, 12);
+			this.label71.Size = new System.Drawing.Size(77, 12);
 			this.label71.TabIndex = 1;
-			this.label71.Text = "载重量：";
+			this.label71.Text = "单车载重量：";
 			// 
 			// label73
 			// 
 			this.label73.AutoSize = true;
-			this.label73.Location = new System.Drawing.Point(414, 31);
+			this.label73.Location = new System.Drawing.Point(401, 31);
 			this.label73.Name = "label73";
-			this.label73.Size = new System.Drawing.Size(77, 12);
+			this.label73.Size = new System.Drawing.Size(101, 12);
 			this.label73.TabIndex = 1;
-			this.label73.Text = "运输车类型：";
+			this.label73.Text = "主要运输车类型：";
 			// 
 			// label74
 			// 
@@ -2471,40 +2472,41 @@
 			this.groupBox10.Controls.Add(this.label85);
 			this.groupBox10.Controls.Add(this.textBox_storehouseArea);
 			this.groupBox10.Controls.Add(this.label84);
-			this.groupBox10.Location = new System.Drawing.Point(7, 418);
+			this.groupBox10.Location = new System.Drawing.Point(27, 95);
 			this.groupBox10.Name = "groupBox10";
-			this.groupBox10.Size = new System.Drawing.Size(719, 86);
-			this.groupBox10.TabIndex = 5;
+			this.groupBox10.Size = new System.Drawing.Size(659, 86);
+			this.groupBox10.TabIndex = 8;
 			this.groupBox10.TabStop = false;
 			this.groupBox10.Text = "仓储信息";
 			// 
 			// button_storehouseImage
 			// 
-			this.button_storehouseImage.Location = new System.Drawing.Point(324, 57);
+			this.button_storehouseImage.Location = new System.Drawing.Point(310, 57);
 			this.button_storehouseImage.Name = "button_storehouseImage";
 			this.button_storehouseImage.Size = new System.Drawing.Size(39, 23);
 			this.button_storehouseImage.TabIndex = 31;
 			this.button_storehouseImage.Text = "...";
 			this.button_storehouseImage.UseVisualStyleBackColor = true;
+			this.button_storehouseImage.Click += new System.EventHandler(this.button_storehouseImage_Click);
 			// 
 			// textBox_warehouseArea
 			// 
-			this.textBox_warehouseArea.Location = new System.Drawing.Point(514, 19);
+			this.textBox_warehouseArea.Location = new System.Drawing.Point(482, 19);
 			this.textBox_warehouseArea.Name = "textBox_warehouseArea";
-			this.textBox_warehouseArea.Size = new System.Drawing.Size(175, 21);
+			this.textBox_warehouseArea.Size = new System.Drawing.Size(150, 21);
 			this.textBox_warehouseArea.TabIndex = 29;
 			// 
 			// textBox_storehouseImage
 			// 
-			this.textBox_storehouseImage.Location = new System.Drawing.Point(142, 58);
+			this.textBox_storehouseImage.Location = new System.Drawing.Point(147, 58);
 			this.textBox_storehouseImage.Name = "textBox_storehouseImage";
-			this.textBox_storehouseImage.Size = new System.Drawing.Size(175, 21);
+			this.textBox_storehouseImage.Size = new System.Drawing.Size(150, 21);
 			this.textBox_storehouseImage.TabIndex = 30;
 			// 
 			// label86
 			// 
 			this.label86.AutoSize = true;
-			this.label86.Location = new System.Drawing.Point(30, 62);
+			this.label86.Location = new System.Drawing.Point(16, 62);
 			this.label86.Name = "label86";
 			this.label86.Size = new System.Drawing.Size(65, 12);
 			this.label86.TabIndex = 27;
@@ -2513,7 +2515,7 @@
 			// label85
 			// 
 			this.label85.AutoSize = true;
-			this.label85.Location = new System.Drawing.Point(404, 23);
+			this.label85.Location = new System.Drawing.Point(398, 23);
 			this.label85.Name = "label85";
 			this.label85.Size = new System.Drawing.Size(77, 12);
 			this.label85.TabIndex = 26;
@@ -2521,19 +2523,30 @@
 			// 
 			// textBox_storehouseArea
 			// 
-			this.textBox_storehouseArea.Location = new System.Drawing.Point(142, 19);
+			this.textBox_storehouseArea.Location = new System.Drawing.Point(147, 19);
 			this.textBox_storehouseArea.Name = "textBox_storehouseArea";
-			this.textBox_storehouseArea.Size = new System.Drawing.Size(175, 21);
+			this.textBox_storehouseArea.Size = new System.Drawing.Size(150, 21);
 			this.textBox_storehouseArea.TabIndex = 28;
 			// 
 			// label84
 			// 
 			this.label84.AutoSize = true;
-			this.label84.Location = new System.Drawing.Point(30, 23);
+			this.label84.Location = new System.Drawing.Point(16, 23);
 			this.label84.Name = "label84";
 			this.label84.Size = new System.Drawing.Size(77, 12);
 			this.label84.TabIndex = 25;
 			this.label84.Text = "仓库总面积：";
+			// 
+			// checkBox1
+			// 
+			this.checkBox1.AutoSize = true;
+			this.checkBox1.Location = new System.Drawing.Point(9, 0);
+			this.checkBox1.Name = "checkBox1";
+			this.checkBox1.Size = new System.Drawing.Size(156, 16);
+			this.checkBox1.TabIndex = 9;
+			this.checkBox1.Text = "本供应商是否为运输企业";
+			this.checkBox1.UseVisualStyleBackColor = true;
+			this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
 			// 
 			// Form1
 			// 
@@ -2819,6 +2832,7 @@
 		private System.Windows.Forms.Label label85;
 		private System.Windows.Forms.TextBox textBox_storehouseArea;
 		private System.Windows.Forms.Label label84;
+		private System.Windows.Forms.CheckBox checkBox1;
 	}
 }
 

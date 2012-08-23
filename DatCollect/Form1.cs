@@ -261,7 +261,7 @@ namespace DatCollect
 				this.label2.AutoSize = true;
 				this.label2.Location = new System.Drawing.Point(25, 68);
 				this.label2.Size = new System.Drawing.Size(101, 12);
-				this.label2.Text = "产品系统或型号：";
+				this.label2.Text = "产品规格或型号：";
 				// 
 				// label3
 				// 
@@ -273,16 +273,16 @@ namespace DatCollect
 				// label4
 				// 
 				this.label4.AutoSize = true;
-				this.label4.Location = new System.Drawing.Point(25, 100);
+				this.label4.Location = new System.Drawing.Point(25, 106);
 				this.label4.Size = new System.Drawing.Size(71, 24);
-				this.label4.Text = "2009-2011年\r\n年均产量：";
+				this.label4.Text = "近三年年均产量：";
 				// 
 				// label5
 				// 
 				this.label5.AutoSize = true;
-				this.label5.Location = new System.Drawing.Point(399, 100);
+				this.label5.Location = new System.Drawing.Point(399, 106);
 				this.label5.Size = new System.Drawing.Size(77, 24);
-				this.label5.Text = "2009-2011年\r\n最大年产量：";
+				this.label5.Text = "近三年最大年产量：";
 				// 
 				// label6
 				// 
@@ -734,7 +734,7 @@ namespace DatCollect
 				{
 					comboBox_bank.Items.Add(item.Value.name);
 				}
-				comboBox_bank.SelectedIndex = 0;
+				//comboBox_bank.SelectedIndex = 0;
 			}
 			tdi = null;
 			// 售后类型
@@ -1263,6 +1263,14 @@ namespace DatCollect
 			}
 		}
 
+		private void checkBox1_CheckedChanged(object sender, EventArgs e)
+		{
+			if (this.checkBox1.Checked)
+			{
+				this.textBox_transportName.Text = this.textBox_fullName.Text;
+			}
+		}
+
 		private void tabControl_data_Selected(object sender, TabControlEventArgs e)
 		{
 			switch (tabControl_data.SelectedIndex)
@@ -1450,27 +1458,6 @@ namespace DatCollect
 					this.textBox_supplierFax.Focus();
 					return false;
 				}
-				//if (this.textBox_storehouseArea.Text.Length == 0)
-				//{
-				//    MessageBox.Show("请正确填写仓库面积！");
-				//    this.tabControl_data.SelectedIndex = 0;
-				//    this.textBox_storehouseArea.Focus();
-				//    return false;
-				//}
-				//if (this.textBox_warehouseArea.Text.Length == 0)
-				//{
-				//    MessageBox.Show("请正确填写货场面积！");
-				//    this.tabControl_data.SelectedIndex = 0;
-				//    this.textBox_warehouseArea.Focus();
-				//    return false;
-				//}
-				//if (!File.Exists(this.textBox_storehouseImage.Text))
-				//{
-				//    MessageBox.Show("请正确填写仓库照片！");
-				//    this.tabControl_data.SelectedIndex = 0;
-				//    this.textBox_storehouseImage.Focus();
-				//    return false;
-				//}
 				if (this.textBox_stockholderName.Text.Length == 0)
 				{
 					MessageBox.Show("请正确填写股东姓名！");
@@ -1677,13 +1664,13 @@ namespace DatCollect
 					this.textBox_bankMail.Focus();
 					return false;
 				}
-				if (!File.Exists(this.textBox_bankProve.Text))
-				{
-					MessageBox.Show("请正确填写银行资信证明文件！");
-					this.tabControl_data.SelectedIndex = 1;
-					this.textBox_bankProve.Focus();
-					return false;
-				}
+				//if (!File.Exists(this.textBox_bankProve.Text))
+				//{
+				//    MessageBox.Show("请正确填写银行资信证明文件！");
+				//    this.tabControl_data.SelectedIndex = 1;
+				//    this.textBox_bankProve.Focus();
+				//    return false;
+				//}
 				if (!File.Exists(this.textBox_qualityProve.Text))
 				{
 					MessageBox.Show("请正确填写质量管理证明文件！");
@@ -1928,6 +1915,27 @@ namespace DatCollect
 					this.textBox_transportNum.Focus();
 					return false;
 				}
+				//if (this.textBox_storehouseArea.Text.Length == 0)
+				//{
+				//    MessageBox.Show("请正确填写仓库面积！");
+				//    this.tabControl_data.SelectedIndex = 0;
+				//    this.textBox_storehouseArea.Focus();
+				//    return false;
+				//}
+				//if (this.textBox_warehouseArea.Text.Length == 0)
+				//{
+				//    MessageBox.Show("请正确填写货场面积！");
+				//    this.tabControl_data.SelectedIndex = 0;
+				//    this.textBox_warehouseArea.Focus();
+				//    return false;
+				//}
+				//if (!File.Exists(this.textBox_storehouseImage.Text))
+				//{
+				//    MessageBox.Show("请正确填写仓库照片！");
+				//    this.tabControl_data.SelectedIndex = 0;
+				//    this.textBox_storehouseImage.Focus();
+				//    return false;
+				//}
 				if (this.textBox_transportHighwayName.Text.Length == 0)
 				{
 					MessageBox.Show("请正确填写高速公路名称！");
