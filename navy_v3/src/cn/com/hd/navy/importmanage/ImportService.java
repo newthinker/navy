@@ -135,7 +135,11 @@ public class ImportService extends BaseService implements IService {
 				prod.fromXMLString(elem);
 				
 				prod.setProdid(UUID.randomUUID().toString());
-				prod.setSupid(supMap.get(prod.getSupid()).getSupid());
+				String supid = prod.getSupid();
+				TSupportor ts = supMap.get(prod.getSupid());
+				if (ts != null) {
+					prod.setSupid(supid);
+				}
 				save(prod);
 			}
 			
@@ -147,7 +151,11 @@ public class ImportService extends BaseService implements IService {
 				stock.fromXMLString(elem);
 				
 				stock.setStockholderid(UUID.randomUUID().toString());
-				stock.setSupid(supMap.get(stock.getSupid()).getSupid());
+				String supid = stock.getSupid();
+				TSupportor ts = supMap.get(supid);
+				if (ts != null) {
+					stock.setSupid(supid);
+				}
 				save(stock);
 			}
 			
@@ -159,7 +167,11 @@ public class ImportService extends BaseService implements IService {
 				org.fromXMLString(elem);
 				
 				org.setOrgid(UUID.randomUUID().toString());
-				org.setSupid(supMap.get(org.getSupid()).getSupid());
+				String supid = org.getSupid();
+				TSupportor ts = supMap.get(supid);
+				if (ts != null) {
+					org.setSupid(supid);
+				}
 				save(org);
 			}
 			
@@ -300,9 +312,12 @@ public class ImportService extends BaseService implements IService {
 				imp.setImage(imageid);
 				
 				String supid = imp.getSupportorid();
-				imp.setSupportorid(supMap.get(supid).getSupid());
-				imp.setSupportor(supMap.get(supid).getSupname());
-				imp.setSupportoraddr(supMap.get(supid).getAddress());
+				TSupportor ts = supMap.get(supid);
+				if (ts != null) {
+					imp.setSupportorid(supMap.get(supid).getSupid());
+					imp.setSupportor(supMap.get(supid).getSupname());
+					imp.setSupportoraddr(supMap.get(supid).getAddress());
+				}
 				
 				if (retList.size() == 0) {
 					save(imp);
