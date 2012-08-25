@@ -423,6 +423,13 @@ public class SupExportService extends BaseService implements IService {
 				String base = SystemParam.getParam("AbsolutePath");
 				String src = base + "ImgDir" + File.separator + imgfile;
 				String desc = dstdir + imgfile;
+
+				// 判断源文件是否存在
+				File temp = new File(src);
+				if(!(temp.exists())) {
+					continue;
+				}
+				
 				FileUtils.copy(src, desc);
 				
 //				java.sql.Blob blob = img.getImage();
