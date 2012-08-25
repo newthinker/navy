@@ -169,13 +169,13 @@
 						<td height="30">
 							<div class="linepage1">
 								第<%= pages.getPageIndex() %>页/共<%= pages.getPageCount() == null ? 0 : pages.getPageCount() %>页 共<%= pages.getRowsCount() == null ? 0 : pages.getRowsCount() %>条记录
-								<a href="javascript:firstpage('Navy','NavyManage','selectSupportorService','/pages/navy/supportormanage/selectSupportor.jsp')">首页</a>
-								<a href="javascript:prevpage('Navy','NavyManage','selectSupportorService','/pages/navy/supportormanage/selectSupportor.jsp')">上一页</a>
-								<a href="javascript:nextpage('Navy','NavyManage','selectSupportorService','/pages/navy/supportormanage/selectSupportor.jsp')">下一页</a>
-								<a href="javascript:lastpage('Navy','NavyManage','selectSupportorService','/pages/navy/supportormanage/selectSupportor.jsp')">末页</a>
+								<a href="javascript:firstpage('Navy','NavyManage','SupportorQueryService','/pages/navy/supportormanage/selectSupportor.jsp')">首页</a>
+								<a href="javascript:prevpage('Navy','NavyManage','SupportorQueryService','/pages/navy/supportormanage/selectSupportor.jsp')">上一页</a>
+								<a href="javascript:nextpage('Navy','NavyManage','SupportorQueryService','/pages/navy/supportormanage/selectSupportor.jsp')">下一页</a>
+								<a href="javascript:lastpage('Navy','NavyManage','SupportorQueryService','/pages/navy/supportormanage/selectSupportor.jsp')">末页</a>
 								转到 
 								<select id="page" name="page" 
-									onchange="gopage(this.value, 'Navy','NavyManage','selectSupportorService','/pages/navy/supportormanage/selectSupportor.jsp')">
+									onchange="gopage(this.value, 'Navy','NavyManage','SupportorQueryService','/pages/navy/supportormanage/selectSupportor.jsp')">
 									<% 
 										for (int i = 0; i < ((pages.getPageCount() == null) ? 0 : pages.getPageCount()); i ++) { 
 									%>
