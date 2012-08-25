@@ -87,6 +87,12 @@ public class ExportService extends BaseService implements IService {
 					projectImg += "#" + img.getImagename();
 				}
 				
+				// 判断源文件是否存在
+				File temp = new File(base+img.getImagepath());
+				if(!(temp.exists())) {
+					continue;
+				}
+				
 				FileUtils.copy(base + img.getImagepath(), targetPath + img.getImagename());
 			}
 			

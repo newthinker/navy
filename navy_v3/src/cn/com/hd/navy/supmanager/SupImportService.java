@@ -196,17 +196,6 @@ public class SupImportService extends BaseService implements IService {
 					delete(sale);
 				}
 				
-/*				TProveInfo prove = new TProveInfo();
-				prove.setSupid(supid);
-				rs = queryResultSet(prove);
-				list = getDTO(rs);
-				for (Object object : list) {
-					DTO dto = (DTO) object;
-					prove = new TProveInfo();
-					getData(dto, prove);
-					delete(prove);
-				}		
-*/				
 			}
 			
 			doc = XMLUtils.readXML(prodXml);
