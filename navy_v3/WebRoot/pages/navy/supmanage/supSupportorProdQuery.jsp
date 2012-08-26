@@ -145,10 +145,10 @@
 													<a href="javascript:showDetail('<%= data.showString("PRODID") %>');" class="link_blue_table"><%= data.showString("PRODNAME") %></a>
 												</td>
 												<td width="20%">
-													<%= data.showString("MEASURUNIT", "&nbsp;") %>
+													<%= data.showString("PRODNO", "&nbsp;") %>
 												</td>
 												<td width="15%">
-													<%= data.showString("PRODNO", "&nbsp;") %>
+													<%= data.showString("MEASURUNIT", "&nbsp;") %>
 												</td>
 												<td>
 													<a class="link_blue" href="javascript:showUpdate('<%= data.showString("PRODID") %>')">修改</a>

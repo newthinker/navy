@@ -83,18 +83,18 @@
 							</tr>
 							<tr>
 								<th>
-									计量单位
-								</th>
-								<td>
-									<%= dto.showString("MEASURUNIT", "&nbsp;") %>
-								</td>
-							</tr>
-							<tr>
-								<th>
 									产品系列或型号
 								</th>
 								<td>
 									<%= dto.showString("PRODNO", "&nbsp;") %>
+								</td>
+							</tr>
+							<tr>
+								<th>
+									计量单位
+								</th>
+								<td>
+									<%= dto.showString("MEASURUNIT", "&nbsp;") %>
 								</td>
 							</tr>
 							<tr>

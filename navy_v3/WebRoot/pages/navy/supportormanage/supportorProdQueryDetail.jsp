@@ -114,10 +114,10 @@
 													<%= data.showString("PRODNAME", "&nbsp;") %>
 												</td>
 												<td width="20%">
-													<%= data.showString("MEASURUNIT", "&nbsp;") %>
+													<%= data.showString("PRODNO", "&nbsp;") %>
 												</td>
 												<td>
-													<%= data.showString("PRODNO", "&nbsp;") %>
+													<%= data.showString("MEASURUNIT", "&nbsp;") %>
 												</td>
 											</tr>
 											<%

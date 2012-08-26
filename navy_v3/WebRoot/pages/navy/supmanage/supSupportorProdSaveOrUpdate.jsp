@@ -116,16 +116,16 @@
 				//	return false;
 				//}
 				
-				obj = document.getElementById("STR_MEASURUNIT");
-				if (!check_input(obj, false, 0, null, null, "计量单位")) {
-					return false;
-				}
-				
 				obj = document.getElementById("STR_PRODNO");
 				if (!check_input(obj, false, 0, null, null, "产品系列或型号")) {
 					return false;
 				}
 
+				obj = document.getElementById("STR_MEASURUNIT");
+				if (!check_input(obj, false, 0, null, null, "计量单位")) {
+					return false;
+				}
+				
 				obj = document.getElementById("STR_AVGOUTPUT");
 				if (!check_input(obj, true, 2, null, null, "年平均年产量")) {
 					return false;
@@ -224,22 +224,22 @@
 							</tr>
 							<tr>
 								<th>
-									计量单位
-								</th>
-								<td>
-									<input type="text" name="STR_MEASURUNIT" id="STR_MEASURUNIT"
-										class="searchTbl_input" value="<%= dto.showString("MEASURUNIT") %>" />
-		        					<span style="color:red;">*</span>
-								</td>
-							</tr>
-							<tr>
-								<th>
 									产品系列或型号
 								</th>
 								<td>
 									<input type="text" name="STR_PRODNO" id="STR_PRODNO"
 										class="searchTbl_input" value="<%= dto.showString("PRODNO") %>" />
 									<span style="color:red;">*</span>
+								</td>
+							</tr>
+							<tr>
+								<th>
+									计量单位
+								</th>
+								<td>
+									<input type="text" name="STR_MEASURUNIT" id="STR_MEASURUNIT"
+										class="searchTbl_input" value="<%= dto.showString("MEASURUNIT") %>" />
+		        					<span style="color:red;">*</span>
 								</td>
 							</tr>
 							<tr>
