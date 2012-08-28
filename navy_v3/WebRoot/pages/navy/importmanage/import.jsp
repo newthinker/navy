@@ -33,7 +33,7 @@
 				}
 				
 				if (value.substring(value.indexOf(".") + 1, value.length).toLowerCase() != "dat") {
-					alert("导入文件格式不对，应为“dat”文件！");
+					alert("导入文件格式不对，应为'dat'或者'zip'文件！");
 					return false;
 				}
 				

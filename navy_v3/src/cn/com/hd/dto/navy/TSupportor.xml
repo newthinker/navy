@@ -279,9 +279,6 @@
         <property name="manufacturercontact" type="VARCHAR2">
             <column name="MANUFACTURER_CONTACT" length="200" />
         </property>
-        <property name="manufacturerphone" type="VARCHAR2">
-            <column name="MANUFACTURER_PHONE" length="100" />
-        </property>
         <property name="manufacturerfax" type="VARCHAR2">
             <column name="MANUFACTURER_FAX" length="100" />
         </property>
@@ -300,7 +297,6 @@
         <property name="manufacturer" type="VARCHAR2">
             <column name="MANUFACTURER" length="200" />
         </property>
-		
         <property name="l1loc" type="VARCHAR2">		
             <column name="L1_LOC" length="30">
 				<comment>供应商所在省</comment>

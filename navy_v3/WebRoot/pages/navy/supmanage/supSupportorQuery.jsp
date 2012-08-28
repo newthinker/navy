@@ -171,7 +171,7 @@
 														<%= data.getString("CORPORATION") == null ? "&nbsp;" : data.getString("CORPORATION") %>&nbsp;&nbsp;
 													</td>
 													<td width="100px">
-														<%= data.getString("LICCAPITAL") == null ? "&nbsp;" : data.getString("LICCAPITAL") %>&nbsp;&nbsp;
+														<%= data.getNumber("LICCAPITAL") == null ? "&nbsp;" : data.getNumber("LICCAPITAL") %>&nbsp;&nbsp;
 													</td>
 													<td width="100px">
 														<%= data.getString("PURCHASETYPE") == null ? "&nbsp;" : data.getString("PURCHASETYPE") %>&nbsp;&nbsp;

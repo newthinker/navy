@@ -171,7 +171,7 @@ public class SupExportService extends BaseService implements IService {
 			}
 			
 			// 创建供应商文件夹
-			suptarget = finalPath + supid + new SimpleDateFormat("yyyy-MM-dd").format(new Date()) + ".dat";
+			suptarget = finalPath + new SimpleDateFormat("yyyy-MM-dd").format(new Date()) + "_" + supid + ".dat";
 			String supPath = targetPath + supid + "/";
 			File supFile = new File(supPath);
 			supFile.mkdir();
@@ -214,7 +214,9 @@ public class SupExportService extends BaseService implements IService {
 			// 导出供应商信息
 			StringBuffer strXml = new StringBuffer();
 			strXml.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?><DTO>");
+			strXml.append("<ROW>");
 			strXml.append(supportor.toXMLString());
+			strXml.append("</ROW>");
 			strXml.append("</DTO>");	
 			XMLUtils.saveXML(supPath + "supportor.xml", strXml.toString());
 			
@@ -356,7 +358,7 @@ public class SupExportService extends BaseService implements IService {
 		}
 		file.delete();
 		
-		String target = base + "temp/export/" + new SimpleDateFormat("yyyy-MM-dd").format(new Date()) + "_" + folder + ".dat";;
+		String target = base + "temp/export/" + new SimpleDateFormat("yyyy-MM-dd").format(new Date()) + "_" + folder + ".dat";
 		if(count>1) {
 			CompressUtils.compressZip(finalPath, target);
 		} else if (count==1) {

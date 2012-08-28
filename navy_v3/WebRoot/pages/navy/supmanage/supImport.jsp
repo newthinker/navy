@@ -32,8 +32,9 @@
 					return false;
 				}
 				
-				if (value.substring(value.indexOf(".") + 1, value.length).toLowerCase() != "dat") {
-					alert("导入文件格式不对，应为“dat”文件！");
+				if (value.substring(value.indexOf(".") + 1, value.length).toLowerCase() != "dat" && 
+						value.substring(value.indexOf(".") + 1, value.length).toLowerCase() != "zip") {
+					alert("导入文件格式不对，应为'dat'或者'zip'文件！");
 					return false;
 				}
 				

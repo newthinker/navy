@@ -73,7 +73,6 @@ public class TSupportor extends BaseDTO {
 	private String image;
 	private String productsclass;
 	private String manufacturercontact;
-	private String manufacturerphone;
 	private String manufacturerfax;
 	private String manufactureremail;
 	private String manufactureraddress;
@@ -544,14 +543,6 @@ public class TSupportor extends BaseDTO {
 
 	public void setManufacturercontact(String manufacturercontact) {
 		this.manufacturercontact = manufacturercontact;
-	}
-
-	public String getManufacturerphone() {
-		return manufacturerphone;
-	}
-
-	public void setManufacturerphone(String manufacturerphone) {
-		this.manufacturerphone = manufacturerphone;
 	}
 
 	public String getManufacturerfax() {

@@ -503,7 +503,7 @@
 									注册资本金
 								</th>
 								<td>
-									<%= supportor.getNumber("LICCAPITAL") == null ? "" : supportor.getNumber("LICCAPITAL").doubleValue() %>&nbsp;&nbsp;万元
+									<%= supportor.getNumber("LICCAPITAL") == null ? "" : supportor.getNumber("LICCAPITAL")%>&nbsp;&nbsp;万元
 								</td>
 								<th>
 									最近年检时间
