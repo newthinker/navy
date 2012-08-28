@@ -118,7 +118,7 @@ comment on column T_DICT_DETAIL.EXPINFOE is
 create table T_DICT_AREA (
 	AREA_CODE		VARCHAR2(6)			NOT NULL,
 	AREA_NAME		VARCHAR2(32),
-	PARENT_CODE		VARCHAR2(6),
+	PARENT_CODEID		VARCHAR2(6),
 	constraint PK_T_DICT_AREA primary key (AREA_CODE)
 );	
 comment on table T_DICT_AREA is 
@@ -127,7 +127,7 @@ comment on column T_DICT_AREA.AREA_CODE is
 	'行政区划编码';
 comment on column T_DICT_AREA.AREA_NAME is 
 	'行政区划名称';
-comment on column T_DICT_AREA.PARENT_CODE is 
+comment on column T_DICT_AREA.PARENT_CODEID is 
 	'上级行政区划编码';
 	
 -- 解析行政区划文件的存储过程
