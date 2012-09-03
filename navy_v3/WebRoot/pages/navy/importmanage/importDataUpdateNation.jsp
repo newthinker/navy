@@ -426,7 +426,7 @@
 						<input name="DAT_DELIVERYDATE" id="DAT_DELIVERYDATE" style="cursor:hand;"
 							onfocus="WdatePicker({dateFmt:'yyyy-MM-dd',qsEnabled:true,quickSel:['2000-1-10','2000-2-20']})"
 							type="text" style="width:200px;" readonly="readonly" class="Wdate"
-							value="<%= dto.showDate("COMPACTDATE") %>" />
+							value="<%= dto.showDate("DELIVERYDATE") %>" />
 					</td>
 					<th>
 						合同金额(万元)

@@ -1,5 +1,6 @@
 ﻿package cn.com.hd.navy.supmanager;
 
+import java.io.FileInputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -19,8 +20,6 @@ import cn.com.hd.database.SelectResultSet;
 import cn.com.hd.dto.navy.TAftersaleOrg;
 import cn.com.hd.dto.navy.THighWay;
 import cn.com.hd.dto.navy.TImage;
-import cn.com.hd.dto.navy.TImport;
-import cn.com.hd.dto.navy.TProveInfo;
 import cn.com.hd.dto.navy.TStockholder;
 import cn.com.hd.dto.navy.TSupProduct;
 import cn.com.hd.dto.navy.TSupTrans;
@@ -55,14 +54,23 @@ public class SupImportService extends BaseService implements IService {
 			Files files = request.getUpload().getFiles();
 			for (int i = 0; i < files.getCount(); i ++) {
 				File file = files.getFile(i);
-				String folder = file.getFileName();
-				String target = targetDir + folder;				
+				String fileName = file.getFileName();
+				String target = targetDir + fileName;	
 				file.saveAs(target);	
 				
+				// 判断文件大小
+				if(file.getSize()<=0) 
+					continue;
+				
 				String fileExt = file.getFileExt();
-				if(fileExt.toLowerCase().equals("zip")) {
-					CompressUtils.unCompressZip(target, targetDir);
-					FileUtils.delete(file.getFilePathName());
+				if(fileExt.toLowerCase().equals("zip") ||
+						fileExt.toLowerCase().equals("7z") || 
+						fileExt.toLowerCase().equals("dat")) {
+					if (fileExt.toLowerCase().equals("zip") ||
+							fileExt.toLowerCase().equals("7z")) {
+						CompressUtils.unCompressZip(target, targetDir);
+						FileUtils.delete(file.getFilePathName());
+					}
 				} else {
 					System.out.println("文件格式不正确，请检查！");
 					return null;
@@ -72,7 +80,7 @@ public class SupImportService extends BaseService implements IService {
 				if(f!=null) {
 				String[] lf = f.list();
 					for (int j = 0; j < lf.length; j ++) {
-						String fileName = lf[j];
+						fileName = lf[j];
 						if(fileName.substring(fileName.indexOf(".") + 1, fileName.length()).toLowerCase().equals("dat")) 
 							arrTarget.add(fileName.substring(0, fileName.indexOf(".")));
 					}
@@ -101,7 +109,7 @@ public class SupImportService extends BaseService implements IService {
 				String prodXml = targetPath + "supportor_product.xml";		// 产品
 				String stockXml = targetPath + "supportor_stock.xml";		// 股东
 				String orgXml = targetPath + "supportor_org.xml";			// 售后
-				String tranXml = targetPath + "supportor_tran.xml";		// 交通运输
+				String tranXml = targetPath + "supportor_tran.xml";			// 交通运输
 				String wayXml = targetPath + "supportor_highway.xml";		// 高速公路
 				String proveXml = targetPath + "supportor_prove.xml";	
 				

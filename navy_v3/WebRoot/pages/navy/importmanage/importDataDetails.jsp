@@ -158,7 +158,7 @@
 						交货期限
 					</th>
 					<td>
-						<%= dto.getDate("COMPACTDATE") == null ? "&nbsp;" : fmtDate.format(dto.getDate("COMPACTDATE")) %>
+						<%= dto.getDate("DELIVERYDATE") == null ? "&nbsp;" : fmtDate.format(dto.getDate("DELIVERYDATE")) %>
 					</td>
 					<th>
 						合同金额

@@ -84,7 +84,11 @@ public class ImportAddService extends BaseService implements IService {
 			navyImp.setDollar(navyImp.getCompactmoney() * navyImp.getRate());
 		}
 		
-		if (navyImp.getCompactmoney() != null && navyImp.getRmbrate() != null) {
+		if (navyImp.getCompactmoney() != null) {
+			if (navyImp.getRmbrate() == null) {		// 如果没有设置就假定为国内项目
+				navyImp.setRmbrate(1.0);
+			}
+			
 			navyImp.setRmb(navyImp.getCompactmoney() * navyImp.getRmbrate());
 		}
 		
