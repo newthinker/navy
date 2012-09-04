@@ -131,7 +131,8 @@ public class SupImportService extends BaseService implements IService {
 						continue;
 					}
 					
-					supid = sup.getSupid();
+					supid = UUID.randomUUID().toString();
+					sup.setSupid(supid);
 
 					// 供应商信息
 					if ( sup.getImage()!=null ) {

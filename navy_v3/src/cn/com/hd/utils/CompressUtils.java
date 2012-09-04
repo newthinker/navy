@@ -17,6 +17,7 @@ public class CompressUtils {
 		ZipOutputStream zos = null;
 		try {
 			zos = new ZipOutputStream(new FileOutputStream(destination));
+			zos.setEncoding("UTF-8");		// 设置编码 [zuow,2012/09/04]
 			File files = new File(source);
 			for (int i = 0; i < files.listFiles().length; i ++) {
 				File file = files.listFiles()[i];
@@ -44,7 +45,7 @@ public class CompressUtils {
 	@SuppressWarnings("unchecked")
 	public static void unCompressZip(String source, String destination) throws Exception {
 		try {
-			ZipFile zipFile = new ZipFile(source);
+			ZipFile zipFile = new ZipFile(source, "UTF-8");		// 设置编码 [zuow, 2012/09/04]
 			Enumeration emu = zipFile.getEntries();
 			while (emu.hasMoreElements()) {
 				ZipEntry entry = (ZipEntry) emu.nextElement();
