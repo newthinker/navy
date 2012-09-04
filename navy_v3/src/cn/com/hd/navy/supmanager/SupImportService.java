@@ -106,17 +106,19 @@ public class SupImportService extends BaseService implements IService {
 				List<TImage> imgList = new ArrayList<TImage>();
 				
 				String supXml = targetPath + "supportor.xml";				// 供应商
-				String prodXml = targetPath + "supportor_product.xml";		// 产品
-				String stockXml = targetPath + "supportor_stock.xml";		// 股东
-				String orgXml = targetPath + "supportor_org.xml";			// 售后
-				String tranXml = targetPath + "supportor_tran.xml";			// 交通运输
-				String wayXml = targetPath + "supportor_highway.xml";		// 高速公路
-				String proveXml = targetPath + "supportor_prove.xml";	
 				
 				// 处理供应商文件
 				file = new java.io.File(supXml);		// 如果供应商文件不存在，就处理下一个
 				if(!file.exists())
 					continue;
+				
+				String header = "file:///";
+				supXml = header + targetPath + "supportor.xml";				// 供应商
+				String prodXml = header + targetPath + "supportor_product.xml";		// 产品
+				String stockXml = header + targetPath + "supportor_stock.xml";		// 股东
+				String orgXml = header + targetPath + "supportor_org.xml";			// 售后
+				String tranXml = header + targetPath + "supportor_tran.xml";			// 交通运输
+				String wayXml = header + targetPath + "supportor_highway.xml";		// 高速公路
 				
 //				Map<String, TSupportor> supMap = new HashMap<String, TSupportor>();
 				String supid = null;
