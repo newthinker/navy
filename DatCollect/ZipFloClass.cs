@@ -42,6 +42,7 @@ public class ZipFloClass
 				ZipEntry entry = new ZipEntry(tempfile);
 				entry.DateTime = DateTime.Now;
 				entry.Size = fs.Length;
+				entry.IsUnicodeText = true;
 				fs.Close();
 				crc.Reset();
 				crc.Update(buffer);
