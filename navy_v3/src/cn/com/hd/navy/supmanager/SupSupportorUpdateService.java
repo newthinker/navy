@@ -69,6 +69,31 @@ public class SupSupportorUpdateService extends BaseService implements IService {
 			response.setErrorInfo("供应商ID为空，修改失败");
 			return response;
 		}
+
+		// 供应商位置
+		String l1Area = supportor.getL1Loc();
+		if (l1Area!=null) {
+			// 将areacode转换成地名
+			Request req = new Request();
+			req.setResponseSystemName("HDDict");
+			req.setResponseSubsystemName("DictManage");
+			req.setResponseServiceName("AreaQueryByIDService");
+			req.getDto().setString("AREACODE", l1Area);	
+			Response resp = requestService(req);
+			String areaName = resp.getDto().getList("RESULT").get(0).getString("AREANAME");
+			supportor.setL1Loc(areaName);			
+		}
+		String l2Area = supportor.getL2Loc();
+		if (l2Area!=null) {
+			Request req = new Request();
+			req.setResponseSystemName("HDDict");
+			req.setResponseSubsystemName("DictManage");
+			req.setResponseServiceName("AreaQueryByIDService");
+			req.getDto().setString("AREACODE", l2Area);	
+			Response resp = requestService(req);
+			String areaName = resp.getDto().getList("RESULT").get(0).getString("AREANAME");
+			supportor.setL2Loc(areaName);
+		}
 		
 		int result = super.update(supportor);
 		

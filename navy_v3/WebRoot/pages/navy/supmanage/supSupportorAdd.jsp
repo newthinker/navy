@@ -305,17 +305,25 @@
 							</tr>
 							<tr>
 								<th>
+									省市地区
+								</th>
+								<td>
+									<select name="STR_L1LOC" id="STR_L1LOC" style="width:100px" onchange="change_province(this.value, false)">
+										<option value="">-请选择-</option>
+									</select>
+									<select name="STR_L2LOC" id="STR_L2LOC" style="width:100px">
+										<option value="">-请选择-</option>
+									</select>
+								</td>
+								<script type="text/javascript">
+									set_province(false);
+								</script>
+								<th>
 									网址
 								</th>
 								<td>
 									<input type="text" name="STR_NETADDR" id="STR_NETADDR"
 										class="searchTbl_input" value="<%= supportor.getString("NETADDR") == null ? "" : supportor.getString("NETADDR") %>" />
-								</td>
-								<th>
-									&nbsp;
-								</th>
-								<td>
-									&nbsp;
 								</td>
 							</tr>
 							<tr>

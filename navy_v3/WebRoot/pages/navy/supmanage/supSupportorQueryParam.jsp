@@ -44,7 +44,7 @@
 		}
 		return request;
 	}
-	function set_province()
+	function set_province(bQuery)
 	{
 		var requestTest = "<?xml version='1.0' encoding='UTF-8'?><Request>" +
 		"<header>" +
@@ -64,7 +64,7 @@
 		{
 			if (request.readyState==4 && request.status==200)
 			{
-				var provdom = document.getElementById("STR_QUERY_L1LOC");
+				var provdom = document.getElementById(bQuery ? "STR_QUERY_L1LOC" : "STR_L1LOC");
 				while (provdom.options.length > 1)
 				{
 					provdom.options.length = 1;
@@ -84,7 +84,7 @@
 		};
 		request.send(null);
 	}
-	function change_province(provalue) {
+	function change_province(provalue, bQuery) {
 		var value = provalue;
 		value = value.replace(/&/g, "&amp;");
 		value = value.replace(/</g, "&lt;");
@@ -109,7 +109,7 @@
 		{
 			if (request.readyState==4 && request.status==200)
 			{
-				var citydom = document.getElementById("STR_QUERY_L2LOC");
+				var citydom = document.getElementById(bQuery ? "STR_QUERY_L2LOC" : "STR_L2LOC");
 				while (citydom.options.length > 1)
 				{
 					citydom.options.length = 1;
@@ -187,7 +187,7 @@
 		}
 	}
 	
-	set_province();
+	set_province(true);
 </script>
 
 <input id="int_rownumber" name="int_rownumber" value="20" type="hidden">
@@ -207,7 +207,7 @@
 				省市地区:&nbsp;
 			</td>
 			<td align="left" width="21%">
-				<select name="STR_QUERY_L1LOC" id="STR_QUERY_L1LOC" style="width:100px" onchange="change_province(this.value)">
+				<select name="STR_QUERY_L1LOC" id="STR_QUERY_L1LOC" style="width:100px" onchange="change_province(this.value, true)">
 					<option value="">-请选择-</option>
 				</select>
 				<select name="STR_QUERY_L2LOC" id="STR_QUERY_L2LOC" style="width:100px">
