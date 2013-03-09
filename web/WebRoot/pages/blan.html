@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<link href="../resources/css/table.css" rel="stylesheet" type="text/css" />
+		<link href="../resources/css/index.css" rel="stylesheet" type="text/css" />
+		<style type="text/css">
+			#warn {
+				width:440px;
+				height:180px;
+				position:absolute;
+				top:50%;
+				margin-top:-100px;
+				left:50%;
+				margin-left:-220px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<center>
+			<div id="warn">
+				<table width="100%" border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<td height="110px" id="warn_text">
+							此系统内部数据属机密信息，
+							<br />
+							未经许可严禁私自修改、复制、下载、删除。
+						</td>
+					</tr>
+					<tr>
+						<td height="40px" align="center">
+							还有<span id="djs">3</span>秒进入系统！
+							<script language='javascript'>
+								var t = 4;
+								function djs() {
+									--t;
+									document.getElementById("djs").innerText = t;
+									if (t == 0) {
+										window.location='index.jsp';
+									}
+									setTimeout("djs()", 1000);
+								}
+								djs();
+							</script>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</center>
+	</body>
+</html>

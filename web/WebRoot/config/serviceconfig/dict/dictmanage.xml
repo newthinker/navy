@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+	<bean id="DictManage.DictAddService" class="cn.com.hd.dict.DictAddService" />
+	<bean id="DictManage.DictUpdateService" class="cn.com.hd.dict.DictUpdateService" />
+	<bean id="DictManage.DictDeleteService" class="cn.com.hd.dict.dictmanage.DictDeleteService" />
+	<bean id="DictManage.DictQueryService" class="cn.com.hd.dict.dictmanage.DictQueryService" />
+	<bean id="DictManage.DictQueryByIDService" class="cn.com.hd.dict.DictQueryByIDService" />
+	<bean id="DictManage.ImportDictQueryService" class="cn.com.hd.dict.ImportDictQueryService" />
+	<bean id="DictManage.SupportorDictQueryService" class="cn.com.hd.dict.SupportorDictQueryService" />
+	
+	<bean id="DictManage.SupSupportorDictQueryService" class="cn.com.hd.dict.SupSupportorDictQueryService" />
+	<bean id="DictManage.AreaQueryByIDService" class="cn.com.hd.dict.dictmanage.AreaQueryByIDService" />
+	<bean id="DictManage.AreaQueryService" class="cn.com.hd.dict.dictmanage.AreaQueryService" />
+	<bean id="DictManage.AreaQueryByCodeService" class="cn.com.hd.dict.AreaQueryByCodeService" />
+	<bean id="DictManage.ProductTypeQueryService" class="cn.com.hd.dict.ProductTypeQueryService" />
+</beans>

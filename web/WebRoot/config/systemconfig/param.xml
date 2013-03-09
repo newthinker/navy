@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<params>
+	<param key="ShowDebugMessage" value="true" />
+	<param key="DTOConfigPath" value="/WEB-INF/classes/cn/com/hd/dto/DTOPathConfig.xml" />
+	<param key="ApplicationServiceName" value="java:/comp/env/" />
+	<param key="AutoRecordLog" value="false" />
+	<param key="ENCODING" value="UTF-8" />
+	<param key="SessionUsername" value="USER_NAME" />
+	<param key="SessionUserid" value="USER_ID" />
+	<param key="SessionDeptname" value="DEPT_NAME" />
+	<param key="SessionDeptid" value="DEPT_ID" />
+	<param key="SessionParamInfo" value="PARAM_INFO" />
+	<param key="PasswordSecurity" value="cn.com.hd.security.impl.MD5" />
+</params>

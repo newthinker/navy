@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>	<!-- 供应商高级管理服务 -->
+	<bean id="NavyManage.SupSupportorAddService" class="cn.com.hd.navy.supmanager.SupSupportorAddService" />
+	<bean id="NavyManage.SupSupportorQueryByIDService" class="cn.com.hd.navy.supmanager.SupSupportorQueryByIDService" />
+	<bean id="NavyManage.SupSupportorQueryService" class="cn.com.hd.navy.supmanager.SupSupportorQueryService" />
+	<bean id="NavyManage.SupSupportorQueryParamService" class="cn.com.hd.navy.supmanager.SupSupportorQueryParamService" />
+	<bean id="NavyManage.SupSupportorCountStatService" class="cn.com.hd.navy.supmanager.SupSupportorCountStatService" />
+	<bean id="NavyManage.SupSupportorProdCapStatService" class="cn.com.hd.navy.supmanager.SupSupportorProdCapStatService" />
+	<bean id="NavyManage.SupSupportorTypeCountStatService" class="cn.com.hd.navy.supmanager.SupSupportorTypeCountStatService" />
+	<bean id="NavyManage.SupSupportorUpdateService" class="cn.com.hd.navy.supmanager.SupSupportorUpdateService" />
+	<bean id="NavyManage.SupImportService" class="cn.com.hd.navy.supmanager.SupImportService "/>		<!-- 供应商导入 -->
+	<bean id="NavyManage.SupExportService" class="cn.com.hd.navy.supmanager.SupExportService "/>
+
+	<bean id="NavyManage.SupSupportorProdDeleteService" class="cn.com.hd.navy.supmanager.SupSupportorProdDeleteService" />
+	<bean id="NavyManage.SupSupportorProdQueryByIdService" class="cn.com.hd.navy.supmanager.SupSupportorProdQueryByIdService" />
+	<bean id="NavyManage.SupSupportorProdQueryService" class="cn.com.hd.navy.supmanager.SupSupportorProdQueryService" />		
+	<bean id="NavyManage.SupSupportorProdSaveOrUpdateService" class="cn.com.hd.navy.supmanager.SupSupportorProdSaveOrUpdateService" />
+	
+	<bean id="NavyManage.SupSupportorSaleOrgDeleteService" class="cn.com.hd.navy.supmanager.SupSupportorSaleOrgDeleteService" />
+	<bean id="NavyManage.SupSupportorSaleOrgQueryByIdService" class="cn.com.hd.navy.supmanager.SupSupportorSaleOrgQueryByIdService" />	
+	<bean id="NavyManage.SupSupportorSaleOrgQueryService" class="cn.com.hd.navy.supmanager.SupSupportorSaleOrgQueryService" />			
+	<bean id="NavyManage.SupSupportorSaleOrgSaveOrUpdateService" class="cn.com.hd.navy.supmanager.SupSupportorSaleOrgSaveOrUpdateService" />
+	
+	<bean id="NavyManage.SupSupportorStockDeleteService" class="cn.com.hd.navy.supmanager.SupSupportorStockDeleteService" />
+	<bean id="NavyManage.SupSupportorStockQueryByIdService" class="cn.com.hd.navy.supmanager.SupSupportorStockQueryByIdService" />
+	<bean id="NavyManage.SupSupportorStockQueryService" class="cn.com.hd.navy.supmanager.SupSupportorStockQueryService" />
+	<bean id="NavyManage.SupSupportorStockSaveOrUpdateService" class="cn.com.hd.navy.supmanager.SupSupportorStockSaveOrUpdateService" />		
+
+	<bean id="NavyManage.SupImageQueryService" class="cn.com.hd.navy.supmanager.SupImageQueryService" />
+</beans>	
