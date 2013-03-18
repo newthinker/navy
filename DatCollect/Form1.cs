@@ -166,6 +166,8 @@ namespace DatCollect
 			public Label label6;
 			public Label label7;
 			public Label label8;
+			public Label label9;
+			public Label label10;
 			public TextBox textBoxProductType;
 			public TextBox textBoxProductName;
 			public TextBox textBoxProductMode;
@@ -193,6 +195,8 @@ namespace DatCollect
 				this.label6 = new System.Windows.Forms.Label();
 				this.label7 = new System.Windows.Forms.Label();
 				this.label8 = new System.Windows.Forms.Label();
+				this.label9 = new System.Windows.Forms.Label();
+				this.label10 = new System.Windows.Forms.Label();
 				this.textBoxProductType = new System.Windows.Forms.TextBox();
 				this.textBoxProductName = new System.Windows.Forms.TextBox();
 				this.textBoxProductMode = new System.Windows.Forms.TextBox();
@@ -218,6 +222,8 @@ namespace DatCollect
 				this.groupBox.Controls.Add(this.label6);
 				this.groupBox.Controls.Add(this.label7);
 				this.groupBox.Controls.Add(this.label8);
+				this.groupBox.Controls.Add(this.label9);
+				this.groupBox.Controls.Add(this.label10);
 				this.groupBox.Controls.Add(this.textBoxProductType);
 				this.groupBox.Controls.Add(this.textBoxProductName);
 				this.groupBox.Controls.Add(this.textBoxProductMode);
@@ -304,6 +310,24 @@ namespace DatCollect
 				this.label8.Location = new System.Drawing.Point(25, 180);
 				this.label8.Size = new System.Drawing.Size(65, 12);
 				this.label8.Text = "产品照片：";
+				// 
+				// label105
+				// 
+				this.label9.AutoSize = true;
+				this.label9.Font = new System.Drawing.Font("宋体", 9F);
+				this.label9.ForeColor = System.Drawing.Color.Red;
+				this.label9.Location = new System.Drawing.Point(14, 31);
+				this.label9.Size = new System.Drawing.Size(11, 12);
+				this.label9.Text = "*";
+				// 
+				// label106
+				// 
+				this.label10.AutoSize = true;
+				this.label10.Font = new System.Drawing.Font("宋体", 9F);
+				this.label10.ForeColor = System.Drawing.Color.Red;
+				this.label10.Location = new System.Drawing.Point(388, 31);
+				this.label10.Size = new System.Drawing.Size(11, 12);
+				this.label10.Text = "*";
 
 				// 
 				// buttonSelectProduct
@@ -1367,13 +1391,13 @@ namespace DatCollect
 					this.textBox_fullName.Focus();
 					return false;
 				}
-				if (this.textBox_shortName.Text.Length == 0)
-				{
-					MessageBox.Show("请正确填写供应商简称！");
-					this.tabControl_data.SelectedIndex = 0;
-					this.textBox_shortName.Focus();
-					return false;
-				}
+				//if (this.textBox_shortName.Text.Length == 0)
+				//{
+				//    MessageBox.Show("请正确填写供应商简称！");
+				//    this.tabControl_data.SelectedIndex = 0;
+				//    this.textBox_shortName.Focus();
+				//    return false;
+				//}
 				if (this.textBox_referee.Text.Length == 0)
 				{
 					MessageBox.Show("请正确填写法定代表人！");
@@ -1402,20 +1426,20 @@ namespace DatCollect
 					this.textBox_mobile.Focus();
 					return false;
 				}
-				if (this.textBox_longitude.Text.Length == 0)
-				{
-					MessageBox.Show("请正确填写经度！");
-					this.tabControl_data.SelectedIndex = 0;
-					this.textBox_longitude.Focus();
-					return false;
-				}
-				if (this.textBox_latitude.Text.Length == 0)
-				{
-					MessageBox.Show("请正确填写纬度！");
-					this.tabControl_data.SelectedIndex = 0;
-					this.textBox_latitude.Focus();
-					return false;
-				}
+				//if (this.textBox_longitude.Text.Length == 0)
+				//{
+				//    MessageBox.Show("请正确填写经度！");
+				//    this.tabControl_data.SelectedIndex = 0;
+				//    this.textBox_longitude.Focus();
+				//    return false;
+				//}
+				//if (this.textBox_latitude.Text.Length == 0)
+				//{
+				//    MessageBox.Show("请正确填写纬度！");
+				//    this.tabControl_data.SelectedIndex = 0;
+				//    this.textBox_latitude.Focus();
+				//    return false;
+				//}
 				if (this.textBox_postid.Text.Length == 0)
 				{
 					MessageBox.Show("请正确填写邮编！");
@@ -1423,86 +1447,86 @@ namespace DatCollect
 					this.textBox_postid.Focus();
 					return false;
 				}
-				if (this.textBox_website.Text.Length == 0)
-				{
-					MessageBox.Show("请正确填写网址！");
-					this.tabControl_data.SelectedIndex = 0;
-					this.textBox_website.Focus();
-					return false;
-				}
-				if (this.textBox_supplierContact.Text.Length == 0)
-				{
-					MessageBox.Show("请正确填写联系人！");
-					this.tabControl_data.SelectedIndex = 0;
-					this.textBox_supplierContact.Focus();
-					return false;
-				}
-				if (this.textBox_supplierMobile.Text.Length == 0)
-				{
-					MessageBox.Show("请正确填写联系人手机！");
-					this.tabControl_data.SelectedIndex = 0;
-					this.textBox_supplierMobile.Focus();
-					return false;
-				}
-				if (this.textBox_supplierTelephone.Text.Length == 0)
-				{
-					MessageBox.Show("请正确填写联系人电话！");
-					this.tabControl_data.SelectedIndex = 0;
-					this.textBox_supplierTelephone.Focus();
-					return false;
-				}
-				if (this.textBox_supplierFax.Text.Length == 0)
-				{
-					MessageBox.Show("请正确填写联系人传真！");
-					this.tabControl_data.SelectedIndex = 0;
-					this.textBox_supplierFax.Focus();
-					return false;
-				}
-				if (this.textBox_stockholderName.Text.Length == 0)
-				{
-					MessageBox.Show("请正确填写股东姓名！");
-					this.tabControl_data.SelectedIndex = 0;
-					this.textBox_stockholderName.Focus();
-					return false;
-				}
-				if (this.textBox_stockholderCapital.Text.Length == 0)
-				{
-					MessageBox.Show("请正确填写股东出资金额！");
-					this.tabControl_data.SelectedIndex = 0;
-					this.textBox_stockholderCapital.Focus();
-					return false;
-				}
-				if (this.textBox_stockholderRatio.Text.Length == 0)
-				{
-					MessageBox.Show("请正确填写股东出资比例！");
-					this.tabControl_data.SelectedIndex = 0;
-					this.textBox_stockholderRatio.Focus();
-					return false;
-				}
-				foreach (CStockholderControl sh in _shcs)
-				{
-					if (sh.textBoxStockholderName.Text.Length == 0)
-					{
-						MessageBox.Show("请正确填写股东姓名！");
-						this.tabControl_data.SelectedIndex = 0;
-						sh.textBoxStockholderName.Focus();
-						return false;
-					}
-					if (sh.textBoxStockholderCapital.Text.Length == 0)
-					{
-						MessageBox.Show("请正确填写股东出资金额！");
-						this.tabControl_data.SelectedIndex = 0;
-						sh.textBoxStockholderCapital.Focus();
-						return false;
-					}
-					if (sh.textBoxStockholderRatio.Text.Length == 0)
-					{
-						MessageBox.Show("请正确填写股东出资比例！");
-						this.tabControl_data.SelectedIndex = 0;
-						sh.textBoxStockholderRatio.Focus();
-						return false;
-					}
-				}
+				//if (this.textBox_website.Text.Length == 0)
+				//{
+				//    MessageBox.Show("请正确填写网址！");
+				//    this.tabControl_data.SelectedIndex = 0;
+				//    this.textBox_website.Focus();
+				//    return false;
+				//}
+				//if (this.textBox_supplierContact.Text.Length == 0)
+				//{
+				//    MessageBox.Show("请正确填写联系人！");
+				//    this.tabControl_data.SelectedIndex = 0;
+				//    this.textBox_supplierContact.Focus();
+				//    return false;
+				//}
+				//if (this.textBox_supplierMobile.Text.Length == 0)
+				//{
+				//    MessageBox.Show("请正确填写联系人手机！");
+				//    this.tabControl_data.SelectedIndex = 0;
+				//    this.textBox_supplierMobile.Focus();
+				//    return false;
+				//}
+				//if (this.textBox_supplierTelephone.Text.Length == 0)
+				//{
+				//    MessageBox.Show("请正确填写联系人电话！");
+				//    this.tabControl_data.SelectedIndex = 0;
+				//    this.textBox_supplierTelephone.Focus();
+				//    return false;
+				//}
+				//if (this.textBox_supplierFax.Text.Length == 0)
+				//{
+				//    MessageBox.Show("请正确填写联系人传真！");
+				//    this.tabControl_data.SelectedIndex = 0;
+				//    this.textBox_supplierFax.Focus();
+				//    return false;
+				//}
+				//if (this.textBox_stockholderName.Text.Length == 0)
+				//{
+				//    MessageBox.Show("请正确填写股东姓名！");
+				//    this.tabControl_data.SelectedIndex = 0;
+				//    this.textBox_stockholderName.Focus();
+				//    return false;
+				//}
+				//if (this.textBox_stockholderCapital.Text.Length == 0)
+				//{
+				//    MessageBox.Show("请正确填写股东出资金额！");
+				//    this.tabControl_data.SelectedIndex = 0;
+				//    this.textBox_stockholderCapital.Focus();
+				//    return false;
+				//}
+				//if (this.textBox_stockholderRatio.Text.Length == 0)
+				//{
+				//    MessageBox.Show("请正确填写股东出资比例！");
+				//    this.tabControl_data.SelectedIndex = 0;
+				//    this.textBox_stockholderRatio.Focus();
+				//    return false;
+				//}
+				//foreach (CStockholderControl sh in _shcs)
+				//{
+				//    if (sh.textBoxStockholderName.Text.Length == 0)
+				//    {
+				//        MessageBox.Show("请正确填写股东姓名！");
+				//        this.tabControl_data.SelectedIndex = 0;
+				//        sh.textBoxStockholderName.Focus();
+				//        return false;
+				//    }
+				//    if (sh.textBoxStockholderCapital.Text.Length == 0)
+				//    {
+				//        MessageBox.Show("请正确填写股东出资金额！");
+				//        this.tabControl_data.SelectedIndex = 0;
+				//        sh.textBoxStockholderCapital.Focus();
+				//        return false;
+				//    }
+				//    if (sh.textBoxStockholderRatio.Text.Length == 0)
+				//    {
+				//        MessageBox.Show("请正确填写股东出资比例！");
+				//        this.tabControl_data.SelectedIndex = 0;
+				//        sh.textBoxStockholderRatio.Focus();
+				//        return false;
+				//    }
+				//}
 			}
 			catch (System.Exception ex)
 			{
@@ -1671,27 +1695,27 @@ namespace DatCollect
 				//    this.textBox_bankProve.Focus();
 				//    return false;
 				//}
-				if (!File.Exists(this.textBox_qualityProve.Text))
-				{
-					MessageBox.Show("请正确填写质量管理证明文件！");
-					this.tabControl_data.SelectedIndex = 1;
-					this.textBox_qualityProve.Focus();
-					return false;
-				}
-				if (!File.Exists(this.textBox_otherProve.Text))
-				{
-					MessageBox.Show("请正确填写其它证明文件！");
-					this.tabControl_data.SelectedIndex = 1;
-					this.textBox_otherProve.Focus();
-					return false;
-				}
-				if (!File.Exists(this.textBox_designRep2009.Text))
-				{
-					MessageBox.Show("请正确填写审计报告扫描件！");
-					this.tabControl_data.SelectedIndex = 1;
-					this.textBox_designRep2009.Focus();
-					return false;
-				}
+				//if (!File.Exists(this.textBox_qualityProve.Text))
+				//{
+				//    MessageBox.Show("请正确填写质量管理证明文件！");
+				//    this.tabControl_data.SelectedIndex = 1;
+				//    this.textBox_qualityProve.Focus();
+				//    return false;
+				//}
+				//if (!File.Exists(this.textBox_otherProve.Text))
+				//{
+				//    MessageBox.Show("请正确填写其它证明文件！");
+				//    this.tabControl_data.SelectedIndex = 1;
+				//    this.textBox_otherProve.Focus();
+				//    return false;
+				//}
+				//if (!File.Exists(this.textBox_designRep2009.Text))
+				//{
+				//    MessageBox.Show("请正确填写审计报告扫描件！");
+				//    this.tabControl_data.SelectedIndex = 1;
+				//    this.textBox_designRep2009.Focus();
+				//    return false;
+				//}
 			}
 			catch (System.Exception ex)
 			{
@@ -1713,55 +1737,55 @@ namespace DatCollect
 					this.textBox_productName.Focus();
 					return false;
 				}
-				if (this.textBox_productUnit.Text.Length == 0)
-				{
-					MessageBox.Show("请正确填写产品计量单位！");
-					this.tabControl_data.SelectedIndex = 2;
-					this.textBox_productUnit.Focus();
-					return false;
-				}
-				if (this.textBox_productMode.Text.Length == 0)
-				{
-					MessageBox.Show("请正确填写产品型号！");
-					this.tabControl_data.SelectedIndex = 2;
-					this.textBox_productMode.Focus();
-					return false;
-				}
-				if (this.textBox_productYieldYearAvg.Text.Length == 0)
-				{
-					MessageBox.Show("请正确填写产品年均产量！");
-					this.tabControl_data.SelectedIndex = 2;
-					this.textBox_productYieldYearAvg.Focus();
-					return false;
-				}
-				if (this.textBox_productYeildYearMax.Text.Length == 0)
-				{
-					MessageBox.Show("请正确填写产品最大年产量！");
-					this.tabControl_data.SelectedIndex = 2;
-					this.textBox_productYeildYearMax.Focus();
-					return false;
-				}
-				if (this.textBox_productYeildMax.Text.Length == 0)
-				{
-					MessageBox.Show("请正确填写产品单批最大产量！");
-					this.tabControl_data.SelectedIndex = 2;
-					this.textBox_productYeildMax.Focus();
-					return false;
-				}
-				if (this.textBox_productDayofMaxYeild.Text.Length == 0)
-				{
-					MessageBox.Show("请正确填写产品完成单批最大产量所用天数！");
-					this.tabControl_data.SelectedIndex = 2;
-					this.textBox_productDayofMaxYeild.Focus();
-					return false;
-				}
-				if (!File.Exists(this.textBox_productPhoto.Text))
-				{
-					MessageBox.Show("请正确填写产品照片！");
-					this.tabControl_data.SelectedIndex = 2;
-					this.textBox_productPhoto.Focus();
-					return false;
-				}
+				//if (this.textBox_productUnit.Text.Length == 0)
+				//{
+				//    MessageBox.Show("请正确填写产品计量单位！");
+				//    this.tabControl_data.SelectedIndex = 2;
+				//    this.textBox_productUnit.Focus();
+				//    return false;
+				//}
+				//if (this.textBox_productMode.Text.Length == 0)
+				//{
+				//    MessageBox.Show("请正确填写产品型号！");
+				//    this.tabControl_data.SelectedIndex = 2;
+				//    this.textBox_productMode.Focus();
+				//    return false;
+				//}
+				//if (this.textBox_productYieldYearAvg.Text.Length == 0)
+				//{
+				//    MessageBox.Show("请正确填写产品年均产量！");
+				//    this.tabControl_data.SelectedIndex = 2;
+				//    this.textBox_productYieldYearAvg.Focus();
+				//    return false;
+				//}
+				//if (this.textBox_productYeildYearMax.Text.Length == 0)
+				//{
+				//    MessageBox.Show("请正确填写产品最大年产量！");
+				//    this.tabControl_data.SelectedIndex = 2;
+				//    this.textBox_productYeildYearMax.Focus();
+				//    return false;
+				//}
+				//if (this.textBox_productYeildMax.Text.Length == 0)
+				//{
+				//    MessageBox.Show("请正确填写产品单批最大产量！");
+				//    this.tabControl_data.SelectedIndex = 2;
+				//    this.textBox_productYeildMax.Focus();
+				//    return false;
+				//}
+				//if (this.textBox_productDayofMaxYeild.Text.Length == 0)
+				//{
+				//    MessageBox.Show("请正确填写产品完成单批最大产量所用天数！");
+				//    this.tabControl_data.SelectedIndex = 2;
+				//    this.textBox_productDayofMaxYeild.Focus();
+				//    return false;
+				//}
+				//if (this.textBox_productPhoto.Text.Length != 0 && !File.Exists(this.textBox_productPhoto.Text))
+				//{
+				//    MessageBox.Show("请正确填写产品照片！");
+				//    this.tabControl_data.SelectedIndex = 2;
+				//    this.textBox_productPhoto.Focus();
+				//    return false;
+				//}
 				foreach (CProductControl pc in _pcs)
 				{
 					if (pc.textBoxProductName.Text.Length == 0)
@@ -1771,55 +1795,55 @@ namespace DatCollect
 						pc.textBoxProductName.Focus();
 						return false;
 					}
-					if (pc.textBoxProductUnit.Text.Length == 0)
-					{
-						MessageBox.Show("请正确填写产品计量单位！");
-						this.tabControl_data.SelectedIndex = 2;
-						pc.textBoxProductUnit.Focus();
-						return false;
-					}
-					if (pc.textBoxProductMode.Text.Length == 0)
-					{
-						MessageBox.Show("请正确填写产品型号！");
-						this.tabControl_data.SelectedIndex = 2;
-						pc.textBoxProductMode.Focus();
-						return false;
-					}
-					if (pc.textBoxProductYieldYearAvg.Text.Length == 0)
-					{
-						MessageBox.Show("请正确填写产品年均产量！");
-						this.tabControl_data.SelectedIndex = 2;
-						pc.textBoxProductYieldYearAvg.Focus();
-						return false;
-					}
-					if (pc.textBoxProductYeildYearMax.Text.Length == 0)
-					{
-						MessageBox.Show("请正确填写产品最大年产量！");
-						this.tabControl_data.SelectedIndex = 2;
-						pc.textBoxProductYeildYearMax.Focus();
-						return false;
-					}
-					if (pc.textBoxProductYeildMax.Text.Length == 0)
-					{
-						MessageBox.Show("请正确填写产品单批最大产量！");
-						this.tabControl_data.SelectedIndex = 2;
-						pc.textBoxProductYeildMax.Focus();
-						return false;
-					}
-					if (pc.textBoxProductDayofMaxYeild.Text.Length == 0)
-					{
-						MessageBox.Show("请正确填写产品完成单批最大产量所用天数！");
-						this.tabControl_data.SelectedIndex = 2;
-						pc.textBoxProductDayofMaxYeild.Focus();
-						return false;
-					}
-					if (!File.Exists(pc.textBoxProductPhoto.Text))
-					{
-						MessageBox.Show("请正确填写产品照片！");
-						this.tabControl_data.SelectedIndex = 2;
-						pc.textBoxProductPhoto.Focus();
-						return false;
-					}
+					//if (pc.textBoxProductUnit.Text.Length == 0)
+					//{
+					//    MessageBox.Show("请正确填写产品计量单位！");
+					//    this.tabControl_data.SelectedIndex = 2;
+					//    pc.textBoxProductUnit.Focus();
+					//    return false;
+					//}
+					//if (pc.textBoxProductMode.Text.Length == 0)
+					//{
+					//    MessageBox.Show("请正确填写产品型号！");
+					//    this.tabControl_data.SelectedIndex = 2;
+					//    pc.textBoxProductMode.Focus();
+					//    return false;
+					//}
+					//if (pc.textBoxProductYieldYearAvg.Text.Length == 0)
+					//{
+					//    MessageBox.Show("请正确填写产品年均产量！");
+					//    this.tabControl_data.SelectedIndex = 2;
+					//    pc.textBoxProductYieldYearAvg.Focus();
+					//    return false;
+					//}
+					//if (pc.textBoxProductYeildYearMax.Text.Length == 0)
+					//{
+					//    MessageBox.Show("请正确填写产品最大年产量！");
+					//    this.tabControl_data.SelectedIndex = 2;
+					//    pc.textBoxProductYeildYearMax.Focus();
+					//    return false;
+					//}
+					//if (pc.textBoxProductYeildMax.Text.Length == 0)
+					//{
+					//    MessageBox.Show("请正确填写产品单批最大产量！");
+					//    this.tabControl_data.SelectedIndex = 2;
+					//    pc.textBoxProductYeildMax.Focus();
+					//    return false;
+					//}
+					//if (pc.textBoxProductDayofMaxYeild.Text.Length == 0)
+					//{
+					//    MessageBox.Show("请正确填写产品完成单批最大产量所用天数！");
+					//    this.tabControl_data.SelectedIndex = 2;
+					//    pc.textBoxProductDayofMaxYeild.Focus();
+					//    return false;
+					//}
+					//if (pc.textBoxProductPhoto.Text.Length != 0 && !File.Exists(pc.textBoxProductPhoto.Text))
+					//{
+					//    MessageBox.Show("请正确填写产品照片！");
+					//    this.tabControl_data.SelectedIndex = 2;
+					//    pc.textBoxProductPhoto.Focus();
+					//    return false;
+					//}
 				}
 			}
 			catch (System.Exception ex)
@@ -1835,51 +1859,51 @@ namespace DatCollect
 		{
 			try
 			{
-				if (this.textBox_aftersalesName.Text.Length == 0)
-				{
-					MessageBox.Show("请正确填写服务机构名称！");
-					this.tabControl_data.SelectedIndex = 3;
-					this.textBox_aftersalesName.Focus();
-					return false;
-				}
-				if (this.textBox_aftersalesContext.Text.Length == 0)
-				{
-					MessageBox.Show("请正确填写服务机构负责人！");
-					this.tabControl_data.SelectedIndex = 3;
-					this.textBox_aftersalesContext.Focus();
-					return false;
-				}
-				if (this.textBox_aftersalesTel.Text.Length == 0)
-				{
-					MessageBox.Show("请正确填写服务机构联系电话！");
-					this.tabControl_data.SelectedIndex = 3;
-					this.textBox_aftersalesTel.Focus();
-					return false;
-				}
-				foreach (CAftersalesControl asc in _ascs)
-				{
-					if (asc.textBoxAftersalesName.Text.Length == 0)
-					{
-						MessageBox.Show("请正确填写服务机构名称！");
-						this.tabControl_data.SelectedIndex = 3;
-						asc.textBoxAftersalesName.Focus();
-						return false;
-					}
-					if (asc.textBoxAftersalesContext.Text.Length == 0)
-					{
-						MessageBox.Show("请正确填写服务机构负责人！");
-						this.tabControl_data.SelectedIndex = 3;
-						asc.textBoxAftersalesContext.Focus();
-						return false;
-					}
-					if (asc.textBoxAftersalesTel.Text.Length == 0)
-					{
-						MessageBox.Show("请正确填写服务机构联系电话！");
-						this.tabControl_data.SelectedIndex = 3;
-						asc.textBoxAftersalesTel.Focus();
-						return false;
-					}
-				}
+				//if (this.textBox_aftersalesName.Text.Length == 0)
+				//{
+				//    MessageBox.Show("请正确填写服务机构名称！");
+				//    this.tabControl_data.SelectedIndex = 3;
+				//    this.textBox_aftersalesName.Focus();
+				//    return false;
+				//}
+				//if (this.textBox_aftersalesContext.Text.Length == 0)
+				//{
+				//    MessageBox.Show("请正确填写服务机构负责人！");
+				//    this.tabControl_data.SelectedIndex = 3;
+				//    this.textBox_aftersalesContext.Focus();
+				//    return false;
+				//}
+				//if (this.textBox_aftersalesTel.Text.Length == 0)
+				//{
+				//    MessageBox.Show("请正确填写服务机构联系电话！");
+				//    this.tabControl_data.SelectedIndex = 3;
+				//    this.textBox_aftersalesTel.Focus();
+				//    return false;
+				//}
+				//foreach (CAftersalesControl asc in _ascs)
+				//{
+				//    if (asc.textBoxAftersalesName.Text.Length == 0)
+				//    {
+				//        MessageBox.Show("请正确填写服务机构名称！");
+				//        this.tabControl_data.SelectedIndex = 3;
+				//        asc.textBoxAftersalesName.Focus();
+				//        return false;
+				//    }
+				//    if (asc.textBoxAftersalesContext.Text.Length == 0)
+				//    {
+				//        MessageBox.Show("请正确填写服务机构负责人！");
+				//        this.tabControl_data.SelectedIndex = 3;
+				//        asc.textBoxAftersalesContext.Focus();
+				//        return false;
+				//    }
+				//    if (asc.textBoxAftersalesTel.Text.Length == 0)
+				//    {
+				//        MessageBox.Show("请正确填写服务机构联系电话！");
+				//        this.tabControl_data.SelectedIndex = 3;
+				//        asc.textBoxAftersalesTel.Focus();
+				//        return false;
+				//    }
+				//}
 			}
 			catch (System.Exception ex)
 			{
@@ -1894,27 +1918,27 @@ namespace DatCollect
 		{
 			try
 			{
-				if (this.textBox_transportName.Text.Length == 0)
-				{
-					MessageBox.Show("请正确填写运输企业名称！");
-					this.tabControl_data.SelectedIndex = 4;
-					this.textBox_transportName.Focus();
-					return false;
-				}
-				if (this.textBox_transportDeadweight.Text.Length == 0)
-				{
-					MessageBox.Show("请正确填写运输车载重量！");
-					this.tabControl_data.SelectedIndex = 4;
-					this.textBox_transportDeadweight.Focus();
-					return false;
-				}
-				if (this.textBox_transportNum.Text.Length == 0)
-				{
-					MessageBox.Show("请正确填写运输车数量！");
-					this.tabControl_data.SelectedIndex = 4;
-					this.textBox_transportNum.Focus();
-					return false;
-				}
+				//if (this.textBox_transportName.Text.Length == 0)
+				//{
+				//    MessageBox.Show("请正确填写运输企业名称！");
+				//    this.tabControl_data.SelectedIndex = 4;
+				//    this.textBox_transportName.Focus();
+				//    return false;
+				//}
+				//if (this.textBox_transportDeadweight.Text.Length == 0)
+				//{
+				//    MessageBox.Show("请正确填写运输车载重量！");
+				//    this.tabControl_data.SelectedIndex = 4;
+				//    this.textBox_transportDeadweight.Focus();
+				//    return false;
+				//}
+				//if (this.textBox_transportNum.Text.Length == 0)
+				//{
+				//    MessageBox.Show("请正确填写运输车数量！");
+				//    this.tabControl_data.SelectedIndex = 4;
+				//    this.textBox_transportNum.Focus();
+				//    return false;
+				//}
 				//if (this.textBox_storehouseArea.Text.Length == 0)
 				//{
 				//    MessageBox.Show("请正确填写仓库面积！");
@@ -1936,41 +1960,41 @@ namespace DatCollect
 				//    this.textBox_storehouseImage.Focus();
 				//    return false;
 				//}
-				if (this.textBox_transportHighwayName.Text.Length == 0)
-				{
-					MessageBox.Show("请正确填写高速公路名称！");
-					this.tabControl_data.SelectedIndex = 4;
-					this.textBox_transportHighwayName.Focus();
-					return false;
-				}
-				if (this.textBox_transportHighwayID.Text.Length == 0)
-				{
-					MessageBox.Show("请正确填写高速公路编号！");
-					this.tabControl_data.SelectedIndex = 4;
-					this.textBox_transportHighwayID.Focus();
-					return false;
-				}
-				if (this.textBox_transportHighwayEnterName.Text.Length == 0)
-				{
-					MessageBox.Show("请正确填写最近高速公路入口名称！");
-					this.tabControl_data.SelectedIndex = 4;
-					this.textBox_transportHighwayEnterName.Focus();
-					return false;
-				}
-				if (this.textBox_transportHighwayEnterID.Text.Length == 0)
-				{
-					MessageBox.Show("请正确填写最近高速公路入口编号！");
-					this.tabControl_data.SelectedIndex = 4;
-					this.textBox_transportHighwayEnterID.Focus();
-					return false;
-				}
-				if (this.textBox_transportHighwayDistance.Text.Length == 0)
-				{
-					MessageBox.Show("请正确填写最近高速公路入口距离！");
-					this.tabControl_data.SelectedIndex = 4;
-					this.textBox_transportHighwayDistance.Focus();
-					return false;
-				}
+				//if (this.textBox_transportHighwayName.Text.Length == 0)
+				//{
+				//    MessageBox.Show("请正确填写高速公路名称！");
+				//    this.tabControl_data.SelectedIndex = 4;
+				//    this.textBox_transportHighwayName.Focus();
+				//    return false;
+				//}
+				//if (this.textBox_transportHighwayID.Text.Length == 0)
+				//{
+				//    MessageBox.Show("请正确填写高速公路编号！");
+				//    this.tabControl_data.SelectedIndex = 4;
+				//    this.textBox_transportHighwayID.Focus();
+				//    return false;
+				//}
+				//if (this.textBox_transportHighwayEnterName.Text.Length == 0)
+				//{
+				//    MessageBox.Show("请正确填写最近高速公路入口名称！");
+				//    this.tabControl_data.SelectedIndex = 4;
+				//    this.textBox_transportHighwayEnterName.Focus();
+				//    return false;
+				//}
+				//if (this.textBox_transportHighwayEnterID.Text.Length == 0)
+				//{
+				//    MessageBox.Show("请正确填写最近高速公路入口编号！");
+				//    this.tabControl_data.SelectedIndex = 4;
+				//    this.textBox_transportHighwayEnterID.Focus();
+				//    return false;
+				//}
+				//if (this.textBox_transportHighwayDistance.Text.Length == 0)
+				//{
+				//    MessageBox.Show("请正确填写最近高速公路入口距离！");
+				//    this.tabControl_data.SelectedIndex = 4;
+				//    this.textBox_transportHighwayDistance.Focus();
+				//    return false;
+				//}
 				//if (this.textBox_transportRailwayName.Text.Length == 0)
 				//{
 				//    MessageBox.Show("请正确填写最近铁路货运站名称！");

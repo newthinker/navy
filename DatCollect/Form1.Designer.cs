@@ -221,6 +221,15 @@
 			this.button_finish = new System.Windows.Forms.Button();
 			this.button_cancel5 = new System.Windows.Forms.Button();
 			this.groupBox5 = new System.Windows.Forms.GroupBox();
+			this.checkBox1 = new System.Windows.Forms.CheckBox();
+			this.groupBox10 = new System.Windows.Forms.GroupBox();
+			this.button_storehouseImage = new System.Windows.Forms.Button();
+			this.textBox_warehouseArea = new System.Windows.Forms.TextBox();
+			this.textBox_storehouseImage = new System.Windows.Forms.TextBox();
+			this.label86 = new System.Windows.Forms.Label();
+			this.label85 = new System.Windows.Forms.Label();
+			this.textBox_storehouseArea = new System.Windows.Forms.TextBox();
+			this.label84 = new System.Windows.Forms.Label();
 			this.groupBox9 = new System.Windows.Forms.GroupBox();
 			this.label79 = new System.Windows.Forms.Label();
 			this.textBox_transportAirportDistance = new System.Windows.Forms.TextBox();
@@ -255,15 +264,52 @@
 			this.label71 = new System.Windows.Forms.Label();
 			this.label73 = new System.Windows.Forms.Label();
 			this.label74 = new System.Windows.Forms.Label();
-			this.groupBox10 = new System.Windows.Forms.GroupBox();
-			this.button_storehouseImage = new System.Windows.Forms.Button();
-			this.textBox_warehouseArea = new System.Windows.Forms.TextBox();
-			this.textBox_storehouseImage = new System.Windows.Forms.TextBox();
-			this.label86 = new System.Windows.Forms.Label();
-			this.label85 = new System.Windows.Forms.Label();
-			this.textBox_storehouseArea = new System.Windows.Forms.TextBox();
-			this.label84 = new System.Windows.Forms.Label();
-			this.checkBox1 = new System.Windows.Forms.CheckBox();
+			this.label93 = new System.Windows.Forms.Label();
+			this.label94 = new System.Windows.Forms.Label();
+			this.label95 = new System.Windows.Forms.Label();
+			this.label96 = new System.Windows.Forms.Label();
+			this.label97 = new System.Windows.Forms.Label();
+			this.label98 = new System.Windows.Forms.Label();
+			this.label99 = new System.Windows.Forms.Label();
+			this.label100 = new System.Windows.Forms.Label();
+			this.label101 = new System.Windows.Forms.Label();
+			this.label102 = new System.Windows.Forms.Label();
+			this.label103 = new System.Windows.Forms.Label();
+			this.label104 = new System.Windows.Forms.Label();
+			this.label105 = new System.Windows.Forms.Label();
+			this.label106 = new System.Windows.Forms.Label();
+			this.label107 = new System.Windows.Forms.Label();
+			this.label108 = new System.Windows.Forms.Label();
+			this.label109 = new System.Windows.Forms.Label();
+			this.label110 = new System.Windows.Forms.Label();
+			this.label111 = new System.Windows.Forms.Label();
+			this.label112 = new System.Windows.Forms.Label();
+			this.label113 = new System.Windows.Forms.Label();
+			this.label114 = new System.Windows.Forms.Label();
+			this.label115 = new System.Windows.Forms.Label();
+			this.label116 = new System.Windows.Forms.Label();
+			this.label117 = new System.Windows.Forms.Label();
+			this.label118 = new System.Windows.Forms.Label();
+			this.label119 = new System.Windows.Forms.Label();
+			this.label120 = new System.Windows.Forms.Label();
+			this.label121 = new System.Windows.Forms.Label();
+			this.label122 = new System.Windows.Forms.Label();
+			this.label123 = new System.Windows.Forms.Label();
+			this.label124 = new System.Windows.Forms.Label();
+			this.label125 = new System.Windows.Forms.Label();
+			this.label126 = new System.Windows.Forms.Label();
+			this.label127 = new System.Windows.Forms.Label();
+			this.label128 = new System.Windows.Forms.Label();
+			this.label129 = new System.Windows.Forms.Label();
+			this.label130 = new System.Windows.Forms.Label();
+			this.label131 = new System.Windows.Forms.Label();
+			this.label132 = new System.Windows.Forms.Label();
+			this.label133 = new System.Windows.Forms.Label();
+			this.label134 = new System.Windows.Forms.Label();
+			this.label135 = new System.Windows.Forms.Label();
+			this.label136 = new System.Windows.Forms.Label();
+			this.label137 = new System.Windows.Forms.Label();
+			this.label138 = new System.Windows.Forms.Label();
 			this.tabControl_data.SuspendLayout();
 			this.tabPage1.SuspendLayout();
 			this.panel1.SuspendLayout();
@@ -281,11 +327,11 @@
 			this.tabPage5.SuspendLayout();
 			this.panel5.SuspendLayout();
 			this.groupBox5.SuspendLayout();
+			this.groupBox10.SuspendLayout();
 			this.groupBox9.SuspendLayout();
 			this.groupBox8.SuspendLayout();
 			this.groupBox7.SuspendLayout();
 			this.groupBox6.SuspendLayout();
-			this.groupBox10.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// tabControl_data
@@ -483,6 +529,18 @@
 			this.groupBox1.Controls.Add(this.label3);
 			this.groupBox1.Controls.Add(this.label2);
 			this.groupBox1.Controls.Add(this.textBox_fullName);
+			this.groupBox1.Controls.Add(this.label96);
+			this.groupBox1.Controls.Add(this.label104);
+			this.groupBox1.Controls.Add(this.label103);
+			this.groupBox1.Controls.Add(this.label102);
+			this.groupBox1.Controls.Add(this.label101);
+			this.groupBox1.Controls.Add(this.label100);
+			this.groupBox1.Controls.Add(this.label99);
+			this.groupBox1.Controls.Add(this.label98);
+			this.groupBox1.Controls.Add(this.label97);
+			this.groupBox1.Controls.Add(this.label95);
+			this.groupBox1.Controls.Add(this.label94);
+			this.groupBox1.Controls.Add(this.label93);
 			this.groupBox1.Controls.Add(this.label1);
 			this.groupBox1.Location = new System.Drawing.Point(6, 6);
 			this.groupBox1.Name = "groupBox1";
@@ -885,6 +943,38 @@
 			// 
 			// groupBox2
 			// 
+			this.groupBox2.Controls.Add(this.label128);
+			this.groupBox2.Controls.Add(this.label127);
+			this.groupBox2.Controls.Add(this.label126);
+			this.groupBox2.Controls.Add(this.label125);
+			this.groupBox2.Controls.Add(this.label124);
+			this.groupBox2.Controls.Add(this.label123);
+			this.groupBox2.Controls.Add(this.label122);
+			this.groupBox2.Controls.Add(this.label121);
+			this.groupBox2.Controls.Add(this.label120);
+			this.groupBox2.Controls.Add(this.label138);
+			this.groupBox2.Controls.Add(this.label137);
+			this.groupBox2.Controls.Add(this.label136);
+			this.groupBox2.Controls.Add(this.label135);
+			this.groupBox2.Controls.Add(this.label134);
+			this.groupBox2.Controls.Add(this.label119);
+			this.groupBox2.Controls.Add(this.label133);
+			this.groupBox2.Controls.Add(this.label132);
+			this.groupBox2.Controls.Add(this.label131);
+			this.groupBox2.Controls.Add(this.label130);
+			this.groupBox2.Controls.Add(this.label129);
+			this.groupBox2.Controls.Add(this.label118);
+			this.groupBox2.Controls.Add(this.label117);
+			this.groupBox2.Controls.Add(this.label116);
+			this.groupBox2.Controls.Add(this.label115);
+			this.groupBox2.Controls.Add(this.label114);
+			this.groupBox2.Controls.Add(this.label113);
+			this.groupBox2.Controls.Add(this.label112);
+			this.groupBox2.Controls.Add(this.label111);
+			this.groupBox2.Controls.Add(this.label110);
+			this.groupBox2.Controls.Add(this.label109);
+			this.groupBox2.Controls.Add(this.label108);
+			this.groupBox2.Controls.Add(this.label107);
 			this.groupBox2.Controls.Add(this.button_organizationImage);
 			this.groupBox2.Controls.Add(this.button_businessLicId);
 			this.groupBox2.Controls.Add(this.comboBox_regCity);
@@ -1726,6 +1816,8 @@
 			// 
 			// groupBox3
 			// 
+			this.groupBox3.Controls.Add(this.label106);
+			this.groupBox3.Controls.Add(this.label105);
 			this.groupBox3.Controls.Add(this.textBox_productType);
 			this.groupBox3.Controls.Add(this.button_selectProduct);
 			this.groupBox3.Controls.Add(this.button_browsePhoto);
@@ -2163,6 +2255,91 @@
 			this.groupBox5.TabStop = false;
 			this.groupBox5.Text = "                         ";
 			// 
+			// checkBox1
+			// 
+			this.checkBox1.AutoSize = true;
+			this.checkBox1.Location = new System.Drawing.Point(9, 0);
+			this.checkBox1.Name = "checkBox1";
+			this.checkBox1.Size = new System.Drawing.Size(156, 16);
+			this.checkBox1.TabIndex = 9;
+			this.checkBox1.Text = "本供应商是否为运输企业";
+			this.checkBox1.UseVisualStyleBackColor = true;
+			this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+			// 
+			// groupBox10
+			// 
+			this.groupBox10.Controls.Add(this.button_storehouseImage);
+			this.groupBox10.Controls.Add(this.textBox_warehouseArea);
+			this.groupBox10.Controls.Add(this.textBox_storehouseImage);
+			this.groupBox10.Controls.Add(this.label86);
+			this.groupBox10.Controls.Add(this.label85);
+			this.groupBox10.Controls.Add(this.textBox_storehouseArea);
+			this.groupBox10.Controls.Add(this.label84);
+			this.groupBox10.Location = new System.Drawing.Point(27, 95);
+			this.groupBox10.Name = "groupBox10";
+			this.groupBox10.Size = new System.Drawing.Size(659, 86);
+			this.groupBox10.TabIndex = 8;
+			this.groupBox10.TabStop = false;
+			this.groupBox10.Text = "仓储信息";
+			// 
+			// button_storehouseImage
+			// 
+			this.button_storehouseImage.Location = new System.Drawing.Point(310, 57);
+			this.button_storehouseImage.Name = "button_storehouseImage";
+			this.button_storehouseImage.Size = new System.Drawing.Size(39, 23);
+			this.button_storehouseImage.TabIndex = 31;
+			this.button_storehouseImage.Text = "...";
+			this.button_storehouseImage.UseVisualStyleBackColor = true;
+			this.button_storehouseImage.Click += new System.EventHandler(this.button_storehouseImage_Click);
+			// 
+			// textBox_warehouseArea
+			// 
+			this.textBox_warehouseArea.Location = new System.Drawing.Point(482, 19);
+			this.textBox_warehouseArea.Name = "textBox_warehouseArea";
+			this.textBox_warehouseArea.Size = new System.Drawing.Size(150, 21);
+			this.textBox_warehouseArea.TabIndex = 29;
+			// 
+			// textBox_storehouseImage
+			// 
+			this.textBox_storehouseImage.Location = new System.Drawing.Point(147, 58);
+			this.textBox_storehouseImage.Name = "textBox_storehouseImage";
+			this.textBox_storehouseImage.Size = new System.Drawing.Size(150, 21);
+			this.textBox_storehouseImage.TabIndex = 30;
+			// 
+			// label86
+			// 
+			this.label86.AutoSize = true;
+			this.label86.Location = new System.Drawing.Point(16, 62);
+			this.label86.Name = "label86";
+			this.label86.Size = new System.Drawing.Size(65, 12);
+			this.label86.TabIndex = 27;
+			this.label86.Text = "仓库照片：";
+			// 
+			// label85
+			// 
+			this.label85.AutoSize = true;
+			this.label85.Location = new System.Drawing.Point(398, 23);
+			this.label85.Name = "label85";
+			this.label85.Size = new System.Drawing.Size(77, 12);
+			this.label85.TabIndex = 26;
+			this.label85.Text = "货场总面积：";
+			// 
+			// textBox_storehouseArea
+			// 
+			this.textBox_storehouseArea.Location = new System.Drawing.Point(147, 19);
+			this.textBox_storehouseArea.Name = "textBox_storehouseArea";
+			this.textBox_storehouseArea.Size = new System.Drawing.Size(150, 21);
+			this.textBox_storehouseArea.TabIndex = 28;
+			// 
+			// label84
+			// 
+			this.label84.AutoSize = true;
+			this.label84.Location = new System.Drawing.Point(16, 23);
+			this.label84.Name = "label84";
+			this.label84.Size = new System.Drawing.Size(77, 12);
+			this.label84.TabIndex = 25;
+			this.label84.Text = "仓库总面积：";
+			// 
 			// groupBox9
 			// 
 			this.groupBox9.Controls.Add(this.label79);
@@ -2463,90 +2640,511 @@
 			this.label74.TabIndex = 1;
 			this.label74.Text = "企业名称：";
 			// 
-			// groupBox10
+			// label93
 			// 
-			this.groupBox10.Controls.Add(this.button_storehouseImage);
-			this.groupBox10.Controls.Add(this.textBox_warehouseArea);
-			this.groupBox10.Controls.Add(this.textBox_storehouseImage);
-			this.groupBox10.Controls.Add(this.label86);
-			this.groupBox10.Controls.Add(this.label85);
-			this.groupBox10.Controls.Add(this.textBox_storehouseArea);
-			this.groupBox10.Controls.Add(this.label84);
-			this.groupBox10.Location = new System.Drawing.Point(27, 95);
-			this.groupBox10.Name = "groupBox10";
-			this.groupBox10.Size = new System.Drawing.Size(659, 86);
-			this.groupBox10.TabIndex = 8;
-			this.groupBox10.TabStop = false;
-			this.groupBox10.Text = "仓储信息";
+			this.label93.AutoSize = true;
+			this.label93.Font = new System.Drawing.Font("宋体", 9F);
+			this.label93.ForeColor = System.Drawing.Color.Red;
+			this.label93.Location = new System.Drawing.Point(18, 31);
+			this.label93.Name = "label93";
+			this.label93.Size = new System.Drawing.Size(11, 12);
+			this.label93.TabIndex = 0;
+			this.label93.Text = "*";
 			// 
-			// button_storehouseImage
+			// label94
 			// 
-			this.button_storehouseImage.Location = new System.Drawing.Point(310, 57);
-			this.button_storehouseImage.Name = "button_storehouseImage";
-			this.button_storehouseImage.Size = new System.Drawing.Size(39, 23);
-			this.button_storehouseImage.TabIndex = 31;
-			this.button_storehouseImage.Text = "...";
-			this.button_storehouseImage.UseVisualStyleBackColor = true;
-			this.button_storehouseImage.Click += new System.EventHandler(this.button_storehouseImage_Click);
+			this.label94.AutoSize = true;
+			this.label94.Font = new System.Drawing.Font("宋体", 9F);
+			this.label94.ForeColor = System.Drawing.Color.Red;
+			this.label94.Location = new System.Drawing.Point(18, 71);
+			this.label94.Name = "label94";
+			this.label94.Size = new System.Drawing.Size(11, 12);
+			this.label94.TabIndex = 0;
+			this.label94.Text = "*";
 			// 
-			// textBox_warehouseArea
+			// label95
 			// 
-			this.textBox_warehouseArea.Location = new System.Drawing.Point(482, 19);
-			this.textBox_warehouseArea.Name = "textBox_warehouseArea";
-			this.textBox_warehouseArea.Size = new System.Drawing.Size(150, 21);
-			this.textBox_warehouseArea.TabIndex = 29;
+			this.label95.AutoSize = true;
+			this.label95.Font = new System.Drawing.Font("宋体", 9F);
+			this.label95.ForeColor = System.Drawing.Color.Red;
+			this.label95.Location = new System.Drawing.Point(18, 110);
+			this.label95.Name = "label95";
+			this.label95.Size = new System.Drawing.Size(11, 12);
+			this.label95.TabIndex = 0;
+			this.label95.Text = "*";
 			// 
-			// textBox_storehouseImage
+			// label96
 			// 
-			this.textBox_storehouseImage.Location = new System.Drawing.Point(147, 58);
-			this.textBox_storehouseImage.Name = "textBox_storehouseImage";
-			this.textBox_storehouseImage.Size = new System.Drawing.Size(150, 21);
-			this.textBox_storehouseImage.TabIndex = 30;
+			this.label96.AutoSize = true;
+			this.label96.Font = new System.Drawing.Font("宋体", 9F);
+			this.label96.ForeColor = System.Drawing.Color.Red;
+			this.label96.Location = new System.Drawing.Point(18, 149);
+			this.label96.Name = "label96";
+			this.label96.Size = new System.Drawing.Size(11, 12);
+			this.label96.TabIndex = 0;
+			this.label96.Text = "*";
 			// 
-			// label86
+			// label97
 			// 
-			this.label86.AutoSize = true;
-			this.label86.Location = new System.Drawing.Point(16, 62);
-			this.label86.Name = "label86";
-			this.label86.Size = new System.Drawing.Size(65, 12);
-			this.label86.TabIndex = 27;
-			this.label86.Text = "仓库照片：";
+			this.label97.AutoSize = true;
+			this.label97.Font = new System.Drawing.Font("宋体", 9F);
+			this.label97.ForeColor = System.Drawing.Color.Red;
+			this.label97.Location = new System.Drawing.Point(18, 257);
+			this.label97.Name = "label97";
+			this.label97.Size = new System.Drawing.Size(11, 12);
+			this.label97.TabIndex = 0;
+			this.label97.Text = "*";
 			// 
-			// label85
+			// label98
 			// 
-			this.label85.AutoSize = true;
-			this.label85.Location = new System.Drawing.Point(398, 23);
-			this.label85.Name = "label85";
-			this.label85.Size = new System.Drawing.Size(77, 12);
-			this.label85.TabIndex = 26;
-			this.label85.Text = "货场总面积：";
+			this.label98.AutoSize = true;
+			this.label98.Font = new System.Drawing.Font("宋体", 9F);
+			this.label98.ForeColor = System.Drawing.Color.Red;
+			this.label98.Location = new System.Drawing.Point(18, 295);
+			this.label98.Name = "label98";
+			this.label98.Size = new System.Drawing.Size(11, 12);
+			this.label98.TabIndex = 0;
+			this.label98.Text = "*";
 			// 
-			// textBox_storehouseArea
+			// label99
 			// 
-			this.textBox_storehouseArea.Location = new System.Drawing.Point(147, 19);
-			this.textBox_storehouseArea.Name = "textBox_storehouseArea";
-			this.textBox_storehouseArea.Size = new System.Drawing.Size(150, 21);
-			this.textBox_storehouseArea.TabIndex = 28;
+			this.label99.AutoSize = true;
+			this.label99.Font = new System.Drawing.Font("宋体", 9F);
+			this.label99.ForeColor = System.Drawing.Color.Red;
+			this.label99.Location = new System.Drawing.Point(391, 71);
+			this.label99.Name = "label99";
+			this.label99.Size = new System.Drawing.Size(11, 12);
+			this.label99.TabIndex = 0;
+			this.label99.Text = "*";
 			// 
-			// label84
+			// label100
 			// 
-			this.label84.AutoSize = true;
-			this.label84.Location = new System.Drawing.Point(16, 23);
-			this.label84.Name = "label84";
-			this.label84.Size = new System.Drawing.Size(77, 12);
-			this.label84.TabIndex = 25;
-			this.label84.Text = "仓库总面积：";
+			this.label100.AutoSize = true;
+			this.label100.Font = new System.Drawing.Font("宋体", 9F);
+			this.label100.ForeColor = System.Drawing.Color.Red;
+			this.label100.Location = new System.Drawing.Point(391, 110);
+			this.label100.Name = "label100";
+			this.label100.Size = new System.Drawing.Size(11, 12);
+			this.label100.TabIndex = 0;
+			this.label100.Text = "*";
 			// 
-			// checkBox1
+			// label101
 			// 
-			this.checkBox1.AutoSize = true;
-			this.checkBox1.Location = new System.Drawing.Point(9, 0);
-			this.checkBox1.Name = "checkBox1";
-			this.checkBox1.Size = new System.Drawing.Size(156, 16);
-			this.checkBox1.TabIndex = 9;
-			this.checkBox1.Text = "本供应商是否为运输企业";
-			this.checkBox1.UseVisualStyleBackColor = true;
-			this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+			this.label101.AutoSize = true;
+			this.label101.Font = new System.Drawing.Font("宋体", 9F);
+			this.label101.ForeColor = System.Drawing.Color.Red;
+			this.label101.Location = new System.Drawing.Point(391, 149);
+			this.label101.Name = "label101";
+			this.label101.Size = new System.Drawing.Size(11, 12);
+			this.label101.TabIndex = 0;
+			this.label101.Text = "*";
+			// 
+			// label102
+			// 
+			this.label102.AutoSize = true;
+			this.label102.Font = new System.Drawing.Font("宋体", 9F);
+			this.label102.ForeColor = System.Drawing.Color.Red;
+			this.label102.Location = new System.Drawing.Point(391, 189);
+			this.label102.Name = "label102";
+			this.label102.Size = new System.Drawing.Size(11, 12);
+			this.label102.TabIndex = 0;
+			this.label102.Text = "*";
+			// 
+			// label103
+			// 
+			this.label103.AutoSize = true;
+			this.label103.Font = new System.Drawing.Font("宋体", 9F);
+			this.label103.ForeColor = System.Drawing.Color.Red;
+			this.label103.Location = new System.Drawing.Point(391, 257);
+			this.label103.Name = "label103";
+			this.label103.Size = new System.Drawing.Size(11, 12);
+			this.label103.TabIndex = 0;
+			this.label103.Text = "*";
+			// 
+			// label104
+			// 
+			this.label104.AutoSize = true;
+			this.label104.Font = new System.Drawing.Font("宋体", 9F);
+			this.label104.ForeColor = System.Drawing.Color.Red;
+			this.label104.Location = new System.Drawing.Point(391, 295);
+			this.label104.Name = "label104";
+			this.label104.Size = new System.Drawing.Size(11, 12);
+			this.label104.TabIndex = 0;
+			this.label104.Text = "*";
+			// 
+			// label105
+			// 
+			this.label105.AutoSize = true;
+			this.label105.Font = new System.Drawing.Font("宋体", 9F);
+			this.label105.ForeColor = System.Drawing.Color.Red;
+			this.label105.Location = new System.Drawing.Point(13, 31);
+			this.label105.Name = "label105";
+			this.label105.Size = new System.Drawing.Size(11, 12);
+			this.label105.TabIndex = 12;
+			this.label105.Text = "*";
+			// 
+			// label106
+			// 
+			this.label106.AutoSize = true;
+			this.label106.Font = new System.Drawing.Font("宋体", 9F);
+			this.label106.ForeColor = System.Drawing.Color.Red;
+			this.label106.Location = new System.Drawing.Point(388, 31);
+			this.label106.Name = "label106";
+			this.label106.Size = new System.Drawing.Size(11, 12);
+			this.label106.TabIndex = 12;
+			this.label106.Text = "*";
+			// 
+			// label107
+			// 
+			this.label107.AutoSize = true;
+			this.label107.Font = new System.Drawing.Font("宋体", 9F);
+			this.label107.ForeColor = System.Drawing.Color.Red;
+			this.label107.Location = new System.Drawing.Point(18, 36);
+			this.label107.Name = "label107";
+			this.label107.Size = new System.Drawing.Size(11, 12);
+			this.label107.TabIndex = 193;
+			this.label107.Text = "*";
+			// 
+			// label108
+			// 
+			this.label108.AutoSize = true;
+			this.label108.Font = new System.Drawing.Font("宋体", 9F);
+			this.label108.ForeColor = System.Drawing.Color.Red;
+			this.label108.Location = new System.Drawing.Point(18, 74);
+			this.label108.Name = "label108";
+			this.label108.Size = new System.Drawing.Size(11, 12);
+			this.label108.TabIndex = 193;
+			this.label108.Text = "*";
+			// 
+			// label109
+			// 
+			this.label109.AutoSize = true;
+			this.label109.Font = new System.Drawing.Font("宋体", 9F);
+			this.label109.ForeColor = System.Drawing.Color.Red;
+			this.label109.Location = new System.Drawing.Point(18, 113);
+			this.label109.Name = "label109";
+			this.label109.Size = new System.Drawing.Size(11, 12);
+			this.label109.TabIndex = 193;
+			this.label109.Text = "*";
+			// 
+			// label110
+			// 
+			this.label110.AutoSize = true;
+			this.label110.Font = new System.Drawing.Font("宋体", 9F);
+			this.label110.ForeColor = System.Drawing.Color.Red;
+			this.label110.Location = new System.Drawing.Point(18, 153);
+			this.label110.Name = "label110";
+			this.label110.Size = new System.Drawing.Size(11, 12);
+			this.label110.TabIndex = 193;
+			this.label110.Text = "*";
+			// 
+			// label111
+			// 
+			this.label111.AutoSize = true;
+			this.label111.Font = new System.Drawing.Font("宋体", 9F);
+			this.label111.ForeColor = System.Drawing.Color.Red;
+			this.label111.Location = new System.Drawing.Point(18, 190);
+			this.label111.Name = "label111";
+			this.label111.Size = new System.Drawing.Size(11, 12);
+			this.label111.TabIndex = 193;
+			this.label111.Text = "*";
+			// 
+			// label112
+			// 
+			this.label112.AutoSize = true;
+			this.label112.Font = new System.Drawing.Font("宋体", 9F);
+			this.label112.ForeColor = System.Drawing.Color.Red;
+			this.label112.Location = new System.Drawing.Point(18, 230);
+			this.label112.Name = "label112";
+			this.label112.Size = new System.Drawing.Size(11, 12);
+			this.label112.TabIndex = 193;
+			this.label112.Text = "*";
+			// 
+			// label113
+			// 
+			this.label113.AutoSize = true;
+			this.label113.Font = new System.Drawing.Font("宋体", 9F);
+			this.label113.ForeColor = System.Drawing.Color.Red;
+			this.label113.Location = new System.Drawing.Point(18, 270);
+			this.label113.Name = "label113";
+			this.label113.Size = new System.Drawing.Size(11, 12);
+			this.label113.TabIndex = 193;
+			this.label113.Text = "*";
+			// 
+			// label114
+			// 
+			this.label114.AutoSize = true;
+			this.label114.Font = new System.Drawing.Font("宋体", 9F);
+			this.label114.ForeColor = System.Drawing.Color.Red;
+			this.label114.Location = new System.Drawing.Point(18, 313);
+			this.label114.Name = "label114";
+			this.label114.Size = new System.Drawing.Size(11, 12);
+			this.label114.TabIndex = 193;
+			this.label114.Text = "*";
+			// 
+			// label115
+			// 
+			this.label115.AutoSize = true;
+			this.label115.Font = new System.Drawing.Font("宋体", 9F);
+			this.label115.ForeColor = System.Drawing.Color.Red;
+			this.label115.Location = new System.Drawing.Point(18, 353);
+			this.label115.Name = "label115";
+			this.label115.Size = new System.Drawing.Size(11, 12);
+			this.label115.TabIndex = 193;
+			this.label115.Text = "*";
+			// 
+			// label116
+			// 
+			this.label116.AutoSize = true;
+			this.label116.Font = new System.Drawing.Font("宋体", 9F);
+			this.label116.ForeColor = System.Drawing.Color.Red;
+			this.label116.Location = new System.Drawing.Point(18, 396);
+			this.label116.Name = "label116";
+			this.label116.Size = new System.Drawing.Size(11, 12);
+			this.label116.TabIndex = 193;
+			this.label116.Text = "*";
+			// 
+			// label117
+			// 
+			this.label117.AutoSize = true;
+			this.label117.Font = new System.Drawing.Font("宋体", 9F);
+			this.label117.ForeColor = System.Drawing.Color.Red;
+			this.label117.Location = new System.Drawing.Point(18, 432);
+			this.label117.Name = "label117";
+			this.label117.Size = new System.Drawing.Size(11, 12);
+			this.label117.TabIndex = 193;
+			this.label117.Text = "*";
+			// 
+			// label118
+			// 
+			this.label118.AutoSize = true;
+			this.label118.Font = new System.Drawing.Font("宋体", 9F);
+			this.label118.ForeColor = System.Drawing.Color.Red;
+			this.label118.Location = new System.Drawing.Point(18, 471);
+			this.label118.Name = "label118";
+			this.label118.Size = new System.Drawing.Size(11, 12);
+			this.label118.TabIndex = 193;
+			this.label118.Text = "*";
+			// 
+			// label119
+			// 
+			this.label119.AutoSize = true;
+			this.label119.Font = new System.Drawing.Font("宋体", 9F);
+			this.label119.ForeColor = System.Drawing.Color.Red;
+			this.label119.Location = new System.Drawing.Point(392, 394);
+			this.label119.Name = "label119";
+			this.label119.Size = new System.Drawing.Size(11, 12);
+			this.label119.TabIndex = 193;
+			this.label119.Text = "*";
+			// 
+			// label120
+			// 
+			this.label120.AutoSize = true;
+			this.label120.Font = new System.Drawing.Font("宋体", 9F);
+			this.label120.ForeColor = System.Drawing.Color.Red;
+			this.label120.Location = new System.Drawing.Point(392, 353);
+			this.label120.Name = "label120";
+			this.label120.Size = new System.Drawing.Size(11, 12);
+			this.label120.TabIndex = 193;
+			this.label120.Text = "*";
+			// 
+			// label121
+			// 
+			this.label121.AutoSize = true;
+			this.label121.Font = new System.Drawing.Font("宋体", 9F);
+			this.label121.ForeColor = System.Drawing.Color.Red;
+			this.label121.Location = new System.Drawing.Point(392, 311);
+			this.label121.Name = "label121";
+			this.label121.Size = new System.Drawing.Size(11, 12);
+			this.label121.TabIndex = 193;
+			this.label121.Text = "*";
+			// 
+			// label122
+			// 
+			this.label122.AutoSize = true;
+			this.label122.Font = new System.Drawing.Font("宋体", 9F);
+			this.label122.ForeColor = System.Drawing.Color.Red;
+			this.label122.Location = new System.Drawing.Point(392, 270);
+			this.label122.Name = "label122";
+			this.label122.Size = new System.Drawing.Size(11, 12);
+			this.label122.TabIndex = 193;
+			this.label122.Text = "*";
+			// 
+			// label123
+			// 
+			this.label123.AutoSize = true;
+			this.label123.Font = new System.Drawing.Font("宋体", 9F);
+			this.label123.ForeColor = System.Drawing.Color.Red;
+			this.label123.Location = new System.Drawing.Point(392, 230);
+			this.label123.Name = "label123";
+			this.label123.Size = new System.Drawing.Size(11, 12);
+			this.label123.TabIndex = 193;
+			this.label123.Text = "*";
+			// 
+			// label124
+			// 
+			this.label124.AutoSize = true;
+			this.label124.Font = new System.Drawing.Font("宋体", 9F);
+			this.label124.ForeColor = System.Drawing.Color.Red;
+			this.label124.Location = new System.Drawing.Point(392, 190);
+			this.label124.Name = "label124";
+			this.label124.Size = new System.Drawing.Size(11, 12);
+			this.label124.TabIndex = 193;
+			this.label124.Text = "*";
+			// 
+			// label125
+			// 
+			this.label125.AutoSize = true;
+			this.label125.Font = new System.Drawing.Font("宋体", 9F);
+			this.label125.ForeColor = System.Drawing.Color.Red;
+			this.label125.Location = new System.Drawing.Point(392, 151);
+			this.label125.Name = "label125";
+			this.label125.Size = new System.Drawing.Size(11, 12);
+			this.label125.TabIndex = 193;
+			this.label125.Text = "*";
+			// 
+			// label126
+			// 
+			this.label126.AutoSize = true;
+			this.label126.Font = new System.Drawing.Font("宋体", 9F);
+			this.label126.ForeColor = System.Drawing.Color.Red;
+			this.label126.Location = new System.Drawing.Point(392, 113);
+			this.label126.Name = "label126";
+			this.label126.Size = new System.Drawing.Size(11, 12);
+			this.label126.TabIndex = 193;
+			this.label126.Text = "*";
+			// 
+			// label127
+			// 
+			this.label127.AutoSize = true;
+			this.label127.Font = new System.Drawing.Font("宋体", 9F);
+			this.label127.ForeColor = System.Drawing.Color.Red;
+			this.label127.Location = new System.Drawing.Point(392, 74);
+			this.label127.Name = "label127";
+			this.label127.Size = new System.Drawing.Size(11, 12);
+			this.label127.TabIndex = 193;
+			this.label127.Text = "*";
+			// 
+			// label128
+			// 
+			this.label128.AutoSize = true;
+			this.label128.Font = new System.Drawing.Font("宋体", 9F);
+			this.label128.ForeColor = System.Drawing.Color.Red;
+			this.label128.Location = new System.Drawing.Point(392, 36);
+			this.label128.Name = "label128";
+			this.label128.Size = new System.Drawing.Size(11, 12);
+			this.label128.TabIndex = 193;
+			this.label128.Text = "*";
+			// 
+			// label129
+			// 
+			this.label129.AutoSize = true;
+			this.label129.Font = new System.Drawing.Font("宋体", 9F);
+			this.label129.ForeColor = System.Drawing.Color.Red;
+			this.label129.Location = new System.Drawing.Point(18, 510);
+			this.label129.Name = "label129";
+			this.label129.Size = new System.Drawing.Size(11, 12);
+			this.label129.TabIndex = 193;
+			this.label129.Text = "*";
+			// 
+			// label130
+			// 
+			this.label130.AutoSize = true;
+			this.label130.Font = new System.Drawing.Font("宋体", 9F);
+			this.label130.ForeColor = System.Drawing.Color.Red;
+			this.label130.Location = new System.Drawing.Point(18, 551);
+			this.label130.Name = "label130";
+			this.label130.Size = new System.Drawing.Size(11, 12);
+			this.label130.TabIndex = 193;
+			this.label130.Text = "*";
+			// 
+			// label131
+			// 
+			this.label131.AutoSize = true;
+			this.label131.Font = new System.Drawing.Font("宋体", 9F);
+			this.label131.ForeColor = System.Drawing.Color.Red;
+			this.label131.Location = new System.Drawing.Point(18, 593);
+			this.label131.Name = "label131";
+			this.label131.Size = new System.Drawing.Size(11, 12);
+			this.label131.TabIndex = 193;
+			this.label131.Text = "*";
+			// 
+			// label132
+			// 
+			this.label132.AutoSize = true;
+			this.label132.Font = new System.Drawing.Font("宋体", 9F);
+			this.label132.ForeColor = System.Drawing.Color.Red;
+			this.label132.Location = new System.Drawing.Point(18, 675);
+			this.label132.Name = "label132";
+			this.label132.Size = new System.Drawing.Size(11, 12);
+			this.label132.TabIndex = 193;
+			this.label132.Text = "*";
+			// 
+			// label133
+			// 
+			this.label133.AutoSize = true;
+			this.label133.Font = new System.Drawing.Font("宋体", 9F);
+			this.label133.ForeColor = System.Drawing.Color.Red;
+			this.label133.Location = new System.Drawing.Point(18, 635);
+			this.label133.Name = "label133";
+			this.label133.Size = new System.Drawing.Size(11, 12);
+			this.label133.TabIndex = 193;
+			this.label133.Text = "*";
+			// 
+			// label134
+			// 
+			this.label134.AutoSize = true;
+			this.label134.Font = new System.Drawing.Font("宋体", 9F);
+			this.label134.ForeColor = System.Drawing.Color.Red;
+			this.label134.Location = new System.Drawing.Point(392, 510);
+			this.label134.Name = "label134";
+			this.label134.Size = new System.Drawing.Size(11, 12);
+			this.label134.TabIndex = 193;
+			this.label134.Text = "*";
+			// 
+			// label135
+			// 
+			this.label135.AutoSize = true;
+			this.label135.Font = new System.Drawing.Font("宋体", 9F);
+			this.label135.ForeColor = System.Drawing.Color.Red;
+			this.label135.Location = new System.Drawing.Point(392, 551);
+			this.label135.Name = "label135";
+			this.label135.Size = new System.Drawing.Size(11, 12);
+			this.label135.TabIndex = 193;
+			this.label135.Text = "*";
+			// 
+			// label136
+			// 
+			this.label136.AutoSize = true;
+			this.label136.Font = new System.Drawing.Font("宋体", 9F);
+			this.label136.ForeColor = System.Drawing.Color.Red;
+			this.label136.Location = new System.Drawing.Point(392, 592);
+			this.label136.Name = "label136";
+			this.label136.Size = new System.Drawing.Size(11, 12);
+			this.label136.TabIndex = 193;
+			this.label136.Text = "*";
+			// 
+			// label137
+			// 
+			this.label137.AutoSize = true;
+			this.label137.Font = new System.Drawing.Font("宋体", 9F);
+			this.label137.ForeColor = System.Drawing.Color.Red;
+			this.label137.Location = new System.Drawing.Point(392, 635);
+			this.label137.Name = "label137";
+			this.label137.Size = new System.Drawing.Size(11, 12);
+			this.label137.TabIndex = 193;
+			this.label137.Text = "*";
+			// 
+			// label138
+			// 
+			this.label138.AutoSize = true;
+			this.label138.Font = new System.Drawing.Font("宋体", 9F);
+			this.label138.ForeColor = System.Drawing.Color.Red;
+			this.label138.Location = new System.Drawing.Point(392, 676);
+			this.label138.Name = "label138";
+			this.label138.Size = new System.Drawing.Size(11, 12);
+			this.label138.TabIndex = 193;
+			this.label138.Text = "*";
 			// 
 			// Form1
 			// 
@@ -2582,6 +3180,8 @@
 			this.panel5.ResumeLayout(false);
 			this.groupBox5.ResumeLayout(false);
 			this.groupBox5.PerformLayout();
+			this.groupBox10.ResumeLayout(false);
+			this.groupBox10.PerformLayout();
 			this.groupBox9.ResumeLayout(false);
 			this.groupBox9.PerformLayout();
 			this.groupBox8.ResumeLayout(false);
@@ -2590,8 +3190,6 @@
 			this.groupBox7.PerformLayout();
 			this.groupBox6.ResumeLayout(false);
 			this.groupBox6.PerformLayout();
-			this.groupBox10.ResumeLayout(false);
-			this.groupBox10.PerformLayout();
 			this.ResumeLayout(false);
 
 		}
@@ -2833,6 +3431,52 @@
 		private System.Windows.Forms.TextBox textBox_storehouseArea;
 		private System.Windows.Forms.Label label84;
 		private System.Windows.Forms.CheckBox checkBox1;
+		private System.Windows.Forms.Label label93;
+		private System.Windows.Forms.Label label96;
+		private System.Windows.Forms.Label label104;
+		private System.Windows.Forms.Label label103;
+		private System.Windows.Forms.Label label102;
+		private System.Windows.Forms.Label label101;
+		private System.Windows.Forms.Label label100;
+		private System.Windows.Forms.Label label99;
+		private System.Windows.Forms.Label label98;
+		private System.Windows.Forms.Label label97;
+		private System.Windows.Forms.Label label95;
+		private System.Windows.Forms.Label label94;
+		private System.Windows.Forms.Label label106;
+		private System.Windows.Forms.Label label105;
+		private System.Windows.Forms.Label label128;
+		private System.Windows.Forms.Label label127;
+		private System.Windows.Forms.Label label126;
+		private System.Windows.Forms.Label label125;
+		private System.Windows.Forms.Label label124;
+		private System.Windows.Forms.Label label123;
+		private System.Windows.Forms.Label label122;
+		private System.Windows.Forms.Label label121;
+		private System.Windows.Forms.Label label120;
+		private System.Windows.Forms.Label label138;
+		private System.Windows.Forms.Label label137;
+		private System.Windows.Forms.Label label136;
+		private System.Windows.Forms.Label label135;
+		private System.Windows.Forms.Label label134;
+		private System.Windows.Forms.Label label119;
+		private System.Windows.Forms.Label label133;
+		private System.Windows.Forms.Label label132;
+		private System.Windows.Forms.Label label131;
+		private System.Windows.Forms.Label label130;
+		private System.Windows.Forms.Label label129;
+		private System.Windows.Forms.Label label118;
+		private System.Windows.Forms.Label label117;
+		private System.Windows.Forms.Label label116;
+		private System.Windows.Forms.Label label115;
+		private System.Windows.Forms.Label label114;
+		private System.Windows.Forms.Label label113;
+		private System.Windows.Forms.Label label112;
+		private System.Windows.Forms.Label label111;
+		private System.Windows.Forms.Label label110;
+		private System.Windows.Forms.Label label109;
+		private System.Windows.Forms.Label label108;
+		private System.Windows.Forms.Label label107;
 	}
 }
 
