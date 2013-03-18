@@ -547,6 +547,9 @@
 			
 			window.parent.document.getElementById("count").innerText = <%= count == null ? 0 : count %>;
 			window.parent.document.getElementById("sum").innerText = <%= sum == null ? 0 : sum %>;
+			window.parent.document.getElementById("pageIndex").innerText = <%= pages.getPageIndex() %>;
+			window.parent.document.getElementById("pageCount").innerText = <%= pages.getPageCount() == null ? 1 : pages.getPageCount() %>;
+			window.parent.document.getElementById("rowsCount").innerText = <%= pages.getRowsCount() == null ? 0 : pages.getRowsCount() %>;
 			
 			if ("<%= type %>" != "null" && "<%= type %>" != "") {
 				document.getElementById("STR_QUERY_TYPECODE").value = "<%= type %>";

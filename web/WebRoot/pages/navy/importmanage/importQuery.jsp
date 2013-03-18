@@ -146,7 +146,7 @@
 					<tr>
 						<td height="30">
 							<div class="linepage1">
-								第<%= pages.getPageIndex() %>页/共<%= pages.getPageCount() == null ? 0 : pages.getPageCount() %>页 共<%= pages.getRowsCount() == null ? 0 : pages.getRowsCount() %>条记录
+								第<span id="pageIndex"></span>页/共<span id="pageCount"></span>页 共<span id="rowsCount"></span>条记录
 								<a href="javascript:result.firstpage('Navy','NavyManage','ImportQueryService','/pages/navy/importmanage/importResult.jsp')">首页</a>
 								<a href="javascript:result.prevpage('Navy','NavyManage','ImportQueryService','/pages/navy/importmanage/importResult.jsp')">上一页</a>
 								<a href="javascript:result.nextpage('Navy','NavyManage','ImportQueryService','/pages/navy/importmanage/importResult.jsp')">下一页</a>
@@ -170,6 +170,9 @@
 			</center>
 		</form>
 		<script type="text/javascript">
+			document.getElementById("pageIndex").innerText = <%= pages.getPageIndex() %>;
+			document.getElementById("pageCount").innerText = <%= pages.getPageCount() == null ? 1 : pages.getPageCount() %>;
+			document.getElementById("rowsCount").innerText = <%= pages.getRowsCount() == null ? 0 : pages.getRowsCount() %>;
 			setSelect("page", "<%= pages.getPageIndex() %>");
 			
 			if ("<%= type %>" != "null" && "<%= type %>" != "") {
