@@ -1366,13 +1366,14 @@ namespace DatCollect
 		{
 			if (File.Exists(value))
 			{
-				string name = Path.GetFileName(value);
-				while (File.Exists(folder + Path.DirectorySeparatorChar + name))
+				string ext = Path.GetExtension(value);
+				string name = Guid.NewGuid().ToString();
+				while (File.Exists(folder + Path.DirectorySeparatorChar + name + ext))
 				{
-					name = Path.GetFileNameWithoutExtension(name) + "1" + Path.GetExtension(name);
+					name = Guid.NewGuid().ToString();
 				}
-				File.Copy(value, folder + Path.DirectorySeparatorChar + name);
-				setXmlElem(writer, key, name);
+				File.Copy(value, folder + Path.DirectorySeparatorChar + name + ext);
+				setXmlElem(writer, key, name + ext);
 			}
 			else
 			{
