@@ -197,12 +197,12 @@
 				}
 			
 				obj = document.getElementById("STR_BUDGET");
-				if (!check_input(obj, true, 2, 1, 999999.99, "预算金额")) {
+				if (!check_input(obj, true, 2, 0, 999999.99, "预算金额")) {
 					return false;
 				}
 				
 				obj = document.getElementById("STR_COMPACTMONEY");
-				if (!check_input(obj, false, 2, 1, 999999.99, "合同金额")) {
+				if (!check_input(obj, false, 2, 0, 999999.99, "合同金额")) {
 					return false;
 				}
 				
