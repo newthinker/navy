@@ -7,14 +7,14 @@
 	<bean id="NavyManage.ImportUpdateService" class="cn.com.hd.navy.importmanage.ImportUpdateService" />
 	<bean id="NavyManage.ImportQueryService" class="cn.com.hd.navy.importmanage.ImportQueryService" />
 	<bean id="NavyManage.ImportQueryByIDService" class="cn.com.hd.navy.importmanage.ImportQueryByIDService" />
-	<bean id="NavyManage.ImportDeleteService" class="cn.com.hd.navy.importmanage.ImportDeleteService "/>
-	<bean id="NavyManage.ImportImageQueryService" class="cn.com.hd.navy.importmanage.ImportImageQueryService "/>
-	<bean id="NavyManage.ImportQueryByUnitService" class="cn.com.hd.navy.importmanage.ImportQueryByUnitService "/>
-	<bean id="NavyManage.ImportQueryExportService" class="cn.com.hd.navy.importmanage.ImportQueryExportService "/>
-	<bean id="NavyManage.ImportQueryByUnitExportService" class="cn.com.hd.navy.importmanage.ImportQueryByUnitExportService "/>
-	<bean id="NavyManage.ImportService" class="cn.com.hd.navy.importmanage.ImportService "/>
-	<bean id="NavyManage.ExportService" class="cn.com.hd.navy.importmanage.ExportService "/>
-	<bean id="NavyManage.ImportUploadService" class="cn.com.hd.navy.importmanage.ImportUploadService "/>
-	<bean id="NavyManage.ImportImageDeleteService" class="cn.com.hd.navy.importmanage.ImportImageDeleteService "/>
-	<bean id="NavyManage.NavyDictUpdateService" class="cn.com.hd.dict.NavyDictUpdateService "/>	
+	<bean id="NavyManage.ImportDeleteService" class="cn.com.hd.navy.importmanage.ImportDeleteService" />
+	<bean id="NavyManage.ImportImageQueryService" class="cn.com.hd.navy.importmanage.ImportImageQueryService" />
+	<bean id="NavyManage.ImportQueryByUnitService" class="cn.com.hd.navy.importmanage.ImportQueryByUnitService" />
+	<bean id="NavyManage.ImportQueryExportService" class="cn.com.hd.navy.importmanage.ImportQueryExportService" />
+	<bean id="NavyManage.ImportQueryByUnitExportService" class="cn.com.hd.navy.importmanage.ImportQueryByUnitExportService" />
+	<bean id="NavyManage.ImportService" class="cn.com.hd.navy.importmanage.ImportService" />
+	<bean id="NavyManage.ExportService" class="cn.com.hd.navy.importmanage.ExportService" />
+	<bean id="NavyManage.ImportUploadService" class="cn.com.hd.navy.importmanage.ImportUploadService" />
+	<bean id="NavyManage.ImportImageDeleteService" class="cn.com.hd.navy.importmanage.ImportImageDeleteService" />
+	<bean id="NavyManage.NavyDictUpdateService" class="cn.com.hd.dict.NavyDictUpdateService" />	
 </beans>

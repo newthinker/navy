@@ -40,7 +40,7 @@ public class ExportService extends BaseService implements IService {
 		f.mkdirs();
 		
 		TImport imp = new TImport();
-		getData(request.getDto(), imp);
+		getQueryData(request.getDto(), imp);
 		SelectResultSet imprs = queryResultSet(imp);
 		List impList = getDTO(imprs);
 		
