@@ -46,7 +46,7 @@
 				}
 				
 				obj = document.getElementById("STR_CAPITAL");
-				if (!check_input(obj, false, 1, 1, 99999.99, "出资金额")) {
+				if (!check_input(obj, false, 1, 0, 99999.99, "出资金额")) {
 					return false;
 				}
 				
