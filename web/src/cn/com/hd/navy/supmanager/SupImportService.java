@@ -137,7 +137,7 @@ public class SupImportService extends BaseService implements IService {
 					sup.setSupid(supid);
 
 					// 供应商信息
-					if ( sup.getImage()!=null ) {
+					if (IsValidImage(sup.getImage())) {
 						TImage img = new TImage();
 						img.setImageid(UUID.randomUUID().toString());
 						img.setImagename(sup.getImage());
@@ -145,7 +145,7 @@ public class SupImportService extends BaseService implements IService {
 						imgList.add(img);
 						sup.setImage(img.getImageid());
 					}
-					if ( sup.getStorehouseimage()!=null ) {			// 产品图片
+					if (IsValidImage(sup.getStorehouseimage())) {			// 产品图片
 						TImage img = new TImage();
 						img.setImageid(UUID.randomUUID().toString());
 						img.setImagename(sup.getStorehouseimage());
@@ -153,7 +153,7 @@ public class SupImportService extends BaseService implements IService {
 						imgList.add(img);
 						sup.setStorehouseimage(img.getImageid());
 					}
-					if ( sup.getLicbusimage()!=null ) {				// 营业执照扫描件
+					if (IsValidImage(sup.getLicbusimage())) {				// 营业执照扫描件
 						TImage img = new TImage();
 						img.setImageid(UUID.randomUUID().toString());
 						img.setImagename(sup.getLicbusimage());
@@ -161,7 +161,7 @@ public class SupImportService extends BaseService implements IService {
 						imgList.add(img);
 						sup.setLicbusimage(img.getImageid());
 					}
-					if ( sup.getOrgstrimage()!=null ) {				// 组织结构代码证扫描件
+					if (IsValidImage(sup.getOrgstrimage())) {				// 组织结构代码证扫描件
 						TImage img = new TImage();
 						img.setImageid(UUID.randomUUID().toString());
 						img.setImagename(sup.getOrgstrimage());
@@ -169,7 +169,7 @@ public class SupImportService extends BaseService implements IService {
 						imgList.add(img);
 						sup.setOrgstrimage(img.getImageid());
 					}
-					if ( sup.getAuditlast3y()!=null ) {				// 近三年审计报告压缩文件--当作图片处理
+					if (IsValidImage(sup.getAuditlast3y())) {				// 近三年审计报告压缩文件--当作图片处理
 						TImage img = new TImage();
 						img.setImageid(UUID.randomUUID().toString());
 						img.setImagename(sup.getAuditlast3y());
@@ -177,7 +177,7 @@ public class SupImportService extends BaseService implements IService {
 						imgList.add(img);
 						sup.setAuditlast3y(img.getImageid());
 					}
-					if ( sup.getBankProve()!=null ) {				// 银行资信证明文件扫描件
+					if (IsValidImage(sup.getBankProve())) {				// 银行资信证明文件扫描件
 						TImage img = new TImage();
 						img.setImageid(UUID.randomUUID().toString());
 						img.setImagename(sup.getBankProve());
@@ -185,7 +185,7 @@ public class SupImportService extends BaseService implements IService {
 						imgList.add(img);
 						sup.setBankProve(img.getImageid());					
 					}				
-					if ( sup.getOtherProve()!=null ) {				// 其它证明压缩文件
+					if (IsValidImage(sup.getOtherProve())) {				// 其它证明压缩文件
 						TImage img = new TImage();
 						img.setImageid(UUID.randomUUID().toString());
 						img.setImagename(sup.getOtherProve());
@@ -193,7 +193,7 @@ public class SupImportService extends BaseService implements IService {
 						imgList.add(img);
 						sup.setOtherProve(img.getImageid());					
 					}
-					if ( sup.getQualityProve()!=null ) {				// 银行资信证明文件扫描件
+					if (IsValidImage(sup.getQualityProve())) {				// 银行资信证明文件扫描件
 						TImage img = new TImage();
 						img.setImageid(UUID.randomUUID().toString());
 						img.setImagename(sup.getQualityProve());
@@ -450,4 +450,8 @@ public class SupImportService extends BaseService implements IService {
 		}
 	}
 
+	boolean IsValidImage(String path)
+	{
+		return (path != null && !path.isEmpty());
+	}
 }
